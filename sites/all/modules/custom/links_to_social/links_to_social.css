@@ -1,0 +1,65 @@
+.link-to-social-item.twitter:before { content: 't'; } 
+.link-to-social-item.youtube:before { content: 'y'; }
+.link-to-social-item.vimeo:before { content: 'v'; }
+.link-to-social-item.facebook:before { content: 'f'; }
+.link-to-social-item.soundcloud:before { content: 's'; } 
+.link-to-social-item.tumblr:before { content: 'r'; }
+.link-to-social-item.homepage:before, .website:before, .home:before { content: 'h';}
+
+
+/* ICONS */
+@font-face {
+  font-family: 'fontello';
+  src: url('./font/fontello.eot');
+  src: url('./font/fontello.eot#iefix') format('embedded-opentype'),
+       url('./font/fontello.woff') format('woff'),
+       url('./font/fontello.ttf') format('truetype'),
+       url('./font/fontello.svg#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.hidden{
+  /*border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  */
+  width: 1px;
+  text-indent: -9999px;
+  display: inline-block;
+}
+
+.link-to-social-item:before{
+  transition: opacity 0.2s 0.1s;
+  font-family: "fontello";
+  font-size: x-large;
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+     
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+ 
+  /* Uncomment for 3D effect */
+  /*text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}

@@ -1,0 +1,9 @@
+name = Links to social
+description = This module adds a field for links to various social sites, it does
+core = 7.x
+package = Social
+dependencies[] = features
+dependencies[] = link
+features[features_api][] = api:2
+features[field_base][] = field_social
+features[field_instance][] = node-artist-field_social

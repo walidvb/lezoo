@@ -1,0 +1,41 @@
+// Media query variables.
+@mobile:  ~"(max-width: 767px)";
+@tablet:  ~"(min-width: 768px) and (max-width: 991px)";
+@normal:  ~"(min-width: 992px) and (max-width: 1199px)";
+@wide:    ~"(min-width: 1200px)";
+
+// Bootstrap library.
+@import 'bootstrap.less';
+
+// Base-theme overrides.
+@import 'overrides.less';
+
+// Theme specific.
+@import 'header.less';
+@import 'content.less';
+@import 'footer.less';
+@import 'lezoo-views.less';
+@import 'events.less';
+
+.administrator{
+	.main-container{
+		position: relative;
+	}
+	.grid{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		div{
+			height:100%;
+			> div{
+				border-left: gray 1px solid;
+				border-right: gray 1px solid;
+				height: 100%;
+				.opacity(0.05);
+				background-color: white;
+			}
+		}
+	}
+}

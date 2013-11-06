@@ -1,0 +1,119 @@
+<?php
+
+/**
+ * @file carousel.module
+ * TODO: Enter file description here.
+ */
+/**
+ * Implements hook_field_formatter_info().
+ */
+function page_emulator_field_formatter_info() {
+  $info['link_to_social'] = array(
+    'label' => t('Link to Social'),
+    'field types' => array('link_field'),
+    'module' => 'link_to_social',
+    'settings' => array(
+      'format' => '',
+      ),
+    );
+  return $info;
+}
+/**
+ * Implements hook_views_query_alter()
+ * Update the filter operator, ie get past dates if the node viewed is in the past, otherwise get future dates.
+ */
+function page_emulator_views_query_alter(&$view, &$query) {
+  if ($view->name == 'calendar') {
+    if(isset($view->args[0]))
+    {
+      $node_viewed_date = $view->args[0];
+      $today = date('Y-m-d');
+      $node_is_past = $node_viewed_date <= $today;
+      if($node_is_past)
+      {
+        menu_set_active_item('archive');
+      }
+      else
+      {
+        menu_set_active_item('agenda');
+      }
+      if (isset($query->where[1]) && $node_is_past) {
+        if (trim($query->where[1]['conditions'][2]['field']) == "DATE_FORMAT(field_data_field_date.field_date_value, '%Y-%m-%d\T%H') >= :field_data_field_date_field_date_value") {
+            // Use '>=' condition instead of '='
+          $query->where[1]['conditions'][2]['field'] = "DATE_FORMAT(field_data_field_date.field_date_value, '%Y-%m-%d\T%H') < :field_data_field_date_field_date_value";
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function page_emulator_menu() {
+
+  $items['archive'] = array(
+    'title' => t('Archives'),
+    'page callback' => '_get_nearest_node_page',
+    'page arguments' => array(true),
+    'access arguments' => array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+    'menu_name' => 'main-menu',
+    );
+
+  $items['agenda'] = array(
+    'title' => t('Programme'),
+    'page callback' => '_get_nearest_node_page',
+    'page arguments' => array(false),
+    'access arguments' => array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+    'menu_name' => 'main-menu',
+    );
+  return $items;
+}
+
+function _get_nearest_node_page($past = false)
+{
+
+  if($past)
+  {
+    $operator = '<';
+    $sort_order = 'DESC';
+    drupal_add_js(array('page_emulator' => array('past' => true)), 'setting');
+    menu_set_active_item('archive');
+
+  }
+  else
+  {
+    $operator = '>=';
+    $sort_order = 'ASC';
+    drupal_add_js(array('page_emulator' => array('past' => false)), 'setting');
+    menu_set_active_item('agenda');
+  }
+
+  $query = new EntityFieldQuery();
+
+  $date = date('Y-m-d');
+  $result = $query->entityCondition('entity_type', 'node')
+  ->entityCondition('bundle', 'event')
+  ->propertyCondition('status', 1)
+  ->fieldCondition('field_date', 'value', $date, $operator)
+  ->fieldOrderBy('field_date', 'value', $sort_order)
+  ->range(0, 1)
+  ->execute();
+
+  if(!sizeof($result))
+  {
+    $time = !$past?'future':'antérieure';
+    $return = t('Désolé, il n\'y a pas de date @time', array('@time' => $time));
+    return $return;
+  }
+  $result = $result['node'];
+
+  $nid;
+  foreach($result as $node => $content)
+  {
+    $nid = $content->nid;
+  }
+  return menu_execute_active_handler('node/' . $nid, FALSE);
+}

@@ -1,0 +1,52 @@
+// Insert your styling here.
+#navbar{
+	text-transform: uppercase;
+	font-family: @font-family-sans-serif;
+	@media @tablet{
+		padding: 0 0 0.3em;
+		.navbar-collapse{
+			padding: 0;
+		}
+		.primary{
+			width: 100%;
+			> .leaf{
+				width: 20%;
+			}
+			> li{
+				.transition(all 0.4s);
+				padding: 0 10px;
+				&:not(.last).active, &:not(.last):hover{
+					width: 30%;
+					margin: 0 ;
+					a{
+						background-color: @navbar-default-link-hover-bg;
+
+					}
+				}
+
+				&:not(.last) a{
+					width: 100%;
+					background-color: @navbar-default-link-bg;
+				}
+			}
+			&:hover{
+				> li.active:not(:hover){
+					width: 20%;
+				}
+				
+			}
+
+			> .last{
+				width: 8%!important;
+				float: right;
+				a{
+					background-color: @black;
+				}
+			}
+			.dropdown-menu{
+				right: 0;
+				left: auto;
+			}
+		}
+	}		
+}

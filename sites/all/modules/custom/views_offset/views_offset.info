@@ -1,0 +1,3 @@
+name = Views offset
+description = Allows for a node to have a 'previous nodes' and 'next nodes'
+core = 7.x

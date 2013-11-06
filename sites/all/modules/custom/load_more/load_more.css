@@ -1,0 +1,35 @@
+.load-more-loading{
+	opacity: 0.8;
+	transition: opacity 0.2s 0s;
+}
+
+div > .load-more-loading{
+	position: relative;
+}
+
+.load-more-loading:after{
+	content: '';
+	position: absolute;
+	background-image: url('./loading.gif');
+	background-color: black;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	opacity: 0.8;
+}
+/* Error */
+@-webkit-keyframes ajax-error{
+	from{background: rgba(155, 0, 0, 0.7);}
+	to{}
+}
+@-moz-keyframes ajax-error{
+	from{background: rgba(155, 0, 0, 0.7);}
+	to{}
+}
+.ajax-error{
+	-webkit-animation: ajax-error 0.8s ease-in-out 0s 1;
+}
