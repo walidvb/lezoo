@@ -35,4 +35,7 @@ xmlrpc.php
 /profiles
 /scripts
 /themes
+<<<<<<< HEAD
 /sites/default/settings.php
+=======
+>>>>>>> 0ce6a5dd41d412889205c8caf482dd04b58955f3
