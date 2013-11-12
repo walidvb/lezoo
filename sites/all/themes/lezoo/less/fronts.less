@@ -1,5 +1,42 @@
 #views-bootstrap-carousel-1{
 	.carousel-caption{
-		display: none;
+		height: 100%;
+		padding-top:120px;
+		pading-left: 0px;
+		padding-right: 0px;
+		left: 0px;
+		right: 0px;
+		.make-md-column(10);
+		.make-md-column-offset(2);
+		position: absolute;
+
+		h4, .artists{
+			font-family: @font-family-sans-serif;
+			text-transform: uppercase;
+			text-align: left;
+		}
+
+		h4{
+			font-size: @font-size-h1;
+			border-bottom: 2px solid;
+		}
+
+		.date{
+			margin-top: 20px;
+		}
+
+		.artists{
+			padding-top: 20px;
+			.artist{
+				.artist-name{
+				font-size: @font-size-h1;
+				}
+				.artist-info{
+					font-size: @font-size-base;
+				}
+			}
+		}
 	}
 }
+
+
