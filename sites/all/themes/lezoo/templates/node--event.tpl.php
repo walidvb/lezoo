@@ -46,7 +46,9 @@ dpm($content);
 				</div>
 			<?php endif; ?>
 				<div class='event-line-up event-line-up-djs line-up'> <?php print render($content['field_artist']); ?></div>
-				<div class='event-line-up event-line-up-vjs line-up'> <?php print render($content['field_vjs']); ?></div>
+				<?php if(!empty($content['field_vjs'])): ?>
+					<div class='event-line-up event-line-up-vjs line-up'> <?php print render($content['field_vjs']); ?></div>
+				<?php endif; ?>
 
 			<?php if(!$teaser): ?>
 				<div class="event-details">

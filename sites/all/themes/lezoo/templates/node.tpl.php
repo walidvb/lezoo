@@ -111,12 +111,19 @@ else
 
 
   <div class="content"<?php print $content_attributes; ?>>
+    <div class="col-md-4 col-sm-3 col-xs-12">
+      <?php print render($content['field_big_image']); ?>
+      <?php if(!empty($content[field_]))
+      <?php if(!empty($content['field_soundcloud'])) { print render($content['field_soundcloud']); } ?>
+    </div>
+    <div class="col-md-8 col-sm-9 col-xs-12"
     <?php
       // We hide the comments and links now so that we can render them later.
       hide($content['comments']);
       hide($content['links']);
       print render($content);
     ?>
+  </div>
   </div>
 
   <?php print render($content['links']); ?>

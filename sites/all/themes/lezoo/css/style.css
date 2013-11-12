@@ -7019,6 +7019,9 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .blog-info .submitted {
   margin-bottom: 0;
 }
+#views-bootstrap-carousel-1 .carousel-caption {
+  display: none;
+}
 body {
   background-color: #000000;
   color: #ffffff;

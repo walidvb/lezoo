@@ -40,6 +40,12 @@ function lezoo_preprocess_html(&$variables) {
 	}
 }
 
+
+function lezoo_entity_info_alter(&$entity_info){
+	$entity_info['field_collection_item']['view modes'][] = 'teaser';
+	dpm($entity_info);
+}
+
 /**
  * Implements hook_preprocess().
  */

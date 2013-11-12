@@ -15,6 +15,7 @@ function lezoo_field_formatter_info() {
       'format' => 'day_date',
     ),
   );
+
   return $info;
 }
 
