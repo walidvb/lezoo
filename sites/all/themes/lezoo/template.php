@@ -21,6 +21,8 @@
 //     }
 //     return $output;
 //   }
+  setlocale(LC_ALL, 'fr_FR');
+
 /**
  * @file template.php
  */
@@ -33,18 +35,19 @@ function lezoo_preprocess_html(&$variables) {
 	}
 	else
 	{
-		 drupal_get_messages('warning');
-		 drupal_get_messages('error');
+		drupal_get_messages('warning');
+		drupal_get_messages('error');
 	}
-
-
 }
 
 /**
  * Implements hook_preprocess().
  */
 function lezoo_preprocess_node(&$variables) {
+	//dpm($variables);
+	$variables['title_attributes_array']['class'] = 'node-title';
 	$variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__' . $variables['view_mode'];
+	$variables['submitted'] = '<span class="user">'. $variables['user']->name . '</span><span class="timestamp">' . strftime('%d/%m/%Y', $variables['created']) . '</span>';
 	if(!$variables['is_front'])
 	{
 		if($variables['type'] == 'event')
@@ -53,20 +56,26 @@ function lezoo_preprocess_node(&$variables) {
 		}
 		else if($variables['type'] == 'installations')
 		{
-			menu_set_active_item('visual');	
+			menu_set_active_item('visual');
+			$event_ref_label = t("Vu à la soirée");
+			$variables['content']['field_event_ref']['#title'] = $event_ref_label;
 		}
-		else if($variables['type'] == 'blog_post')// && $variables['field_section']['und']['0']['tid'] == 28)
-{
-	menu_set_active_item('podcasts');	
-}
-}
-}
+		else if($variables['type'] == 'blog_post')
+		{
+			if($variables['field_section']['und']['0']['tid'] == 28)
+			{
+				menu_set_active_item('podcasts');
+				$event_ref_label = t("Entendu à la soirée");
+			}
+			else
+			{
+				$event_ref_label = t("Vu à la soirée");
+			}
+			$variables['content']['field_event_ref']['#title'] = $event_ref_label;
 
-function lezoo_l($title, $url, $options = array()){
-	$options['html'] = true;
-	print l($title, $url, $options);
+		}
+	}
 }
-
 
 /**
  * Bootstrap theme wrapper function for the primary menu links.

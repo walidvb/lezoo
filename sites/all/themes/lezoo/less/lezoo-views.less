@@ -9,28 +9,33 @@
     overflow: auto;
     height: 300px;
   }
-  h3{
+  .view-content > h3{
     border-top: @border;
     border-bottom: @border;
     line-height: @line-height-large*1.5;
-    background-color: rgba(0,0,0, 0.8);
+    background-color: darken(@secondary-color, 15%);
     z-index: 3;
   }
+}
+
+select.form-control#edit-field-music-genre-tid{
+  background-color: transparent;
+  border: none;
+  option{
+    color: @primary-color;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}
+
+.chosen-container{
+  width: 200px !important;
 }
 
 .dated-node{
     border-bottom: @border;
     position:relative;
-
-     .title h2, .title h1{
-      border-bottom: solid 1px @white;
-      font-size: @font-size-h2;
-      font-family: @font-family-sans-serif;
-      text-transform: uppercase;
-      a{
-        color: @white;
-      }
-    }
     .genre{
       float: right;
       position: relative;
@@ -44,15 +49,4 @@
       display: inline-block;
       width:90%;
     }
-     .date{
-      font-size: @date-size;
-      color: darken(@white, 50%);
-      line-height: 1;
-      font-weight: bolder;
-      position:absolute;
-      top: 0px;
-      right: 3px;
-      font-family: @font-family-sans-serif;
-    }
-
   }

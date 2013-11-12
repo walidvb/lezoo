@@ -1,18 +1,35 @@
 .event-node{
 	.line-up{
 		text-transform: uppercase;
-		padding-top: 10px;
-		font-size: x-large;
 		display: inline-block;
 		width: 100%;
-
-		.field-artist{
-			display:inline-block;
-
+		position: relative;
+		margin-bottom: 15px;
+		.artist{
+			//display:inline-block;
+			z-index: 1;
+			font-size: x-large;
+			position: relative;
 			> div{
-				float: left;
-				padding: 0px 5px;
+				//float: left;
+				//padding: 0px 5px;
 			}
+		}
+		
+		&:before{
+			.icon(3.2em);
+			z-index: 0;
+			position: absolute;
+			top:5px;
+			.opacity(0.4);
+		}
+		&.event-line-up-vjs:before{
+			content:'E';
+			.rotate(-20deg);
+		}
+
+		&.event-line-up-djs:before{
+			content:'M';
 		}
 	}
 	.event-flyer{

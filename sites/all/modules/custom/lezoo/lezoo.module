@@ -1,0 +1,28 @@
+<?php
+module_load_include('inc', 'lezoo', 'date');
+module_load_include('inc', 'lezoo', 'date_filter');
+
+//------------- New date formatter of form <span>fri</span><span>23</span>
+
+//-------------Give permission to logged in user to view ALL unpublished content
+
+function lezoo_permission() {
+  return array(
+    'unconditionally view unpublished content' => array(
+      'title' => t('Unconditionally View Unpublished Content'),
+      'restrict access' => TRUE
+    )
+  );
+}
+
+function lezoo_node_access($node, $op, $account) {
+  // We're only bothered about the 'view' operation at the moment
+  if ($op == 'view') {
+    // If the user has access to our new permission, let 'em at it
+    if (user_access('unconditionally view unpublished content', $account)) {
+      return NODE_ACCESS_ALLOW;
+    }
+  }
+  // For everything else let the system decide.
+  return NODE_ACCESS_IGNORE;
+}

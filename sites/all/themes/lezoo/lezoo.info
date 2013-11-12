@@ -18,6 +18,10 @@ regions[footer]         = 'Footer'
 stylesheets[all][] = libs/stickyHeaders/jquery.stickyHeaders.css
 scripts[] = libs/stickyHeaders/jquery.stickyHeaders.js
 
+stylesheets[] = libs/flexslider/flexslider.css
+scripts[] = libs/flexslider/jquery.flexslider-min.js
+
+;scripts[] = libs/jquery.glide.min.js
 ; Stylesheets
 stylesheets[all][] = css/style.css
 scripts[] = js/custom.js

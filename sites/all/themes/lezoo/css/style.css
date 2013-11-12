@@ -6461,10 +6461,8 @@ table tr.error {
 }
 .control-group.error input,
 .control-group.error textarea,
-.control-group.error select,
 .control-group.error .uneditable-input {
   color: #555555;
-  border: 1px solid #cccccc;
 }
 .control-group.error .help-block,
 .control-group.error .help-inline {
@@ -6801,6 +6799,55 @@ td.radio {
     left: auto;
   }
 }
+.node {
+  position: relative;
+}
+h1,
+h2,
+h3 {
+  font-family: "Oswald", Helvetica, Arial, sans-serif;
+}
+h1 a,
+h2 a,
+h3 a {
+  color: #ffffff;
+}
+h2,
+h1 {
+  font-size: 30px;
+  font-family: "Oswald", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+}
+h2 a,
+h1 a {
+  color: #ffffff;
+}
+.node-title {
+  font-size: 24px;
+  border-bottom: solid 1px #ffffff;
+  padding: 5px 5px;
+}
+.date {
+  position: absolute;
+  top: 0px;
+  right: 3px;
+  font-weight: bolder;
+  color: #8c8c8c;
+  font-family: "Oswald", Helvetica, Arial, sans-serif;
+  z-index: 0;
+}
+.date .date-number,
+.date .day {
+  float: left;
+}
+.date .date-number {
+  font-size: 8em;
+  line-height: 1;
+}
+.date .day {
+  font-size: 3em;
+  text-transform: lowercase;
+}
 .view-id-teaser_list .form-type-select {
   display: inline-block;
 }
@@ -6808,27 +6855,29 @@ td.radio {
   overflow: auto;
   height: 300px;
 }
-.view-id-teaser_list h3 {
+.view-id-teaser_list .view-content > h3 {
   border-top: solid 3px #ffffff;
   border-bottom: solid 3px #ffffff;
   line-height: 1.995;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #000000;
   z-index: 3;
+}
+select.form-control#edit-field-music-genre-tid {
+  background-color: transparent;
+  border: none;
+}
+select.form-control#edit-field-music-genre-tid option {
+  color: #ffffff;
+}
+select.form-control#edit-field-music-genre-tid option:hover {
+  cursor: pointer;
+}
+.chosen-container {
+  width: 200px !important;
 }
 .dated-node {
   border-bottom: solid 3px #ffffff;
   position: relative;
-}
-.dated-node .title h2,
-.dated-node .title h1 {
-  border-bottom: solid 1px #ffffff;
-  font-size: 30px;
-  font-family: "Oswald", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-}
-.dated-node .title h2 a,
-.dated-node .title h1 a {
-  color: #ffffff;
 }
 .dated-node .genre {
   float: right;
@@ -6842,33 +6891,146 @@ td.radio {
   display: inline-block;
   width: 90%;
 }
-.dated-node .date {
-  font-size: 8em;
-  color: #808080;
-  line-height: 1;
-  font-weight: bolder;
-  position: absolute;
-  top: 0px;
-  right: 3px;
-  font-family: "Oswald", Helvetica, Arial, sans-serif;
-}
 .event-node .line-up {
   text-transform: uppercase;
-  padding-top: 10px;
-  font-size: x-large;
   display: inline-block;
   width: 100%;
+  position: relative;
+  margin-bottom: 15px;
 }
-.event-node .line-up .field-artist {
+.event-node .line-up .artist {
+  z-index: 1;
+  font-size: x-large;
+  position: relative;
+}
+.event-node .line-up:before {
+  transition: opacity 0.2s 0.1s;
+  font-family: "fontello";
+  font-size: 3.2em;
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  color: #a6a6a6;
   display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+
+  /* remove if not needed */
+
+  margin-left: .2em;
+  /* Uncomment for 3D effect */
+
+  /*text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+
+  z-index: 0;
+  position: absolute;
+  top: 5px;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
 }
-.event-node .line-up .field-artist > div {
-  float: left;
-  padding: 0px 5px;
+.event-node .line-up.event-line-up-vjs:before {
+  content: 'E';
+  -webkit-transform: rotate(-20deg);
+  -ms-transform: rotate(-20deg);
+  transform: rotate(-20deg);
+}
+.event-node .line-up.event-line-up-djs:before {
+  content: 'M';
 }
 .event-node .event-flyer {
   float: left;
   padding-right: 10px;
+}
+.field-event-ref ~ .field-label {
+  float: left;
+}
+.field-event-ref {
+  padding-left: 5px;
+}
+.blog-info {
+  background-color: #262626;
+  padding: 3px 5px;
+  text-align: right;
+}
+.blog-info > div,
+.blog-info .tags > div {
+  display: inline-block;
+}
+.blog-info .tags:before,
+.blog-info .user:before,
+.blog-info .timestamp:before {
+  transition: opacity 0.2s 0.1s;
+  font-family: "fontello";
+  font-size: 'x-large';
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  color: #a6a6a6;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+
+  /* remove if not needed */
+
+  margin-left: .2em;
+  /* Uncomment for 3D effect */
+
+  /*text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+
+  padding: 0px 15px;
+}
+.blog-info .tags:before {
+  content: 'T';
+}
+.blog-info .user:before {
+  content: 'U';
+}
+.blog-info .timestamp:before {
+  content: 'D';
+}
+.blog-info .field-tags {
+  padding-right: 3px;
+  display: inline-block;
+}
+.blog-info .submitted {
+  margin-bottom: 0;
+}
+body {
+  background-color: #000000;
+  color: #ffffff;
+}
+a {
+  font-family: inherit;
+}
+.pane-title,
+.block-title {
+  background-color: #404040;
+  line-height: 1.6;
+  padding: 0 5px;
 }
 .administrator .main-container {
   position: relative;

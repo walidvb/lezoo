@@ -5,11 +5,45 @@
 @black: #000;
 @white: #fff;
 
+@primary-color: rgb(99,162, 215);
+@secondary-color: rgb(190,61,68);
 @primary-color: @white;
 @secondary-color: @black;
 
 
 @date-size: 8em;
+
+.icon(@size: 'x-large'){
+  transition: opacity 0.2s 0.1s;
+  font-family: "fontello";
+  font-size: @size;
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  color: darken(@primary-color, 35%);
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+     
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+ 
+  /* Uncomment for 3D effect */
+  /*text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
 // Global values
 // --------------------------------------------------
 

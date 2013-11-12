@@ -79,15 +79,33 @@
  *
  * @ingroup themeable
  */
+if(isset($content['field_music_genre']))
+{
+  $genres = $content['field_music_genre'];
+  $genres['#access'] = true;
+  hide($content['field_music_genre']);}
+
+if(isset($content['field_tags']))
+{
+  $tags = $content['field_tags'];
+  hide($content['field_tags']);
+}
+if(!$page)
+{
+  $title_tag = 'h3';
+}
+else
+{
+  $title_tag = 'h1';
+}
+//dpm(render($genres));
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
   <?php print $user_picture; ?>
 
   <?php print render($title_prefix); ?>
-  <?php if (!$page): ?>
-    <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
-  <?php endif; ?>
+    <<?php print $title_tag; print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></<?php print $title_tag?>>
    <?php print render($title_suffix); ?> 
 
 
@@ -102,11 +120,21 @@
   </div>
 
   <?php print render($content['links']); ?>
-    <?php if ($display_submitted): ?>
-    <div class="submitted">
-      <?php print $submitted; ?>
-    </div>
+  <?php if ($display_submitted): ?>
+
+    <div class="blog-info">
+        <div class="submitted">
+          <?php print $submitted; ?>
+        </div>
+        <?php if(isset($tags) || isset($genres)): ?>
+          <div class="tags">
+            <?php print render($tags); ?>
+            <?php print render($genres); ?>
+          </div>
+        <?php endif; ?>
+  </div>
   <?php endif; ?>
+
   <?php print render($content['comments']); ?>
 
 </div>

@@ -1,0 +1,12 @@
+name = Devel Input Filter
+description = Helps in the development of input filters.
+package = Development
+dependencies[] = devel
+core = 7.x
+
+; Information added by drupal.org packaging script on 2012-10-19
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "devel_if"
+datestamp = "1350650819"
+

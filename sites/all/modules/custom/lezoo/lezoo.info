@@ -1,0 +1,3 @@
+name = Custom module for lezoo
+description = Custom functions needed by the zoo website, all in one module
+core = 7.x

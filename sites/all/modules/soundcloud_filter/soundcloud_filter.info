@@ -1,0 +1,13 @@
+name = SoundCloud filter
+description = SoundCloud filter for inserting a track into content
+package = SoundCloud
+core = 7.x
+files[] = soundcloud_filter.module
+
+
+; Information added by drupal.org packaging script on 2012-02-29
+version = "7.x-2.2"
+core = "7.x"
+project = "soundcloud_filter"
+datestamp = "1330526148"
+

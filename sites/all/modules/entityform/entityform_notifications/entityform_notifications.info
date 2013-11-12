@@ -1,0 +1,17 @@
+name = Entityforms Notifications
+description = Enable this module if you want Entityforms to send e-mail notifications when a form is submitted.
+core = 7.x
+package = Entityforms
+
+
+dependencies[] = entityform
+dependencies[] = entity_rules
+dependencies[] = entity2text
+dependencies[] = rules
+
+; Information added by drupal.org packaging script on 2013-06-07
+version = "7.x-2.0-alpha1"
+core = "7.x"
+project = "entityform"
+datestamp = "1370638552"
+

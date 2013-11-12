@@ -1,0 +1,13 @@
+
+#devel-if-output {
+  overflow: auto;
+}
+
+#devel-if-output > div {
+  float: left;
+  width: 50%;
+}
+
+#devel-if-output div#edit-output-format > * {
+  margin-right: 1em;
+}

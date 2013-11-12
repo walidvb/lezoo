@@ -1,0 +1,111 @@
+<?php
+
+/**
+ * @file
+ * Defines a favicon link formatter for the link module.
+ */
+
+define('LFF_FAVICON_SAVE_PATH', 'public://link_favicon_formatter_favicons');
+
+/**
+ * Implements hook_menu().
+ */
+function link_favicon_formatter_menu() {
+  $items = array();
+  $items['admin/config/media/favicon_formatter'] = array(
+    'title' => 'Favicons',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('link_favicon_formatter_admin'),
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function link_favicon_formatter_field_formatter_info() {
+  $info['link_favicon'] = array(
+    'label' => t('Link with sfavwicon'),
+    'field types' => array('link_field'),
+    'module' => 'link_favicon_formatter',
+  );
+  return $info;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function link_favicon_formatter_theme() {
+  return array(
+    'link_favicon_formatter_favicon' => array(
+      'variables' => array('element' => NULL),
+    ),
+  );
+}
+
+/**
+ * Theme function.
+ */
+function theme_link_favicon_formatter_favicon($vars) {
+  if (!$vars['service_link']) {
+    return theme('link_formatter_' . $vars['format'], array('element' => $vars['element'], 'field' => $vars['field']));
+  }
+  $imagearray = array(
+    'path' => $vars['service_url'] . $vars['service_link'],
+    'alt' => $vars['element']['title'],
+  );
+  if ($vars['restrict_size']) {
+    $imagearray['height'] = '16';
+    $imagearray['width'] = '16';
+  }
+  return theme('image', $imagearray) . theme('link_formatter_' . $vars['format'], array('element' => $vars['element'], 'field' => $vars['field']));
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function link_favicon_formatter_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $settings = $display['settings'];
+  // Set default output if favicon format selected, but settings not saved.
+  $settings['format'] = (empty($settings['format'])) ? 'link_default' : $settings['format'];
+  $settings['service'] = (empty($settings['service'])) ? 'local_PHP_based_icon_scrapper' : $settings['service'];
+  $elements = array();
+  $services = link_favicon_formatter_get_services();
+  $selected_service = $services[$settings['service']];
+  foreach ($items as $delta => $item) {
+    $service_link = $item['url'];
+    // Call the service link format function if it exists.
+    if (!empty($selected_service['link_format_function']) && function_exists($selected_service['link_format_function'])) {
+      $selected_service['link_format_function']($service_link);
+    }
+    $elements[$delta] = array(
+      '#markup' => theme('link_favicon_formatter_favicon', array(
+        'format' => $settings['format'],
+        'service' => $settings['service'],
+        'service_url' => $services[$settings['service']]['url'],
+        'service_link' => $service_link,
+        'restrict_size' => $settings['restrict_size'],
+        'element' => $item,
+        'field' => $instance,
+        )
+      ),
+    );
+  }
+  return $elements;
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function link_favicon_formatter_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $display = $instance['display'][$view_mode];
+  $summary = '';
+  if ($display['type'] == 'link_favicon') {
+    $summary = t('One of the other formats with a favicon');
+  }
+  return $summary;
+}
+

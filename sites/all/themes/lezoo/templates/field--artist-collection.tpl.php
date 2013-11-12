@@ -5,24 +5,37 @@
 ?>
 <div class="artists">
 	<?php foreach($rows as $row): ?>
+	<?php 
+	$name = !empty($row['field_link']) ? l($row['field_artist_name']->name, $row['field_link']['url'], array('attributes' => $row['field_link']['attributes'])) : $row['field_artist_name']->name;
+	$info = '(';
+	$i = 0;
+	if(!empty($row['field_label']))
+	{
+		foreach($row['field_label'] as $label)
+		{
+			$info .= '<span class="artist-labels">' .$label->name . '</span>';
+			if(++$i > 0 && $i != count($row['field_label'])) {$info .= ', ';}
+		}
+	}
+	if(!empty($row['field_origin']) && !empty($row['field_label']))
+	{
+		$info .= ' / ';
+	}
+
+	if(!empty($row['field_origin']))
+	{
+		$info .= '<span class="artist-origin">' . $row['field_origin']->name . '</span>';
+	}
+
+	$info .= ')';
+	?>
 	<div class="artist">
 		<span class="artist-name">
-			<?php 
-			if(isset($row['field_link']))
-			{
-				print l($row['field_artist_name']->name, $row['field_link']['url'], array('attributes' => $row['field_link']['attributes']));
-			}
-			else
-			{
-				print($row['field_artist_name']->name);
-			} 
-			?></span>
-			<?php $i = 0; ?>
-			<?php foreach($row['field_label'] as $label): ?>
-			<?php if($i++ > 0){print ', ';}else{print '(';} ?> 
-			<span class="artist-labels"><?php print $label->name ?></span>
-		<?php endforeach ?>
-		/ <span class="artist-origin"><?php print $row['field_origin']->name; ?></span>)
+			<?php print $name;?>
+		</span>
+		<span class="artist-info">
+			<?php print $info ?>
+		</span>
 	</div>
 <?php endforeach; ?>
 </div>
