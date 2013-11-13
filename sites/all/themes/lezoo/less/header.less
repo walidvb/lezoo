@@ -10,39 +10,36 @@
 		.primary{
 			width: 100%;
 			> .leaf{
-				width: 20%;
+				.make-md-column(2);
+				padding-left: 0px;
+				margin-right: 15px;
+				background-color: @navbar-default-link-bg;
+
+				.active{}
 			}
 			> li{
 				.transition(all 0.4s);
-				padding: 0 10px;
 				&:not(.last).active, &:not(.last):hover{
-					width: 30%;
-					margin: 0 ;
+					.make-md-column(3);
+					background-color: @navbar-default-link-hover-bg;
+					margin: 0px;
+					padding-left: 0px;
+					padding-right: 0px;
+					margin-right: 15px;
 					a{
-						background-color: @navbar-default-link-hover-bg;
-
+						width: 100%;	
 					}
 				}
-
-				&:not(.last) a{
-					width: 100%;
-					background-color: @navbar-default-link-bg;
-				}
 			}
-			&:hover{
-				> li.active:not(:hover){
-					width: 20%;
-				}
-				
-			}
-
 			> .last{
-				width: 8%!important;
 				float: right;
+				padding-right: 0px;
+				padding-left: 0px;
 				a{
 					background-color: @black;
 				}
 			}
+
 			.dropdown-menu{
 				right: 0;
 				left: auto;
