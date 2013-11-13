@@ -106,6 +106,7 @@ if(isset($content['field_music_genre']))
 
     <?php print render($title_prefix); ?>
     <<?php print $title_tag; print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></<?php print $title_tag?>>
+    <?php print render($content['field_addthis']); ?>
     <?php print render($title_suffix); ?> 
 
 
@@ -130,7 +131,7 @@ if(isset($content['field_music_genre']))
         if(!empty($content['field_links'])){ print render($content['field_links']); } 
         if(!empty($content['field_soundcloud'])) { print render($content['field_soundcloud']); }
         if(!empty($content['field_event_ref'])) { print render($content['field_event_ref']); }
-         if(!empty($related)){print $related;}
+         if(!empty($related)){print '<aside>' . $related . '</aside>';}
         ?>
       </div>
     <div class="col-lg-7 col-md-8 col-sm-9 col-xs-12">
