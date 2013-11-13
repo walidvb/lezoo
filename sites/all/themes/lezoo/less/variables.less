@@ -5,13 +5,20 @@
 @black: #000;
 @white: #fff;
 
-@primary-color: rgb(99,162, 215);
+/*@primary-color: rgb(99,162, 215);
 @secondary-color: rgb(190,61,68);
+@tertiary-color: hsb(0,0,10);
 @primary-color: @white;
 @secondary-color: @black;
+*/
+
+@primary-color: #FFFFFF;
+@secondary-color: #494949;
+@tertiary-color: #BFBFBF;
+@fourth-color: #000000;
 
 
-@date-size: 8em;
+@date-size: 6em;
 
 .icon(@size: 'x-large'){
   transition: opacity 0.2s 0.1s;
@@ -59,7 +66,7 @@
 // Brand colors
 // -------------------------
 
-@brand-primary:         #428bca;
+@brand-primary:         @primary-color;
 @brand-success:         #5cb85c;
 @brand-warning:         #f0ad4e;
 @brand-danger:          #d9534f;
