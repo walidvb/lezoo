@@ -10,20 +10,22 @@
 			stickyElement: 'h3',
 		});
 
-		var sizeEmAll = function(){
+		var stickEm = function(){
 			$('.sticky-helper').css({
 				width: $('.view-id-teaser_list .view-content').width(),
 			});
 		};
-		sizeEmAll();
-		$(window).resize(sizeEmAll);
+		
 		//---------------Pin left cols
-		var container = '.content';
-		$(container).css('display', 'inline-block');
-		$(".pinned").wrapInner('<div/>');
-		$('.pinned > div').pin({
-      		containerSelector: container,
-		  })
+		var pinit = function()
+		{
+			var container = '.content';
+			$(container).css('display', 'inline-block');
+			$(".pinned").wrapInner('<div/>');
+			$('.pinned > div').pin({
+				containerSelector: container,
+			})
+		}
 		//---------------Installations
 		var flexsliderSettings = {
 			selector: 'figure',
@@ -33,5 +35,14 @@
 
 		};
 		$('.slider').flexslider(flexsliderSettings);
+
+		function resize() 
+		{
+			pinit();
+			stickEm();
+		}
+		resize();
+		$(window).resize(resize);
+
 	};
 })(jQuery);

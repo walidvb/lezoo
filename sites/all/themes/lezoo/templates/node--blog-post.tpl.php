@@ -98,7 +98,7 @@ if(isset($content['field_music_genre']))
   {
     $title_tag = 'h1';
   }
-//dpm(render($genres));
+
   ?>
   <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
@@ -111,7 +111,7 @@ if(isset($content['field_music_genre']))
 
 
     <div class="content"<?php print $content_attributes; ?>>
-      <div class="col-md-5 col-sm-3 col-xs-12 pinned">
+      <div class="col-lg-5 col-md-4 col-sm-3 col-xs-12 pinned">
         <?php print render($content['field_big_image']); ?>
         <?php if ($display_submitted): ?>
         <div class="blog-info">
@@ -128,10 +128,12 @@ if(isset($content['field_music_genre']))
         <?php endif; ?>
         <?php 
         if(!empty($content['field_links'])){ print render($content['field_links']); } 
-        if(!empty($content['field_soundcloud'])) { print render($content['field_soundcloud']); } 
+        if(!empty($content['field_soundcloud'])) { print render($content['field_soundcloud']); }
+        if(!empty($content['field_event_ref'])) { print render($content['field_event_ref']); }
+         if(!empty($related)){print $related;}
         ?>
       </div>
-    <div class="col-md-7 col-sm-9 col-xs-12">
+    <div class="col-lg-7 col-md-8 col-sm-9 col-xs-12">
       <?php
         // We hide the comments and links now so that we can render them later.
       hide($content['comments']);

@@ -12,11 +12,6 @@ function lezoo_preprocess_html(&$variables) {
 	{
 		$variables['classes_array'][] = $variables['user']->roles['3'];
 	}
-	else
-	{
-		drupal_get_messages('warning');
-		drupal_get_messages('error');
-	}
 }
 
 
@@ -43,6 +38,39 @@ function lezoo_preprocess_node(&$variables) {
 		}
 		else if($variables['type'] == 'blog_post')
 		{
+			if($variables['view_mode'] == 'full')
+			{
+				dpm($variables);
+				//add related items to the views
+				$section = $variables['field_section']['und']['0']['tid'];
+				$genres;
+				$tags;
+				foreach($variables['field_music_genre'] as $genre)
+				{
+					$parents = taxonomy_get_parents($genre['tid']);
+					if(!empty($parents))
+					{
+						$parent = current($parents)->tid;
+						$new = $parent;
+					}
+					else
+					{
+						$new = $genre['tid'];
+					}
+					$genres .= $new . '+';
+				}
+				foreach($variables['field_tags'] as $tag)
+				{
+					$tags .= $tag['tid'] . '+';
+				}
+				$genres = empty($genres) ? null : $genres;
+				$tags = empty($tags) ? null : $tags;
+				dpm($genres, 'genre');
+				dpm($tags, 'tags');
+				dpm($variables['nid']);
+				$related = views_embed_view('related', 'default', $variables['nid'], $section, $genres, $tags);
+				$variables['related'] = $related;
+			}
 			if($variables['field_section']['und']['0']['tid'] == 28)
 			{
 				menu_set_active_item('podcasts');

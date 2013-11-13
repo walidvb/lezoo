@@ -41,9 +41,9 @@ function lezoo_views_query_alter(&$view, &$query) {
   {
     unset($view->query->where['1']['conditions'][2]);
   }
-  // dpm($view);
 } 
 
 function lezoo_views_post_build(&$view){
+
   unset($view->exposed_input['date']['value']['month']);
 }
