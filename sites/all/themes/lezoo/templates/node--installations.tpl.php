@@ -107,14 +107,17 @@ hide($content['field_video']);
 
 
   <div class="content"<?php print $content_attributes; ?>>
-    <div class="slider">
-      <?php print render($content['field_photos']) . render($content['field_photos']); ?>
+    <div class="<?php print $left_col_classes?>">
+      <?php print render($content) ?>
+    </div>
+    <div class="<?php print $right_col_classes?>">
+      <?php print render($content['field_video']); ?>
+      <?php print render($content['field_photos']) ?>
     </div>
     <?php
       // We hide the comments and links now so that we can render them later.
       hide($content['comments']);
       hide($content['links']);
-      print render($content);
     ?>
   </div>
 
