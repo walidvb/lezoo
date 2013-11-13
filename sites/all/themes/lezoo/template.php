@@ -12,9 +12,36 @@ function lezoo_preprocess_html(&$variables) {
 	{
 		$variables['classes_array'][] = $variables['user']->roles['3'];
 	}
+
 }
 
-
+function lezoo_preprocess_page(&$variables) {
+	if(!empty($variables['node']))
+	{
+		dpm($variables['node']);
+		switch($variables['node']->type)
+		{
+			case 'event':
+				menu_set_active_item('agenda');
+				break;
+			case 'installations':
+				menu_set_active_item('visu');
+				break;
+			case 'blog_post':
+				dpm($variables['node']->field_section['und']['0']['tid']);
+				switch($variables['node']->field_section['und']['0']['tid'])
+				{
+					case 28:
+						menu_set_active_item('podcasts');
+						break;
+					case 27:
+						menu_set_active_item('visu');
+						break;
+				}
+				break;
+		}
+	}
+}
 
 /**
  * Implements hook_preprocess().
@@ -23,19 +50,16 @@ function lezoo_preprocess_node(&$variables) {
 	//dpm($variables);
 	$variables['title_attributes_array']['class'] = 'node-title';
 	$variables['left_col_classes'] = "col-lg-5 col-md-4 col-sm-3 col-xs-12 pinned";
-		$variables['right_col_classes'] = "col-lg-7 col-md-8 col-sm-9 col-xs-12";
-
+	$variables['right_col_classes'] = "col-lg-7 col-md-8 col-sm-9 col-xs-12";
 	$variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__' . $variables['view_mode'];
 	$variables['submitted'] = '<span class="user">'. $variables['user']->name . '</span><span class="timestamp">' . strftime('%d/%m/%Y', $variables['created']) . '</span>';
 	if(!$variables['is_front'])
 	{
 		if($variables['type'] == 'event')
 		{
-			menu_set_active_item('events');
 		}
 		else if($variables['type'] == 'installations')
 		{
-			menu_set_active_item('visual');
 			$event_ref_label = t("Vu à la soirée");
 			$variables['content']['field_event_ref']['#title'] = $event_ref_label;
 		}
@@ -43,7 +67,7 @@ function lezoo_preprocess_node(&$variables) {
 		{
 			if($variables['view_mode'] == 'full')
 			{
-				dpm($variables);
+				//dpm($variables);
 				//add related items to the views
 				$section = $variables['field_section']['und']['0']['tid'];
 				$genres;
@@ -68,15 +92,11 @@ function lezoo_preprocess_node(&$variables) {
 				}
 				$genres = empty($genres) ? null : $genres;
 				$tags = empty($tags) ? null : $tags;
-				// dpm($genres, 'genre');
-				// dpm($tags, 'tags');
-				// dpm($variables['nid']);
 				$related = views_embed_view('related', 'default', $variables['nid'], $section, $genres, $tags);
 				$variables['related'] = $related;
 			}
 			if($variables['field_section']['und']['0']['tid'] == 28)
 			{
-				menu_set_active_item('podcasts');
 				$event_ref_label = t("Entendu à la soirée");
 			}
 			else
@@ -91,12 +111,12 @@ function lezoo_preprocess_node(&$variables) {
 
 //set youtube frame width to 100%
 function lezoo_video_filter_iframe(&$variables) {
-  $video = $variables['video'];
-  $video['width'] = '100%';
-  $video['height'] = '350';
-  $classes = video_filter_get_classes($video);
-  $output = '<iframe src="' . $video['source'] . '" width="' . $video['width'] . '" height="' . $video['height'] . '" class="video-filter ' . implode(' ', $classes) . '" frameborder="0"></iframe>';
-  return $output;
+	$video = $variables['video'];
+	$video['width'] = '100%';
+	$video['height'] = '350';
+	$classes = video_filter_get_classes($video);
+	$output = '<iframe src="' . $video['source'] . '" width="' . $video['width'] . '" height="' . $video['height'] . '" class="video-filter ' . implode(' ', $classes) . '" frameborder="0"></iframe>';
+	return $output;
 }
 
 

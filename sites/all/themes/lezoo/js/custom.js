@@ -6,7 +6,7 @@
 		$('.view-display-id-panel_pane_1 .view-content')
 		.css('position', 'relative')
 		.stickyHeaders({
-			headlineSelector: 'h3',
+			headlineSelector: 'h3:not(.node-title)',
 			stickyElement: 'h3',
 		});
 
@@ -24,7 +24,7 @@
 			var container = '.content';
 			$('.pinned > .pinned-content').pin({
 				containerSelector: container,
-			})
+			});
 			$(container).css({
 				display: 'inline-block',
 				width: '100%'

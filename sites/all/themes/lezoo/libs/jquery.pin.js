@@ -12,7 +12,6 @@
                 if (options.minWidth && $window.width() <= options.minWidth) {
                     if ($this.parent().is(".pin-wrapper")) { $this.unwrap(); }
                     $this.css({width: "", left: "", top: "", position: ""});
-                    if (options.activeClass) { $this.removeClass(options.activeClass); }
                     disabled = true;
                     continue;
                 } else {
@@ -52,7 +51,7 @@
                     to    = data.to;
               
                 if (from + $this.outerHeight() > data.end) {
-                    $this.css('position', '');
+                    $this.css({position: "", top: "", left: "", overflow: "", height: ""}).removeClass('pin-fixed');
                     continue;
                 }
               
@@ -60,17 +59,14 @@
                     !($this.css("position") == "fixed") && $this.css({
                         left: $this.offset().left,
                         top: 0
-                    }).css("position", "fixed");
-                    if (options.activeClass) { $this.addClass(options.activeClass); }
+                    }).css({"position": "fixed", overflow: "auto", height: "100%"}).addClass('pin-fixed').removeClass('pin-absolute');
                 } else if (scrollY >= to) {
                     $this.css({
-                        left: "",
+                        left: "auto",
                         top: to - data.parentTop
-                    }).css("position", "absolute");
-                    if (options.activeClass) { $this.addClass(options.activeClass); }
+                    }).css({position: "absolute", height: "", overflo: ""}).addClass('pin-absolute').removeClass('pin-fixed');
                 } else {
-                    $this.css({position: "", top: "", left: ""});
-                    if (options.activeClass) { $this.removeClass(options.activeClass); }
+                    $this.css({position: "", top: "", left: "", overflow: "", height: ""});
                 }
           }
         };

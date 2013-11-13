@@ -89,7 +89,6 @@ else
   $tags = '';
 }
 
-dpm($content, 'content');
 hide($content['field_photos']);
 hide($content['field_video']);
 if(!$page)
