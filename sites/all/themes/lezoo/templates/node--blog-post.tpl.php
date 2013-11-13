@@ -85,62 +85,64 @@ if(isset($content['field_music_genre']))
   $genres['#access'] = true;
   hide($content['field_music_genre']);}
 
-if(isset($content['field_tags']))
-{
-  $tags = $content['field_tags'];
-  hide($content['field_tags']);
-}
-if(!$page)
-{
-  $title_tag = 'h3';
-}
-else
-{
-  $title_tag = 'h1';
-}
+  if(isset($content['field_tags']))
+  {
+    $tags = $content['field_tags'];
+    hide($content['field_tags']);
+  }
+  if(!$page)
+  {
+    $title_tag = 'h3';
+  }
+  else
+  {
+    $title_tag = 'h1';
+  }
 //dpm(render($genres));
-?>
-<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+  ?>
+  <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
-  <?php print $user_picture; ?>
+    <?php print $user_picture; ?>
 
-  <?php print render($title_prefix); ?>
+    <?php print render($title_prefix); ?>
     <<?php print $title_tag; print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></<?php print $title_tag?>>
-   <?php print render($title_suffix); ?> 
+    <?php print render($title_suffix); ?> 
 
 
 
-  <div class="content"<?php print $content_attributes; ?>>
-    <div class="col-md-4 col-sm-3 col-xs-12">
-      <?php print render($content['field_big_image']); ?>
-      <?php if(!empty($content[field_]))
-      <?php if(!empty($content['field_soundcloud'])) { print render($content['field_soundcloud']); } ?>
-    </div>
-    <div class="col-md-8 col-sm-9 col-xs-12"
-    <?php
-      // We hide the comments and links now so that we can render them later.
-      hide($content['comments']);
-      hide($content['links']);
-      print render($content);
-    ?>
-  </div>
-  </div>
-
-  <?php print render($content['links']); ?>
-  <?php if ($display_submitted): ?>
-
-    <div class="blog-info">
-        <div class="submitted">
-          <?php print $submitted; ?>
-        </div>
-        <?php if(isset($tags) || isset($genres)): ?>
+    <div class="content"<?php print $content_attributes; ?>>
+      <div class="col-md-5 col-sm-3 col-xs-12 pinned">
+        <?php print render($content['field_big_image']); ?>
+        <?php if ($display_submitted): ?>
+        <div class="blog-info">
+          <div class="submitted">
+            <?php print $submitted; ?>
+          </div>
+          <?php if(isset($tags) || isset($genres)): ?>
           <div class="tags">
             <?php print render($tags); ?>
             <?php print render($genres); ?>
           </div>
+          <?php endif; ?>
+        </div>
         <?php endif; ?>
+        <?php 
+        if(!empty($content['field_links'])){ print render($content['field_links']); } 
+        if(!empty($content['field_soundcloud'])) { print render($content['field_soundcloud']); } 
+        ?>
+      </div>
+    <div class="col-md-7 col-sm-9 col-xs-12">
+      <?php
+        // We hide the comments and links now so that we can render them later.
+      hide($content['comments']);
+      hide($content['links']);
+      print render($content);
+      ?>
+    </div>
   </div>
-  <?php endif; ?>
+
+  <?php print render($content['links']); ?>
+
 
   <?php print render($content['comments']); ?>
 

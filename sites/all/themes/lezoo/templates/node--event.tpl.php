@@ -19,7 +19,6 @@ else
 {
   $title_tag = 'h1';
 }
-dpm($content);
 ?>
 <div class='node-event <?php print $classes ?>' <?php print $attributes; ?> >
 	<div class='col-mds-12'>

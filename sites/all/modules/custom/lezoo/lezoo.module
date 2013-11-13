@@ -26,3 +26,11 @@ function lezoo_node_access($node, $op, $account) {
   // For everything else let the system decide.
   return NODE_ACCESS_IGNORE;
 }
+
+
+function lezoo_entity_info_alter(&$entity_info){
+  $entity_info['field_collection_item']['view modes']['teaser'] = array(
+    'label' => t('Teaser'),
+    'custom settings' => TRUE,
+  );
+}

@@ -1,27 +1,6 @@
 <?php 
-// function lezoo_status_messages($display = NULL) {
-//     $output = '';
-//     global $user;
-//     $is_admin = in_array('admin', $user->roles);
-//     foreach (drupal_get_messages($display) as $type => $messages) {
-//       if (($type == 'error' && $is_admin > 0) || $type != 'error') {
-//         $output .= "<div class=\"messages $type\">\n";
-//         if (count($messages) > 1) {
-//           $output .= " <ul>\n";
-//           foreach ($messages as $message) {
-//             $output .= '  <li>'. $message ."</li>\n";
-//           }
-//           $output .= " </ul>\n";
-//         }
-//         else {
-//           $output .= $messages[0];
-//         }
-//         $output .= "</div>\n";
-//       }
-//     }
-//     return $output;
-//   }
-  setlocale(LC_ALL, 'fr_FR');
+
+setlocale(LC_ALL, 'fr_FR');
 
 /**
  * @file template.php
@@ -41,10 +20,6 @@ function lezoo_preprocess_html(&$variables) {
 }
 
 
-function lezoo_entity_info_alter(&$entity_info){
-	$entity_info['field_collection_item']['view modes'][] = 'teaser';
-	dpm($entity_info);
-}
 
 /**
  * Implements hook_preprocess().
@@ -90,6 +65,11 @@ function lezoo_menu_tree__primary(&$variables) {
 	return '<ul class="menu nav navbar-nav primary">' . $variables['tree'] . '</ul>';
 }
 
+function lezoo_image(&$variables){
+
+	$variables['attributes']['class'] = 'img-responsive';
+	return theme_image($variables);
+}
 
 //---------------------- Field Collection
 /**
@@ -120,8 +100,8 @@ function rows_from_field_collection(&$vars, $field_name, $field_array) {
 	}
 }
 
-
 function lezoo_preprocess_field(&$vars, $hook){
+	//dpm($vars);
 	if ($vars['element']['#field_name'] == 'field_artist' || $vars['element']['#field_name'] =='field_vjs') {
 		$vars['theme_hook_suggestions'][] = 'field__artist_collection';
 		$field_array = array('field_artist_name', 'field_label','field_origin', 'field_link', 'field_artist_details');

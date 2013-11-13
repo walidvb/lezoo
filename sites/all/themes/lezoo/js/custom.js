@@ -1,7 +1,9 @@
 (function($) {
 	Drupal.behaviors.lezoo = {};
 	Drupal.behaviors.lezoo.attach = function(context) {
-		$('.view-id-teaser_list .view-content')
+
+		//-------------- stick months above list
+		$('.view-display-id-panel_pane_1 .view-content')
 		.css('position', 'relative')
 		.stickyHeaders({
 			headlineSelector: 'h3',
@@ -15,7 +17,13 @@
 		};
 		sizeEmAll();
 		$(window).resize(sizeEmAll);
-
+		//---------------Pin left cols
+		var container = '.content';
+		$(container).css('display', 'inline-block');
+		$(".pinned").wrapInner('<div/>');
+		$('.pinned > div').pin({
+      		containerSelector: container,
+		  })
 		//---------------Installations
 		var flexsliderSettings = {
 			selector: 'figure',
