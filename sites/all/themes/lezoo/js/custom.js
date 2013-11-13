@@ -17,24 +17,20 @@
 		};
 		
 		//---------------Pin left cols
+		$(".pinned").wrapInner('<div class="pinned-content"/>');
+
 		var pinit = function()
 		{
 			var container = '.content';
-			$(container).css('display', 'inline-block');
-			$(".pinned").wrapInner('<div/>');
-			$('.pinned > div').pin({
+			$('.pinned > .pinned-content').pin({
 				containerSelector: container,
 			})
+			$(container).css({
+				display: 'inline-block',
+				width: '100%'
+				});
+
 		}
-		//---------------Installations
-		var flexsliderSettings = {
-			selector: 'figure',
-			animation: 'slide',
-
-			contrlNav: 'thumbnails',	
-
-		};
-		$('.slider').flexslider(flexsliderSettings);
 
 		function resize() 
 		{

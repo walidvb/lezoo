@@ -112,7 +112,7 @@ if(isset($content['field_music_genre']))
 
 
     <div class="content"<?php print $content_attributes; ?>>
-      <div class="<?php print $left_col_classes ?> pinned">
+      <div class="<?php print $left_col_classes ?>">
         <?php print render($content['field_big_image']); ?>
         <?php if ($display_submitted): ?>
         <div class="blog-info">

@@ -68,9 +68,9 @@ function lezoo_preprocess_node(&$variables) {
 				}
 				$genres = empty($genres) ? null : $genres;
 				$tags = empty($tags) ? null : $tags;
-				dpm($genres, 'genre');
-				dpm($tags, 'tags');
-				dpm($variables['nid']);
+				// dpm($genres, 'genre');
+				// dpm($tags, 'tags');
+				// dpm($variables['nid']);
 				$related = views_embed_view('related', 'default', $variables['nid'], $section, $genres, $tags);
 				$variables['related'] = $related;
 			}

@@ -114,10 +114,11 @@ else
 
   <div class="content"<?php print $content_attributes; ?>>
     <div class="<?php print $left_col_classes?>">
+      <?php print render($content['field_video']); ?>
       <?php print render($content) ?>
     </div>
     <div class="<?php print $right_col_classes?>">
-      <?php print render($content['field_video']); ?>
+      
       <?php print render($content['field_photos']) ?>
     </div>
     <?php
