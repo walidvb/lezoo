@@ -22,6 +22,9 @@ function lezoo_preprocess_html(&$variables) {
 function lezoo_preprocess_node(&$variables) {
 	//dpm($variables);
 	$variables['title_attributes_array']['class'] = 'node-title';
+	$variables['left_col_classes'] = "col-lg-5 col-md-4 col-sm-3 col-xs-12 pinned";
+		$variables['right_col_classes'] = "col-lg-7 col-md-8 col-sm-9 col-xs-12";
+
 	$variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__' . $variables['view_mode'];
 	$variables['submitted'] = '<span class="user">'. $variables['user']->name . '</span><span class="timestamp">' . strftime('%d/%m/%Y', $variables['created']) . '</span>';
 	if(!$variables['is_front'])
@@ -85,6 +88,17 @@ function lezoo_preprocess_node(&$variables) {
 		}
 	}
 }
+
+//set youtube frame width to 100%
+function lezoo_video_filter_iframe(&$variables) {
+  $video = $variables['video'];
+  $video['width'] = '100%';
+  $video['height'] = '350';
+  $classes = video_filter_get_classes($video);
+  $output = '<iframe src="' . $video['source'] . '" width="' . $video['width'] . '" height="' . $video['height'] . '" class="video-filter ' . implode(' ', $classes) . '" frameborder="0"></iframe>';
+  return $output;
+}
+
 
 /**
  * Bootstrap theme wrapper function for the primary menu links.

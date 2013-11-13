@@ -112,7 +112,7 @@ if(isset($content['field_music_genre']))
 
 
     <div class="content"<?php print $content_attributes; ?>>
-      <div class="col-lg-5 col-md-4 col-sm-3 col-xs-12 pinned">
+      <div class="<?php print $left_col_classes ?> pinned">
         <?php print render($content['field_big_image']); ?>
         <?php if ($display_submitted): ?>
         <div class="blog-info">
@@ -134,7 +134,7 @@ if(isset($content['field_music_genre']))
          if(!empty($related)){print '<aside>' . $related . '</aside>';}
         ?>
       </div>
-    <div class="col-lg-7 col-md-8 col-sm-9 col-xs-12">
+    <div class="<?php print $right_col_classes ?>">
       <?php
         // We hide the comments and links now so that we can render them later.
       hide($content['comments']);
