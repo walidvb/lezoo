@@ -1,16 +1,19 @@
 .event-node{
 	.header{
 		.event-genre{
-
+			display: block;
+			left: 0px;
 		}
 		.event-subtitle, h3{
 			/*margin-bottom: 0px;
 			margin-top: 0px;
 			*/
+			display: block;
 			padding-left: 0px;
 			color: @tertiary-color;
 		}
 		.event-title, .event-title a{
+
 			margin-top: 0px;
 			font-family: @font-family-serif;
 			font-size: @font-size-h2;
@@ -48,13 +51,6 @@
 
 	}
 
-	.event-line-up-vjs{
-		font-size: @font-size-h4;
-		.artist{
-			display: inline-block;
-		}
-	}
-
 	.event-line-up-djs{
 			.artist{
 				display:inline-block;
@@ -73,6 +69,14 @@
 				}
 			}
 		}
+
+	.event-line-up-vjs, .event-line-up-vjs a{
+		font-size: @font-size-h4;
+		color: @tertiary-color;
+		.artist{
+			display: inline-block;
+		}
+	}
 	.event-flyer{
 		float: left;
 		padding-right: 10px;
