@@ -29,7 +29,10 @@
 				display: 'inline-block',
 				width: '100%'
 				});
-
+			$('.content').scroll(function(e){
+				console.log(e);
+				$(this).find('.pinnded-content').trigger('scroll', e);
+			});
 		}
 
 		function resize() 
