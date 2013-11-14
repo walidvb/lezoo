@@ -1,16 +1,22 @@
+.carousel{
+	@media (max-width: @screen-sm-min){
+		display:none;
+	}
+}
 #views-bootstrap-carousel-1{
+	.carousel-control{
+		top:50%;
+	}
 	.carousel-caption{
 		height: 100%;
-		padding-top:120px;
-		pading-left: 0px;
-		padding-right: 0px;
 		left: 0px;
 		right: 0px;
 		.make-md-column(10);
 		.make-md-column-offset(2);
+		padding-top: 3%;
 		position: absolute;
 
-		h4, .artists{
+		h4, h6, .artists{
 			font-family: @font-family-sans-serif;
 			text-transform: uppercase;
 			text-align: left;
@@ -22,19 +28,31 @@
 		}
 
 		.date{
-			margin-top: 20px;
+			display:inline-block;
+			margin-left:0px;
+			position: absolute;
 		}
 
 		.artists{
-			padding-top: 20px;
-			.artist{
-				.artist-name{
+			display:inline-block;
+			left:0px;
+			width: 100%;
+			.field-artist-name{
+				display: inline-block;
 				font-size: @font-size-h1;
-				}
-				.artist-info{
-					font-size: @font-size-base;
-				}
 			}
+			.field-label{
+				display: inline-block;
+				font-size: @font-size-base;
+			}
+
+			.field-origin{
+				.field-label;
+				display: none;
+			}
+
+			
+			
 		}
 	}
 }
