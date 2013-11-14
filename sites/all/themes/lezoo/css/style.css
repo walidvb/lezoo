@@ -6989,12 +6989,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
     width: 8.333333333333332%;
   }
 }
-.event-node .event-line-up-vjs {
-  font-size: 18px;
-}
-.event-node .event-line-up-vjs .artist {
-  display: inline-block;
-}
 .event-node .event-line-up-djs .artist {
   display: inline-block;
   z-index: 1;
