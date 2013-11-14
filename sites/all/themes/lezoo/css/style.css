@@ -6832,6 +6832,76 @@ td.radio {
     width: 25%;
   }
 }
+.footer {
+  margin-top: 5px;
+  bottom: 0;
+  left: 0;
+  min-width: 928px;
+  padding: 0 30px;
+  position: fixed;
+  right: 0;
+  z-index: 3;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 10px;
+}
+.footer a {
+  color: #000000;
+}
+.footer .block-title {
+  background-color: #bfbfbf;
+  font-size: 12px;
+  margin: 0px;
+}
+.footer .social:before {
+  transition: opacity 0.2s 0.1s;
+  font-family: "fontello";
+  font-size: font-size;
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  color: #a6a6a6;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+
+  /* remove if not needed */
+
+  margin-left: .2em;
+  /* Uncomment for 3D effect */
+
+  /*text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+
+  content: 'M';
+}
+.footer .block p {
+  display: inline-block;
+  margin: 0px;
+}
+.footer .block p + p:before {
+  content: ' | ';
+}
+.footer #footer-sitemap {
+  margin: 0px;
+}
+.footer #footer-sitemap li {
+  display: inline-block;
+}
+.footer #footer-sitemap li + li:before {
+  content: ' | ';
+}
 .node {
   position: relative;
 }
