@@ -7065,17 +7065,23 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .blog-info .submitted {
   margin-bottom: 0;
 }
+@media (max-width: 768px) {
+  .carousel {
+    display: none;
+  }
+}
+#views-bootstrap-carousel-1 .carousel-control {
+  top: 50%;
+}
 #views-bootstrap-carousel-1 .carousel-caption {
   height: 100%;
-  padding-top: 120px;
-  pading-left: 0px;
-  padding-right: 0px;
   left: 0px;
   right: 0px;
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
+  padding-top: 3%;
   position: absolute;
 }
 @media (min-width: 992px) {
@@ -7090,6 +7096,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   }
 }
 #views-bootstrap-carousel-1 .carousel-caption h4,
+#views-bootstrap-carousel-1 .carousel-caption h6,
 #views-bootstrap-carousel-1 .carousel-caption .artists {
   font-family: "Oswald", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
@@ -7100,16 +7107,27 @@ select.form-control#edit-field-music-genre-tid option:hover {
   border-bottom: 2px solid;
 }
 #views-bootstrap-carousel-1 .carousel-caption .date {
-  margin-top: 20px;
+  display: inline-block;
+  margin-left: 0px;
+  position: absolute;
 }
 #views-bootstrap-carousel-1 .carousel-caption .artists {
-  padding-top: 20px;
+  display: inline-block;
+  left: 0px;
+  width: 100%;
 }
-#views-bootstrap-carousel-1 .carousel-caption .artists .artist .artist-name {
+#views-bootstrap-carousel-1 .carousel-caption .artists .field-artist-name {
+  display: inline-block;
   font-size: 36px;
 }
-#views-bootstrap-carousel-1 .carousel-caption .artists .artist .artist-info {
+#views-bootstrap-carousel-1 .carousel-caption .artists .field-label {
+  display: inline-block;
   font-size: 14px;
+}
+#views-bootstrap-carousel-1 .carousel-caption .artists .field-origin {
+  display: inline-block;
+  font-size: 14px;
+  display: none;
 }
 body {
   background-color: #000000;

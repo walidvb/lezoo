@@ -19,7 +19,6 @@ else
 {
   $title_tag = 'h1';
 }
-dpm($content);
 ?>
 <div class='node-event <?php print $classes ?>' <?php print $attributes; ?> >
 	<div class='col-mds-12'>
@@ -35,6 +34,8 @@ dpm($content);
 						<?php print render($title_prefix); ?>
     						<<?php print $title_tag; print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></<?php print $title_tag?>>
 						<?php print render($title_suffix); ?>
+						<?php print render($content['field_addthis']) ?>
+						<?php print $ics;dpm($ics); ?>
 					</div>
 				</div>
 				<?php if(!$teaser): ?>
@@ -46,7 +47,9 @@ dpm($content);
 				</div>
 			<?php endif; ?>
 				<div class='event-line-up event-line-up-djs line-up'> <?php print render($content['field_artist']); ?></div>
-				<div class='event-line-up event-line-up-vjs line-up'> <?php print render($content['field_vjs']); ?></div>
+				<?php if(!empty($content['field_vjs'])): ?>
+					<div class='event-line-up event-line-up-vjs line-up'> <?php print render($content['field_vjs']); ?></div>
+				<?php endif; ?>
 
 			<?php if(!$teaser): ?>
 				<div class="event-details">
