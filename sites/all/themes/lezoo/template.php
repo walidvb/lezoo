@@ -57,6 +57,7 @@ function lezoo_preprocess_node(&$variables) {
 	{
 		if($variables['type'] == 'event')
 		{
+			$variables['ics'] = l('Ajouter au calendrier', base_path() . 'events/'. $variables['nid'] . '/' . $variables['title'] . '.ics', array('attributes' => array('class' => 'event-ics')));
 		}
 		else if($variables['type'] == 'installations')
 		{
