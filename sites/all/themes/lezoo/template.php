@@ -46,7 +46,6 @@ function lezoo_preprocess_page(&$variables) {
  * Implements hook_preprocess().
  */
 function lezoo_preprocess_node(&$variables) {
-	//dpm($variables);
 	$variables['title_attributes_array']['class'] = 'node-title';
 	$variables['left_col_classes'] = "col-lg-5 col-md-4 col-sm-3 col-xs-12 pinned";
 	$variables['right_col_classes'] = "col-lg-7 col-md-8 col-sm-9 col-xs-12";
