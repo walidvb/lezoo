@@ -1,7 +1,7 @@
 (function($) {
 	Drupal.behaviors.lezoo = {};
 	Drupal.behaviors.lezoo.attach = function(context) {
-
+		//--------------
 		//-------------- stick months above list
 		$('.view-display-id-panel_pane_1 .view-content')
 		.css('position', 'relative')

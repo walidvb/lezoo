@@ -18,7 +18,6 @@ function lezoo_preprocess_html(&$variables) {
 function lezoo_preprocess_page(&$variables) {
 	if(!empty($variables['node']))
 	{
-		dpm($variables['node']);
 		switch($variables['node']->type)
 		{
 			case 'event':
@@ -57,7 +56,7 @@ function lezoo_preprocess_node(&$variables) {
 	{
 		if($variables['type'] == 'event')
 		{
-			$variables['ics'] = l('Ajouter au calendrier', base_path() . 'events/'. $variables['nid'] . '/' . $variables['title'] . '.ics', array('attributes' => array('class' => 'event-ics')));
+			$variables['ics'] = '<div class="ics-container">' . l('Ajouter au calendrier', base_path() . 'events/'. $variables['nid'] . '/' . $variables['title'] . '.ics', array('attributes' => array('class' => 'event-ics'))) . '</div>';
 		}
 		else if($variables['type'] == 'installations')
 		{

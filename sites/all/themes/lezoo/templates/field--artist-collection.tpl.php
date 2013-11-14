@@ -3,7 +3,7 @@
  *  Field formatter for the field_achievements field collection.
  */
 ?>
-<div class="artists">
+<div class="artists helloworld">
 	<?php foreach($rows as $row): ?>
 	<div class="artist artist-item">
 		<?php 
