@@ -1,3 +1,7 @@
+<?php 
+
+dpm($fields);
+?>
 <?php print $image ?>
 
 <?php if (!empty($title) || !empty($description)): ?>

@@ -1,14 +1,7 @@
 (function($) {
 	Drupal.behaviors.lezoo = {};
 	Drupal.behaviors.lezoo.attach = function(context) {
-		//-------------- change menu item
-		var active_trail = $('.primary > .dropdown').find('ul .active-trail a').text();
-		console.log(active_trail);
-		if(active_trail)
-		{
-			$('.primary .dropdown-toggle').html(active_trail + '<span class="caret"></span>');
-		}
-		
+
 		//-------------- stick months above list
 		$('.view-display-id-panel_pane_1 .view-content')
 		.css('position', 'relative')
@@ -23,8 +16,6 @@
 			});
 		};
 		
-
-
 		//---------------Pin left cols
 		$(".pinned").wrapInner('<div class="pinned-content"/>');
 
@@ -52,8 +43,5 @@
 		resize();
 		$(window).resize(resize);
 
-		//-------UUUUUUGLY
-		$('.panel-panel.right').addClass('col-md-6 col-sm-6 col-xs-12');
 	};
-
 })(jQuery);
