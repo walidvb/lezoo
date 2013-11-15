@@ -6832,6 +6832,7 @@ td.radio {
     width: 25%;
   }
 }
+<<<<<<< HEAD
 .footer {
   margin-top: 5px;
   bottom: 0;
@@ -6902,6 +6903,8 @@ td.radio {
 .footer #footer-sitemap li + li:before {
   content: ' | ';
 }
+=======
+>>>>>>> 0dc5a28ac0d9ac8e314d64a18af9682f2c98ef99
 .node {
   position: relative;
 }
@@ -7011,12 +7014,18 @@ select.form-control#edit-field-music-genre-tid option:hover {
   display: inline-block;
   width: 90%;
 }
+<<<<<<< HEAD
 .event-node {
   min-height: 120px;
 }
 .event-node .header .event-genre,
 .event-node .header .event-genre a {
   color: #bfbfbf;
+=======
+.event-node .header .event-genre {
+  display: block;
+  left: 0px;
+>>>>>>> 0dc5a28ac0d9ac8e314d64a18af9682f2c98ef99
 }
 .event-node .header .event-subtitle,
 .event-node .header h3 {
