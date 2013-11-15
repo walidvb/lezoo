@@ -1,1 +1,48 @@
 // Insert your styling here.
+.footer{
+	margin-top: 5px;
+	bottom: 0;
+	left: 0;
+	min-width: 928px;
+	padding: 0 30px;
+	position: fixed;
+	right: 0;
+	z-index: 3;
+	background-color: @white;
+	color: @fourth-color;
+	font-size: @font-size-smaller;
+
+	a{
+		color: @fourth-color;
+	}
+	.block-title{
+		background-color: @tertiary-color;
+		font-size: @font-size-h6;
+		margin:0px;
+	}
+
+	.social:before{
+ 		.icon(font-size);
+ 		content: 'M';
+	}
+	
+	.block{
+		p{
+			display: inline-block;
+			margin:0px;
+		}
+
+		p+p:before {
+			content:' | ';
+		}
+	}
+	#footer-sitemap{
+		margin:0px;
+		li{
+			display:inline-block;
+		}
+		li+li:before{
+		  content: ' | ';
+		}
+	}
+}
