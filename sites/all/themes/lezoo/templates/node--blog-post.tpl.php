@@ -105,28 +105,30 @@ if(isset($content['field_music_genre']))
     <?php print $user_picture; ?>
 
     <?php print render($title_prefix); ?>
+    <?php if(!empty($title)): ?>
     <<?php print $title_tag; print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></<?php print $title_tag?>>
+  <?php endif; ?>
     <?php print render($content['field_addthis']); ?>
     <?php print render($title_suffix); ?> 
-
+    <?php if ($display_submitted): ?>
+    <div class="blog-info">
+      <div class="submitted">
+        <?php print $submitted; ?>
+      </div>
+      <?php if(isset($tags) || isset($genres)): ?>
+      <div class="tags">
+        <?php print render($tags); ?>
+        <?php print render($genres); ?>
+      </div>
+      <?php endif; ?>
+    </div>
+    <?php endif; ?>
 
 
     <div class="content"<?php print $content_attributes; ?>>
       <div class="<?php print $left_col_classes ?>">
         <?php print render($content['field_big_image']); ?>
-        <?php if ($display_submitted): ?>
-        <div class="blog-info">
-          <div class="submitted">
-            <?php print $submitted; ?>
-          </div>
-          <?php if(isset($tags) || isset($genres)): ?>
-          <div class="tags">
-            <?php print render($tags); ?>
-            <?php print render($genres); ?>
-          </div>
-          <?php endif; ?>
-        </div>
-        <?php endif; ?>
+        
         <?php 
         if(!empty($content['field_links'])){ print render($content['field_links']); } 
         if(!empty($content['field_soundcloud'])) { print render($content['field_soundcloud']); }

@@ -30,14 +30,12 @@
 
 			$info .= ')';
 			?>
-			<div class="artist">
-				<span class="artist-name">
-					<?php print $name;?>
-				</span>
-				<span class="artist-info">
-					<?php print $info ?>
-				</span>
-			</div>
-		</div>
+			<span class="artist-name">
+				<?php print $name;?>
+			</span>
+			<span class="artist-info">
+				<?php print $info ?>
+			</span>
+	</div>
 	<?php endforeach; ?>
 </div>
