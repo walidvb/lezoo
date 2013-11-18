@@ -33,7 +33,6 @@ function lezoo_entity_info_alter(&$entity_info){
   $entity_info['node']['view modes']['mini'] = array(
     'label' => t('Mini'),
         'custom settings' => TRUE,
-
     );
   $entity_info['field_collection_item']['view modes']['teaser'] = array(
     'label' => t('Teaser'),
