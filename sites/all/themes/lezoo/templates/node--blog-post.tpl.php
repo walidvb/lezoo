@@ -110,19 +110,7 @@ if(isset($content['field_music_genre']))
   <?php endif; ?>
     <?php print render($content['field_addthis']); ?>
     <?php print render($title_suffix); ?> 
-    <?php if ($display_submitted): ?>
-    <div class="blog-info">
-      <div class="submitted">
-        <?php print $submitted; ?>
-      </div>
-      <?php if(isset($tags) || isset($genres)): ?>
-      <div class="tags">
-        <?php print render($tags); ?>
-        <?php print render($genres); ?>
-      </div>
-      <?php endif; ?>
-    </div>
-    <?php endif; ?>
+    
 
 
     <div class="content"<?php print $content_attributes; ?>>
@@ -144,6 +132,19 @@ if(isset($content['field_music_genre']))
       print render($content);
       ?>
     </div>
+    <?php if ($display_submitted): ?>
+    <div class="blog-info">
+      <div class="submitted">
+        <?php print $submitted; ?>
+      </div>
+      <?php if(isset($tags) || isset($genres)): ?>
+      <div class="tags">
+        <?php print render($tags); ?>
+        <?php print render($genres); ?>
+      </div>
+      <?php endif; ?>
+    </div>
+    <?php endif; ?>
   </div>
 
   <?php print render($content['links']); ?>

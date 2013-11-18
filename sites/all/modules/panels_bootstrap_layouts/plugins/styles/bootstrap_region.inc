@@ -33,7 +33,7 @@ function theme_panels_bootstrap_layouts_style_region_render($vars) {
   if (in_array($display->layout, $layouts) && $panes) {
     $class = array('panel-panel', $vars['region_id']);
 
-    if ($settings['column_size']) {
+    if (!empty($settings['column_size'])) {
       if (empty($settings['column_type'])) {
         $settings['column_type'] = 'col-lg';
       }
@@ -41,7 +41,7 @@ function theme_panels_bootstrap_layouts_style_region_render($vars) {
       $class[] = $settings['column_type'] . '-' . $settings['column_size'];
     }
 
-    if ($settings['offset_type'] && $settings['offset_size']) {
+    if (!empty($settings['offset_type']) && !empty($settings['offset_size'])) {
       $class[] = $settings['offset_type'] . '-' . $settings['offset_size'];
     }
 
