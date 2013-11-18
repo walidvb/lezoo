@@ -6944,7 +6944,6 @@ h1 a {
   padding-left: 15px;
   padding-right: 15px;
   position: absolute;
-  right: 0px;
   font-weight: bolder;
   color: rgba(255, 255, 255, 0.5);
   font-family: "Oswald", Helvetica, Arial, sans-serif;
@@ -7169,6 +7168,10 @@ select.form-control#edit-field-music-genre-tid option:hover {
     display: none;
   }
 }
+#views-bootstrap-carousel-1 .field-big-image {
+  padding-left: 15px;
+  padding-right: 15px;
+}
 #views-bootstrap-carousel-1 .carousel-control {
   padding-top: 14%;
 }
@@ -7180,18 +7183,18 @@ select.form-control#edit-field-music-genre-tid option:hover {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
-  padding-top: 3%;
+  top: 15%;
   position: absolute;
 }
 @media (min-width: 992px) {
   #views-bootstrap-carousel-1 .carousel-caption {
     float: left;
-    width: 83.33333333333334%;
+    width: 91.66666666666666%;
   }
 }
 @media (min-width: 992px) {
   #views-bootstrap-carousel-1 .carousel-caption {
-    margin-left: 16.666666666666664%;
+    margin-left: 8.333333333333332%;
   }
 }
 #views-bootstrap-carousel-1 .carousel-caption h4,
@@ -7206,14 +7209,36 @@ select.form-control#edit-field-music-genre-tid option:hover {
   border-bottom: 2px solid;
 }
 #views-bootstrap-carousel-1 .carousel-caption .date {
-  display: inline-block;
-  margin-left: 0px;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
   position: absolute;
+}
+@media (min-width: 992px) {
+  #views-bootstrap-carousel-1 .carousel-caption .date {
+    margin-left: 75%;
+  }
+}
+@media (min-width: 992px) {
+  #views-bootstrap-carousel-1 .carousel-caption .date {
+    float: left;
+    width: 16.666666666666664%;
+  }
 }
 #views-bootstrap-carousel-1 .carousel-caption .artists {
   display: inline-block;
   left: 0px;
-  width: 100%;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 992px) {
+  #views-bootstrap-carousel-1 .carousel-caption .artists {
+    float: left;
+    width: 75%;
+  }
 }
 #views-bootstrap-carousel-1 .carousel-caption .artists .field-artist-name {
   display: inline-block;
@@ -7249,6 +7274,7 @@ a {
 }
 .administrator .main-container {
   position: relative;
+  margin-bottom: 20px;
 }
 .administrator .grid {
   position: absolute;
