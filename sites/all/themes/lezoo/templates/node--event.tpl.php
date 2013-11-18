@@ -34,50 +34,35 @@ else
 						<?php print render($title_prefix); ?>
 						<<?php print $title_tag; print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></<?php print $title_tag?>>
 						<?php print render($title_suffix); ?>
-						<?php if($view_mode == 'full')
-						{
-						 print render($content['field_addthis']);
-						 print $ics; 
-						}
-						?>
+						<?php if($view_mode == 'full'): ?>
 						<div class="event-meta">
 							<?php print render($content['field_addthis']) ?>
 							<?php if(!empty($ics) && $view_mode != 'mini')
-								print $ics; 
+							print $ics; 
 							?>
 						</div>
-
+						<?php endif; ?>
 					</div>
 				</div>
 
 				<div class='event-line-up event-line-up-djs line-up'> <?php print render($content['field_artist']); ?></div>
 				<?php if(!empty($content['field_vjs'])): ?>
-				<div class='event-line-up event-line-up-vjs line-up'> <?php print render($content['field_vjs']); ?></div>
-			<?php endif; ?>
+					<div class='event-line-up event-line-up-vjs line-up'> <?php print render($content['field_vjs']); ?></div>
+				<?php endif; ?>
 
-			<?php if(!$teaser): ?>
-			<div class="event-details col-md-5 col-xs-12 col-sm-5">
-				<?php print render($content['field_details']); ?>
+				<?php if(!$teaser): ?>
+					<div class="event-details col-md-5 col-xs-12 col-sm-5">
+						<?php print render($content['field_details']); ?>
+					</div>
+					<div class="event-body">
+						<fig class="event-flyer">
+							<?php print render($content['field_flyer']); ?>
+						</fig>
+						<?php print render($content['body']); ?>
+					</div>
+				<?php endif; ?>
 			</div>
-		<?php endif; ?>
-		<?php if(!$teaser): ?>
-		<div class="event-body">
-			<fig class="event-flyer">
-				<?php print render($content['field_flyer']); ?>
-			</fig>
-			<?php print render($content['body']); ?>
 		</div>
-		<?php if(!$teaser): ?>
-			<div class="event-body">
-				<fig class="event-flyer">
-					<?php print render($content['field_flyer']); ?>
-				</fig>
-				<?php print render($content['body']); ?>
-			</div>
-		<?php endif; ?>
-	<?php endif; ?>
-</div>
-</div>
-</div>
+	</div>
 </div>
 
