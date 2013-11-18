@@ -6768,6 +6768,8 @@ td.radio {
   padding-top: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
+  z-index: 5000;
+  height: 40px;
 }
 @media screen and (min-width: 768px) {
   #navbar {
@@ -6779,7 +6781,7 @@ td.radio {
   #navbar .primary {
     width: 100%;
   }
-  #navbar .primary > .leaf {
+  #navbar .primary > li {
     position: relative;
     min-height: 1px;
     padding-left: 15px;
@@ -6787,8 +6789,6 @@ td.radio {
     padding-left: 0px;
     margin-right: 15px;
     background-color: #404040;
-  }
-  #navbar .primary > li {
     -webkit-transition: all 0.4s;
     transition: all 0.4s;
   }
@@ -6809,22 +6809,37 @@ td.radio {
     width: 100%;
   }
   #navbar .primary > .last {
-    float: right;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: 0px;
+    float: right !important;
     padding-right: 0px;
     padding-left: 0px;
-    background-color: #000000;
   }
   #navbar .primary .dropdown-menu {
-    right: 0;
-    left: auto;
     background-color: #ffffff;
+    min-width: 100%;
+  }
+  #navbar .primary .dropdown-menu > li,
+  #navbar .primary .dropdown-menu a {
+    padding-right: 0px;
+    padding-left: 5px;
   }
   #navbar .primary .dropdown-menu a:hover {
     background-color: #494949;
   }
+  #navbar .sub-menu {
+    padding-left: 15px;
+  }
+  #navbar .sub-menu > li {
+    display: inline-block;
+    margin-right: 10px;
+  }
 }
 @media screen and (min-width: 768px) and (min-width: 992px) {
-  #navbar .primary > .leaf {
+  #navbar .primary > li {
     float: left;
     width: 16.666666666666664%;
   }
@@ -6834,6 +6849,12 @@ td.radio {
   #navbar .primary > li:not(.last):hover {
     float: left;
     width: 25%;
+  }
+}
+@media screen and (min-width: 768px) and (min-width: 992px) {
+  #navbar .primary > .last {
+    float: left;
+    width: 8.333333333333332%;
   }
 }
 .footer {
@@ -6944,7 +6965,6 @@ h1 a {
   padding-left: 15px;
   padding-right: 15px;
   position: absolute;
-  right: 0px;
   font-weight: bolder;
   color: rgba(255, 255, 255, 0.5);
   font-family: "Oswald", Helvetica, Arial, sans-serif;
@@ -7169,8 +7189,13 @@ select.form-control#edit-field-music-genre-tid option:hover {
     display: none;
   }
 }
+#views-bootstrap-carousel-1 .field-big-image {
+  padding-left: 15px;
+  padding-right: 15px;
+}
 #views-bootstrap-carousel-1 .carousel-control {
   padding-top: 14%;
+  z-index: 5000;
 }
 #views-bootstrap-carousel-1 .carousel-caption {
   height: 100%;
@@ -7180,18 +7205,18 @@ select.form-control#edit-field-music-genre-tid option:hover {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
-  padding-top: 3%;
+  top: 15%;
   position: absolute;
 }
 @media (min-width: 992px) {
   #views-bootstrap-carousel-1 .carousel-caption {
     float: left;
-    width: 83.33333333333334%;
+    width: 91.66666666666666%;
   }
 }
 @media (min-width: 992px) {
   #views-bootstrap-carousel-1 .carousel-caption {
-    margin-left: 16.666666666666664%;
+    margin-left: 8.333333333333332%;
   }
 }
 #views-bootstrap-carousel-1 .carousel-caption h4,
@@ -7206,14 +7231,36 @@ select.form-control#edit-field-music-genre-tid option:hover {
   border-bottom: 2px solid;
 }
 #views-bootstrap-carousel-1 .carousel-caption .date {
-  display: inline-block;
-  margin-left: 0px;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
   position: absolute;
+}
+@media (min-width: 992px) {
+  #views-bootstrap-carousel-1 .carousel-caption .date {
+    margin-left: 75%;
+  }
+}
+@media (min-width: 992px) {
+  #views-bootstrap-carousel-1 .carousel-caption .date {
+    float: left;
+    width: 16.666666666666664%;
+  }
 }
 #views-bootstrap-carousel-1 .carousel-caption .artists {
   display: inline-block;
   left: 0px;
-  width: 100%;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 992px) {
+  #views-bootstrap-carousel-1 .carousel-caption .artists {
+    float: left;
+    width: 75%;
+  }
 }
 #views-bootstrap-carousel-1 .carousel-caption .artists .field-artist-name {
   display: inline-block;
@@ -7232,6 +7279,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   display: none;
 }
 .pane-title {
+  margin-top: 15px;
   font-size: 18px;
 }
 body {
@@ -7249,6 +7297,8 @@ a {
 }
 .administrator .main-container {
   position: relative;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 .administrator .grid {
   position: absolute;
