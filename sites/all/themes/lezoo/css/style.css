@@ -6764,6 +6764,10 @@ td.radio {
 #navbar {
   text-transform: uppercase;
   font-family: "Oswald", Helvetica, Arial, sans-serif;
+  top: 0px;
+  padding-top: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 @media screen and (min-width: 768px) {
   #navbar {
@@ -6816,7 +6820,7 @@ td.radio {
     background-color: #ffffff;
   }
   #navbar .primary .dropdown-menu a:hover {
-    background-color: #ffffff;
+    background-color: #494949;
   }
 }
 @media screen and (min-width: 768px) and (min-width: 992px) {
@@ -6833,9 +6837,12 @@ td.radio {
   }
 }
 .footer {
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
   margin-top: 5px;
   bottom: 0;
   left: 0;
+  height: 20px;
   min-width: 928px;
   padding: 0 30px;
   position: fixed;
@@ -6845,13 +6852,18 @@ td.radio {
   color: #000000;
   font-size: 10px;
 }
+@media (max-width: 768px) {
+  .footer {
+    position: relative;
+  }
+}
 .footer a {
   color: #000000;
 }
 .footer .block-title {
   background-color: #bfbfbf;
   font-size: 12px;
-  margin: 0px;
+  margin-bottom: 10px;
 }
 .footer .social:before {
   transition: opacity 0.2s 0.1s;
@@ -6887,20 +6899,16 @@ td.radio {
   content: 'M';
 }
 .footer .block p {
-  display: inline-block;
   margin: 0px;
-}
-.footer .block p + p:before {
-  content: ' | ';
 }
 .footer #footer-sitemap {
   margin: 0px;
 }
-.footer #footer-sitemap li {
-  display: inline-block;
-}
 .footer #footer-sitemap li + li:before {
   content: ' | ';
+}
+.footer:hover {
+  height: 120px;
 }
 .node {
   position: relative;
@@ -6967,6 +6975,10 @@ h1 a {
 .date .day {
   font-size: 3em;
   text-transform: lowercase;
+}
+.node-teaser .node-content .header {
+  display: inline-block;
+  width: 100%;
 }
 .view-id-teaser_list .form-type-select {
   display: inline-block;
@@ -7089,7 +7101,8 @@ select.form-control#edit-field-music-genre-tid option:hover {
   padding-left: 5px;
 }
 .blog-info {
-  background-color: #6f6f6f;
+  background-color: #e5e5e5;
+  margin-top: 3px;
   padding: 3px 5px;
   text-align: right;
 }
@@ -7147,6 +7160,9 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .blog-info .submitted {
   margin-bottom: 0;
+}
+.node-promoted .pinned {
+  padding-left: 0px;
 }
 @media (max-width: 768px) {
   .carousel {
@@ -7211,6 +7227,12 @@ select.form-control#edit-field-music-genre-tid option:hover {
   display: inline-block;
   font-size: 14px;
   display: none;
+}
+.pagination {
+  display: none;
+}
+.pane-title {
+  font-size: 18px;
 }
 body {
   background-color: #000000;

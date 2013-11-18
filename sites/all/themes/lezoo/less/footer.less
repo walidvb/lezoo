@@ -1,8 +1,13 @@
 // Insert your styling here.
 .footer{
+	@media (max-width: @screen-sm-min){
+		position: relative;
+	}
+	.transition(all 0.4s);
 	margin-top: 5px;
 	bottom: 0;
 	left: 0;
+	height: 20px;
 	min-width: 928px;
 	padding: 0 30px;
 	position: fixed;
@@ -18,7 +23,7 @@
 	.block-title{
 		background-color: @tertiary-color;
 		font-size: @font-size-h6;
-		margin:0px;
+		margin-bottom:10px;
 	}
 
 	.social:before{
@@ -28,21 +33,18 @@
 	
 	.block{
 		p{
-			display: inline-block;
 			margin:0px;
-		}
-
-		p+p:before {
-			content:' | ';
 		}
 	}
 	#footer-sitemap{
 		margin:0px;
-		li{
-			display:inline-block;
-		}
+
 		li+li:before{
 		  content: ' | ';
 		}
 	}
 }
+
+.footer:hover{
+		height:120px;
+	}
