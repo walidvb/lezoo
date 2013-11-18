@@ -51,5 +51,13 @@
 
 		//--------------UUUUUGLY hack
 		$('.bootstrap-twocol-stacked .panel-panel.right').addClass('col-md-6 col-sm-6 col-xs-12');
+
+		//--------------Another ugly hack to avoid rewriting the whole carousel tpl
+		// $('.carousel-caption').once('lezoo', function(){
+		// 	$(this).addClass('clickable').on('click', function(){
+		// 		console.log($('h4', $(this));
+		// 		$('h4 a', $(this)).trigger('click');
+		// 	});
+		// })
 	};
 })(jQuery);

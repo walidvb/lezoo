@@ -51,7 +51,7 @@
                     to    = data.to;
               
                 if (from + $this.outerHeight() > data.end) {
-                    $this.css({position: "", top: "", left: "", overflow: "", height: ""}).removeClass('pin-fixed');
+                    $this.css({position: "", top: "", left: "", overflowY: "", height: ""}).removeClass('pin-fixed');
                     continue;
                 }
               
@@ -59,14 +59,14 @@
                     !($this.css("position") == "fixed") && $this.css({
                         left: $this.offset().left,
                         top: 0
-                    }).css({"position": "fixed", overflow: "auto", height: "100%"}).addClass('pin-fixed').removeClass('pin-absolute');
+                    }).css({"position": "fixed", overflowY: "auto", height: "100%"}).addClass('pin-fixed').removeClass('pin-absolute');
                 } else if (scrollY >= to) {
                     $this.css({
                         left: "auto",
                         top: to - data.parentTop
-                    }).css({position: "absolute", height: "", overflo: ""}).addClass('pin-absolute').removeClass('pin-fixed');
+                    }).css({position: "absolute", height: "", overflowY: ""}).addClass('pin-absolute').removeClass('pin-fixed');
                 } else {
-                    $this.css({position: "", top: "", left: "", overflow: "", height: ""});
+                    $this.css({position: "", top: "", left: "", overflowY: "", height: ""});
                 }
           }
         };

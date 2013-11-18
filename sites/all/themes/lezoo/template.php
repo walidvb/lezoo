@@ -24,90 +24,68 @@ function lezoo_preprocess_html(&$variables) {
  * Overrides theme_menu_link().
  */
 function lezoo_menu_link(array $variables) {
-  $element = $variables['element'];
-  $sub_menu = '';
-  $element['#attributes']['class'][] = strtolower($element['#title']);
+	$element = $variables['element'];
+	$sub_menu = '';
+	$element['#attributes']['class'][] = strtolower($element['#title']);
   //change behavior for visu
-  if($element['#original_link']['mlid'] == '1266')
+	if($element['#original_link']['mlid'] == '1266')
+	{
+  	  // On primary navigation menu, class 'active' is not set on active menu item.
+	  // @see https://drupal.org/node/1896674
+		$current_page = explode('/', $_GET['q']);
+		if (($element['#href'] == $current_page[0] || ($element['#href'] == '<front>' && drupal_is_front_page())) && (empty($element['#localized_options']['language']))) {
+			$element['#attributes']['class'][] = 'active';
+		}
+		$output = l($element['#title'], $element['#href'], $element['#localized_options']);
+		unset($element['#below']['#theme_wrappers']);
+		unset($element['#below']['#sorted']);
+		$sub_menu .= '<ul class="sub-menu">';
+		foreach($element['#below'] as $child)
+		{
+			$sub_menu .= render($child);
+		}
+		$sub_menu .= '</ul>';
+		return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";;
+	}
+  else //return bootstrap_menu_link().
   {
-  	$output = l($element['#title'], $element['#href'], $element['#localized_options']);
-  	unset($element['#below']['#theme_wrappers']);
-  	unset($element['#below']['#sorted']);
-  	$sub_menu .= '<ul class="sub_menu">';
-  	foreach($element['#below'] as $child)
-  	{
-  		dpm($child);
-  		$sub_menu .= render($child);
-  	}
-  	$sub_menu .= '</ul>';
-  	dpm($sub_menu, 'submenu');
-  	dpm($output, 'output');
-  	return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";;
+  	return bootstrap_menu_link($variables);
   }
-  if ($element['#below']) {
-    // Prevent dropdown functions from being added to management menu so it
-    // does not affect the navbar module.
-    if (($element['#original_link']['menu_name'] == 'management') && (module_exists('navbar'))) {
-      $sub_menu = drupal_render($element['#below']);
-    }
-    else {
-      // Add our own wrapper.
-      unset($element['#below']['#theme_wrappers']);
-      $sub_menu = '<ul class="dropdown-menu">' . drupal_render($element['#below']) . '</ul>';
-      $element['#localized_options']['attributes']['class'][] = 'dropdown-toggle';
-      $element['#localized_options']['attributes']['data-toggle'] = 'dropdown';
-
-      // Check if this element is nested within another.
-      if ((!empty($element['#original_link']['depth'])) && ($element['#original_link']['depth'] > 1)) {
-        // Generate as dropdown submenu.
-        $element['#attributes']['class'][] = 'dropdown-submenu';
-      }
-      else {
-        // Generate as standard dropdown.
-        $element['#attributes']['class'][] = 'dropdown';
-        $element['#localized_options']['html'] = TRUE;
-        $element['#title'] .= ' <span class="caret"></span>';
-      }
-
-      // Set dropdown trigger element to # to prevent inadvertant page loading
-      // when a submenu link is clicked.
-      $element['#localized_options']['attributes']['data-target'] = '#';
-    }
-  }
-  // On primary navigation menu, class 'active' is not set on active menu item.
-  // @see https://drupal.org/node/1896674
-  if (($element['#href'] == $_GET['q'] || ($element['#href'] == '<front>' && drupal_is_front_page())) && (empty($element['#localized_options']['language']))) {
-    $element['#attributes']['class'][] = 'active';
-  }
-  $output = l($element['#title'], $element['#href'], $element['#localized_options']);
-  return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
 }
 
 
 function lezoo_preprocess_page(&$variables) {
 	if(!empty($variables['node']))
 	{
-		dpm($variables['node']);
 		switch($variables['node']->type)
 		{
 			case 'event':
-				menu_set_active_item('agenda');
-				break;
+			menu_set_active_item('agenda');
+			break;
 			case 'installations':
+			menu_set_active_item('visu');
+			break;
+			case 'blog_post':
+			dpm($variables['node']->field_section['und']['0']['tid']);
+			switch($variables['node']->field_section['und']['0']['tid'])
+			{
+				case 28:
+				menu_set_active_item('podcasts');
+				break;
+				case 27:
 				menu_set_active_item('visu');
 				break;
-			case 'blog_post':
-				dpm($variables['node']->field_section['und']['0']['tid']);
-				switch($variables['node']->field_section['und']['0']['tid'])
-				{
-					case 28:
-						menu_set_active_item('podcasts');
-						break;
-					case 27:
-						menu_set_active_item('visu');
-						break;
-				}
-				break;
+			}
+			break;
+		}
+	}
+	else
+	{
+		switch($variables['theme_hook_suggestions'])
+		{
+			case 'page__visu':
+			menu_set_active_item('visu');
+			break;
 		}
 	}
 }
@@ -194,7 +172,6 @@ function lezoo_video_filter_iframe(&$variables) {
  * Bootstrap theme wrapper function for the primary menu links.
  */
 function lezoo_menu_tree__primary(&$variables) {
-	dpm($variables);
 	return '<ul class="menu nav navbar-nav primary">' . $variables['tree'] . '</ul>';
 }
 

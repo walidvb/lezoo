@@ -34,8 +34,13 @@ else
 						<?php print render($title_prefix); ?>
     						<<?php print $title_tag; print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></<?php print $title_tag?>>
 						<?php print render($title_suffix); ?>
-						<?php print render($content['field_addthis']) ?>
-						<?php print $ics;dpm($ics); ?>
+						<?php if($view_mode == 'full')
+						{
+						 print render($content['field_addthis']);
+						 print $ics; 
+						}
+						?>
+
 					</div>
 				</div>
 				<?php if(!$teaser): ?>
