@@ -1,0 +1,29 @@
+<html>
+<head>
+	<title>Hi</title>
+	<script src="angular.js"/>
+	<script type="text/javascript">
+	var leZooApp = angular.module('leZooApp', []);
+
+leZooApp.controller('feedFilter', function ($scope) {
+  $scope.genres = [
+    {'name': 'Techno',
+     'value': 'checked'},
+    {'name': 'Reggae',
+     'value': 'checked'},
+  ];
+});
+	</script>
+</head>
+<body>
+<div ng-app="leZooApp">
+    <div ng-Controller="feedFilter">
+        <form>
+            <span ng-repeat="genre in genres">
+                <input type="checkbox" name="{{genre.name}}" value="{{genre.checked}}"/>
+            </span>
+        </form>
+    </div>
+</div>
+</body>
+</html>

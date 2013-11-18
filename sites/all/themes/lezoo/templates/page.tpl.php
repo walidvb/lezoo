@@ -1,4 +1,4 @@
-<header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
+<header id="navbar" role="banner" class="<?php print $navbar_classes; ?> navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
       <?php if ($logo): ?>
@@ -53,6 +53,7 @@
     <div class="col-md-1 col-sm-1 col-xs-1 col-lg-1"><div></div></div>
     <div class="col-md-1 col-sm-1 col-xs-1 col-lg-1"><div></div></div>
   </div>
+  
   <header role="banner" id="page-header">
     <?php if (!empty($site_slogan)): ?>
       <p class="lead"><?php print $site_slogan; ?></p>

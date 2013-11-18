@@ -15,29 +15,77 @@ function lezoo_preprocess_html(&$variables) {
 
 }
 
+/**
+ * @file
+ * menu-link.func.php
+ */
+
+/**
+ * Overrides theme_menu_link().
+ */
+function lezoo_menu_link(array $variables) {
+	$element = $variables['element'];
+	$sub_menu = '';
+	$element['#attributes']['class'][] = strtolower($element['#title']);
+  //change behavior for visu
+	if($element['#original_link']['mlid'] == '1266')
+	{
+  	  // On primary navigation menu, class 'active' is not set on active menu item.
+	  // @see https://drupal.org/node/1896674
+		$current_page = explode('/', $_GET['q']);
+		if (($element['#href'] == $current_page[0] || ($element['#href'] == '<front>' && drupal_is_front_page())) && (empty($element['#localized_options']['language']))) {
+			$element['#attributes']['class'][] = 'active';
+		}
+		$output = l($element['#title'], $element['#href'], $element['#localized_options']);
+		unset($element['#below']['#theme_wrappers']);
+		unset($element['#below']['#sorted']);
+		$sub_menu .= '<ul class="sub-menu">';
+		foreach($element['#below'] as $child)
+		{
+			$sub_menu .= render($child);
+		}
+		$sub_menu .= '</ul>';
+		return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";;
+	}
+  else //return bootstrap_menu_link().
+  {
+  	return bootstrap_menu_link($variables);
+  }
+}
+
+
 function lezoo_preprocess_page(&$variables) {
 	if(!empty($variables['node']))
 	{
 		switch($variables['node']->type)
 		{
 			case 'event':
-				menu_set_active_item('agenda');
-				break;
+			menu_set_active_item('agenda');
+			break;
 			case 'installations':
+			menu_set_active_item('visu');
+			break;
+			case 'blog_post':
+			dpm($variables['node']->field_section['und']['0']['tid']);
+			switch($variables['node']->field_section['und']['0']['tid'])
+			{
+				case 28:
+				menu_set_active_item('podcasts');
+				break;
+				case 27:
 				menu_set_active_item('visu');
 				break;
-			case 'blog_post':
-				dpm($variables['node']->field_section['und']['0']['tid']);
-				switch($variables['node']->field_section['und']['0']['tid'])
-				{
-					case 28:
-						menu_set_active_item('podcasts');
-						break;
-					case 27:
-						menu_set_active_item('visu');
-						break;
-				}
-				break;
+			}
+			break;
+		}
+	}
+	else
+	{
+		switch($variables['theme_hook_suggestions'])
+		{
+			case 'page__visu':
+			menu_set_active_item('visu');
+			break;
 		}
 	}
 }

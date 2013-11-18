@@ -1,6 +1,7 @@
 <?php
 module_load_include('inc', 'lezoo', 'date');
 module_load_include('inc', 'lezoo', 'date_filter');
+module_load_include('inc', 'lezoo', 'modal');
 
 //------------- New date formatter of form <span>fri</span><span>23</span>
 
