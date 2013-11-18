@@ -8,6 +8,9 @@ setlocale(LC_ALL, 'fr_FR');
 function lezoo_preprocess_html(&$variables) {
 	drupal_add_css('//cdnjs.cloudflare.com/ajax/libs/animate.css/2.0/animate.min.css', array('type' => 'external'));
 	drupal_add_js('//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js', array('type' => 'external'));
+	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.1/angular.min.js', array('type' => 'external'));
+	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.1/angular-resource.js', array('type' => 'external'));
+
 	if(isset($variables['user']->roles['3']))
 	{
 		$variables['classes_array'][] = $variables['user']->roles['3'];
