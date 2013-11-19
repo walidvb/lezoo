@@ -16,14 +16,22 @@
 
         $scope.genres = results.genres;
         console.log($scope.genres);
-        for(genre in $scope.genres)
+        for(var i = 0; i< $scope.genres.length; i++)
         {
-          console.log(genre);
-          genre.value = 'checked';
-        }
-      })
 
-      console.log($scope);  
+          $scope.genres[i].selected = 'true';
+        }
+      });
+
+      $scope.params = function(){
+        var result = [];
+        angular.forEach($scope.genres, function(item){
+          console.log(item);
+          if (item.selected) result.push(item.tid);
+        });
+        return (result.length == $scope.genres.length || result.length == 0) ? '' : result.join('+') + '/';
+      };
+
     });
   }
 })(jQuery);
