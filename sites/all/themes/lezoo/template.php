@@ -2,6 +2,11 @@
 
 setlocale(LC_ALL, 'fr_FR');
 
+function lezoo_shs_term_get_children_alter(&$terms, $alter_options) {
+	dpm($terms);
+	dpm($alter_options);
+}
+
 /**
  * @file template.php
  */
