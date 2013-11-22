@@ -85,6 +85,7 @@ if(!empty($content['field_image']))
   hide($content['field_image']);
   $cols2 = true;
 }
+dpm($page,'$page');
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 

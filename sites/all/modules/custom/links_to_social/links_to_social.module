@@ -4,7 +4,7 @@
  * Drupal needs this blank file.
  */
 
-function links_to_social_preprocess_node(&$vars)
+function links_to_social_preprocess_page(&$vars)
 {
     drupal_add_css(drupal_get_path('module', 'links_to_social') . '/links_to_social.css');
 }

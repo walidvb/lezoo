@@ -2,7 +2,7 @@
   Drupal.behaviors.lezooAngular = {};
   Drupal.behaviors.lezooAngular.attach = function(context) {
 
-    var leZooApp = angular.module('leZooApp', ['ngResource']);
+    var leZooApp = angular.module('leZooApp', []);
 
     leZooApp.factory('genresFactory', function($http){
       return {

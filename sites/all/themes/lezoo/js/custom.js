@@ -59,7 +59,7 @@
 
 
 		//--------------UUUUUGLY hack
-		$('.bootstrap-twocol-stacked .panel-panel.right').addClass('col-md-6 col-sm-6 col-xs-12');
+		//$('.bootstrap-twocol-stacked .panel-panel.right').addClass('col-md-6 col-sm-6 col-xs-12');
 
 
 		//--------------Another ugly hack to avoid rewriting the whole carousel tpl
@@ -69,9 +69,6 @@
 		// 		$('h4 a', $(this)).trigger('click');
 		// 	});
 		// })
-
-		//-------UUUUUUGLY
-		$('.panel-panel.right').addClass('col-md-6 col-sm-6 col-xs-12');
 	};
 
 })(jQuery);
