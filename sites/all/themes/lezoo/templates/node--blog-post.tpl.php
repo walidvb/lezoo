@@ -32,8 +32,8 @@ print "$ispage";
   <?php print $user_picture; ?>
 
   <?php print render($title_prefix); ?>
-  <?php if(!empty($title) && !$is_page): ?>
-  <h3<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h3>
+  <?php if(!empty($title) || !$is_page): ?>
+  <<?php print $title_tag; print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></<?php print $title_tag?>>
 <?php endif; ?>
 <?php print render($content['field_addthis']); ?>
 <?php print render($title_suffix); ?> 
