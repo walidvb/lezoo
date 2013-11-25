@@ -49,12 +49,41 @@ h2 ,h1{
 	}
 }
 
+
 .node-teaser{
-	.node-content{
-		//background-color: blue;
-		.header{
+
+	/*
+	.transition(all 0.4s);
+	background-color: @fourth-color;
+	:hover{
+		.transition(all 0.4s);
+		background-color: lighten(@fourth-color, 20%);
+	}
+	*/
+	.header{
 			display: inline-block;
 			width: 100%;
+		}
+
+	.content{
+		display:block !important;
+	}
+	.field-big-image{
+		height:220px;
+		overflow: hidden;
+	}
+	.node-readmore{
+		.make-md-column(12);
+		background-color: @tertiary-color;
+		.transition(all 0.4s);
+		:hover{
+			background-color: lighten(@tertiary-color, 10%);
+		}
+		a:before{
+			content:'+ ';
+		}
+		a{
+			color: @black;
 		}
 	}
 }
