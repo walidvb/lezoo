@@ -27,6 +27,7 @@ scripts[] = libs/jquery.pin.js
 ; Stylesheets
 stylesheets[all][] = css/style.css
 scripts[] = js/custom.js
+scripts[] = js/myAngular.js
 
 
 ;**********************************

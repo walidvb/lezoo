@@ -3,7 +3,6 @@
 	Drupal.behaviors.lezoo.attach = function(context) {
 		//-------------- change menu item
 		var active_trail = $('.primary > .dropdown').find('ul .active-trail a').text();
-		console.log(active_trail);
 		if(active_trail)
 		{
 			$('.primary .dropdown-toggle').html(active_trail + '<span class="caret"></span>');
@@ -25,7 +24,6 @@
 
 		var activeText = $('.primary .last .dropdown-menu .active-trail a').text();
 		var normalText = $('.primary .last .dropdown-toggle').text();
-		console.log(activeText);
 		if(activeText != '')
 		{
 			$('.primary .last .dropdown-toggle').html(activeText + '<span class="caret"></span>');
@@ -61,7 +59,7 @@
 
 
 		//--------------UUUUUGLY hack
-		$('.bootstrap-twocol-stacked .panel-panel.right').addClass('col-md-6 col-sm-6 col-xs-12');
+		//$('.bootstrap-twocol-stacked .panel-panel.right').addClass('col-md-6 col-sm-6 col-xs-12');
 
 
 		//--------------Another ugly hack to avoid rewriting the whole carousel tpl
@@ -71,9 +69,6 @@
 		// 		$('h4 a', $(this)).trigger('click');
 		// 	});
 		// })
-
-		//-------UUUUUUGLY
-		$('.panel-panel.right').addClass('col-md-6 col-sm-6 col-xs-12');
 	};
 
 })(jQuery);

@@ -25,5 +25,6 @@ function _lezoo_get_genres()
 {
 	$result;
 	$result = taxonomy_get_tree(2, 0, 1);
-	return drupal_json_output($result);
+
+	return drupal_json_output(array('genres' => $result));
 }
