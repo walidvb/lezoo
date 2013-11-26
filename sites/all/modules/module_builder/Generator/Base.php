@@ -21,7 +21,7 @@ namespace ModuleBuider\Generator;
  * given component (e.g., 'module'), and then adding generators this one
  * requests, recursing this process into each new generator and building a tree
  * down from the original one. This is achieved by each generator class
- * implementing subComponents() to return its child components. The process ends
+ * implementing requiredComponents() to return its child components. The process ends
  * when the added generators are themselves one that return no sub-components.
  *
  * So for example, the caller requests a 'module' component. This causes
@@ -121,14 +121,16 @@ abstract class BaseGenerator {
   public $base_component;
 
   /**
-   * The base component's subcomponents.
+   * The base component's flat list of components.
    *
    * This is keyed by the name of the component name. Values are the
    * instantiated component generators.
    *
    * (This is only present on the base component.)
    *
-   * TODO: add an abstract BaseComponent class?
+   * TODO: It might be cleaner to add an abstract BaseComponent class, but then
+   * we'd lose the flexibility of base components being usable as by other
+   * components, or anything being requestable as a base.
    */
   public $components = array();
 
@@ -156,7 +158,7 @@ abstract class BaseGenerator {
    *   (optional) An array of data for the component.
    *   While each component will have its own array of data, components may also
    *   need to access the data of the root component. For this, use
-   *   getBaseComponent().
+   *   $task->getRootGenerator() (for now!).
    *   TODO: check whether components really need to do this, as removing this
    *   would simplify things!
    */
@@ -166,7 +168,25 @@ abstract class BaseGenerator {
   }
 
   /**
-   * Returns the base component for this component (or itself if it's the base).
+   * Get the default value for an item in the component's required data.
+   *
+   * This should be implemented by entry components. It is for use by UIs that
+   * want to present default values to the user in a progressive manner. For
+   * example, the Drush interactive mode may present a default value for the
+   * module human name based on the value the user has already entered for the
+   * machine name.
+   *
+   * @param $component_data
+   *  The array of component data assembled so far, passed by reference. The
+   *  default value gets set at $property_name.
+   * @param $property_name
+   *  The name of a property in $component_data.
+   */
+  function getComponentDataDefaultValue($component_data, $property_name) {
+  }
+
+  /**
+   * Get the root component's data.
    *
    * This can be used in circumstances where it's not known whether the current
    * component is the base or not.
@@ -174,37 +194,32 @@ abstract class BaseGenerator {
    * @return
    *  The base component.
    */
-  function getBaseComponent() {
-    if (isset($this->base_component)) {
-      // If the base component is set, return that.
-      // @see Generate::getGenerator().
-      return $this->base_component;
-    }
-    else {
-      // If it's not set, we're the base component, so return ourselves.
-      return $this;
-    }
+  function getRootComponentData() {
+    // Get the root component from the Task, which is the autority on this.
+    $root_component = $this->task->getRootGenerator();
+
+    return $root_component->component_data;
   }
 
   /**
    * Returns the flat list of components, as assembled by assembleComponentList().
    */
   function getComponentList() {
-    $base = $this->getBaseComponent();
+    $base = $this->task->getRootGenerator();
     return $base->components;
   }
 
   /**
-   * Get the subcomponents for this generator.
+   * Get the list of required components this generator.
    *
-   * This calls itself recursively on the subcomponents, thus building a nested
-   * tree of generators.
+   * This calls itself recursively on the returned components, so that any added
+   * component may in turn add more.
    *
-   * Generator classes should implement subComponents() to return the list
+   * Generator classes should implement requiredComponents() to return the list
    * of component types they require, possibly depending on incoming data.
    *
    * Obviously, it's important that eventually this process terminate with
-   * generators that return an empty array for subComponents().
+   * generators that return an empty array for requiredComponents().
    *
    * @return
    *  None. This should set an array of subcomponent generators on the property
@@ -212,10 +227,10 @@ abstract class BaseGenerator {
    */
   public function assembleComponentList() {
     // Get the base component to add the generators to it.
-    $base_component = $this->getBaseComponent();
+    $base_component = $this->task->getRootGenerator();
 
     // Get the required subcomponents.
-    $subcomponent_info = $this->subComponents();
+    $subcomponent_info = $this->requiredComponents();
 
     // Instantiate each one (if not already done), and recurse into it.
     foreach ($subcomponent_info as $component_name => $data) {
@@ -250,7 +265,7 @@ abstract class BaseGenerator {
   }
 
   /**
-   * Return an array of subcomponent types.
+   * Get this component's required components.
    *
    * For example, a module component requires hooks, an info file, and a readme
    * file. Hooks in turn require a varying number of files, determined by the
@@ -272,7 +287,7 @@ abstract class BaseGenerator {
    *      is ignored on later components! This is because -- so far! -- no
    *      components that get requested multiple times require this!)
    */
-  protected function subComponents() {
+  protected function requiredComponents() {
     return array();
   }
 
@@ -337,7 +352,7 @@ abstract class BaseGenerator {
    * here should override this.
    */
   public function assembleContainedComponents() {
-    $base_component = $this->getBaseComponent();
+    $base_component = $this->task->getRootGenerator();
 
     // If we're not in the tree, we have nothing to say here and bail.
     if (!isset($base_component->tree[$this->name])) {

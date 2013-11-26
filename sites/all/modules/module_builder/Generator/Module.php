@@ -10,13 +10,23 @@ namespace ModuleBuider\Generator;
 /**
  * Component generator: module.
  *
- * Hierarchy of generators beneath this:
- *  - hooks
- *    - code files
- *  - info
- *  - readme
- *  - api
- *  - tests
+ * This is a base generator: that is, it's one that may act as the initial
+ * requested component given to Task\Generate. (In theory, this could also get
+ * requested by something else, for example if we wanted Tests to be able to
+ * request a testing module, but that's for another day.)
+ *
+ * Conceptual hierarchy of generators beneath this in the request tree:
+ *  - Hooks
+ *    - HookImplementation (multiple)
+ *  - RouterItem
+ *    - HookMenu (which is itself a HookImplementation!)
+ *    - Routing (D8 only)
+ *  - PHPFile (multiple)
+ *  - Info
+ *  - Readme
+ *  - API
+ *  - Tests
+ *  - AdminSettingsForm
  *
  * This generator looks in $module data to determine which of these generators
  * to add. Generators can be requested by name, with various extra special
@@ -63,7 +73,7 @@ class Module extends BaseGenerator {
    *    - 'module_files': ??? OBSOLETE!? added by this function. A flat array
    *      of filenames that have been generated.
    *    - 'requested_build': An array whose keys are names of subcomponents to
-   *       build. Component names are defined in subComponents(), and include:
+   *       build. Component names are defined in requiredComponents(), and include:
    *       - 'all': everything we can do.
    *       - 'code': PHP code files.
    *       - 'info': the info file.
@@ -76,15 +86,94 @@ class Module extends BaseGenerator {
    *         extension.
    *    - 'requested_components': An array of components to build (in addition
    *      to any that are added automatically). This should in the same form
-   *      as the return from subComponents(), thus keyed by component name,
+   *      as the return from requiredComponents(), thus keyed by component name,
    *      with values either a component type or an array of data.
    *  Properties added by generators during the process:
    *    - 'hook_file_data': Added by the Hooks generator. Keyed by the component
    *      names of the ModuleCodeFile type components that Hooks adds.
    */
   function __construct($component_name, $component_data = array()) {
+    // Fill in all defaults. This allows default values to be set here that
+    // are not involved in the UI, such as the module class name.
+    $this->getComponentDataDefaultValue($component_data);
+
     // This method is only here to document the component data.
     parent::__construct($component_name, $component_data);
+  }
+
+  /**
+   * Set a default value for a property in the component data array.
+   *
+   * This should be implemented by entry components. It is for use by UIs that
+   * want to present default values to the user in a progressive manner. For
+   * example, the Drush interactive mode may present a default value for the
+   * module human name based on the value the user has already entered for the
+   * machine name.
+   *
+   * To get the full benefit of this, it is important to call this function
+   * in the correct order, as given by the array of values in the function.
+   *
+   * @param $component_data
+   *  The array of component data assembled so far, passed by reference. The
+   *  default value will get set at $property_name, if a default is available.
+   * @param $property_name
+   *  (optional) The name of a property in $component_data to get a default
+   *  value for. If omitted, all existing default values will be merged in.
+   */
+  public function getComponentDataDefaultValue(&$component_data, $property_name = NULL) {
+    // The default values that this component provides.
+    // This may use anonymous functions for default values that rely on other
+    // values in the component data, including ones which may not be set when
+    // we come here for earlier values. This may seem like over-engineering,
+    // but it means that we don't need to repeat the list of property names.
+    // Note that values can only depend on values earlier in the array.
+    $default_values = array(
+      'module_root_name' => 'mymodule',
+      'module_readable_name' => function($component_data) {
+        return ucfirst(str_replace('_', ' ', $component_data['module_root_name']));
+      },
+      'module_short_description' => 'TODO: Description of module',
+      // The following defaults are for ease of developing.
+      // Uncomment them to reduce the amount of typing needed for testing.
+      //'hooks' => 'init',
+      //'router_items' => 'path/foo path/bar',
+      // The following properties shouldn't be offered as UI options.
+      'module_camel_case_name' => function($component_data) {
+        $pieces = explode('_', $component_data['module_root_name']);
+        $pieces = array_map('ucfirst', $pieces);
+        return implode('', $pieces);
+      },
+    );
+
+    if (isset($property_name)) {
+      // Don't clobber existing values; only set a default if there is nothing
+      // already present for that property.
+      if (!isset($component_data[$property_name]) && isset($default_values[$property_name])) {
+        // The default value in the array is either an anonymous function, or
+        // a plain value.
+        if (is_callable($default_values[$property_name])) {
+          $default_value = $default_values[$property_name]($component_data);
+        }
+        else {
+          $default_value = $default_values[$property_name];
+        }
+
+        $component_data[$property_name] = $default_value;
+      }
+      return;
+    }
+    else {
+      // If the property name isn't given, we're being asked to merge in all
+      // defaults that we know about. Call ourselves recursively for all the
+      // property names.
+      $property_names = array_keys($default_values);
+      foreach ($property_names as $property_name) {
+        $this->getComponentDataDefaultValue($component_data, $property_name);
+      }
+
+      // This is just for visual symmetry with the other clause.
+      return;
+    }
   }
 
   /**
@@ -98,7 +187,7 @@ class Module extends BaseGenerator {
    * @return
    *  An array of subcomponent types.
    */
-  protected function subComponents() {
+  protected function requiredComponents() {
     // Add in defaults. This can't be done in __construct() because root
     // generators actually don't get their component data till later. WTF!
     $this->component_data += array(

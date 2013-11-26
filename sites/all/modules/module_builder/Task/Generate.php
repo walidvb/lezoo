@@ -75,6 +75,18 @@ class Generate extends Base {
   }
 
   /**
+   * Get the root generator.
+   *
+   * This may be used by UIs that want to provide interactive building up of
+   * component parameters.
+   *
+   * @see ModuleBuider\Generator\BaseGenerator::getComponentDataDefaultValue().
+   */
+  public function getRootGenerator() {
+    return $this->root_generator;
+  }
+
+  /**
    * Generate the files for a component.
    *
    * This is the entry point for the generating system.
@@ -92,13 +104,24 @@ class Generate extends Base {
    *  values are the code destined for each file.
    */
   public function generateComponent($component_data) {
-    // Add the top-level component to the data.
-    $component_data['base'] = $this->base;
+    // The dummy generator that was made by __construct() should now be removed;
+    // it is not fully set up, and its presence would cause a tangled mess in
+    // getGenerator().
+    $this->root_generator = NULL;
 
-    // Set the component data on the base generator.
-    // We couldn't do this earlier in __construct() because we didn't have the
-    // data at that point.
-    $this->root_generator->component_data = $component_data;
+    // Add the top-level component to the data.
+    $component_type = $this->base;
+    $component_data['base'] = $component_type;
+
+    // The component name is just the same as the type for the base generator.
+    $component_name = $component_type;
+
+    // Repeat the steps from __construct() now we have proper component data.
+    // The component name is just the same as the type for the base generator.
+    $root_generator = $this->getGenerator($component_type, $component_name, $component_data);
+
+    // Set the root generator on ourselves now we actually have it.
+    $this->root_generator = $root_generator;
 
     // Recursively get subcomponents.
     $this->root_generator->assembleComponentList();
@@ -112,11 +135,16 @@ class Generate extends Base {
 
     //drush_print_r($generator->components);
 
-    // Recursively build files.
+    // Build files.
+    // First we recurse into the tree to collect data on the files needed. Each
+    // component gets to add to the files array.
     $files = array();
     $this->root_generator->collectFiles($files);
     //drush_print_r($files);
 
+    // Then we assemble the files into a simple array of full filename and
+    // contents.
+    // TODO: rename this to buildFiles().
     $files_assembled = $this->root_generator->assembleFiles($files);
 
     return $files_assembled;
@@ -159,7 +187,7 @@ class Generate extends Base {
    *  The type of the component. This is used to determine the class.
    *
    * @return
-   *  A class name for the type and, if it exists, version, e.g.
+   *  A fully qualified class name for the type and, if it exists, version, e.g.
    *  'ModuleBuider\Generator\Info6'.
    *
    * @see Generate::generatorAutoload()

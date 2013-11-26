@@ -1,4 +1,4 @@
-<?php
+  <?php
 
 if(isset($content['field_music_genre']))
 {
@@ -6,29 +6,16 @@ if(isset($content['field_music_genre']))
   $genres['#access'] = true;
   hide($content['field_music_genre']);
 }
-
 if(isset($content['field_tags']))
 {
   $tags = $content['field_tags'];
   hide($content['field_tags']);
 }
 
-if(!$page)
-{
-  $title_tag = 'h3';
-}
-else
-{
-  $title_tag = 'h1';
-}
-
-
 ?>
 
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes ?> clearfix"<?php print $attributes; ?>>
-<?php print($ispage);
-print "$ispage";
-?>
+
   <?php print $user_picture; ?>
 
   <?php print render($title_prefix); ?>
@@ -64,7 +51,7 @@ print "$ispage";
   <div class="blog-info">
     <?php if(!$is_page): ?>
     <?php if(!$teaser): ?>
-    <a href="#" class="expand-post">ouvrir</a>
+    <a href="#" class="expand-post">t(ouvrir)</a>
   <?php else: ?>
   <?php print l(t('+Read more'), 'node/' . $nid); ?>
 <?php endif; ?>

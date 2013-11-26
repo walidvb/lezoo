@@ -80,7 +80,7 @@ function render_date($date, $format)
 	$day = strftime('%a', $date);
 	$date = strftime('%d', $date);
 
-	$output = "<span class=\"day\">$day</span>\n<span class=\"date-number\">$date</span>";
+	$output = "<span class=\"day\">$day</span>\n<span class=\"date-number\">$date</span>\n";
   if($format == 'day_date_month')
   {
    $output .= "<span class=\"month\">$month</span>"; 

@@ -7,7 +7,7 @@
     leZooApp.factory('genresFactory', function($http){
       return {
         getGenresAsync: function(callback) {
-          $http.get('json/genres').success(callback);
+          $http.get(Drupal.settings.basePath + 'json/genres').success(callback);
         }
       }
     })
@@ -15,7 +15,7 @@
       genresFactory.getGenresAsync(function(results){
 
         $scope.genres = results.genres;
-        console.log($scope.genres);
+        //console.log($scope.genres);
         for(var i = 0; i< $scope.genres.length; i++)
         {
 
@@ -26,7 +26,7 @@
       $scope.params = function(){
         var result = [];
         angular.forEach($scope.genres, function(item){
-          console.log(item);
+          //console.log(item);
           if (item.selected) result.push(item.tid);
         });
         return (result.length == $scope.genres.length || result.length == 0) ? '' : result.join('+') + '/';
