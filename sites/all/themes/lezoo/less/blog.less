@@ -13,8 +13,8 @@
 		}
 	}
 	.field-body{
-		height: 400px;
-		overflow: scroll;
+		background-color: @secondary-color;
+		padding: @padding-base-horizontal;
 	}
 	.contextual-links-region{
 		display: none;
@@ -22,10 +22,24 @@
 	.artists{
 		display: none;
 	}
+
+	.field-label{
+		display: inline-block;
+	}
+	.field-links {
+		display: inline-block;
+		margin-left: 0px;
+		li{
+			list-style: none;
+			display: inline-block;
+			padding-right: @padding-base-horizontal;
+		}
+	}
 }
 
 .blog-info{
 	background-color: lighten(@tertiary-color, 15%);
+	color: @secondary-color;
 	margin-top: 3px;
 	padding: 3px 5px;
 	text-align: right;
@@ -34,10 +48,15 @@
 	>div, .tags > div{
 		display: inline-block;
 	}
+
+	.expand-post{
+		color: @fourth-color;
+	}
 	.tags:before, .user:before, .timestamp:before{
 		.icon();
 		padding: 0px 15px;
 	}
+
 	.tags:before{
 		content: 'T';
 	}

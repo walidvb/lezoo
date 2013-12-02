@@ -22,10 +22,13 @@
 @import 'widget.less';
 @import 'home.less';
 @import 'pro.less';
+@import 'install.less';
 
 body{
 	background-color: @fourth-color;
 	color: @primary-color;
+	margin-top: 85px;
+	margin-bottom: 25px;
 }
 a{
 	font-family: inherit;
@@ -38,10 +41,11 @@ a{
 
 //---------------------------------- Admin stuff
 .administrator{
+	#navbar{
+		margin-top: 20px;
+	}
 	.main-container{
-		position: relative;
-		margin-top: 45px;
-		margin-bottom: 25px;
+		margin-top: 80px;
 	}
 	.grid{
 		position: absolute;

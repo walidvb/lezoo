@@ -1,0 +1,44 @@
+.field-photos{
+	a{
+		transparency: 0.8;
+	}
+	a:hover{
+		transparency: 1;
+	}
+}
+	.field-event-ref{
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	.header{
+		.event-titles, .event-meta{
+			display: none;
+		}
+		.date{
+			width: 100%;
+			transparency: 1;
+		}
+		.day, .date-number, .month{
+			display: inline-block !important;
+		}
+	}
+}
+
+// Full installation
+.node-installations{
+	.col-right{
+		padding-right: 0px;
+		padding-left: 0px;
+	}
+	.field-photos{
+		display: inline-block;
+		width: 32%;
+		height: 32%;
+		.opacity(0.7);
+		.transition-duration(0.5s);
+		&:hover{
+			.transition-duration(0.5s);
+			.opacity(1);
+		}
+	}
+}

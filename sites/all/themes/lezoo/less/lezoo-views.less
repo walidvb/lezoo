@@ -10,10 +10,10 @@
     height: 300px;
   }
   .view-content > h3{
-    border-top: @border;
-    border-bottom: @border;
+    display: block;
+    background-color: lighten(@tertiary-color, 15%);
+    color: @black;
     line-height: @line-height-large*1.5;
-    background-color: darken(@secondary-color, 15%);
     z-index: 3;
   }
 }
@@ -32,21 +32,3 @@ select.form-control#edit-field-music-genre-tid{
 .chosen-container{
   width: 200px !important;
 }
-
-.dated-node{
-    border-bottom: @border;
-    position:relative;
-    .genre{
-      float: right;
-      position: relative;
-      z-index: 2;
-      a{
-        color: white;
-      }
-    }
-
-    .header{
-      display: inline-block;
-      width:90%;
-    }
-  }
