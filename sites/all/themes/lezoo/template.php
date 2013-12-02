@@ -8,13 +8,11 @@ setlocale(LC_ALL, 'fr_FR');
 function lezoo_preprocess_html(&$variables) {
 	drupal_add_css('//cdnjs.cloudflare.com/ajax/libs/animate.css/2.0/animate.min.css', array('type' => 'external'));
 	drupal_add_js('//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js', array('type' => 'external'));
-	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.1/angular.min.js', array('type' => 'external'));
-	//drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.1/angular-resource.js', array('type' => 'external'));
-
 	if(isset($variables['user']->roles['3']))
 	{
 		$variables['classes_array'][] = $variables['user']->roles['3'];
 	}
+
 }
 
 /**
@@ -59,7 +57,6 @@ function lezoo_menu_link(array $variables) {
 function lezoo_preprocess_page(&$variables) {
 	if(!empty($variables['node']))
 	{
-		$variables['node']->is_page = true; // due to the fact that some module unsets $page before it gets to the tpl...
 		switch($variables['node']->type)
 		{
 			case 'event':
@@ -69,6 +66,7 @@ function lezoo_preprocess_page(&$variables) {
 			menu_set_active_item('visu');
 			break;
 			case 'blog_post':
+			dpm($variables['node']->field_section['und']['0']['tid']);
 			switch($variables['node']->field_section['und']['0']['tid'])
 			{
 				case 28:
@@ -90,19 +88,13 @@ function lezoo_preprocess_page(&$variables) {
 			break;
 		}
 	}
-		dpm($variables['node']);
-
 }
 
 /**
  * Implements hook_preprocess().
  */
 function lezoo_preprocess_node(&$variables) {
-
 	$variables['title_attributes_array']['class'] = 'node-title';
-	$variables['classes_array'][] = 'view-mode-' . $variables['view_mode'];
-	$variables['classes_array'][] = $variables['is_page'] ? 'node-open node-full-page' : 'node-closed node-in-list';
-
 	$variables['left_col_classes'] = "col-lg-5 col-md-4 col-sm-3 col-xs-12 pinned";
 	$variables['right_col_classes'] = "col-lg-7 col-md-8 col-sm-9 col-xs-12";
 	$variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__' . $variables['view_mode'];
@@ -122,7 +114,7 @@ function lezoo_preprocess_node(&$variables) {
 		{
 			if($variables['view_mode'] == 'full')
 			{
-				dpm($variables);
+				//dpm($variables);
 				//add related items to the views
 				$section = $variables['field_section']['und']['0']['tid'];
 				$genres;
@@ -148,9 +140,7 @@ function lezoo_preprocess_node(&$variables) {
 				$genres = empty($genres) ? null : $genres;
 				$tags = empty($tags) ? null : $tags;
 				$related = views_embed_view('related', 'default', $variables['nid'], $section, $genres, $tags);
-
-				$related_block = "<aside class=\"related-posts\"><h3 class=\"block-title related-title\">". t('Encore plus') ."</h3>" . $related . "</aside>";
-				$variables['related'] = $related_block;
+				$variables['related'] = $related;
 			}
 			if($variables['field_section']['und']['0']['tid'] == 28)
 			{
