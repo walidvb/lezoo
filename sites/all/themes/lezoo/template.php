@@ -10,11 +10,11 @@ function lezoo_preprocess_html(&$variables) {
 	drupal_add_js('//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js', array('type' => 'external'));
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.1/angular.min.js', array('type' => 'external'));
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', array('type' => 'external'));
-
 	if(isset($variables['user']->roles['3']))
 	{
 		$variables['classes_array'][] = $variables['user']->roles['3'];
 	}
+
 }
 
 /**
@@ -59,7 +59,6 @@ function lezoo_menu_link(array $variables) {
 function lezoo_preprocess_page(&$variables) {
 	if(!empty($variables['node']))
 	{
-		$variables['node']->is_page = true; // due to the fact that some module unsets $page before it gets to the tpl...
 		switch($variables['node']->type)
 		{
 			case 'event':
@@ -69,6 +68,7 @@ function lezoo_preprocess_page(&$variables) {
 			menu_set_active_item('visu');
 			break;
 			case 'blog_post':
+			dpm($variables['node']->field_section['und']['0']['tid']);
 			switch($variables['node']->field_section['und']['0']['tid'])
 			{
 				case 28:
@@ -96,7 +96,6 @@ function lezoo_preprocess_page(&$variables) {
  * Implements hook_preprocess().
  */
 function lezoo_preprocess_node(&$variables) {
-
 	$variables['title_attributes_array']['class'] = 'node-title';
 	$variables['classes_array'][] = 'view-mode-' . $variables['view_mode'];
 	$node_status = array(
@@ -109,6 +108,7 @@ function lezoo_preprocess_node(&$variables) {
 
 	$variables['left_col_classes'] = "col-left col-lg-5 col-md-4 col-sm-3 col-xs-12 pinned";
 	$variables['right_col_classes'] = "col-right col-lg-7 col-md-8 col-sm-9 col-xs-12";
+
 	$variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__' . $variables['view_mode'];
 	$variables['submitted'] = '<span class="user">'. $variables['user']->name . '</span><span class="timestamp">' . strftime('%d/%m/%Y', $variables['created']) . '</span>';
 	if(!$variables['is_front'])
@@ -126,7 +126,7 @@ function lezoo_preprocess_node(&$variables) {
 		{
 			if($variables['view_mode'] == 'full')
 			{
-				dpm($variables);
+				//dpm($variables);
 				//add related items to the views
 				$section = $variables['field_section']['und']['0']['tid'];
 				$genres;
@@ -163,6 +163,7 @@ function lezoo_preprocess_node(&$variables) {
 					$related_block = "<aside class=\"related-posts\"><h3 class=\"block-title related-title\">". t('Encore plus') ."</h3>" . $related . "</aside>";
 					$variables['related'] = $related_block;
 				}
+
 			}
 			if($variables['field_section']['und']['0']['tid'] == 28)
 			{

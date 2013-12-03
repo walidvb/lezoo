@@ -6957,15 +6957,17 @@ h1 a {
 }
 .node-title {
   font-size: 21px;
+<<<<<<< HEAD
   border-bottom: solid 1px #ffffff;
   padding: 5px 5px;
+=======
+>>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
 }
 .date {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
-  position: absolute;
   font-weight: bolder;
   color: rgba(255, 255, 255, 0.5);
   font-family: "Oswald", Helvetica, Arial, sans-serif;
@@ -6975,11 +6977,6 @@ h1 a {
   .date {
     float: left;
     width: 16.666666666666664%;
-  }
-}
-@media (min-width: 992px) {
-  .date {
-    margin-left: 83.33333333333334%;
   }
 }
 .date .date-number,
@@ -6999,6 +6996,7 @@ h1 a {
   font-size: 3em;
   text-transform: lowercase;
 }
+<<<<<<< HEAD
 .node-teaser {
   /*
 	.transition(all 0.4s);
@@ -7006,13 +7004,60 @@ h1 a {
 	:hover{
 		.transition(all 0.4s);
 		background-color: lighten(@fourth-color, 20%);
+=======
+.node-full-page .col-left {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 992px) {
+  .node-full-page .col-left {
+    float: left;
+    width: 41.66666666666667%;
+  }
+}
+.node-full-page .col-right {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 992px) {
+  .node-full-page .col-right {
+    float: left;
+    width: 58.333333333333336%;
+  }
+}
+.view-mode-full .node-closed {
+  /*
+	.title{
+		display: block;
+	    background-color: lighten(@tertiary-color, 15%);
+	    color: @black;
+	    line-height: @line-height-large*1.5;
+>>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
 	}
 	*/
 
 }
+<<<<<<< HEAD
 .node-teaser .header {
   display: inline-block;
   width: 100%;
+=======
+.node-teaser {
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.node-teaser :hover {
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.node-teaser .field-big-image {
+  height: 220px;
+  overflow: hidden;
+>>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
 }
 .node-teaser .content {
   display: block !important;
@@ -7053,10 +7098,10 @@ h1 a {
   height: 300px;
 }
 .view-id-teaser_list .view-content > h3 {
-  border-top: solid 3px #ffffff;
-  border-bottom: solid 3px #ffffff;
+  display: block;
+  background-color: #e5e5e5;
+  color: #000000;
   line-height: 1.995;
-  background-color: #232323;
   z-index: 3;
 }
 select.form-control#edit-field-music-genre-tid {
@@ -7072,6 +7117,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .chosen-container {
   width: 200px !important;
 }
+<<<<<<< HEAD
 .dated-node {
   border-bottom: solid 3px #ffffff;
   position: relative;
@@ -7089,6 +7135,8 @@ select.form-control#edit-field-music-genre-tid option:hover {
   width: 90%;
 }
 .event-node .header .event-genre,
+=======
+>>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
 .event-node .header .event-genre a {
   color: #bfbfbf;
 }
@@ -7105,6 +7153,10 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .event-node .header .event-title {
   margin-top: 0px;
   font-size: 25px;
+<<<<<<< HEAD
+=======
+  color: #494949;
+>>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
 }
 .event-node .header .event-title a {
   font-family: Georgia, "Times New Roman", Times, serif;
@@ -7137,9 +7189,14 @@ select.form-control#edit-field-music-genre-tid option:hover {
   }
 }
 .event-node .event-line-up-djs .artist {
+<<<<<<< HEAD
   display: block;
   z-index: 1;
   font-size: 31px;
+=======
+  z-index: 1;
+  font-size: 25px;
+>>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
   text-transform: uppercase;
   text-align: left;
   position: relative;
@@ -7147,16 +7204,168 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .event-node .event-line-up-vjs,
 .event-node .event-line-up-vjs a {
+<<<<<<< HEAD
   font-size: 15px;
+=======
+  font-size: 21px;
+>>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
   color: #bfbfbf;
 }
 .event-node .event-line-up-vjs .artist,
 .event-node .event-line-up-vjs a .artist {
   display: inline-block;
 }
-.event-node .event-flyer {
-  float: left;
-  padding-right: 10px;
+.node-event.view-mode-full .header {
+  min-height: 50px;
+  border-bottom: solid 3px #ffffff;
+  margin-bottom: 20px;
+}
+.node-event.view-mode-full .header .event-titles {
+  display: inline-block;
+  padding-left: 0px;
+  width: 100%;
+}
+.node-event.view-mode-full .header .event-titles .node-title {
+  font-size: 31px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.node-event.view-mode-full .header .event-meta {
+  display: inline-block;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  float: right !important;
+}
+@media (min-width: 992px) {
+  .node-event.view-mode-full .header .event-meta {
+    float: left;
+    width: 25%;
+  }
+}
+.node-event.view-mode-full .header .event-meta .event-social {
+  padding-right: 12px;
+}
+.node-event.view-mode-full .header .event-meta .genre {
+  padding-right: 12px;
+}
+.node-event.view-mode-full .header .date {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+.node-event.view-mode-full .artist {
+  display: block;
+}
+.node-event.view-mode-full .artist .artist-info {
+  color: #494949;
+}
+.node-event.view-mode-full .col-left .event-flyer {
+  display: block;
+}
+.node-event.view-mode-full .col-left .event-flyer img {
+  width: 100%;
+}
+.node-event.view-mode-full .col-left .event-details {
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 10px;
+  display: block;
+}
+.node-event.view-mode-full .col-left .event-details a {
+  color: #000000;
+}
+.node-event.view-mode-full .col-right .event-body {
+  height: 100%;
+}
+.node-teaser {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border-bottom: double 10px #ffffff;
+  min-height: 140px;
+}
+.node-teaser .dated-node {
+  min-height: 130px;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  background-color: #000000;
+}
+.node-teaser .dated-node:hover {
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  background-color: #4d4d4d;
+}
+.node-teaser .header {
+  width: 100%;
+  min-height: 40px;
+}
+.node-teaser .event-titles {
+  display: inline-block;
+  padding-left: 0px;
+}
+.node-teaser .event-titles .node-title {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.node-teaser .event-meta {
+  display: inline-block;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  float: right !important;
+}
+@media (min-width: 992px) {
+  .node-teaser .event-meta {
+    float: left;
+    width: 25%;
+  }
+}
+.node-teaser .date {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+.node-teaser .col-left,
+.node-teaser .col-right {
+  width: 100% !important;
+  padding-left: 0px;
+}
+.node-teaser .event-line-up {
+  padding-top: 6px;
+}
+.node-teaser .event-line-up-djs {
+  border-top: solid 1px #ffffff;
+}
+.node-teaser .artists {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  float: none!important;
+  padding-left: 0px!important;
+}
+@media (min-width: 992px) {
+  .node-teaser .artists {
+    float: left;
+    width: 91.66666666666666%;
+  }
+}
+.node-teaser .artist {
+  display: inline-block !important;
+  /*&:after{
+			content:', ';
+		}
+		*/
+
+}
+.node-teaser .artist-info {
+  display: none;
+}
+.is-sticky {
+  position: fixed;
+  top: 70px !important;
 }
 .node-event.view-mode-full .event-details {
   margin-top: 5px;
@@ -7226,6 +7435,13 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .node-blog-post .field-big-image img {
   width: 100%;
 }
+<<<<<<< HEAD
+=======
+.node-blog-post .field-body {
+  background-color: #494949;
+  padding: 12px;
+}
+>>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
 .node-blog-post .contextual-links-region {
   display: none;
 }
@@ -7246,6 +7462,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .blog-info {
   background-color: #e5e5e5;
+  color: #494949;
   margin-top: 3px;
   padding: 3px 5px;
   text-align: right;
@@ -7255,6 +7472,9 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .blog-info > div,
 .blog-info .tags > div {
   display: inline-block;
+}
+.blog-info .expand-post {
+  color: #000000;
 }
 .blog-info .tags:before,
 .blog-info .user:before,
@@ -7325,7 +7545,11 @@ select.form-control#edit-field-music-genre-tid option:hover {
   color: #000000;
 }
 #views-bootstrap-carousel-1 .light .date {
+<<<<<<< HEAD
   color: #000000;
+=======
+  color: #000000 !important;
+>>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
 }
 #views-bootstrap-carousel-1 .light .carousel-indicators li {
   border: 1px solid #000000;
@@ -7336,7 +7560,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 #views-bootstrap-carousel-1 .carousel-control {
   padding-top: 14%;
-  z-index: 5000;
+  z-index: 10;
 }
 #views-bootstrap-carousel-1 .carousel-caption {
   height: 100%;
@@ -7346,7 +7570,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
-  top: 15%;
+  top: 20%;
   position: absolute;
 }
 @media (min-width: 992px) {
@@ -7372,11 +7596,8 @@ select.form-control#edit-field-music-genre-tid option:hover {
   border-bottom: 2px solid;
 }
 #views-bootstrap-carousel-1 .carousel-caption .date {
-  position: relative;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
   position: absolute;
+<<<<<<< HEAD
   color: #ffffff;
 }
 @media (min-width: 992px) {
@@ -7389,10 +7610,16 @@ select.form-control#edit-field-music-genre-tid option:hover {
     float: left;
     width: 16.666666666666664%;
   }
+=======
+  top: 0px;
+  right: 10%;
+  color: #ffffff;
+>>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
 }
 #views-bootstrap-carousel-1 .carousel-caption .artists {
   display: inline-block;
   left: 0px;
+  padding-left: 0px!important;
   position: relative;
   min-height: 1px;
   padding-left: 15px;
@@ -7411,6 +7638,12 @@ select.form-control#edit-field-music-genre-tid option:hover {
 #views-bootstrap-carousel-1 .carousel-caption .artists .field-label {
   display: inline-block;
   font-size: 12px;
+<<<<<<< HEAD
+=======
+}
+#views-bootstrap-carousel-1 .carousel-caption .artists .field-artist-details {
+  display: inline-block;
+>>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
 }
 #views-bootstrap-carousel-1 .carousel-caption .artists .field-origin {
   display: inline-block;
@@ -7420,6 +7653,14 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .ics-container .event-ics {
   font-size: 12px !important;
 }
+<<<<<<< HEAD
+=======
+.grid {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1170px;
+}
+>>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
 .pagination {
   display: none;
 }
@@ -7475,10 +7716,58 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .quicktabs-tabs > li:not(.last).active a,
 .quicktabs-tabs > li:not(.last):hover a {
   width: 100%;
+<<<<<<< HEAD
+=======
+}
+.field-photos a {
+  transparency: 0.8;
+}
+.field-photos a:hover {
+  transparency: 1;
+}
+.field-event-ref {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+.field-event-ref .header .event-titles,
+.field-event-ref .header .event-meta {
+  display: none;
+}
+.field-event-ref .header .date {
+  width: 100%;
+  transparency: 1;
+}
+.field-event-ref .header .day,
+.field-event-ref .header .date-number,
+.field-event-ref .header .month {
+  display: inline-block !important;
+}
+.node-installations .col-right {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.node-installations .field-photos {
+  display: inline-block;
+  width: 32%;
+  height: 32%;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.node-installations .field-photos:hover {
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  opacity: 1;
+  filter: alpha(opacity=100);
+>>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
 }
 body {
   background-color: #000000;
   color: #ffffff;
+  margin-top: 85px;
+  margin-bottom: 25px;
 }
 a {
   font-family: inherit;
@@ -7489,10 +7778,17 @@ a {
   line-height: 1.6;
   padding: 0 5px;
 }
+.administrator #navbar {
+  margin-top: 20px;
+}
 .administrator .main-container {
+<<<<<<< HEAD
   position: relative;
   margin-top: 45px;
   margin-bottom: 25px;
+=======
+  margin-top: 80px;
+>>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
 }
 .administrator .grid {
   position: absolute;

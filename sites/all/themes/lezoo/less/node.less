@@ -21,19 +21,17 @@ h2 ,h1{
 
 .node-title{
 	font-size: @font-size-h3;
-	border-bottom: solid 1px @primary-color;
-	padding: 5px 5px;
+	//border-bottom: solid 1px @primary-color;
+	//padding: 5px 5px;
 }
 
 .date{
 	.make-md-column(2);
-	.make-md-column-offset(10);
-	position: absolute;
 	font-weight: bolder;
 	color: fade(@primary-color,50%);
 	font-family: @font-family-sans-serif;
 	z-index: 0;
-	.date-number, .day{
+	.date-number, .day, .month{
 		display: block;
 		position: relative;
 		top:0px;
@@ -43,18 +41,41 @@ h2 ,h1{
 		font-size: @date-size;
 		line-height: 1;
 	}
-	.day{
+	.day, .month{
 		font-size: 3em;
 		text-transform: lowercase;
 	}
 }
 
+.node-full-page{
+	.col-left{
+		.make-md-column(5);
+	}
+	.col-right{
+		.make-md-column(7);
+	}
+}
+
+.view-mode-full .node-closed{
+	/*
+	.title{
+		display: block;
+	    background-color: lighten(@tertiary-color, 15%);
+	    color: @black;
+	    line-height: @line-height-large*1.5;
+	}
+	*/
+}
+
 .node-teaser{
-	.node-content{
-		//background-color: blue;
-		.header{
-			display: inline-block;
-			width: 100%;
-		}
+	.transition(all 0.4s);
+	//background-color: @fourth-color;
+	:hover{
+		.transition(all 0.4s);
+		//background-color: lighten(@fourth-color, 20%);
+	}
+	.field-big-image{
+		height:220px;
+		overflow: hidden;
 	}
 }
