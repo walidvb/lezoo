@@ -76,7 +76,7 @@ function lezoo_field_formatter_view($entity_type, $entity, $field, $instance, $l
 function render_date($date, $format)
 {
   $date = strtotime($date);
-  $month = strftime('%b', $date);
+  $month = utf8_encode(strftime('%b', $date));
 	$day = strftime('%a', $date);
 	$date = strftime('%d', $date);
 

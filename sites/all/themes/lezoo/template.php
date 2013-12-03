@@ -233,8 +233,10 @@ function rows_from_field_collection(&$vars, $field_name, $field_array) {
 
 function lezoo_preprocess_field(&$vars, $hook){
 	if ($vars['element']['#field_name'] == 'field_artist' || $vars['element']['#field_name'] =='field_vjs') {
-		//dpm($vars);
 		$vars['theme_hook_suggestions'][] = 'field__artist_collection';
+		$vars['theme_hook_suggestions'][] = 'field__artist_collection__';
+		dpm($vars);
+
 		$field_array = array('field_artist_name', 'field_label','field_origin', 'field_link', 'field_artist_details');
 		rows_from_field_collection($vars, $vars['element']['#field_name'], $field_array);
 	}

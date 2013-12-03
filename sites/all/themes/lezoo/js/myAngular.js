@@ -27,9 +27,12 @@
         var result = [];
         angular.forEach($scope.genres, function(item){
           //console.log(item);
-          if (item.selected) result.push(item.tid);
+          if (item.selected) 
+            {
+              result.push(item.tid);
+            }
         });
-        return (result.length == $scope.genres.length || result.length == 0) ? '' : result.join('+') + '/';
+        return (result !== "undefined" && (result.length == $scope.genres.length || result.length == 0) ) ? '' : result.join('+') + '/';
       };
 
     });

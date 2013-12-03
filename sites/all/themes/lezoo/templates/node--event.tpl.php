@@ -48,29 +48,36 @@ else
 						<div class='event-genre genre'><?php print render($content['field_music_genre']); ?></div>
 					</div>
 				<?php print render($content['field_date']) ?>
-
 				</div>
-				<div class="h2 visible-xs clickable"> Infos </div>
-			  	<div class="<?php print $left_col_classes ?>">
-			  		<fig class="event-flyer">
-							<?php print render($content['field_flyer']); ?>
-					</fig>
-			  		<div class="event-details">
-						<?php print render($content['field_details']); ?>
+				<?php print render($content['field_big_image']) ?>
+				<div class="event-line-up">
+					<div class='event-line-up event-line-up-djs line-up'> <?php print render($content['field_artist']); ?>
 					</div>
-			  	</div>
-			  	<div class="h2 visible-xs clickable"> Line-up </div>
-			  	<div class="<?php print $right_col_classes ?>">
-					<div class='event-line-up event-line-up-djs line-up'> <?php print render($content['field_artist']); ?></div>
 					<?php if(!empty($content['field_vjs'])): ?>
-						<div class='event-line-up event-line-up-vjs line-up'> <?php print render($content['field_vjs']); ?></div>
-					<?php endif; ?>
-					<?php if(!$teaser): ?>
-						<div class="event-body">
-							<?php print render($content['body']); ?>
+						<div class='event-line-up event-line-up-vjs line-up'> <?php print render($content['field_vjs']); ?>
 						</div>
 					<?php endif; ?>
 				</div>
+				<?php if(!$teaser): ?>
+					<div class="h2 visible-xs clickable"> Infos </div>
+				  	<div class="<?php print $left_col_classes ?>">
+				  		<fig class="event-flyer">
+								<?php print render($content['field_flyer']); ?>
+						</fig>
+				  		<div class="event-details">
+							<?php print render($content['field_details']); ?>
+						</div>
+				  	</div>
+				  	<div class="h2 visible-xs clickable"> Line-up </div>
+				  	<div class="<?php print $right_col_classes ?>">
+
+						<?php if(!$teaser): ?>
+							<div class="event-body">
+								<?php print render($content['body']); ?>
+							</div>
+						<?php endif; ?>
+					</div>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>

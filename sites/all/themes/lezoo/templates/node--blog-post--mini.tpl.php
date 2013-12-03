@@ -53,13 +53,7 @@ else
   <?php if ($display_submitted): ?>
 
   <div class="blog-info">
-    <?php if(!$is_page): ?>
-    <?php if(!$teaser): ?>
-    <a href="#" class="expand-post">ouvrir</a>
-  <?php else: ?>
   <?php print l(t('+Read more'), 'node/' . $nid); ?>
-<?php endif; ?>
-<?php endif; ?>
 <div class="submitted">
   <?php print $submitted; ?>
 </div>

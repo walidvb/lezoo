@@ -30,7 +30,6 @@ if(isset($content['field_tags']))
 <div class="content"<?php print $content_attributes; ?>>
   <div class="<?php print $left_col_classes ?>">
     <?php print render($content['field_big_image']); ?>
-
     <?php 
     if(!empty($content['field_links'])){ print render($content['field_links']); } 
     if(!empty($content['field_soundcloud'])) { print render($content['field_soundcloud']); }
@@ -47,26 +46,25 @@ if(isset($content['field_tags']))
     ?>
   </div>
   <?php if ($display_submitted): ?>
-
-  <div class="blog-info">
-    <?php if(!$is_page): ?>
-    <?php if(!$teaser): ?>
-    <a href="#" class="expand-post">t(ouvrir)</a>
-  <?php else: ?>
-  <?php print l(t('+Read more'), 'node/' . $nid); ?>
-<?php endif; ?>
-<?php endif; ?>
-<div class="submitted">
-  <?php print $submitted; ?>
-</div>
-<?php if(isset($tags) || isset($genres)): ?>
-  <div class="tags">
-    <?php print render($tags); ?>
-    <?php print render($genres); ?>
-  </div>
-<?php endif; ?>
-</div>
-<?php endif; ?>
+    <div class="blog-info">
+      <?php if(!$is_page): ?>
+        <?php if(!$teaser): ?>
+          <a href="#" class="expand-post"><?php print t(ouvrir) ?></a>
+        <?php else: ?>
+          <?php print l(t('+Read more'), 'node/' . $nid); ?>
+        <?php endif; ?>
+      <?php endif; ?>
+      <div class="submitted">
+        <?php print $submitted; ?>
+      </div>
+      <?php if(isset($tags) || isset($genres)): ?>
+        <div class="tags">
+          <?php print render($tags); ?>
+          <?php print render($genres); ?>
+        </div>
+      <?php endif; ?>
+    </div>
+  <?php endif; ?>
 </div>
 
 
