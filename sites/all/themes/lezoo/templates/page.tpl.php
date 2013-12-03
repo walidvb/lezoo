@@ -1,12 +1,6 @@
 <header id="navbar" role="banner" class="<?php print $navbar_classes; ?> navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <?php if ($logo): ?>
-      <a class="logo navbar-btn pull-left" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
-        <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-      </a>
-      <?php endif; ?>
-
       <?php if (!empty($site_name)): ?>
       <a class="name navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
       <?php endif; ?>
@@ -37,7 +31,11 @@
     <?php endif; ?>
   </div>
 </header>
-
+<?php if ($logo): ?>
+  <a class="logo navbar-btn pull-left" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+    <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+  </a>
+<?php endif; ?>
 <div class="main-container container">
   <div class="grid">
     <div class="col-md-1 col-sm-1 col-xs-1 col-lg-1"><div></div></div>

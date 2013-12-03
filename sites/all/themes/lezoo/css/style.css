@@ -6865,7 +6865,10 @@ td.radio {
   bottom: 0;
   left: 0;
   height: 20px;
-  min-width: 928px;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
   padding: 0 30px;
   position: fixed;
   right: 0;
@@ -6877,6 +6880,12 @@ td.radio {
 @media (max-width: 768px) {
   .footer {
     position: relative;
+  }
+}
+@media (min-width: 992px) {
+  .footer {
+    float: left;
+    width: 100%;
   }
 }
 .footer a {
@@ -6957,11 +6966,6 @@ h1 a {
 }
 .node-title {
   font-size: 21px;
-<<<<<<< HEAD
-  border-bottom: solid 1px #ffffff;
-  padding: 5px 5px;
-=======
->>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
 }
 .date {
   position: relative;
@@ -6969,7 +6973,7 @@ h1 a {
   padding-left: 15px;
   padding-right: 15px;
   font-weight: bolder;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.9);
   font-family: "Oswald", Helvetica, Arial, sans-serif;
   z-index: 0;
 }
@@ -6988,7 +6992,7 @@ h1 a {
   text-align: right;
 }
 .date .date-number {
-  font-size: 6em;
+  font-size: 5em;
   line-height: 1;
 }
 .date .day,
@@ -6996,15 +7000,6 @@ h1 a {
   font-size: 3em;
   text-transform: lowercase;
 }
-<<<<<<< HEAD
-.node-teaser {
-  /*
-	.transition(all 0.4s);
-	background-color: @fourth-color;
-	:hover{
-		.transition(all 0.4s);
-		background-color: lighten(@fourth-color, 20%);
-=======
 .node-full-page .col-left {
   position: relative;
   min-height: 1px;
@@ -7036,16 +7031,10 @@ h1 a {
 	    background-color: lighten(@tertiary-color, 15%);
 	    color: @black;
 	    line-height: @line-height-large*1.5;
->>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
 	}
 	*/
 
 }
-<<<<<<< HEAD
-.node-teaser .header {
-  display: inline-block;
-  width: 100%;
-=======
 .node-teaser {
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
@@ -7057,38 +7046,6 @@ h1 a {
 .node-teaser .field-big-image {
   height: 220px;
   overflow: hidden;
->>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
-}
-.node-teaser .content {
-  display: block !important;
-}
-.node-teaser .field-big-image {
-  height: 220px;
-  overflow: hidden;
-}
-.node-teaser .node-readmore {
-  position: relative;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-  background-color: #bfbfbf;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-}
-@media (min-width: 992px) {
-  .node-teaser .node-readmore {
-    float: left;
-    width: 100%;
-  }
-}
-.node-teaser .node-readmore :hover {
-  background-color: #d9d9d9;
-}
-.node-teaser .node-readmore a:before {
-  content: '+ ';
-}
-.node-teaser .node-readmore a {
-  color: #000000;
 }
 .view-id-teaser_list .form-type-select {
   display: inline-block;
@@ -7117,26 +7074,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .chosen-container {
   width: 200px !important;
 }
-<<<<<<< HEAD
-.dated-node {
-  border-bottom: solid 3px #ffffff;
-  position: relative;
-}
-.dated-node .genre {
-  float: right;
-  position: relative;
-  z-index: 2;
-}
-.dated-node .genre a {
-  color: white;
-}
-.dated-node .header {
-  display: inline-block;
-  width: 90%;
-}
-.event-node .header .event-genre,
-=======
->>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
 .event-node .header .event-genre a {
   color: #bfbfbf;
 }
@@ -7153,17 +7090,13 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .event-node .header .event-title {
   margin-top: 0px;
   font-size: 25px;
-<<<<<<< HEAD
-=======
   color: #494949;
->>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
 }
 .event-node .header .event-title a {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 .event-node .line-up {
   position: relative;
-  display: block;
   font-family: "Oswald", Helvetica, Arial, sans-serif;
 }
 .event-node .line-up h3 {
@@ -7189,14 +7122,8 @@ select.form-control#edit-field-music-genre-tid option:hover {
   }
 }
 .event-node .event-line-up-djs .artist {
-<<<<<<< HEAD
-  display: block;
-  z-index: 1;
-  font-size: 31px;
-=======
   z-index: 1;
   font-size: 25px;
->>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
   text-transform: uppercase;
   text-align: left;
   position: relative;
@@ -7204,11 +7131,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .event-node .event-line-up-vjs,
 .event-node .event-line-up-vjs a {
-<<<<<<< HEAD
-  font-size: 15px;
-=======
   font-size: 21px;
->>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
   color: #bfbfbf;
 }
 .event-node .event-line-up-vjs .artist,
@@ -7277,13 +7200,17 @@ select.form-control#edit-field-music-genre-tid option:hover {
   color: #000000;
 }
 .node-event.view-mode-full .col-right .event-body {
+  background-color: #494949;
   height: 100%;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 .node-teaser {
   padding-top: 6px;
   padding-bottom: 6px;
-  border-bottom: double 10px #ffffff;
+  margin-bottom: 6px;
   min-height: 140px;
+  background-color: #e6e6e6;
 }
 .node-teaser .dated-node {
   min-height: 130px;
@@ -7307,20 +7234,23 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .node-teaser .event-titles .node-title {
   margin-top: 2px;
   margin-bottom: 2px;
+  color: black;
+  background: white;
+}
+.node-teaser .event-titles .node-title a {
+  color: inherit;
+}
+.node-teaser .event-titles .event-subtitle {
+  min-height: 17px;
 }
 .node-teaser .event-meta {
-  display: inline-block;
-  position: relative;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-  float: right !important;
+  background-color: #bfbfbf;
 }
-@media (min-width: 992px) {
-  .node-teaser .event-meta {
-    float: left;
-    width: 25%;
-  }
+.node-teaser .event-meta .field-music-genre {
+  display: inline-block;
+}
+.node-teaser .event-meta .field-music-genre a {
+  color: #494949;
 }
 .node-teaser .date {
   position: absolute;
@@ -7367,81 +7297,19 @@ select.form-control#edit-field-music-genre-tid option:hover {
   position: fixed;
   top: 70px !important;
 }
-.node-event.view-mode-full .event-details {
-  margin-top: 5px;
-  position: relative;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-@media (min-width: 992px) {
-  .node-event.view-mode-full .event-details {
-    margin-left: 75%;
-  }
-}
-@media (min-width: 992px) {
-  .node-event.view-mode-full .event-details {
-    float: left;
-    width: 25%;
-  }
-}
-.node-event.view-mode-full .event-body {
-  height: 100%;
-}
-.node-event.view-mode-full .event-body .event-flyer {
-  position: relative;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-@media (min-width: 992px) {
-  .node-event.view-mode-full .event-body .event-flyer {
-    float: left;
-    width: 41.66666666666667%;
-  }
-}
-.node-event.view-mode-full .event-body .field-body {
-  position: relative;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-@media (min-width: 992px) {
-  .node-event.view-mode-full .event-body .field-body {
-    float: left;
-    width: 58.333333333333336%;
-  }
-}
-@media (min-width: 992px) {
-  .node-event.view-mode-full .event-body .field-body {
-    margin-left: 41.66666666666667%;
-  }
-}
-.node-teaser .event-node {
-  height: 140px;
-}
-.node-teaser .artist {
-  display: inline-block !important;
-}
-.node-teaser .artist-info {
-  display: none;
-}
 .field-event-ref ~ .field-label {
   float: left;
 }
 .field-event-ref {
-  padding-left: 5px;
+  padding-left: 12px;
 }
 .node-blog-post .field-big-image img {
   width: 100%;
 }
-<<<<<<< HEAD
-=======
 .node-blog-post .field-body {
   background-color: #494949;
   padding: 12px;
 }
->>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
 .node-blog-post .contextual-links-region {
   display: none;
 }
@@ -7545,11 +7413,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   color: #000000;
 }
 #views-bootstrap-carousel-1 .light .date {
-<<<<<<< HEAD
-  color: #000000;
-=======
   color: #000000 !important;
->>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
 }
 #views-bootstrap-carousel-1 .light .carousel-indicators li {
   border: 1px solid #000000;
@@ -7597,24 +7461,9 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 #views-bootstrap-carousel-1 .carousel-caption .date {
   position: absolute;
-<<<<<<< HEAD
-  color: #ffffff;
-}
-@media (min-width: 992px) {
-  #views-bootstrap-carousel-1 .carousel-caption .date {
-    margin-left: 75%;
-  }
-}
-@media (min-width: 992px) {
-  #views-bootstrap-carousel-1 .carousel-caption .date {
-    float: left;
-    width: 16.666666666666664%;
-  }
-=======
   top: 0px;
   right: 10%;
   color: #ffffff;
->>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
 }
 #views-bootstrap-carousel-1 .carousel-caption .artists {
   display: inline-block;
@@ -7638,12 +7487,9 @@ select.form-control#edit-field-music-genre-tid option:hover {
 #views-bootstrap-carousel-1 .carousel-caption .artists .field-label {
   display: inline-block;
   font-size: 12px;
-<<<<<<< HEAD
-=======
 }
 #views-bootstrap-carousel-1 .carousel-caption .artists .field-artist-details {
   display: inline-block;
->>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
 }
 #views-bootstrap-carousel-1 .carousel-caption .artists .field-origin {
   display: inline-block;
@@ -7653,14 +7499,11 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .ics-container .event-ics {
   font-size: 12px !important;
 }
-<<<<<<< HEAD
-=======
 .grid {
   margin-left: auto;
   margin-right: auto;
   max-width: 1170px;
 }
->>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
 .pagination {
   display: none;
 }
@@ -7716,32 +7559,68 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .quicktabs-tabs > li:not(.last).active a,
 .quicktabs-tabs > li:not(.last):hover a {
   width: 100%;
-<<<<<<< HEAD
-=======
 }
-.field-photos a {
+.view-installations {
+  height: 100%;
+  background: red;
+}
+.view-installations .views-field-title {
+  font-family: "Oswald", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  color: #ffffff;
+}
+.view-installations .views-field-title a {
+  color: #ffffff;
+}
+.view-installations a {
   transparency: 0.8;
 }
-.field-photos a:hover {
+.view-installations a:hover {
   transparency: 1;
 }
-.field-event-ref {
-  position: absolute;
-  top: 50%;
+.view-installations .field-photos {
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.view-installations .field-photos:hover {
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.view-installations .field-event-ref {
+  padding-left: 0px;
   width: 100%;
 }
-.field-event-ref .header .event-titles,
-.field-event-ref .header .event-meta {
-  display: none;
+.view-installations .field-event-ref .event-node {
+  bottom: 0px;
+  background-color: #494949;
 }
-.field-event-ref .header .date {
-  width: 100%;
-  transparency: 1;
+.view-installations .field-event-ref .event-node .header .event-titles,
+.view-installations .field-event-ref .event-node .header .event-meta {
+  display: inline-block;
 }
-.field-event-ref .header .day,
-.field-event-ref .header .date-number,
-.field-event-ref .header .month {
+.view-installations .field-event-ref .event-node .header .event-titles.event-titles,
+.view-installations .field-event-ref .event-node .header .event-meta.event-titles {
+  width: 70%;
+}
+.view-installations .field-event-ref .event-node .header .event-titles.event-titles .node-title,
+.view-installations .field-event-ref .event-node .header .event-meta.event-titles .node-title {
+  font-size: 21px !important;
+  vertical-align: middle;
+}
+.view-installations .field-event-ref .event-node .header .date {
+  display: inline-block;
+  width: 20%;
+}
+.view-installations .field-event-ref .event-node .header .day,
+.view-installations .field-event-ref .event-node .header .date-number,
+.view-installations .field-event-ref .event-node .header .month {
   display: inline-block !important;
+  color: #ffffff;
+  font-size: 12px;
 }
 .node-installations .col-right {
   padding-right: 0px;
@@ -7761,7 +7640,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
   transition-duration: 0.5s;
   opacity: 1;
   filter: alpha(opacity=100);
->>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
 }
 body {
   background-color: #000000;
@@ -7782,13 +7660,7 @@ a {
   margin-top: 20px;
 }
 .administrator .main-container {
-<<<<<<< HEAD
-  position: relative;
-  margin-top: 45px;
-  margin-bottom: 25px;
-=======
   margin-top: 80px;
->>>>>>> 4c1614fce570b3bdf96de63fa975d49730a7ca84
 }
 .administrator .grid {
   position: absolute;

@@ -242,8 +242,3 @@ function lezoo_preprocess_field(&$vars, $hook){
 		rows_from_field_collection($vars, $vars['element']['#field_name'], $field_array);
 	}
 }
-
-function render_taxo($terms, $context){
-	dpm($context);
-	dpm($terms);
-}
