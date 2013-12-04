@@ -1,0 +1,26 @@
+***************
+*** 187,199 ****
+  
+    this.initEditing = function(formdata) {
+      ipe.editing = true;
+-     ipe.topParent = $('div#panels-ipe-display-' + cache_key);
+-     ipe.backup = this.topParent.clone();
+  
+      // See http://jqueryui.com/demos/sortable/ for details on the configuration
+      // parameters used here.
+-     ipe.changed = false;
+- 
+      $('div.panels-ipe-sort-container', ipe.topParent).each(ipe.initSorting);
+  
+      // Since the connectWith option only does a one-way hookup, iterate over
+--- 191,200 ----
+  
+    this.initEditing = function(formdata) {
+      ipe.editing = true;
++     ipe.changed = false;
+  
+      // See http://jqueryui.com/demos/sortable/ for details on the configuration
+      // parameters used here.
+      $('div.panels-ipe-sort-container', ipe.topParent).each(ipe.initSorting);
+  
+      // Since the connectWith option only does a one-way hookup, iterate over

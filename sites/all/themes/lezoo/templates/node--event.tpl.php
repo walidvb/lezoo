@@ -27,9 +27,11 @@ else
 			<div class="node-content">
 				<div class='header'>
 					<div class="event-titles">
-						<div class="event-subtitle">
-							<?php print render($content['field_subtitle']) ?>
-						</div>
+						<?php if(!$teaser): ?>
+							<div class="event-subtitle">
+								<?php print render($content['field_subtitle']) ?>
+							</div>
+						<?php endif; ?>
 						<div class='event-title title'> 
 							<?php print render($title_prefix); ?>
 							<<?php print $title_tag; print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></<?php print $title_tag?>>
