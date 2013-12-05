@@ -6790,8 +6790,8 @@ td.radio {
     padding-left: 0px;
     margin-right: 15px;
     background-color: #404040;
-    -webkit-transition: all 0.4s;
-    transition: all 0.4s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
   }
   #navbar .primary > li:not(.last).active,
   #navbar .primary > li:not(.last):hover {
@@ -6820,16 +6820,32 @@ td.radio {
     padding-left: 0px;
   }
   #navbar .primary .dropdown-menu {
-    background-color: #ffffff;
     min-width: 100%;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    padding-bottom: 0px;
+    padding-top: 0px;
   }
   #navbar .primary .dropdown-menu > li,
   #navbar .primary .dropdown-menu a {
     padding-right: 0px;
+    width: 100%;
+  }
+  #navbar .primary .dropdown-menu a {
     padding-left: 5px;
+    background-color: #ffffff;
+    color: #494949;
   }
   #navbar .primary .dropdown-menu a:hover {
-    background-color: #494949;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    background-color: #b3b3b3;
+    color: #000000;
+  }
+  #navbar .primary .dropdown-menu .active {
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    background-color: #bfbfbf;
   }
   #navbar .sub-menu {
     padding-left: 15px;
@@ -6865,7 +6881,10 @@ td.radio {
   bottom: 0;
   left: 0;
   height: 20px;
-  min-width: 928px;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
   padding: 0 30px;
   position: fixed;
   right: 0;
@@ -6877,6 +6896,12 @@ td.radio {
 @media (max-width: 768px) {
   .footer {
     position: relative;
+  }
+}
+@media (min-width: 992px) {
+  .footer {
+    float: left;
+    width: 100%;
   }
 }
 .footer a {
@@ -6956,7 +6981,7 @@ h1 a {
   color: #ffffff;
 }
 .node-title {
-  font-size: 21px;
+  font-size: 25px;
 }
 .date {
   position: relative;
@@ -6964,7 +6989,7 @@ h1 a {
   padding-left: 15px;
   padding-right: 15px;
   font-weight: bolder;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.9);
   font-family: "Oswald", Helvetica, Arial, sans-serif;
   z-index: 0;
 }
@@ -6983,7 +7008,7 @@ h1 a {
   text-align: right;
 }
 .date .date-number {
-  font-size: 6em;
+  font-size: 5em;
   line-height: 1;
 }
 .date .day,
@@ -7015,28 +7040,17 @@ h1 a {
     width: 58.333333333333336%;
   }
 }
-.view-mode-full .node-closed {
-  /*
-	.title{
-		display: block;
-	    background-color: lighten(@tertiary-color, 15%);
-	    color: @black;
-	    line-height: @line-height-large*1.5;
-	}
-	*/
-
+.breadcrumb {
+  margin-bottom: 6px;
 }
-.node-teaser {
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
+.breadcrumb a {
+  color: #191919;
 }
-.node-teaser :hover {
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-}
-.node-teaser .field-big-image {
-  height: 220px;
-  overflow: hidden;
+#node-154 .field-body,
+#node-153 .field-body {
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  column-count: 3;
 }
 .view-id-teaser_list .form-type-select {
   display: inline-block;
@@ -7089,6 +7103,8 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .event-node .line-up {
   position: relative;
   font-family: "Oswald", Helvetica, Arial, sans-serif;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 .event-node .line-up h3 {
   margin: 0px;
@@ -7131,7 +7147,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .node-event.view-mode-full .header {
   min-height: 50px;
-  border-bottom: solid 3px #ffffff;
   margin-bottom: 20px;
 }
 .node-event.view-mode-full .header .event-titles {
@@ -7191,19 +7206,22 @@ select.form-control#edit-field-music-genre-tid option:hover {
   color: #000000;
 }
 .node-event.view-mode-full .col-right .event-body {
+  background-color: #494949;
   height: 100%;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 .node-teaser {
   padding-top: 6px;
   padding-bottom: 6px;
-  border-bottom: double 10px #ffffff;
   min-height: 140px;
 }
 .node-teaser .dated-node {
-  min-height: 130px;
+  min-height: 140px;
+  margin-bottom: 6px;
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
-  background-color: #000000;
+  background-color: #050505;
 }
 .node-teaser .dated-node:hover {
   -webkit-transition-duration: 0.5s;
@@ -7214,6 +7232,9 @@ select.form-control#edit-field-music-genre-tid option:hover {
   width: 100%;
   min-height: 40px;
 }
+.node-teaser .field-big-image {
+  display: none;
+}
 .node-teaser .event-titles {
   display: inline-block;
   padding-left: 0px;
@@ -7221,20 +7242,46 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .node-teaser .event-titles .node-title {
   margin-top: 2px;
   margin-bottom: 2px;
+  padding-left: 12px;
+  padding-right: 12px;
+  color: black;
+  font-weight: bold;
+  background: white;
+}
+.node-teaser .event-titles .node-title a {
+  color: inherit;
+}
+.node-teaser .event-titles .event-subtitle {
+  padding-left: 12px;
+  padding-right: 12px;
+  min-height: 17px;
 }
 .node-teaser .event-meta {
-  display: inline-block;
+  background-color: #bfbfbf;
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
-  float: right !important;
+  min-height: 17px;
 }
 @media (min-width: 992px) {
   .node-teaser .event-meta {
     float: left;
-    width: 25%;
+    width: 91.66666666666666%;
   }
+}
+@media (max-width: 992px) {
+  .node-teaser .event-meta {
+    width: 85%;
+    float: left;
+    display: block;
+  }
+}
+.node-teaser .event-meta .field-music-genre {
+  display: inline-block;
+}
+.node-teaser .event-meta .field-music-genre a {
+  color: #494949;
 }
 .node-teaser .date {
   position: absolute;
@@ -7249,9 +7296,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .node-teaser .event-line-up {
   padding-top: 6px;
 }
-.node-teaser .event-line-up-djs {
-  border-top: solid 1px #ffffff;
-}
 .node-teaser .artists {
   position: relative;
   min-height: 1px;
@@ -7263,7 +7307,12 @@ select.form-control#edit-field-music-genre-tid option:hover {
 @media (min-width: 992px) {
   .node-teaser .artists {
     float: left;
-    width: 91.66666666666666%;
+    width: 83.33333333333334%;
+  }
+}
+@media (max-width: 992px) {
+  .node-teaser .artists {
+    width: 80%;
   }
 }
 .node-teaser .artist {
@@ -7285,7 +7334,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   float: left;
 }
 .field-event-ref {
-  padding-left: 5px;
+  padding-left: 12px;
 }
 .node-blog-post .field-big-image img {
   width: 100%;
@@ -7387,8 +7436,15 @@ select.form-control#edit-field-music-genre-tid option:hover {
     display: none;
   }
 }
-#views-bootstrap-carousel-1 {
-  min-height: 340px;
+@media (min-width: 992px) {
+  .carousel {
+    min-height: 220px;
+  }
+}
+@media (min-width: 1200px) {
+  .carousel {
+    min-height: 340px;
+  }
 }
 #views-bootstrap-carousel-1 .light .carousel-caption {
   color: #000000;
@@ -7400,15 +7456,17 @@ select.form-control#edit-field-music-genre-tid option:hover {
   color: #000000 !important;
 }
 #views-bootstrap-carousel-1 .light .carousel-indicators li {
-  border: 1px solid #000000;
-}
-#views-bootstrap-carousel-1 .field-big-image {
-  padding-left: 15px;
-  padding-right: 15px;
+  border: 1px solid #ffffff;
 }
 #views-bootstrap-carousel-1 .carousel-control {
   padding-top: 14%;
   z-index: 10;
+}
+#views-bootstrap-carousel-1 .carousel-indicators {
+  width: 100%;
+  left: 30%;
+  bottom: -5px;
+  max-height: 12px;
 }
 #views-bootstrap-carousel-1 .carousel-caption {
   height: 100%;
@@ -7420,6 +7478,12 @@ select.form-control#edit-field-music-genre-tid option:hover {
   padding-right: 15px;
   top: 20%;
   position: absolute;
+}
+@media (max-width: 992px) {
+  #views-bootstrap-carousel-1 .carousel-caption {
+    margin-left: 10%;
+    top: 10%;
+  }
 }
 @media (min-width: 992px) {
   #views-bootstrap-carousel-1 .carousel-caption {
@@ -7449,6 +7513,11 @@ select.form-control#edit-field-music-genre-tid option:hover {
   right: 10%;
   color: #ffffff;
 }
+@media (max-width: 992px) {
+  #views-bootstrap-carousel-1 .carousel-caption .date {
+    right: 0px;
+  }
+}
 #views-bootstrap-carousel-1 .carousel-caption .artists {
   display: inline-block;
   left: 0px;
@@ -7462,6 +7531,12 @@ select.form-control#edit-field-music-genre-tid option:hover {
   #views-bootstrap-carousel-1 .carousel-caption .artists {
     float: left;
     width: 75%;
+  }
+}
+@media (max-width: 992px) {
+  #views-bootstrap-carousel-1 .carousel-caption .artists {
+    width: 80%;
+    float: left;
   }
 }
 #views-bootstrap-carousel-1 .carousel-caption .artists .field-artist-name {
@@ -7487,6 +7562,26 @@ select.form-control#edit-field-music-genre-tid option:hover {
   margin-left: auto;
   margin-right: auto;
   max-width: 1170px;
+}
+.pager {
+  color: #494949;
+  background-color: #bfbfbf;
+  width: 60px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.pager a {
+  color: #494949;
+}
+.pager .pager-next a {
+  border: none;
+  padding: 2px;
+  border-radius: 0px!important;
+  font-weight: bold;
+}
+.pager .pager-next a:hover {
+  color: #ffffff;
+  background-color: #000000;
 }
 .pagination {
   display: none;
@@ -7544,29 +7639,67 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .quicktabs-tabs > li:not(.last):hover a {
   width: 100%;
 }
-.field-photos a {
+.view-installations {
+  height: 100%;
+  background: red;
+}
+.view-installations .views-field-title {
+  font-family: "Oswald", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  color: #ffffff;
+}
+.view-installations .views-field-title a {
+  color: #ffffff;
+}
+.view-installations a {
   transparency: 0.8;
 }
-.field-photos a:hover {
+.view-installations a:hover {
   transparency: 1;
 }
-.field-event-ref {
-  position: absolute;
-  top: 50%;
+.view-installations .field-photos {
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.view-installations .field-photos:hover {
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.view-installations .field-event-ref {
+  padding-left: 0px;
   width: 100%;
 }
-.field-event-ref .header .event-titles,
-.field-event-ref .header .event-meta {
-  display: none;
+.view-installations .field-event-ref .event-node {
+  bottom: 0px;
+  background-color: #494949;
 }
-.field-event-ref .header .date {
-  width: 100%;
-  transparency: 1;
+.view-installations .field-event-ref .event-node .header .event-titles,
+.view-installations .field-event-ref .event-node .header .event-meta {
+  display: inline-block;
 }
-.field-event-ref .header .day,
-.field-event-ref .header .date-number,
-.field-event-ref .header .month {
+.view-installations .field-event-ref .event-node .header .event-titles.event-titles,
+.view-installations .field-event-ref .event-node .header .event-meta.event-titles {
+  width: 70%;
+}
+.view-installations .field-event-ref .event-node .header .event-titles.event-titles .node-title,
+.view-installations .field-event-ref .event-node .header .event-meta.event-titles .node-title {
+  font-size: 21px !important;
+  vertical-align: middle;
+}
+.view-installations .field-event-ref .event-node .header .date {
+  display: inline-block;
+  width: 20%;
+}
+.view-installations .field-event-ref .event-node .header .day,
+.view-installations .field-event-ref .event-node .header .date-number,
+.view-installations .field-event-ref .event-node .header .month {
   display: inline-block !important;
+  color: #ffffff;
+  font-size: 12px;
 }
 .node-installations .col-right {
   padding-right: 0px;
@@ -7590,8 +7723,11 @@ select.form-control#edit-field-music-genre-tid option:hover {
 body {
   background-color: #000000;
   color: #ffffff;
-  margin-top: 85px;
+  margin-top: 40px;
   margin-bottom: 25px;
+}
+body.administrator {
+  margin-top: 70px!important;
 }
 a {
   font-family: inherit;
@@ -7604,9 +7740,6 @@ a {
 }
 .administrator #navbar {
   margin-top: 20px;
-}
-.administrator .main-container {
-  margin-top: 80px;
 }
 .administrator .grid {
   position: absolute;

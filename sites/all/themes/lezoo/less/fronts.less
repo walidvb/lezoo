@@ -2,10 +2,15 @@
 	@media (max-width: @screen-sm-min){
 		display:none;
 	}
+	@media (min-width: @screen-md-min){
+		min-height:220px;
+	}
+	@media (min-width: @screen-lg-min){
+		min-height: 340px;
+	}
 }
 
 #views-bootstrap-carousel-1{
-	min-height: 340px;
 	.light {
 		.carousel-caption{
 			color: @black;
@@ -17,20 +22,28 @@
 			color: @black !important;
 		}
 		.carousel-indicators li{
-			border: 1px solid #000000;
+			border: 1px solid @primary-color;
 		}
-	}
-	.field-big-image{
-		padding-left: 15px;
-		padding-right: 15px;
-	}
-	
+	}	
 	.carousel-control{
 		padding-top:14%;
 		z-index: 10;
-	}
+		.light{
 
+		}
+	}
+	.carousel-indicators{
+		width: 100%;
+		left: 30%;
+		bottom: -5px;
+		//background-color: darken(@tertiary-color,10%);
+		max-height:12px;
+	}
 	.carousel-caption{
+		@media (max-width: @screen-md-min){
+			margin-left: 10%;
+			top:10%;
+		}	
 		height: 100%;
 		left: 0px;
 		right: 0px;
@@ -55,6 +68,9 @@
 			top:0px;
 			right: 10%;
 			color: @primary-color;
+			@media (max-width: @screen-md-min){
+				right: 0px;
+			}
 		}
 
 		.artists{
@@ -62,6 +78,10 @@
 			left:0px;
 			padding-left: 0px!important;
 			.make-md-column(9);
+			@media (max-width: @screen-md-min){
+				width: 80%;
+				float: left;
+			}	
 			.field-artist-name{
 				display: inline-block;
 				font-size: @font-size-h1;
@@ -76,10 +96,7 @@
 			.field-origin{
 				.field-label;
 				display: none;
-			}
-
-			
-			
+			}			
 		}
 	}
 }

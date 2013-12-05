@@ -20,15 +20,13 @@ h2 ,h1{
 }
 
 .node-title{
-	font-size: @font-size-h3;
-	//border-bottom: solid 1px @primary-color;
-	//padding: 5px 5px;
+	font-size: @font-size-h2;
 }
 
 .date{
 	.make-md-column(2);
 	font-weight: bolder;
-	color: fade(@primary-color,50%);
+	color: fade(@primary-color,90%);
 	font-family: @font-family-sans-serif;
 	z-index: 0;
 	.date-number, .day, .month{
@@ -56,26 +54,26 @@ h2 ,h1{
 	}
 }
 
-.view-mode-full .node-closed{
-	/*
-	.title{
-		display: block;
-	    background-color: lighten(@tertiary-color, 15%);
-	    color: @black;
-	    line-height: @line-height-large*1.5;
+.node-teaser{
+	.field-big-image{
+		//height:220px;
+		//overflow: hidden;
 	}
-	*/
 }
 
-.node-teaser{
-	.transition(all 0.4s);
-	//background-color: @fourth-color;
-	:hover{
-		.transition(all 0.4s);
-		//background-color: lighten(@fourth-color, 20%);
+.breadcrumb{
+	margin-bottom: @padding-base-vertical;
+	a{
+		color: darken(@primary-color, 90%);
 	}
-	.field-big-image{
-		height:220px;
-		overflow: hidden;
+	.active{
+	}
+}
+
+#node-154, #node-153{
+	.field-body{
+		-webkit-column-count: 3;
+		-moz-column-count: 3;
+		 column-count: 3;
 	}
 }
