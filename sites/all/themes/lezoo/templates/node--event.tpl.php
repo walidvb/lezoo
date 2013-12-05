@@ -20,10 +20,13 @@ else
 {
 	$title_tag = 'h1';
 }
+
+dpm(render($content['flippy_pager']), 'flippy');
 ?>
 <div class='node-event <?php print $classes ?>' <?php print $attributes; ?> >
 	<div>
 		<div class='event-node dated-node'>
+			<?php print render($content['flippy_pager']); ?>
 			<div class="node-content">
 				<div class='header'>
 					<div class="event-titles">
@@ -81,6 +84,7 @@ else
 					</div>
 				<?php endif; ?>
 			</div>
+
 		</div>
 	</div>
 </div>

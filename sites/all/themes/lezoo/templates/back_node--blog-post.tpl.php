@@ -90,6 +90,7 @@ if(isset($content['field_tags']))
   $tags = $content['field_tags'];
   hide($content['field_tags']);
 }
+dpm($content);
 
 ?>
 

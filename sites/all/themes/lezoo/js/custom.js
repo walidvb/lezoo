@@ -8,7 +8,7 @@
 			$('.primary .dropdown-toggle').html(active_trail + '<span class="caret"></span>');
 		}
 		//-------------- stick menu
-		var threshold = $('.')
+		var threshold = $('.asd');
 		//-------------- stick months above list
 		$('.page-agenda .view-display-id-panel_pane_1 .view-content')
 		.css('position', 'relative')
@@ -25,7 +25,6 @@
 
 		var activeText = $('.primary .last .dropdown-menu .active-trail a').text();
 		var normalText = $('.primary .last .dropdown-toggle').text();
-		console.log(activeText);
 		if(activeText != '')
 		{
 			$('.primary .last .dropdown-toggle').html(activeText + '<span class="caret"></span>');

@@ -7,9 +7,7 @@
 
 			ymonth.change(function(e){
 				var value = $(this).val();
-				//var value = e.target.value;
 				var empty = value == "";
-				console.log(value, empty);
 				if(!empty)
 				{
 					yearm.val(year.val()).trigger("chosen:updated");
@@ -20,6 +18,16 @@
 				}
 			});
 
+			year.change(function(e){
+				if(ymonth.val() != '')
+				{
+					yearm.val(year.val()).trigger('chosen:updated');
+				}
+				else
+				{
+					month.val('').trigger('chosen:updated');
+				}
+			})
 		},
 	}
 })(jQuery)
