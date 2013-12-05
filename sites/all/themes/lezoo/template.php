@@ -8,6 +8,8 @@ setlocale(LC_ALL, 'fr_FR');
 function lezoo_preprocess_html(&$variables) {
 	drupal_add_css('//cdnjs.cloudflare.com/ajax/libs/animate.css/2.0/animate.min.css', array('type' => 'external'));
 	drupal_add_js('//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js', array('type' => 'external'));
+	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.1/angular.min.js', array('type' => 'external'));
+	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', array('type' => 'external'));
 	if(isset($variables['user']->roles['3']))
 	{
 		$variables['classes_array'][] = $variables['user']->roles['3'];
@@ -95,8 +97,18 @@ function lezoo_preprocess_page(&$variables) {
  */
 function lezoo_preprocess_node(&$variables) {
 	$variables['title_attributes_array']['class'] = 'node-title';
-	$variables['left_col_classes'] = "col-lg-5 col-md-4 col-sm-3 col-xs-12 pinned";
-	$variables['right_col_classes'] = "col-lg-7 col-md-8 col-sm-9 col-xs-12";
+	$variables['classes_array'][] = 'view-mode-' . $variables['view_mode'];
+	$node_status = array(
+		'open' => 'node-open',
+		'closed' => 'node-closed'
+		);
+	drupal_add_js(array('lezoo_theme' => array('node_status' => $node_status)), 'setting');
+	$variables['is_page'] = !empty($variables['is_page']) ? $variables['is_page'] : false;
+	$variables['classes_array'][] = (!empty($variables['is_page']) && $variables['is_page']) ? $node_status['open']. " node-full-page" : $node_status['closed'] . ' node-in-list';
+
+	$variables['left_col_classes'] = "col-left col-lg-5 col-md-4 col-sm-3 col-xs-12 pinned";
+	$variables['right_col_classes'] = "col-right col-lg-7 col-md-8 col-sm-9 col-xs-12";
+
 	$variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__' . $variables['view_mode'];
 	$variables['submitted'] = '<span class="user">'. $variables['user']->name . '</span><span class="timestamp">' . strftime('%d/%m/%Y', $variables['created']) . '</span>';
 	if(!$variables['is_front'])
@@ -119,28 +131,39 @@ function lezoo_preprocess_node(&$variables) {
 				$section = $variables['field_section']['und']['0']['tid'];
 				$genres;
 				$tags;
-				foreach($variables['field_music_genre'] as $genre)
+				dpm(count($variables['field_music_genre']));
+				if(!empty($variables['field_music_genre']) && count($variables['field_music_genre']) != 0)
 				{
-					$parents = taxonomy_get_parents($genre['tid']);
-					if(!empty($parents))
+					foreach($variables['field_music_genre'] as $genre)
 					{
-						$parent = current($parents)->tid;
-						$new = $parent;
+						dpm($genre);
+						$parents = taxonomy_get_parents($genre['tid']);
+						if(!empty($parents))
+						{
+							$parent = current($parents)->tid;
+							$new = $parent;
+						}
+						else
+						{
+							$new = $genre['tid'];
+						}
+						$genres .= $new . '+';
 					}
-					else
-					{
-						$new = $genre['tid'];
-					}
-					$genres .= $new . '+';
 				}
-				foreach($variables['field_tags'] as $tag)
+				if(!empty($variables['field_tags']))
 				{
-					$tags .= $tag['tid'] . '+';
+					foreach($variables['field_tags'] as $tag)
+					{
+						$tags .= $tag['tid'] . '+';
+					}
+					$genres = empty($genres) ? null : $genres;
+					$tags = empty($tags) ? null : $tags;
+					$related = views_embed_view('related', 'default', $variables['nid'], $section, $genres, $tags);
+
+					$related_block = "<aside class=\"related-posts\"><h3 class=\"block-title related-title\">". t('Encore plus') ."</h3>" . $related . "</aside>";
+					$variables['related'] = $related_block;
 				}
-				$genres = empty($genres) ? null : $genres;
-				$tags = empty($tags) ? null : $tags;
-				$related = views_embed_view('related', 'default', $variables['nid'], $section, $genres, $tags);
-				$variables['related'] = $related;
+
 			}
 			if($variables['field_section']['und']['0']['tid'] == 28)
 			{
@@ -210,9 +233,9 @@ function rows_from_field_collection(&$vars, $field_name, $field_array) {
 }
 
 function lezoo_preprocess_field(&$vars, $hook){
-	//dpm($vars);
 	if ($vars['element']['#field_name'] == 'field_artist' || $vars['element']['#field_name'] =='field_vjs') {
 		$vars['theme_hook_suggestions'][] = 'field__artist_collection';
+		$vars['theme_hook_suggestions'][] = 'field__artist_collection__';
 		$field_array = array('field_artist_name', 'field_label','field_origin', 'field_link', 'field_artist_details');
 		rows_from_field_collection($vars, $vars['element']['#field_name'], $field_array);
 	}

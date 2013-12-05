@@ -134,6 +134,9 @@ Default is 'all' if writing new files, 'code' if appending to file or outputting
     'arguments' => array(
       'modules' => '(optional) Names of modules, separated by spaces.',
     ),
+    'options' => array(
+      'raw' => "Outputs the raw debug hook data.",
+    ),
   );
 
   $items['mb-analyze'] = array(
@@ -227,10 +230,15 @@ function drush_module_builder_callback_build_module() {
     // If the problem is that the hooks need downloading, we can recover from this.
     if ($e->needs_hooks_download) {
       if (drush_confirm(dt('No hook definitions found. Would you like to download them now?'))) {
-        // download the hooks so we can move on.
-        if (!drush_module_builder_callback_hook_download()) {
+        // Download the hooks so we can move on.
+        $success = drush_module_builder_callback_hook_download();
+        if (!$success) {
           drush_set_error(DRUSH_APPLICATION_ERROR, 'Problem downloading hook data.');
+          return;
         }
+
+        // Get the task handler that we were trying to get in the first place.
+        $mb_task_handler_generate = $mb_factory->getTask('Generate', 'module');
       }
     }
     // Otherwise, fail.
@@ -241,7 +249,7 @@ function drush_module_builder_callback_build_module() {
   }
 
   // Build the module data.
-  $module_data = module_builder_build_data($commands);
+  $module_data = module_builder_build_data($commands, $mb_task_handler_generate);
 
   // What to build
   $build = drush_get_option('build');
@@ -422,17 +430,22 @@ function drush_module_builder_callback_build_theme() {
  *
  * @param $commands
  *  The commands array.
+ * @param $mb_task_handler_generate
+ *  The Generate Task handler. This is needed to get default values from the
+ *  generator component.
  *
  * @return
  *  An array of component data suitable for the Module generator.
  */
-function module_builder_build_data($commands) {
+function module_builder_build_data($commands, $mb_task_handler_generate) {
   // Determine whether we're in interactive mode.
   $interactive = !drush_get_option(array('non-interactive', 'noi'));
 
   // This is a shortcut for developing, if you have --noi forced in your drush
   // config and need to switch back to interactive for testing.
-  $interactive = drush_get_option(array('interactive'));
+  if (drush_get_option(array('interactive'))) {
+    $interactive = TRUE;
+  }
 
   // Information about the keys we need to build the module data.
   // For each key, the source of the data is defined thus:
@@ -444,7 +457,7 @@ function module_builder_build_data($commands) {
       'commands' => 0,
       'prompt' => dt('module machine name'),
       'required' => TRUE,
-      'default' => 'mymodule',
+      'process_callback' => 'module_builder_drush_component_root_name_process',
     ),
     'presets' => array(
       'prompt' => dt('required hook preset groups'),
@@ -464,6 +477,7 @@ function module_builder_build_data($commands) {
       'filter' => NULL,
       'prompt' => dt('required hooks'),
       'required' => TRUE,
+      //'component' => 'Hooks',
       // This says that we have to split on whitespace to produce an array.
       'split' => TRUE,
     ),
@@ -476,8 +490,6 @@ function module_builder_build_data($commands) {
       // Thus: 'drush mb mymodule hook_a hook_b :filter item_c item_d'
       'filter' => 'routes',
       'prompt' => dt("required router paths, eg 'path/foo'"),
-      // Uncomment defaults when developing to save typing.
-      //'default' => 'path/foo path/bar',
       // This tells the system that this is a request for generator components,
       // and the input data should be placed in a nested array in the module
       // data.
@@ -487,14 +499,12 @@ function module_builder_build_data($commands) {
     'module_readable_name' => array(
       'key' => 'name',
       'prompt' => dt('human readable name'),
-      // A callback to generate the default value of this key.
-      // The signature is foo($commands, $module_data)
-      'default_callback' => 'module_builder_default_readable_name',
+      // This is required, but we provide a nice default.
+      'required' => TRUE,
     ),
     'module_short_description' => array(
       'key' => 'desc',
       'prompt' => dt('description'),
-      'default' => 'TODO: Description of module',
     ),
     'module_help_text' => array(
       'key' => 'helptext',
@@ -510,8 +520,9 @@ function module_builder_build_data($commands) {
     ),
   );
 
+  // Work through the data information array, collecting data for each one.
   foreach ($data as $name => $definition) {
-    // Merge in default values.
+    // Merge in default values to the data item definition.
     $definition += array(
       'required' => FALSE,
     );
@@ -565,7 +576,12 @@ function module_builder_build_data($commands) {
       }
     }
 
-    // Second pass: prompt the user for data.
+    // Get the default value for this item from the Module component generator
+    // so we can present it to the interactive mode user as a default value.
+    $mb_task_handler_generate->getRootGenerator()->getComponentDataDefaultValue($module_data, $name);
+    $default_value = isset($module_data[$name]) ? $module_data[$name] : NULL;
+
+    // Second pass: if in interactive mode, prompt the user for data.
     if ($interactive && empty($data_item_value)) {
       // Make a prompt string, letting the user know if the input is optional
       // so they don't waste time typing.
@@ -576,22 +592,25 @@ function module_builder_build_data($commands) {
         $prompt = dt('Enter the @type (optional)', array('@type' => $definition['prompt']));
       }
 
-      $default = isset($definition['default']) ? $definition['default'] : NULL;
-
-      $value = drush_prompt($prompt, $default, $definition['required']);
+      $value = drush_prompt($prompt, $default_value, $definition['required']);
       if ($value !== FALSE) {
         $data_item_value = $value;
       }
     }
 
-    // Third pass: set a default value from the definition or a callback.
-    if (empty($data_item_value)) {
-      if (isset($definition['default'])) {
-        $data_item_value = $definition['default'];
+    // Now we have the user input, if any, process it if it requires it.
+    if (isset($definition['process_callback'])) {
+      if (!empty($data_item_value)) {
+        $function = $definition['process_callback'];
+        $data_item_value = $function($data_item_value);
       }
-      elseif (isset($definition['default_callback'])) {
-        $function = $definition['default_callback'];
-        $data_item_value = $function($commands, $module_data);
+    }
+
+    // Third pass: use the default value, if we got one earlier from the
+    // component generator.
+    if (empty($data_item_value)) {
+      if (isset($default_value)) {
+        $data_item_value = $default_value;
       }
     }
 
@@ -658,9 +677,19 @@ function module_builder_build_data($commands) {
     // Hook group presets can be specified with an initial @.
     if (substr($hook_name, 0, 1) == '@') {
       $preset_name = substr($hook_name, 1);
-      // Convert the preset hooks list to the right format and add it to the array.
-      $preset_hooks = array_fill_keys($hook_presets[$preset_name]['hooks'], TRUE);
-      $hooks += $preset_hooks;
+      // Check the preset name is valid.
+      if (isset($hook_presets[$preset_name])) {
+        // DX: check the preset is properly defined.
+        if (!is_array($hook_presets[$preset_name]['hooks'])) {
+          throw new ModuleBuilderException("Incorrectly defined hook preset group $preset_name.");
+        }
+
+        // Convert the preset hooks list to the right format and add it to the
+        // array.
+        $preset_hooks = array_fill_keys($hook_presets[$preset_name]['hooks'], TRUE);
+      }
+      // TODO: report a non-fatal error if the requested hook preset doesn't
+      // exist.
     }
     else {
       // Standardize to lowercase.
@@ -689,16 +718,41 @@ function module_builder_build_data($commands) {
 }
 
 /**
- * Get the folder and machine name for a component.
+ * Process the input for component base name for filesystem shorthands.
+ *
+ * This allows for the following in the component name:
+ *  - A single '.' specifies the current folder.
+ *  - A trailing slash is ignored, thus allowing autocompletion of folder names.
+ *
+ * @param $component_root_name
+ *  The given component root name.
+ *
+ * @return
+ *  The processed component root name.
+ */
+function module_builder_drush_component_root_name_process($component_root_name) {
+  // Trim a final '/' from the module machine name, to allow use of tab
+  // autocompletion on the command line.
+  if (substr($component_root_name, -1) == '/') {
+    $component_root_name = substr($component_root_name, 0, -1);
+  }
+
+  // An input machine name given as '.' means use the current folder as the
+  // component name, thus write to the current folder.
+  if ($component_root_name == '.') {
+    $component_root_name = basename(drush_get_context('DRUSH_OLDCWD'));
+  }
+
+  return $component_root_name;
+}
+
+/**
+ * Get the folder where a component should be saved.
  *
  * @param $component_type
  *  The type of the component. One of 'module' or 'theme'.
  * @param $component_name
- *  The input given for the component name. This allows several shorthands:
- *  - A single '.' specifies the current folder.
- *  - A trailing slash is ignored, thus allowing autocompletion of folder names.
- *  The processed component name should be extracted from the return value using
- *  basename().
+ *  The component name.
  *
  * @return
  *  The full system path for the component's folder, without a trailing slash.
@@ -706,22 +760,10 @@ function module_builder_build_data($commands) {
 function module_builder_get_component_folder($component_type, $component_name) {
   $drupal_root = drush_get_context('DRUSH_DRUPAL_ROOT');
 
-  // Cleanup: trim a final '/' from the module machine name, to
-  // allow use of tab autocompletion on the command line.
-  if (substr($component_name, -1) == '/') {
-    $component_name = substr($component_name, 0, -1);
-  }
-
   // First try: if the component exists, we write there: nice and simple.
   $component_path = drupal_get_path($component_type, $component_name);
   if (!empty($component_path)) {
     return $drupal_root . '/' . $component_path;
-  }
-
-  // Second try: an input machine name given as '.' means use the current folder
-  // as the module name, thus write to the current folder.
-  if ($component_name == '.') {
-    return drush_get_context('DRUSH_OLDCWD');
   }
 
   // Third try: 'parent' option was given.
@@ -787,13 +829,6 @@ function module_builder_get_component_folder($component_type, $component_name) {
 }
 
 /**
- * Callback for generating default for module readable name.
- */
-function module_builder_default_readable_name($commands, $module_data) {
-  return ucfirst(str_replace('_', ' ', $module_data['module_root_name']));
-}
-
-/**
  * Output generated text, to terminal or to file.
  *
  * @param $component_dir
@@ -850,6 +885,9 @@ function module_builder_drush_output_code($component_dir, $filename, $code) {
 
 /**
  * Callback for downloading hook data.
+ *
+ * @return
+ *  Boolean indicating TRUE for success, FALSE for failure.
  */
 function drush_module_builder_callback_hook_download() {
   // Get the MB factory.
@@ -861,8 +899,7 @@ function drush_module_builder_callback_hook_download() {
     $mb_task_handler_collect = $mb_factory->getTask('Collect');
   }
   catch (ModuleBuilderException $e) {
-    drush_set_error(DRUSH_APPLICATION_ERROR, $e->getMessage());
-    return;
+    return drush_set_error(DRUSH_APPLICATION_ERROR, $e->getMessage());
   }
 
   $mb_task_handler_collect->collectHooks();
@@ -877,6 +914,7 @@ function drush_module_builder_callback_hook_download() {
   }
   else {
     drush_print("Hook files have been downloaded to {$mb_factory->environment->hooks_directory} and processed.");
+    return TRUE;
   }
 }
 
@@ -899,6 +937,11 @@ function drush_module_builder_callback_hook_list() {
   $time = $mb_task_handler_report->lastUpdatedDate();
   $data = $mb_task_handler_report->listHookData();
 
+  if (drush_get_option('raw')) {
+    drush_print_r($data);
+    return;
+  }
+
   if (count($commands)) {
     // Put the requested filenames into the keys of an array, and intersect them
     // with the hook data.
@@ -908,8 +951,6 @@ function drush_module_builder_callback_hook_list() {
   else {
     $data_requested = $data;
   }
-
-  drush_print_r($data);
 
   if (!count($data_requested) && count($files_requested)) {
     drush_print(t("No hooks found for the specified files."));

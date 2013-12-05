@@ -3,12 +3,12 @@
 	Drupal.behaviors.lezoo.attach = function(context) {
 		//-------------- change menu item
 		var active_trail = $('.primary > .dropdown').find('ul .active-trail a').text();
-		console.log(active_trail);
 		if(active_trail)
 		{
 			$('.primary .dropdown-toggle').html(active_trail + '<span class="caret"></span>');
 		}
-		
+		//-------------- stick menu
+		var threshold = $('.')
 		//-------------- stick months above list
 		$('.page-agenda .view-display-id-panel_pane_1 .view-content')
 		.css('position', 'relative')
@@ -45,12 +45,39 @@
 				display: 'inline-block',
 				width: '100%'
 			});
-			$('.content').scroll(function(e){
-				console.log(e);
-				$(this).find('.pinnded-content').trigger('scroll', e);
+		}
+
+		//--------------------open/close blog posts
+		if(typeof Drupal.settings.lezoo_theme !== 'undefined')
+		{
+			var nodeStatusClasses = Drupal.settings.lezoo_theme.node_status;
+
+			$('.node-blog-post .expand-post').bind('click', function(e){
+				e.preventDefault();
+				$this = $(this);
+				var newText = ($this.text() == 'ouvrir') ? 'fermer' : 'ouvrir';
+				$this.text(newText);
+				var post = $this.parents('.node-blog-post');
+				var isOpen = post.hasClass(nodeStatusClasses.open);
+				post.toggleClass(nodeStatusClasses.closed + ' ' + nodeStatusClasses.open);
 			});
 		}
 
+
+		//--------------------carousel light or dark
+		$('.view-carousel .item').once('lezoo', function(){
+			$(this).each(function(){
+				var $this = $(this);
+				var src = $(this).find('img').attr('src');
+				if(src != 'undefined')
+				{
+					isItDark(src, function(isDark){
+						$this.addClass(( isDark ? 'dark' : 'light' ));
+					});
+				}
+			})
+		});
+		//--------------------Overall
 		function resize() 
 		{
 			pinit();
@@ -71,9 +98,6 @@
 		// 		$('h4 a', $(this)).trigger('click');
 		// 	});
 		// })
-
-		//-------UUUUUUGLY
-		$('.panel-panel.right').addClass('col-md-6 col-sm-6 col-xs-12');
-	};
+};
 
 })(jQuery);

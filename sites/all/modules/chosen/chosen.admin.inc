@@ -56,7 +56,7 @@ function chosen_admin_settings($form, &$form_state) {
     '#type' => 'textarea',
     '#title' => t('Apply Chosen to the following elements'),
     '#description' => t('A comma-separated list of jQuery selectors to apply Chosen to, such as <code>select#edit-operation, select#edit-type</code> or <code>.chosen-select</code>. Defaults to <code>select</code> to apply Chosen to all <code>&lt;select&gt;</code> elements.'),
-    '#default_value' => variable_get('chosen_jquery_selector', 'select:visible'),
+    '#default_value' => variable_get('chosen_jquery_selector', "select:visible\nselect:not('.filter-list')"),
   );
 
   $form['options'] = array(

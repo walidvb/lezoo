@@ -1,0 +1,2257 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"drupal_json",
+				"drupal_json_encode	drupal_json_encode"
+			],
+			[
+				"strto",
+				"strtolower"
+			],
+			[
+				"variables",
+				"variables"
+			],
+			[
+				"menu_se",
+				"menu_set_active_trail"
+			],
+			[
+				"menu_s",
+				"menu_set_active_trail"
+			],
+			[
+				"menu_set_ac",
+				"menu_set_active_item"
+			],
+			[
+				"ent",
+				"entity_info"
+			],
+			[
+				"margin-",
+				"margin-bottom"
+			],
+			[
+				"padding-",
+				"padding-right"
+			],
+			[
+				"border",
+				"border-left"
+			],
+			[
+				"media",
+				"media landscape	landscape"
+			],
+			[
+				"do",
+				"dow	downto(0) { |n| .. }"
+			],
+			[
+				"en",
+				"encrypt"
+			],
+			[
+				"password_",
+				"password_confirmation"
+			],
+			[
+				"font-si",
+				"font-size-large"
+			],
+			[
+				"font",
+				"font-family-second"
+			],
+			[
+				"vars",
+				"vars"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"backg",
+				"background-color"
+			],
+			[
+				"facebook",
+				"facebookCommentsSelector"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"node_is",
+				"node_is_past"
+			],
+			[
+				"nav",
+				"nav-link-bg"
+			],
+			[
+				"body",
+				"body-bg"
+			],
+			[
+				"tri",
+				"trigger	trigger"
+			],
+			[
+				"background",
+				"background-color"
+			],
+			[
+				"bck",
+				"background-color"
+			],
+			[
+				"background-",
+				"background-position"
+			],
+			[
+				"con",
+				"console.log(message);"
+			],
+			[
+				"targetConta",
+				"targetContainerSelector"
+			],
+			[
+				"load",
+				"load_more"
+			],
+			[
+				"drupal",
+				"drupal_add_js"
+			],
+			[
+				"text-",
+				"text-transform"
+			],
+			[
+				"pager-",
+				"pager-previous"
+			],
+			[
+				"query",
+				"querystring.parse(qs, sep, eq);"
+			],
+			[
+				"postDa",
+				"postDataChunk"
+			],
+			[
+				"for",
+				"for	for (…) {…} (Improved Native For-Loop)"
+			],
+			[
+				"border-",
+				"border-bottom"
+			],
+			[
+				"pro",
+				"processed"
+			],
+			[
+				"di",
+				"digi_"
+			],
+			[
+				"font-",
+				"font-family"
+			],
+			[
+				"border-col",
+				"border-color"
+			],
+			[
+				"va",
+				"variables"
+			],
+			[
+				"paddin",
+				"padding-top"
+			],
+			[
+				"blo",
+				"block-system-main-menu"
+			],
+			[
+				"list",
+				"list-style"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"attr",
+				"attributes"
+			],
+			[
+				"field_view",
+				"field_view_value"
+			],
+			[
+				"user",
+				"user_load	user_load"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "sites/all/modules/custom/lezoo/date_filter.inc",
+			"settings":
+			{
+				"buffer_size": 1566,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "/* ical feed! */\n\n$view = new view();\n$view->name = 'feed';\n$view->description = '';\n$view->tag = 'default';\n$view->base_table = 'node';\n$view->human_name = 'Feed';\n$view->core = 7;\n$view->api_version = '3.0';\n$view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */\n\n/* Display: Master */\n$handler = $view->new_display('default', 'Master', 'default');\n$handler->display->display_options['use_more_always'] = FALSE;\n$handler->display->display_options['access']['type'] = 'perm';\n$handler->display->display_options['cache']['type'] = 'none';\n$handler->display->display_options['query']['type'] = 'views_query';\n$handler->display->display_options['exposed_form']['type'] = 'basic';\n$handler->display->display_options['pager']['type'] = 'full';\n$handler->display->display_options['style_plugin'] = 'grid';\n$handler->display->display_options['row_plugin'] = 'fields';\n/* Field: Content: Date */\n$handler->display->display_options['fields']['field_date']['id'] = 'field_date';\n$handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';\n$handler->display->display_options['fields']['field_date']['field'] = 'field_date';\n$handler->display->display_options['fields']['field_date']['label'] = '';\n$handler->display->display_options['fields']['field_date']['element_type'] = '0';\n$handler->display->display_options['fields']['field_date']['element_label_colon'] = FALSE;\n$handler->display->display_options['fields']['field_date']['element_wrapper_type'] = '0';\n$handler->display->display_options['fields']['field_date']['element_default_classes'] = FALSE;\n$handler->display->display_options['fields']['field_date']['settings'] = array(\n  'format_type' => 'long',\n  'fromto' => 'both',\n  'multiple_number' => '',\n  'multiple_from' => '',\n  'multiple_to' => '',\n);\n$handler->display->display_options['fields']['field_date']['field_api_classes'] = TRUE;\n/* Field: Content: Genre */\n$handler->display->display_options['fields']['field_music_genre']['id'] = 'field_music_genre';\n$handler->display->display_options['fields']['field_music_genre']['table'] = 'field_data_field_music_genre';\n$handler->display->display_options['fields']['field_music_genre']['field'] = 'field_music_genre';\n$handler->display->display_options['fields']['field_music_genre']['label'] = '';\n$handler->display->display_options['fields']['field_music_genre']['element_type'] = '0';\n$handler->display->display_options['fields']['field_music_genre']['element_label_colon'] = FALSE;\n$handler->display->display_options['fields']['field_music_genre']['element_wrapper_type'] = '0';\n$handler->display->display_options['fields']['field_music_genre']['element_default_classes'] = FALSE;\n$handler->display->display_options['fields']['field_music_genre']['delta_offset'] = '0';\n$handler->display->display_options['fields']['field_music_genre']['field_api_classes'] = TRUE;\n/* Field: Content: Title */\n$handler->display->display_options['fields']['title']['id'] = 'title';\n$handler->display->display_options['fields']['title']['table'] = 'node';\n$handler->display->display_options['fields']['title']['field'] = 'title';\n$handler->display->display_options['fields']['title']['label'] = '';\n$handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;\n$handler->display->display_options['fields']['title']['alter']['text'] = '[title] [ [field_music_genre] ]';\n$handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;\n$handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;\n$handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;\n/* Field: Content: Artist */\n$handler->display->display_options['fields']['field_artist']['id'] = 'field_artist';\n$handler->display->display_options['fields']['field_artist']['table'] = 'field_data_field_artist';\n$handler->display->display_options['fields']['field_artist']['field'] = 'field_artist';\n$handler->display->display_options['fields']['field_artist']['label'] = '';\n$handler->display->display_options['fields']['field_artist']['element_type'] = '0';\n$handler->display->display_options['fields']['field_artist']['element_label_colon'] = FALSE;\n$handler->display->display_options['fields']['field_artist']['element_wrapper_type'] = '0';\n$handler->display->display_options['fields']['field_artist']['element_default_classes'] = FALSE;\n$handler->display->display_options['fields']['field_artist']['settings'] = array(\n  'view_mode' => 'full',\n);\n$handler->display->display_options['fields']['field_artist']['delta_offset'] = '0';\n$handler->display->display_options['fields']['field_artist']['field_api_classes'] = TRUE;\n/* Field: Content: Vjs */\n$handler->display->display_options['fields']['field_vjs']['id'] = 'field_vjs';\n$handler->display->display_options['fields']['field_vjs']['table'] = 'field_data_field_vjs';\n$handler->display->display_options['fields']['field_vjs']['field'] = 'field_vjs';\n$handler->display->display_options['fields']['field_vjs']['label'] = '';\n$handler->display->display_options['fields']['field_vjs']['alter']['alter_text'] = TRUE;\n$handler->display->display_options['fields']['field_vjs']['alter']['text'] = '[field_artist]\n[field_vjs]';\n$handler->display->display_options['fields']['field_vjs']['element_type'] = '0';\n$handler->display->display_options['fields']['field_vjs']['element_label_colon'] = FALSE;\n$handler->display->display_options['fields']['field_vjs']['element_wrapper_type'] = '0';\n$handler->display->display_options['fields']['field_vjs']['element_default_classes'] = FALSE;\n$handler->display->display_options['fields']['field_vjs']['settings'] = array(\n  'view_mode' => 'full',\n);\n$handler->display->display_options['fields']['field_vjs']['delta_offset'] = '0';\n$handler->display->display_options['fields']['field_vjs']['field_api_classes'] = TRUE;\n/* Sort criterion: Content: Post date */\n$handler->display->display_options['sorts']['created']['id'] = 'created';\n$handler->display->display_options['sorts']['created']['table'] = 'node';\n$handler->display->display_options['sorts']['created']['field'] = 'created';\n$handler->display->display_options['sorts']['created']['order'] = 'DESC';\n/* Contextual filter: Content: Nid */\n$handler->display->display_options['arguments']['nid']['id'] = 'nid';\n$handler->display->display_options['arguments']['nid']['table'] = 'node';\n$handler->display->display_options['arguments']['nid']['field'] = 'nid';\n$handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';\n$handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';\n$handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';\n$handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';\n/* Filter criterion: Content: Published */\n$handler->display->display_options['filters']['status']['id'] = 'status';\n$handler->display->display_options['filters']['status']['table'] = 'node';\n$handler->display->display_options['filters']['status']['field'] = 'status';\n$handler->display->display_options['filters']['status']['value'] = 1;\n$handler->display->display_options['filters']['status']['group'] = 1;\n$handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;\n/* Filter criterion: Content: Type */\n$handler->display->display_options['filters']['type']['id'] = 'type';\n$handler->display->display_options['filters']['type']['table'] = 'node';\n$handler->display->display_options['filters']['type']['field'] = 'type';\n$handler->display->display_options['filters']['type']['value'] = array(\n  'event' => 'event',\n);\n\n/* Display: Page */\n$handler = $view->new_display('page', 'Page', 'page_1');\n$handler->display->display_options['path'] = 'calendar';\n\n/* Display: Feed */\n$handler = $view->new_display('feed', 'Feed', 'feed_1');\n$handler->display->display_options['pager']['type'] = 'some';\n$handler->display->display_options['style_plugin'] = 'date_ical';\n$handler->display->display_options['style_options']['cal_name'] = 'lezoo';\n$handler->display->display_options['row_plugin'] = 'date_ical_fields';\n$handler->display->display_options['row_options']['date_field'] = 'field_date';\n$handler->display->display_options['row_options']['title_field'] = 'title';\n$handler->display->display_options['row_options']['description_field'] = 'field_vjs';\n$handler->display->display_options['row_options']['additional_settings'] = array(\n  'skip_blank_dates' => 0,\n);\n$handler->display->display_options['path'] = 'feed.ics';\n$translatables['feed'] = array(\n  t('Master'),\n  t('more'),\n  t('Apply'),\n  t('Reset'),\n  t('Sort by'),\n  t('Asc'),\n  t('Desc'),\n  t('Items per page'),\n  t('- All -'),\n  t('Offset'),\n  t('« first'),\n  t('‹ previous'),\n  t('next ›'),\n  t('last »'),\n  t('[title] [ [field_music_genre] ]'),\n  t('[field_artist]\n[field_vjs]'),\n  t('All'),\n  t('Page'),\n  t('Feed'),\n);\n",
+			"file": "sites/all/themes/lezoo/:* ical feed! *:",
+			"file_size": 8957,
+			"file_write_time": 1384395484000000,
+			"settings":
+			{
+				"buffer_size": 8951,
+				"line_ending": "Unix",
+				"name": "/* ical feed! */"
+			}
+		},
+		{
+			"contents": "support.garagecube.com\nuser: garagecube\npw: madeinswitzerland\n\nmyuser: walidvb\nmypw: walid4ever\n\nassigner to me-> search for: staff:walidvb\n\nTicket patterns: \nGS: Support\n\nQuestion général -> Gael\nQuestion vente/collab -> Aïda\n	Paiement par carte bancaire passent par shareit. le reste par paypal/transfer\n\nQuestion tech modul8 -> private note à David(mardi seul)\nQuestion tech madmapper -> private note à Mathieux/Alex / Franz sinon.\nQuestion projet/sponsor -> canned response reversehead et assign to justine\nTransfer de mail au support -> New ticket\n\ninvoice@garagecube.com\n\nSi trop de couilles share-it-> fwd la conversation à authors@shareit.com + cc Daniel Hubrich dhubrich@digitalriver.com",
+			"settings":
+			{
+				"buffer_size": 696,
+				"line_ending": "Unix",
+				"name": "support.garagecube.com"
+			}
+		},
+		{
+			"file": "sites/all/modules/custom/lezoo/modal.inc",
+			"settings":
+			{
+				"buffer_size": 588,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "sites/all/themes/lezoo/js/custom.js",
+			"settings":
+			{
+				"buffer_size": 1932,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "sites/all/themes/lezoo/template.php",
+			"settings":
+			{
+				"buffer_size": 6967,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "sites/all/themes/lezoo/templates/node--person.tpl.php",
+			"settings":
+			{
+				"buffer_size": 5347,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "sites/all/themes/lezoo/templates/node--blog-post.tpl.php",
+			"settings":
+			{
+				"buffer_size": 6444,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "sites/all/themes/lezoo/templates/page.tpl.php",
+			"settings":
+			{
+				"buffer_size": 4288,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "sites/all/themes/lezoo/templates/node.tpl.php",
+			"settings":
+			{
+				"buffer_size": 5366,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "sites/all/themes/lezoo/templates/node--installations.tpl.php",
+			"settings":
+			{
+				"buffer_size": 5626,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/LESS-build/LESS.sublime-build",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"inden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"cdn",
+				"Cdnjs: Import URL only"
+			],
+			[
+				"syntax html",
+				"Set Syntax: HTML"
+			],
+			[
+				"snippet ",
+				"Snippet: html"
+			],
+			[
+				"hook_menu",
+				"Snippet: hook_menu"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"inde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"packa",
+				"Package Control: List Packages"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"javas",
+				"Set Syntax: jQuery (JavaScript)"
+			],
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"syntax",
+				"Set Syntax: PHP"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"preproce",
+				"Snippet: hook_preprocess"
+			],
+			[
+				"haml",
+				"HTML2Haml: Convert selection"
+			],
+			[
+				"syn haml",
+				"Set Syntax: Ruby Haml"
+			],
+			[
+				"2haml",
+				"HTML2Haml: Convert file"
+			],
+			[
+				"js2",
+				"JS2Coffee: Convert & Make New File"
+			],
+			[
+				"coffee",
+				"Coffee: Display JavaScript"
+			],
+			[
+				"2ham",
+				"HTML2Haml: Convert file"
+			],
+			[
+				"cdnjs",
+				"Cdnjs: Import Script"
+			],
+			[
+				"coffe",
+				"Set Syntax: CoffeeScript"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"inden	",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"indent	",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"drupal_add",
+				"Snippet: drupal_add_js"
+			],
+			[
+				"hook_preprocess_",
+				"Snippet: hook_preprocess_HOOK"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"insall",
+				"Package Control: Install Package"
+			],
+			[
+				"preprocess",
+				"Snippet: hook_preprocess_page"
+			],
+			[
+				"field_formatter settings",
+				"Snippet: h_field_formatter_settings_form"
+			],
+			[
+				"hook_formatt",
+				"Snippet: hook_field_formatter_view"
+			],
+			[
+				"hook_prepr",
+				"Snippet: hook_preprocess_page"
+			],
+			[
+				"hook_preprocess",
+				"Snippet: hook_preprocess_HOOK"
+			],
+			[
+				"drupal add ",
+				"Snippet: drupal_add_js"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"packag",
+				"Package Control: Install Package"
+			],
+			[
+				"wrap",
+				"Word Wrap: Toggle"
+			],
+			[
+				"drup",
+				"Snippet: hook_field_storage_update_field"
+			],
+			[
+				"php",
+				"Snippet: h_preprocess"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"git",
+				"Git: Quick Commit"
+			],
+			[
+				"insa",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"",
+				"Package Control: List Packages"
+			],
+			[
+				"check",
+				"Snippet: check_markup"
+			],
+			[
+				"region",
+				"Snippet: template_preprocess_region"
+			],
+			[
+				"link",
+				"Snippet: theme_link"
+			],
+			[
+				"prepr	",
+				"Snippet: h_preprocess"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/js/myAngular.js",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/lezoo.info",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/angular_filter/angular.js",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/date.inc",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/js/#*merge*#62198T5l#",
+		"/Users/Gaston/Sites/zoo/.git/MERGE_MSG",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--event.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/views-view--mini-blocks.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/page.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/angular_filter/index.html",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--installations--mini.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/views-bootstrap-carousel-plugin-rows--events-carousel.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/lezoo.module",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/field--artist-collection.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/libs/jquery.pin.js",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/template.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--installations.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/views-view-fields--carousel--events-carousel.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--blog-post.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/js/custom.js",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/fronts.less",
+		"/Users/Gaston/Library/Caches/Cleanup At Startup/Transmit/59AF24F4-683B-49E7-BE7A-54D8281F6A7A/style.less",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/date_ical/date_ical.make",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/blog.less",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/events.less",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/date_filter.inc",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/style.less",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/views-bootstrap-carousel-plugin-rows.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/field_coll.inc",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/bootstrap/less/mixins.less",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/variables.less",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/overrides.less",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/date/date_views/date_views.module",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/lezoo-views.less",
+		"/Users/Gaston/Desktop/calendar",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/node.less",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/links_to_social/links_to_social.css",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/dat",
+		"/Users/Gaston/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--event--teaser.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--installation.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/bootstrap/theme/system/page.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/ctools/page_manager/help/custom-pages.html",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/field__artist_collection.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/bootstrap/less/bootstrap.less",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/views_offset/views_offset.module",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/bluemasters/node.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/header.less",
+		"/Users/Gaston/Sites/zoo/sites/default/settings.php",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/lezoo.info",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/page_emulator/page_emulator.module",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/bootstrap/less/variables.less",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/favicon.ico",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/libs/stickyHeaders/jquery.stickyHeaders.css",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/variable/variable.inc",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/views/help/overrides.html",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/views/css/views.css",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/controllers/users_controller.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/spec/models/user_spec.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/spec/requests/books_spec.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/spec/factories.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/books/new.html.haml",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/users/new.html.haml",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/layouts/_booksall.html.haml",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/shared/_flash.html.haml",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/assets/stylesheets/books.css.scss",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/books/index.html.haml",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/books/show.html.erb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/helpers/application_helper.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/users/show.html.haml",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/Gemfile",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/models/user.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/models/book.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/db/migrate/20131028162319_add_users_books_join_table.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/books/_form.html.haml",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/assets/javascripts/books.js.coffee",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/assets/stylesheets/custom.css.scss",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/layouts/_header.html.haml",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/config/routes.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/books/edit.html.haml",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/controllers/books_controller.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/config/initializers/social_share_button.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/layouts/application.html.haml",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/assets/stylesheets/application.css",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/assets/javascripts/application.js",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/sessions/new.html.haml",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/spec/requests/user_pages_spec.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/controllers/sessions_controller.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/helpers/sessions_helper.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/books/_form.html.erb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/books/index.html.erb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/helpers/users_helper.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/db/seeds.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/helpers/books_helper.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/spec/requests/authentication_pages_spec.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/controllers/application_controller.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/db/migrate/20131027194349_add_remember_token_to_users.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/spec/requests/static_pages_spec.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/assets/stylesheets/users.css.scss",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/assets/stylesheets/mixins.css.scss",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/config/environments/production.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/shared/_error_messages.html.haml",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/config/application.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/db/schema.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/static_pages/home.html.haml",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/assets/javascripts/static_pages.js.coffee",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/assets/stylesheets/static_pages.css.scss",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/db/migrate/20131027162234_add_roles_to_users.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/config/environments/test.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/spec/controllers/static_pages_controller_spec.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/db/migrate/20131027120203_create_users.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/db/migrate/20131027140912_add_index_to_users_email.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/spec/views/static_pages/contact.html.erb_spec.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/spec/helpers/static_pages_helper_spec.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/spec/support/utilities.rb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/static_pages/contact.html.erb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/static_pages/books.html.haml",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/.git/MERGE_MSG",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/controllers/static_pages_controller.rb",
+		"/Users/Gaston/Sites/cordesavides/sites/all/themes/cordesavides/less/variables.less",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/assets/stylesheets/scaffolds.css.scss",
+		"/Users/Gaston/Library/Application Support/Sublime Text 2/Packages/Package Control/Package Control.sublime-settings",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/layouts/bckapplication.html.erb",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/tmp/cache/assets/development/sass/3f2ce0e293c181fa9dadc4500877b6bec40514c3/static_pages.css.scssc",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/public/assets/fonts/MyFontsWebfontsKit/MyFontsWebfontsKit.css",
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/layouts/_header.html.erb",
+		"/Users/Gaston/Library/Application Support/Sublime Text 2/Packages/User/Package Control.sublime-settings"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"bigimage",
+			"flyer",
+			"'field_flyer'",
+			"dpm",
+			"genre",
+			"field_soundcloud",
+			"jQuery",
+			"strtotime($date)",
+			"secondary",
+			"white",
+			"inks_to_social",
+			"label",
+			"section",
+			" MYMODULE",
+			"dotted",
+			"class=\"\"",
+			"scripts",
+			";",
+			"now",
+			"attrs",
+			"user",
+			"coverImage",
+			"description",
+			"class=\"field",
+			"element",
+			"'Sign up'",
+			":key",
+			"value",
+			"key",
+			"books_page",
+			"2.5",
+			"1s",
+			"1.5",
+			"/assets/fonts/",
+			";",
+			"assets",
+			"fonts",
+			"public",
+			"assets",
+			"webfonts",
+			"home_path",
+			"                           ",
+			"$})",
+			"Sample",
+			"url('",
+			"helveticaneueltpro",
+			"HelveticaNeueLTPro",
+			"helveticaneueltpro",
+			"contain",
+			"cover",
+			"aumbryproject",
+			"example",
+			"[your_theme_name]",
+			"example",
+			"dpm",
+			"d",
+			"controls",
+			"futuralt",
+			"left",
+			"calendar-active-item",
+			"height",
+			"icons",
+			"collapse",
+			"right",
+			"$this",
+			"comments",
+			"commentTitle",
+			"this",
+			"carousel",
+			"calendar",
+			"white",
+			"@btn-default-bgHighlight",
+			"@btnBackground",
+			"hidden",
+			"$('.owl-item')",
+			"$('.owl-wrapper')",
+			"newH",
+			"link-to-social",
+			"ink_to_social",
+			"focus",
+			" <?",
+			"form-actions",
+			"facebookComments",
+			"mymodule",
+			"links_to_social_field_formatter",
+			"#389495",
+			"@nav-link-hover-bg",
+			";\n",
+			"@nav-link-bg",
+			"@black",
+			"beige",
+			"@body-bg-2",
+			"@black",
+			"@body;",
+			"@body",
+			"beige",
+			"funzio",
+			"quarta",
+			"banheros",
+			"portada",
+			"micolehelp",
+			"../bootstrap",
+			".navbar-nav",
+			"font",
+			"link_favicon",
+			"link_favicon_formatter",
+			"archive",
+			"_get_next_node_page",
+			"_get_next_node_id",
+			"div",
+			"example",
+			"Example",
+			"example",
+			"bootstrap_barrio",
+			"load_posts",
+			"x_",
+			"../bootstrap",
+			"load_posts",
+			"node",
+			"share",
+			"5s",
+			"2s",
+			"3s",
+			"all",
+			"0.5s",
+			"0.3s",
+			"list",
+			"$title"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 7,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "sites/all/modules/custom/lezoo/date_filter.inc",
+					"settings":
+					{
+						"buffer_size": 1566,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1049,
+								1049
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "sites/all/themes/lezoo/:* ical feed! *:",
+					"settings":
+					{
+						"buffer_size": 8951,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1395,
+								1395
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_name": "/* ical feed! */",
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"settings":
+					{
+						"buffer_size": 696,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								577,
+								577
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_name": "support.garagecube.com",
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "sites/all/modules/custom/lezoo/modal.inc",
+					"settings":
+					{
+						"buffer_size": 588,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								38,
+								38
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "sites/all/themes/lezoo/js/custom.js",
+					"settings":
+					{
+						"buffer_size": 1932,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1532,
+								1532
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 221.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "sites/all/themes/lezoo/template.php",
+					"settings":
+					{
+						"buffer_size": 6967,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2692,
+								2692
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1220.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "sites/all/themes/lezoo/templates/node--person.tpl.php",
+					"settings":
+					{
+						"buffer_size": 5347,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4766,
+								4766
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 990.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "sites/all/themes/lezoo/templates/node--blog-post.tpl.php",
+					"settings":
+					{
+						"buffer_size": 6444,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4478,
+								4478
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1237.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "sites/all/themes/lezoo/templates/page.tpl.php",
+					"settings":
+					{
+						"buffer_size": 4288,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3316,
+								3316
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "sites/all/themes/lezoo/templates/node.tpl.php",
+					"settings":
+					{
+						"buffer_size": 5366,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4219,
+								4219
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1091.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 10,
+					"file": "sites/all/themes/lezoo/templates/node--installations.tpl.php",
+					"settings":
+					{
+						"buffer_size": 5626,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5383,
+								5383
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1215.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.628727213542,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.git":
+	{
+		"height": 100.0
+	},
+	"output.sftp":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"nodeblog",
+				"lezoo/templates/node--blog-post.tpl.php"
+			],
+			[
+				"templ",
+				"lezoo/template.php"
+			],
+			[
+				"node.tpl",
+				"lezoo/templates/node.tpl.php"
+			],
+			[
+				"page.tpl",
+				"lezoo/templates/page.tpl.php"
+			],
+			[
+				"template",
+				"lezoo/template.php"
+			],
+			[
+				"myan",
+				"lezoo/js/myAngular.js"
+			],
+			[
+				"templat",
+				"lezoo/template.php"
+			],
+			[
+				"myangu",
+				"lezoo/js/myAngular.js"
+			],
+			[
+				"custom",
+				"lezoo/js/custom.js"
+			],
+			[
+				"date.inc",
+				"custom/lezoo/date.inc"
+			],
+			[
+				"date.",
+				"custom/lezoo/date.inc"
+			],
+			[
+				"templa",
+				"lezoo/template.php"
+			],
+			[
+				"mya",
+				"lezoo/js/myAngular.js"
+			],
+			[
+				"an",
+				"lezoo/js/myAngular.js"
+			],
+			[
+				"angul",
+				"lezoo/angular_filter/angular.js"
+			],
+			[
+				"page",
+				"lezoo/templates/page.tpl.php"
+			],
+			[
+				"modal",
+				"custom/lezoo/modal.inc"
+			],
+			[
+				"info",
+				"lezoo/lezoo.info"
+			],
+			[
+				"nodeevent",
+				"lezoo/templates/node--event.tpl.php"
+			],
+			[
+				"node",
+				"lezoo/templates/node--blog-post.tpl.php"
+			],
+			[
+				"pin",
+				"lezoo/libs/jquery.pin.js"
+			],
+			[
+				"views",
+				"lezoo/templates/views-view-fields--carousel--events-carousel.tpl.php"
+			],
+			[
+				"nodeinsa",
+				"lezoo/templates/node--installations.tpl.php"
+			],
+			[
+				"nodemini",
+				"lezoo/templates/node--installations--mini.tpl.php"
+			],
+			[
+				"nodeinstal",
+				"lezoo/templates/node--installations.tpl.php"
+			],
+			[
+				"carouse",
+				"lezoo/templates/views-bootstrap-carousel-plugin-rows--events-carousel.tpl.php"
+			],
+			[
+				"field",
+				"lezoo/templates/field--artist-collection.tpl.php"
+			],
+			[
+				"lezoo",
+				"custom/lezoo/lezoo.module"
+			],
+			[
+				"less",
+				"lezoo/less/fronts.less"
+			],
+			[
+				"fieldcol",
+				"lezoo/templates/field--artist-collection.tpl.php"
+			],
+			[
+				"cus",
+				"lezoo/js/custom.js"
+			],
+			[
+				"inst",
+				"lezoo/templates/node--installations.tpl.php"
+			],
+			[
+				"blog",
+				"lezoo/less/blog.less"
+			],
+			[
+				"jqpin",
+				"lezoo/libs/jquery.pin.js"
+			],
+			[
+				"nodeins",
+				"lezoo/templates/node--installations.tpl.php"
+			],
+			[
+				"date",
+				"custom/lezoo/date_filter.inc"
+			],
+			[
+				"date_f",
+				"custom/lezoo/date_filter.inc"
+			],
+			[
+				"node--",
+				"lezoo/templates/node--blog-post.tpl.php"
+			],
+			[
+				"node-",
+				"lezoo/templates/node--event.tpl.php"
+			],
+			[
+				"node--eve",
+				"lezoo/templates/node--event.tpl.php"
+			],
+			[
+				"styl",
+				"lezoo/less/style.less"
+			],
+			[
+				"mixin",
+				"lezoo/bootstrap/less/mixins.less"
+			],
+			[
+				"varial",
+				"lezoo/less/variables.less"
+			],
+			[
+				"front",
+				"lezoo/less/fronts.less"
+			],
+			[
+				"nodeinst",
+				"lezoo/templates/node--installations.tpl.php"
+			],
+			[
+				"event",
+				"lezoo/less/events.less"
+			],
+			[
+				"lezooviews",
+				"lezoo/less/lezoo-views.less"
+			],
+			[
+				"overr",
+				"lezoo/less/overrides.less"
+			],
+			[
+				"links",
+				"custom/links_to_social/links_to_social.css"
+			],
+			[
+				"page.",
+				"lezoo/templates/page.tpl.php"
+			],
+			[
+				"nodeteaser",
+				"themes/lezoo/templates/node--event--teaser.tpl.php"
+			],
+			[
+				"field__",
+				"themes/lezoo/templates/field__artist_collection.tpl.php"
+			],
+			[
+				"mixins",
+				"themes/lezoo/bootstrap/less/mixins.less"
+			],
+			[
+				"node.tpl.",
+				"themes/lezoo/templates/node.tpl.php"
+			],
+			[
+				"viewsoffse",
+				"modules/custom/views_offset/views_offset.module"
+			],
+			[
+				"temp",
+				"themes/lezoo/template.php"
+			],
+			[
+				"varialess",
+				"themes/lezoo/less/variables.less"
+			],
+			[
+				"pageem",
+				"modules/custom/page_emulator/page_emulator.module"
+			],
+			[
+				"variless",
+				"themes/lezoo/less/variables.less"
+			],
+			[
+				"vari",
+				"modules/variable/variable.inc"
+			],
+			[
+				"over",
+				"themes/lezoo/less/overrides.less"
+			],
+			[
+				"header",
+				"themes/lezoo/less/header.less"
+			],
+			[
+				"bookcoffe",
+				"app/assets/javascripts/books.js.coffee"
+			],
+			[
+				"route",
+				"config/routes.rb"
+			],
+			[
+				"book",
+				"app/controllers/books_controller.rb"
+			],
+			[
+				"hea",
+				"app/views/layouts/_header.html.haml"
+			],
+			[
+				"books",
+				"app/assets/stylesheets/books.css.scss"
+			],
+			[
+				"index",
+				"app/views/books/index.html.haml"
+			],
+			[
+				"userspec",
+				"spec/requests/user_pages_spec.rb"
+			],
+			[
+				"user",
+				"app/models/user.rb"
+			],
+			[
+				"_form",
+				"app/views/books/_form.html.haml"
+			],
+			[
+				"new",
+				"app/views/books/new.html.haml"
+			],
+			[
+				"show",
+				"app/views/users/show.html.haml"
+			],
+			[
+				"sow",
+				"app/views/users/show.html.haml"
+			],
+			[
+				"usercontrol",
+				"app/controllers/users_controller.rb"
+			],
+			[
+				"flash",
+				"app/views/shared/_flash.html.haml"
+			],
+			[
+				"bookssc",
+				"app/assets/stylesheets/books.css.scss"
+			],
+			[
+				"bookcontro",
+				"app/controllers/books_controller.rb"
+			],
+			[
+				"form",
+				"app/views/books/_form.html.haml"
+			],
+			[
+				"apphaml",
+				"app/views/layouts/application.html.haml"
+			],
+			[
+				"applhaml",
+				"app/views/layouts/application.html.haml"
+			],
+			[
+				"socia",
+				"config/initializers/social_share_button.rb"
+			],
+			[
+				"gem",
+				"Gemfile"
+			],
+			[
+				"scss",
+				"app/assets/stylesheets/books.css.scss"
+			],
+			[
+				"help",
+				"app/helpers/application_helper.rb"
+			],
+			[
+				"heade",
+				"app/views/layouts/_header.html.haml"
+			],
+			[
+				"customcss",
+				"app/assets/stylesheets/custom.css.scss"
+			],
+			[
+				"sess",
+				"app/controllers/sessions_controller.rb"
+			],
+			[
+				"contro",
+				"app/controllers/sessions_controller.rb"
+			],
+			[
+				"session",
+				"app/controllers/sessions_controller.rb"
+			],
+			[
+				"sessionhelp",
+				"app/helpers/sessions_helper.rb"
+			],
+			[
+				"appl",
+				"app/controllers/application_controller.rb"
+			],
+			[
+				"usercontr",
+				"app/controllers/users_controller.rb"
+			],
+			[
+				"spec",
+				"spec/requests/static_pages_spec.rb"
+			],
+			[
+				"sessionspec",
+				"spec/requests/authentication_pages_spec.rb"
+			],
+			[
+				"produ",
+				"config/environments/production.rb"
+			],
+			[
+				"config",
+				"config/application.rb"
+			],
+			[
+				"cust",
+				"app/assets/stylesheets/custom.css.scss"
+			],
+			[
+				"appcss",
+				"app/assets/stylesheets/application.css"
+			],
+			[
+				"usercont",
+				"app/controllers/users_controller.rb"
+			],
+			[
+				"home",
+				"app/views/static_pages/home.html.haml"
+			],
+			[
+				"head",
+				"app/views/layouts/_header.html.haml"
+			],
+			[
+				"test",
+				"config/environments/test.rb"
+			],
+			[
+				"user_",
+				"spec/requests/user_pages_spec.rb"
+			],
+			[
+				"add",
+				"db/migrate/20131027140912_add_index_to_users_email.rb"
+			],
+			[
+				"contaspec",
+				"spec/views/static_pages/contact.html.erb_spec.rb"
+			],
+			[
+				"staticspec",
+				"spec/requests/static_pages_spec.rb"
+			],
+			[
+				"helper",
+				"app/helpers/application_helper.rb"
+			],
+			[
+				"userhtml",
+				"app/views/users/new.html.erb"
+			],
+			[
+				"appjs",
+				"app/assets/javascripts/application.js"
+			],
+			[
+				"confi",
+				"config/environments/test.rb"
+			],
+			[
+				"conta",
+				"app/views/static_pages/contact.html.erb"
+			],
+			[
+				"specs",
+				"spec/controllers/static_pages_controller_spec.rb"
+			],
+			[
+				"css",
+				"app/assets/stylesheets/custom.css.scss"
+			],
+			[
+				"statjs",
+				"app/assets/javascripts/static_pages.js.coffee"
+			],
+			[
+				"stat",
+				"app/controllers/static_pages_controller.rb"
+			],
+			[
+				"applichaml",
+				"app/views/layouts/application.html.haml"
+			],
+			[
+				"scaff",
+				"app/assets/stylesheets/scaffolds.css.scss"
+			],
+			[
+				"applham",
+				"app/views/layouts/application.html.haml"
+			],
+			[
+				"utili",
+				"spec/support/utilities.rb"
+			],
+			[
+				"rspec",
+				"spec/requests/static_pages_spec.rb"
+			],
+			[
+				"guard",
+				"Guardfile"
+			],
+			[
+				".rspe",
+				".rspec"
+			],
+			[
+				"spec_",
+				"spec/spec_helper.rb"
+			],
+			[
+				"staticpa",
+				"app/controllers/static_pages_controller.rb"
+			],
+			[
+				"p",
+				"cordesavides/templates/page.tpl.php"
+			],
+			[
+				"varia",
+				"cordesavides/less/variables.less"
+			],
+			[
+				"var",
+				"cordesavides/less/variables.less"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 226.0,
+	"status_bar_visible": true
+}

@@ -2,13 +2,13 @@
 
 /**
  * @file
- * Contains generator classes for module code files.
+ * Contains generator class for outputting files.
  */
 
 namespace ModuleBuider\Generator;
 
 /**
- * Abstract Generator base class for files. TODO: rename? merge into Code?
+ * Abstract Generator base class for files.
  */
 abstract class File extends BaseGenerator {
 
@@ -31,9 +31,9 @@ abstract class File extends BaseGenerator {
   /**
    * Return an empty array of subcomponent types.
    *
-   * Files are always terminal components.
+   * Files are (so far!) always terminal components.
    */
-  protected function subComponents() {
+  protected function requiredComponents() {
     return array();
   }
 
@@ -43,7 +43,7 @@ abstract class File extends BaseGenerator {
    * Files are usually contained by the root component.
    */
   function containingComponent() {
-    return $this->base_component;
+    return $this->base_component->name;
   }
 
   /**

@@ -13,6 +13,10 @@ regions[sidebar_first]  = 'Primary'
 regions[sidebar_second] = 'Secondary'
 regions[footer]         = 'Footer'
 
+; Panels
+
+plugins[panels][layouts] = templates/layouts
+
 ; Plugins
 
 stylesheets[all][] = libs/stickyHeaders/jquery.stickyHeaders.css
@@ -22,6 +26,7 @@ stylesheets[all][] = libs/flexslider/flexslider.css
 scripts[] = libs/flexslider/jquery.flexslider-min.js
 
 scripts[] = libs/jquery.pin.js
+scripts[] = libs/lightordark.js
 
 ;scripts[] = libs/jquery.glide.min.js
 ; Stylesheets

@@ -77,14 +77,10 @@ function render_date($date, $format)
 {
   //dpm($date, 'before strtotime'); 
   $date = strtotime($date);
-  //dpm($date, 'after strtotime');
-	$day = strftime('%a', $date);
+  $month = utf8_encode(strftime('%b', $date));
+	$day = utf8_encode(strftime('%a', $date));
 	$date = strftime('%d', $date);
-  $month = strftime('%b', $date);
-  //dpm($month, 'strftime(\'%b\', $date)');
-  //dpm($date, 'strftime(\'%a\', $date)');
-
-	$output = "<span class=\"day\">$day</span>\n<span class=\"date-number\">$date</span>";
+	$output = "<span class=\"day\">$day</span>\n<span class=\"date-number\">$date</span>\n";
   if($format == 'day_date_month')
   {
    $month = strftime('%b', $date);  
