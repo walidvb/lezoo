@@ -1,26 +1,60 @@
-.field-photos{
+// Teaser install
+.view-installations{
+	height: 100%;
+	background: red;
+	.views-field-title{
+		font-family: @font-family-sans-serif;
+		font-size: @font-size-h4;
+		color: lighten(@secondary-color, 100%);
+		//background-color: @primary-color;
+		a{
+			color: lighten(@secondary-color, 100%);
+		}
+	}
 	a{
 		transparency: 0.8;
 	}
 	a:hover{
 		transparency: 1;
 	}
-}
+	.field-photos{
+		.opacity(0.7);
+		.transition-duration(0.5s);
+		&:hover{
+			.transition-duration(0.5s);
+			.opacity(1);
+		}
+	}
+
 	.field-event-ref{
-	position: absolute;
-	top: 50%;
-	width: 100%;
-	.header{
-		.event-titles, .event-meta{
-			display: none;
+		padding-left:0px;
+		width: 100%;
+		.event-node{
+			bottom: 0px;	
+			background-color: @secondary-color;
+			.header{
+				.event-titles, .event-meta{
+					display: inline-block;
+					&.event-titles{
+						width: 70%;
+						.node-title{
+							font-size: @font-size-h3!important;
+							vertical-align: middle;
+						}
+					}
+				}
+				.date{
+					display: inline-block;
+					width: 20%;
+				}
+				.day, .date-number, .month{
+					display: inline-block !important;
+					color: @primary-color;
+					font-size: @font-size-h5;
+				}
+			}
 		}
-		.date{
-			width: 100%;
-			transparency: 1;
-		}
-		.day, .date-number, .month{
-			display: inline-block !important;
-		}
+		
 	}
 }
 

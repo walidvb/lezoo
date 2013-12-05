@@ -26,6 +26,8 @@
 .line-up{
 	position: relative;
 	font-family: @font-family-sans-serif;
+	padding-left: @padding-base-horizontal;
+	padding-right: @padding-base-horizontal;
 	h3{
 		margin: 0px;
 	}
@@ -51,6 +53,7 @@
 }
 
 .event-line-up-djs{
+
 	.artist{
 		//display:block;
 		z-index: 1;
@@ -82,7 +85,7 @@
 .node-event.view-mode-full{
 	.header{
 		min-height: 50px;
-		border-bottom: @border;
+		//border-bottom: @border;
 		margin-bottom: 20px;
 		.event-titles{
 			display: inline-block;
@@ -136,7 +139,10 @@
 	}
 	.col-right{
 		.event-body{
+			background-color: @secondary-color;
 			height: 100%;
+			padding-left: @padding-base-vertical;
+			padding-right: @padding-base-vertical;
 			.field-body{
 			}
 		}
@@ -147,12 +153,12 @@
 .node-teaser{
 	padding-top: @padding-base-vertical;
 	padding-bottom: @padding-base-vertical;
-	border-bottom: double 10px @primary-color;
-	min-height:140px;
+	min-height: 140px;
 	.dated-node{
-		min-height: 130px;
+		min-height: 140px;
+		margin-bottom: @padding-base-vertical;
 		.transition-duration(0.5s);
-		background-color: lighten(@fourth-color, 0%);
+		background-color: lighten(@fourth-color, 2%);
 		&:hover{
 			.transition-duration(0.5s);
 			background-color: lighten(@fourth-color, 30%);
@@ -162,20 +168,46 @@
 		width: 100%;
 		min-height: 40px;
 	}
+	.field-big-image{
+		display: none;
+	}
 	.event-titles{
 		display: inline-block;
 		padding-left: 0px;
 		.node-title{
 			margin-top: 2px;
 			margin-bottom: 2px;
+			padding-left: @padding-base-horizontal;
+			padding-right: @padding-base-horizontal;
+			color: black;
+			font-weight: bold;
+			a{
+				color: inherit;
+			}
+			background: white;
+		}
+		.event-subtitle{
+			padding-left: @padding-base-horizontal;
+			padding-right: @padding-base-horizontal;
+			min-height: 17px;
 		}
 	}
 	.event-meta{
-		display: inline-block;
-		.make-md-column(3);
-		float: right !important;
+		background-color: @tertiary-color;
+		.make-md-column(11);
+		@media (max-width: @screen-md-min){
+			width: 85%;
+			float: left;
+			display: block;
+		}
+		min-height: 17px;
+		.field-music-genre{
+			display: inline-block;
+			a{
+				color: @secondary-color;
+			}
+		}
 	}
-
 	.date{
 		position: absolute;
 		right: 0px;
@@ -189,12 +221,15 @@
 		padding-top: @padding-base-vertical;
 	}
 	.event-line-up-djs{
-		border-top: solid 1px @primary-color;
+		//border-top: solid 1px @primary-color;
 	}
 	.artists{
-		.make-md-column(11);
+		.make-md-column(10);
 		float: none!important;
 		padding-left: 0px!important;
+		@media (max-width: @screen-md-min){
+			width: 80%;
+		}
 	}
 	.artist{
 		display:inline-block !important;
