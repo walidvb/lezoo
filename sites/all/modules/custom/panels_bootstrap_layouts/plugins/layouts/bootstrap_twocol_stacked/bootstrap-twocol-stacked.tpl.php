@@ -4,10 +4,10 @@
   </div>
     <div class="row container">
 
-  <div class=" col-sm-6 col-xs-12">
-    <?php print $content['left']; ?>.
+  <div class="col-sm-6 col-xs-12">
+    <?php print $content['left']; ?>
   </div>
-    <div class=" col-sm-6 col-xs-12">
+    <div class="col-sm-6 col-xs-12">
     <?php print $content['right']; ?>
   </div>
   </div>

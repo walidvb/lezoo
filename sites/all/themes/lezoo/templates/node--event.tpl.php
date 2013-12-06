@@ -21,7 +21,6 @@ else
 	$title_tag = 'h1';
 }
 
-dpm(render($content['flippy_pager']), 'flippy');
 ?>
 <div class='node-event <?php print $classes ?>' <?php print $attributes; ?> >
 	<div>
@@ -44,9 +43,11 @@ dpm(render($content['flippy_pager']), 'flippy');
 					<div class="event-meta">
 						<?php if($view_mode == 'full'): ?>
 							<div class="event-social">
-							<?php print render($content['field_addthis']) ?>
-							<?php if(!empty($ics) && $view_mode != 'mini')
-							print $ics; 
+							<?php print $share42; 
+									if(!empty($ics) && $view_mode != 'mini')
+									{
+										print $ics; 
+									}
 							?>
 							</div>
 						<?php endif; ?>

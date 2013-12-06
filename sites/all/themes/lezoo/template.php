@@ -8,13 +8,19 @@ setlocale(LC_ALL, 'fr_FR');
 function lezoo_preprocess_html(&$variables) {
 	drupal_add_css('//cdnjs.cloudflare.com/ajax/libs/animate.css/2.0/animate.min.css', array('type' => 'external'));
 	drupal_add_js('//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js', array('type' => 'external'));
-	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.1/angular.min.js', array('type' => 'external'));
-	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', array('type' => 'external'));
+	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.1/angular.min.js', array('type' => 'external', 'scope' => 'footer'));
+	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', array('type' => 'external', 'scope' => 'footer'));
+	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js', array('type' => 'external', 'scope' => 'footer'));
 	if(isset($variables['user']->roles['3']))
 	{
 		$variables['classes_array'][] = $variables['user']->roles['3'];
 	}
-
+	drupal_add_js(libraries_get_path('share42') . '/share42.js', array(
+		'type' => 'file',
+		'scope' => 'footer',
+		'preprocess' => false,
+		)
+	);
 }
 
 /**
@@ -136,7 +142,6 @@ function lezoo_preprocess_node(&$variables) {
 				{
 					foreach($variables['field_music_genre'] as $genre)
 					{
-						dpm($genre);
 						$parents = taxonomy_get_parents($genre['tid']);
 						if(!empty($parents))
 						{
@@ -177,9 +182,13 @@ function lezoo_preprocess_node(&$variables) {
 
 		}
 	}
+
+	//share42
+	global $base_url;
+	$variables['share42'] = '<div class="share42init" data-url="' . $base_url .'/'. drupal_get_path_alias('node/' . $variables['nid']) . '" data-title="' . $variables['title_link']['#text'] . '"></div>';
 }
 
-//set youtube frame width to 100%
+//set video frame width to 100%
 function lezoo_video_filter_iframe(&$variables) {
 	$video = $variables['video'];
 	$video['width'] = '100%';
@@ -241,3 +250,59 @@ function lezoo_preprocess_field(&$vars, $hook){
 		rows_from_field_collection($vars, $vars['element']['#field_name'], $field_array);
 	}
 }
+
+function lezoo_block_info(){
+	$blocks = array();
+	$blocks['webcal'] = array(
+		'info' => t('the modal dialog to subsribe to the agenda'),
+	);
+	return $blocks;
+}
+
+function lezoo_block_view($delta = ''){
+	  $block = array();
+  switch ($delta) {
+    case 'webcal':
+      $block['subject'] = '';
+      $block['content'] = _modal();
+      break;
+  }
+  return $block;
+}
+
+function _modal(){
+	$output = '
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" data-backdrop="true" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h4 class="modal-title" id="myModalLabel">Choisis ton style!</h4>
+		      </div>
+		      <div class="modal-body">
+		          <div ng-app="leZooApp">
+		    <div ng-controller="feedFilter">
+		        <form>
+		            <span ng-repeat="genre in genres">
+		                <input type="checkbox" name="{{genre.name}}" value="{{genre.selected}}" ng-model="genre.selected" ng-true-value="true"/> {{genre.name}}
+		            </span>
+		        </form>
+		        <a ng-href="webcal://lezoo.ch/{{params()}}feed.ics" class="btn btn-primary btn-lg">Synchronise ton agenda avec celui du ZOO!</a>
+
+		    </div>
+		        
+		   
+		</div>
+
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->';
+	return $output;
+	}

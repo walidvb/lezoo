@@ -33,7 +33,7 @@ else
   <?php if(!empty($title) && !$is_page): ?>
   <h3<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h3>
 <?php endif; ?>
-<?php print render($content['field_addthis']); ?>
+<?php print $share42; ?>
 <?php print render($title_suffix); ?> 
 
 
