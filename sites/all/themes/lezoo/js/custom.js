@@ -8,7 +8,7 @@
 			$('.primary .dropdown-toggle').html(active_trail + '<span class="caret"></span>');
 		}
 		//-------------- stick menu
-		var threshold = $('.asd');
+		var threshold = $('header');
 		//-------------- stick months above list
 		$('.page-agenda .view-display-id-panel_pane_1 .view-content')
 		.css('position', 'relative')
@@ -53,14 +53,16 @@
 		{
 			var nodeStatusClasses = Drupal.settings.lezoo_theme.node_status;
 
-			$('.node-blog-post .expand-post').bind('click', function(e){
-				e.preventDefault();
-				$this = $(this);
-				var newText = ($this.text() == 'ouvrir') ? 'fermer' : 'ouvrir';
-				$this.text(newText);
-				var post = $this.parents('.node-blog-post');
-				var isOpen = post.hasClass(nodeStatusClasses.open);
-				post.toggleClass(nodeStatusClasses.closed + ' ' + nodeStatusClasses.open);
+			$('.node-blog-post .expand-post').once('lezoo', function(){
+				$(this).bind('click', function(e){
+					e.preventDefault();
+					$this = $(this);
+					var newText = ($this.text() == 'ouvrir') ? 'fermer' : 'ouvrir';
+					$this.text(newText);
+					var post = $this.parents('.node-blog-post');
+					var isOpen = post.hasClass(nodeStatusClasses.open);
+					post.toggleClass(nodeStatusClasses.closed + ' ' + nodeStatusClasses.open);
+				});
 			});
 		}
 

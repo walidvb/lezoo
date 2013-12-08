@@ -40,6 +40,19 @@ Drupal.behaviors.views_infinite_scroll = {
               },
               load: function() {
                 $('div#views_infinite_scroll-ajax-loader').remove();
+                var grouping = true;
+                if(grouping)
+                {
+                  var last_group_title = $(view_selector + ' .view-content > h3').last().text();
+                  var new_group_title = $(this).first().text();
+                  console.log(last_group_title);
+                  console.log(new_group_title);
+                  if(last_group_title == new_group_title)
+                  {                
+                      $(this).first().remove();
+                  }
+                  console.log($(this));
+                }
                 Drupal.attachBehaviors(this);
               }
             });
