@@ -75,9 +75,8 @@ function lezoo_field_formatter_view($entity_type, $entity, $field, $instance, $l
 //the function rendering a link as an icon.
 function render_date($date, $format)
 {
-  //dpm($date, 'before strtotime'); 
-    $month = utf8_encode(strftime('%b', $date));
-
+  $date = strtotime($date);
+  $month = utf8_encode(strftime('%b', $date));
   $date = strtotime($date);
 	$day = utf8_encode(strftime('%a', $date));
 	$date = strftime('%d', $date);
