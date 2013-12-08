@@ -24,7 +24,7 @@
 				$info .= ' / ';
 			}
 
-			if(!empty($row['field_origin']))
+			if(!empty($row['field_origin']) && isset($row['field_origin']->name) )
 			{
 				$info .= '<span class="artist-origin">' . $row['field_origin']->name . '</span>';
 			}
