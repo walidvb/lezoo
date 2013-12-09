@@ -11,6 +11,7 @@ function lezoo_preprocess_html(&$variables) {
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.1/angular.min.js', array('type' => 'external', 'scope' => 'footer'));
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', array('type' => 'external', 'scope' => 'footer'));
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js', array('type' => 'external', 'scope' => 'footer'));
+	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/1.5.25/jquery.isotope.min.js', array('type' => 'external', 'scope' => 'footer'));
 	if(isset($variables['user']->roles['3']))
 	{
 		$variables['classes_array'][] = $variables['user']->roles['3'];
@@ -103,6 +104,7 @@ function lezoo_preprocess_page(&$variables) {
  */
 function lezoo_preprocess_node(&$variables) {
 	$variables['title_attributes_array']['class'] = 'node-title';
+
 	$variables['classes_array'][] = 'view-mode-' . $variables['view_mode'];
 	$node_status = array(
 		'open' => 'node-open',
@@ -132,7 +134,6 @@ function lezoo_preprocess_node(&$variables) {
 		{
 			if($variables['view_mode'] == 'full')
 			{
-				//dpm($variables);
 				//add related items to the views
 				$section = $variables['field_section']['und']['0']['tid'];
 				$genres;
@@ -185,7 +186,7 @@ function lezoo_preprocess_node(&$variables) {
 
 	//share42
 	global $base_url;
-	$variables['share42'] = '<div class="share42init" data-url="' . $base_url .'/'. drupal_get_path_alias('node/' . $variables['nid']) . '" data-title="' . $variables['title_link']['#text'] . '"></div>';
+	$variables['share42'] = '<div class="share42init" data-url="' . $base_url .'/'. drupal_get_path_alias('node/' . $variables['nid']) . '" data-title="' . $variables['node']->title . '"></div>';
 }
 
 //set video frame width to 100%
@@ -238,7 +239,6 @@ function rows_from_field_collection(&$vars, $field_name, $field_array) {
 			$row[$field] = $wrapper->$field->value();
 		}
 		$vars['rows'][] = $row;
-		$vars['view mode'] = '123';
 	}
 }
 

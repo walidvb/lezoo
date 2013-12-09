@@ -10,13 +10,13 @@
 		//-------------- stick menu
 		var threshold = $('header');
 		//-------------- stick months above list
-		$('.page-agenda .view-display-id-panel_pane_1 .view-content')
-		.css('position', 'relative')
-		.stickyHeaders({
-			headlineSelector: 'h3:not(.node-title)',
-			stickyElement: 'h3',
-		});
-
+		$('.page-agenda .view-display-id-panel_pane_1 .view-content').once('lezoo_theme', function(){
+			$(this).css('position', 'relative')
+			.stickyHeaders({
+				headlineSelector: 'h3:not(.node-title)',
+				stickyElement: 'h3',
+			});
+		})
 		var stickEm = function(){
 			$('.sticky-helper').css({
 				width: $('.view-id-teaser_list .view-content').width(),
@@ -47,6 +47,13 @@
 		// 		});
 		// 	}
 		// }
+
+		//--------------------Masonry the installs
+		var isotope = function(){
+			$('.node-installations .col-right').isotope({
+				filter: 'figure',
+			});
+		}
 
 		//--------------------open/close blog posts
 		if(typeof Drupal.settings.lezoo_theme !== 'undefined')
@@ -85,6 +92,7 @@
 		{
 			pinit();
 			stickEm();
+			isotope();
 		}
 		resize();
 		$(window).resize(resize);
