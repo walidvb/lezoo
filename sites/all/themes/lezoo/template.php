@@ -1,6 +1,6 @@
 <?php 
 
-setlocale(LC_ALL, 'fr_FR');
+setlocale(LC_ALL, 'fr_FR.UTF-8');
 
 /**
  * @file template.php
