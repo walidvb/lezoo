@@ -18,6 +18,7 @@
 	max-width: 1170px;
 }
 
+// Pager
 .pager{
 	color: @secondary-color;
 	background-color: @tertiary-color;
@@ -38,5 +39,65 @@
 				background-color: @fourth-color;
 			}
 		}
+	}
+}
+
+// Flippy
+.flippy{
+	@media(max-width : @screen-md){
+		display: none;
+	}
+	.prev, .next{
+		position: fixed;
+		top: 50px;
+		z-index:100;
+		width: 40px!important;
+		overflow: hidden;
+		height: 110px;
+		padding: 0px;
+		.transition-duration(0.5s);
+		border-bottom: solid 1px @primary-color;
+		div{
+			height: 100%;
+			background-repeat: no-repeat;
+		}
+		a{
+			position: absolute;
+			left: 0px;
+			height: 100%;
+			font-size: @font-size-h4;
+			font-family:@font-family-sans-serif;
+		}
+		img{
+			height: 100%;
+			max-width: none;
+			position: absolute;
+			top: 0px;
+			z-index: -10;
+		}
+		&:hover{
+			.transition-duration(0.5s);
+			width: 110px!important;
+		}
+	}
+
+	.prev{left: 0px;}
+	.next{right: 0px;}
+}
+
+// Buttons
+.btn-primary{
+	font-family: @font-family-serif;
+	font-size: @font-size-h5;
+	color: @primary-color;
+	text-align: left;
+	background-color: @tertiary-color;
+	border-radius: 0px;
+	border-color: @tertiary-color;
+	padding: @padding-base-horizontal;
+	.transition-duration(0.5s);
+	&:hover{
+		.transition-duration(0.5s);
+		background-color: @secondary-color;
 	}
 }
