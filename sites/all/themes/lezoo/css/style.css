@@ -1,4 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
+
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
 /*@primary-color: rgb(99,162, 215);
 @secondary-color: rgb(190,61,68);
 @tertiary-color: hsb(0,0,10);
@@ -5926,6 +5928,12 @@ td.visible-print {
     display: none !important;
   }
 }
+/*@primary-color: rgb(99,162, 215);
+@secondary-color: rgb(190,61,68);
+@tertiary-color: hsb(0,0,10);
+@primary-color: @white;
+@secondary-color: @black;
+*/
 html.overlay-open .navbar-fixed-top {
   z-index: 400;
 }
@@ -7145,7 +7153,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   display: inline-block;
 }
 .node-event.view-mode-full .header {
-  min-height: 170px;
+  min-height: 180px;
   border-bottom: solid 6px #ffffff;
 }
 .node-event.view-mode-full .header .event-titles {
@@ -7155,9 +7163,9 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .node-event.view-mode-full .header .event-titles .node-title {
   font-size: 68.2px;
-  margin-top: 2px;
+  margin-top: 50px;
   margin-bottom: 2px;
-  border-bottom: solid 1px #ffffff;
+  border-top: solid 1px #ffffff;
 }
 @media (max-width: 768px) {
   .node-event.view-mode-full .header .event-titles .node-title {
@@ -7168,20 +7176,17 @@ select.form-control#edit-field-music-genre-tid option:hover {
   font-size: 25px;
 }
 .node-event.view-mode-full .header .event-meta {
-  display: inline-block;
+  float: right;
+  width: 100%;
+  overflow: hidden;
+  top: 23px;
   position: relative;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-@media (min-width: 992px) {
-  .node-event.view-mode-full .header .event-meta {
-    float: left;
-    width: 25%;
-  }
 }
 .node-event.view-mode-full .header .event-meta .event-social {
   padding-right: 12px;
+}
+.node-event.view-mode-full .header .event-meta .ics-container {
+  float: right;
 }
 .node-event.view-mode-full .header .event-meta .genre {
   padding-right: 12px;
@@ -7224,8 +7229,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .node-teaser {
   border-top: solid 3px #ffffff;
   border-bottom: solid 3px #ffffff;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-bottom: 3px !important;
   min-height: 110px;
 }
 .node-teaser .dated-node {
@@ -7331,6 +7335,9 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .node-teaser .artist-info {
   display: none;
+}
+.node-teaser .artist-additional-info {
+  font-size: 15px;
 }
 .is-sticky {
   position: fixed;
@@ -7513,6 +7520,10 @@ select.form-control#edit-field-music-genre-tid option:hover {
   font-size: 31px;
   border-bottom: 2px solid;
 }
+#views-bootstrap-carousel-1 .carousel-caption h6 {
+  position: absolute;
+  top: 0px;
+}
 #views-bootstrap-carousel-1 .carousel-caption .date {
   position: absolute;
   top: 15px;
@@ -7548,10 +7559,13 @@ select.form-control#edit-field-music-genre-tid option:hover {
 #views-bootstrap-carousel-1 .carousel-caption .artists .field-artist-name {
   display: inline-block;
   font-size: 31px;
+  padding-right: 6px;
 }
 #views-bootstrap-carousel-1 .carousel-caption .artists .field-label {
   display: inline-block;
   font-size: 12px;
+  font-size: 15px;
+  padding-right: 6px;
 }
 #views-bootstrap-carousel-1 .carousel-caption .artists .field-artist-details {
   display: inline-block;
@@ -7559,6 +7573,8 @@ select.form-control#edit-field-music-genre-tid option:hover {
 #views-bootstrap-carousel-1 .carousel-caption .artists .field-origin {
   display: inline-block;
   font-size: 12px;
+  font-size: 15px;
+  padding-right: 6px;
   display: none;
 }
 .ics-container .event-ics {
@@ -7610,13 +7626,16 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .flippy .prev div,
 .flippy .next div {
   height: 100%;
-  background-repeat: no-repeat;
+  padding: 25px;
+  background: center no-repeat;
+  background-size: cover;
 }
 .flippy .prev a,
 .flippy .next a {
   position: absolute;
   left: 0px;
   height: 100%;
+  width: 100%;
   font-size: 15px;
   font-family: "Oswald", Helvetica, Arial, sans-serif;
 }
@@ -7656,6 +7675,49 @@ select.form-control#edit-field-music-genre-tid option:hover {
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
   background-color: #494949;
+}
+.panels-modal-add-config a {
+  color: red;
+}
+.panels-modal-add-config a:hover {
+  color: #000000;
+}
+/* Share */
+.share42init {
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  position: relative;
+  width: 3px;
+  height: 9px;
+  float: right;
+  background-image: url('../background_imgs/bg_med.gif');
+}
+.share42init:before {
+  content: 'k';
+  font-size: medium!important;
+  margin-right: 0.6em;
+  margin-left: 0.3em;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  position: relative;
+  top: -3px;
+  color: #ffffff;
+  cursor: pointer;
+}
+.header:hover .share42init {
+  width: 120px;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+.header:hover .share42init:before {
+  opacity: 0;
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+  color: #2b2b2b;
+  width: 0px;
+  margin-right: 0;
 }
 .pagination {
   display: none;

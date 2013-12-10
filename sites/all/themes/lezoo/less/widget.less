@@ -59,12 +59,16 @@
 		border-bottom: solid 1px @primary-color;
 		div{
 			height: 100%;
-			background-repeat: no-repeat;
+			padding: 25px;
+			background: center no-repeat;
+			background-size: cover;
+
 		}
 		a{
 			position: absolute;
 			left: 0px;
 			height: 100%;
+			width: 100%;
 			font-size: @font-size-h4;
 			font-family:@font-family-sans-serif;
 		}
@@ -100,4 +104,44 @@
 		.transition-duration(0.5s);
 		background-color: @secondary-color;
 	}
+}
+
+.panels-modal-add-config a{
+	color: red;
+	&:hover{
+		color: darken(red, 50%);
+	} 
+}
+/* Share */
+
+.share42init{
+	.transition-duration (0.5s);
+		position: relative;
+		width: 3px;
+		height: 9px;
+		float: right;
+		background-image: url('../background_imgs/bg_med.gif');
+		&:before{
+			content: 'k';
+			font-size: medium!important;
+			margin-right: 0.6em;
+			margin-left: 0.3em;
+			.transition-duration (0.5s);
+			position: relative;
+			top: -3px;
+			color: @primary-color;
+			cursor: pointer;
+		}
+		.header:hover &{
+			width:120px;
+			.transition-duration (0.5s);
+			.transition-delay (0.3s);
+		}
+		.header:hover &:before{
+			opacity: 0;
+			.transition-delay (0.3s);
+			color: rgb(43, 43, 43);
+			width: 0px;
+			margin-right: 0;
+		}
 }
