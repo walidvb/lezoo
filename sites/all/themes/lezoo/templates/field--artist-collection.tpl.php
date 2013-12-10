@@ -31,7 +31,6 @@
 
 	$infos = array($labels_markup, $origins_markup);
 	$infos = array_filter($infos, 'strlen');
-	dpm($infos);
 	$info = implode( ' / ',  $infos);
 	?>
 	<div class="artist artist-item">
@@ -43,7 +42,7 @@
 		<?php print $row['field_artist_details'] ?>
 	</span>
 <?php endif; ?>
-	<?php if(!empty($info)): ?>
+	<?php if(!empty($infos)): ?>
 	<span class="artist-info">
 		<?php print '(' . $info . ')'; ?>
 	</span>
