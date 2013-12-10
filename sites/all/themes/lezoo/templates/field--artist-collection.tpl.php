@@ -2,6 +2,8 @@
 /**
  *  Field formatter for the field_achievements field collection.
  */
+dpm($element);
+$teaser = $element['#view_mode'];
 ?>
 <div class="artists">
 	<?php foreach($rows as $row): ?>
