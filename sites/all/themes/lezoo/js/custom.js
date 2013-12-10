@@ -32,21 +32,23 @@
 
 		
 		//---------------Pin left cols
-		var pinit = function() {}
-		// if( $(".pinned").wrapInner('<div class="pinned-content"/>').length != 0)
-		// {
-		// 	var pinit = function()
-		// 	{
-		// 		var container = '.content';
-		// 		$('.pinned > .pinned-content').pin({
-		// 			containerSelector: container,
-		// 		});
-		// 		$(container).css({
-		// 			display: 'inline-block',
-		// 			width: '100%'
-		// 		});
-		// 	}
-		// }
+		$(".pinned").once(function(){
+			$(this).wrapInner('<div class="pinned-content"/>');
+		});
+		var pinit = function()
+		{
+			var container = '.content';
+			$('.pinned > .pinned-content').once(function(){
+				$(this).pin({
+					containerSelector: container,
+				});
+			});
+			$(container).css({
+				display: 'inline-block',
+				width: '100%'
+			});
+		}
+
 
 		//--------------------Masonry the installs
 		var isotope = function(){

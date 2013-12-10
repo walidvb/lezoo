@@ -4,9 +4,9 @@ package = Development
 dependencies[] = devel
 core = 7.x
 
-; Information added by drupal.org packaging script on 2012-10-19
+; Information added by drupal.org packaging script on 2013-09-30
 version = "7.x-1.x-dev"
 core = "7.x"
 project = "devel_if"
-datestamp = "1350650819"
+datestamp = "1380569350"
 
