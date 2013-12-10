@@ -1,5 +1,13 @@
-<?php print $image ?>
+<?php $slide = $image;
+if (!empty($title) || !empty($description))
+{
+	$slide .= '<div class="carousel-caption">';
+	if (!empty($title))
+	{
+		$slide .= "<h5>$title</h5>";
+	}
 
+<<<<<<< HEAD
 <?php if (!empty($title) || !empty($description)): ?>
   <div class="carousel-caption">
     <?php if (!empty($title)): ?>
@@ -11,3 +19,12 @@
     <?php endif ?>
   </div>
 <?php endif ?>
+=======
+	if (!empty($description))
+	{
+		$slide .= $description;
+	}
+	$slide .= "</div>";
+}
+?>
+>>>>>>> artists
