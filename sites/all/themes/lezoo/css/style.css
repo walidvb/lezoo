@@ -7531,6 +7531,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   width: 100%;
 }
 #views-bootstrap-carousel-1 .carousel-caption .banner-title h4 {
+  float: left;
   padding-right: 10px;
 }
 #views-bootstrap-carousel-1 .carousel-caption .banner-title .field-music-genre {
@@ -7538,6 +7539,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   font-size: 21px;
   text-transform: lowercase;
   line-height: 66px;
+  float: left;
 }
 #views-bootstrap-carousel-1 .carousel-caption .date {
   position: absolute;
