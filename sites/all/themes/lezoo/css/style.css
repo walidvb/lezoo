@@ -7518,11 +7518,26 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 #views-bootstrap-carousel-1 .carousel-caption h4 {
   font-size: 31px;
-  border-bottom: 2px solid;
+  display: inline-block;
 }
 #views-bootstrap-carousel-1 .carousel-caption h6 {
   position: absolute;
   top: 0px;
+}
+#views-bootstrap-carousel-1 .carousel-caption .banner-title {
+  border-bottom: 2px solid;
+  float: left;
+  height: 45px;
+  width: 100%;
+}
+#views-bootstrap-carousel-1 .carousel-caption .banner-title h4 {
+  padding-right: 10px;
+}
+#views-bootstrap-carousel-1 .carousel-caption .banner-title .field-music-genre {
+  display: inline-block;
+  font-size: 21px;
+  text-transform: lowercase;
+  line-height: 66px;
 }
 #views-bootstrap-carousel-1 .carousel-caption .date {
   position: absolute;
