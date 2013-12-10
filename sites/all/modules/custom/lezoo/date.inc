@@ -38,6 +38,7 @@ function lezoo_field_formatter_settings_form($field, $instance, $view_mode, $for
     '#options'        => array(
       'day_date'  => 'ven 15',
       'day_date_month' => 'ven 15 oct',
+      'date_month' => '15 oct',
     ),
   );
   return $element;
@@ -81,12 +82,21 @@ function render_date($date_orig, $format)
   $date_orig = strtotime($date_orig);  
 	$day = strftime('%a', $date_orig);
 	$date = strftime('%d', $date_orig);
-	$output .= "<span class=\"day\">$day</span>\n<span class=\"date-number\">$date</span>\n";
-  if($format == 'day_date_month')
-  {
-   $month = strftime('%b', $date_orig);
-   $output .= "<span class=\"month\">$month</span>"; 
-  }  
+     $month = strftime('%b', $date_orig);
 
+  switch($format)
+  {
+    case 'day_date_month':
+
+      return "<span class=\"day\">$day</span>\n<span class=\"date-number\">$date</span>\n<span class=\"month\">$month</span>";
+      break;
+    case 'day_date':
+        return "<span class=\"day\">$day</span>\n<span class=\"date-number\">$date</span>\n";
+      break;
+      case 'date_month':
+        return "<span class=\"date-number\">$date</span>\n<span class=\"month\">$month</span>";
+
+
+  }
 	return $output;
 }

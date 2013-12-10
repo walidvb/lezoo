@@ -1,26 +1,6 @@
 
 <?php 
 
-global $now;
-
-if($now < 4 && 0)
-{
-	dpm('newnode');
-	dpm($node);
-	$now++;
-	dpm($date);
-	dpm($day);
-}
-
-if(!$page)
-{
-	$title_tag = 'h3';
-}
-else
-{
-	$title_tag = 'h1';
-}
-
 ?>
 <div class='node-event <?php print $classes ?>' <?php print $attributes; ?> >
 	<div>
@@ -36,19 +16,14 @@ else
 						<?php endif; ?>
 						<div class='event-title title'> 
 							<?php print render($title_prefix); ?>
-							<<?php print $title_tag; print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></<?php print $title_tag?>>
+							<h1<?php print $title_attributes; ?>><?php print l($title,$node_url) ?></h1>
 							<?php print render($title_suffix); ?>
 						</div>
 					</div>
 					<div class="event-meta">
 						<?php if($view_mode == 'full'): ?>
 							<div class="event-social">
-							<?php print $share42; 
-									if(!empty($ics) && $view_mode != 'mini')
-									{
-										print $ics; 
-									}
-							?>
+							<?php print $share42 . $ics; ?>
 							</div>
 						<?php endif; ?>
 						<div class='event-genre genre'><?php print render($content['field_music_genre']); ?></div>

@@ -1,20 +1,14 @@
 <?php 
 $image = $fields['field_big_image']->content;
-$title = $fields['field_subtitle']->content;
-<<<<<<< HEAD
-$description = $fields['title']->content;
-$description .= $fields['field_music_genre']->content;
+if(isset($fields['field_subtitle']))
+{
+  $title = $fields['field_subtitle']->content;
+}
+$event_title = '<div class="banner-title">' . $fields['title']->content . $fields['field_music_genre']->content . '</div>';
+$description = $event_title;
 $description .= $fields['field_date']->content;
 $description .= $fields['field_artist']->content;
 
-?>
-<?php print $image ?>
-=======
-$event_title = '<div class="banner-title">' . $fields['title']->content . $fields['field_music_genre']->content . '</div>';
-$description .= $event_title;
-$description .= $fields['field_date']->content;
-$description .= $fields['field_artist']->content;
->>>>>>> artists
 
 $link = 'node/' . $fields['nid']->content;
 
