@@ -62,7 +62,7 @@ function lezoo_taxonomy_length_check($form, &$form_state) {
     {
 
       if (strlen($origin['name']) > $threshold ) {
-        form_set_error('field_origin', "Les origines ne peuvent pas faire plus que $threshold lettres");
+        form_set_error('field_origin', t("Les origines ne peuvent pas faire plus que @threshold lettres", array(@threshold => $threshold)));
       }      
     }
    }
