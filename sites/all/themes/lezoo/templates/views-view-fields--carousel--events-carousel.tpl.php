@@ -1,20 +1,31 @@
 <?php 
 $image = $fields['field_big_image']->content;
 $title = $fields['field_subtitle']->content;
-$description = $fields['title']->content;
+$event_title = '<div class="banner-title">' . $fields['title']->content . $fields['field_music_genre']->content . '</div>';
+$description .= $event_title;
 $description .= $fields['field_date']->content;
 $description .= $fields['field_artist']->content;
+
+$link = 'node/' . $fields['nid']->content;
+
+
+$slide = $image;
+
+if(!empty($title) || !empty($description))
+{
+  $slide .= '<div class="carousel-caption">';
+    if (!empty($title))
+    {
+		$slide .= $title;
+    }
+
+	if (!empty($description))
+	{
+       $slide .= $description;
+    }
+  $slide .= '</div>';
+}
+print l($slide, $link, array(
+	'html' => true,
+	));
 ?>
-<?php print $image ?>
-
-<?php if (!empty($title) || !empty($description)): ?>
-  <div class="carousel-caption">
-    <?php if (!empty($title)): ?>
-      <?php print $title ?>
-    <?php endif ?>
-
-    <?php if (!empty($description)): ?>
-      <?php print $description ?>
-    <?php endif ?>
-  </div>
-<?php endif ?>

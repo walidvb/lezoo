@@ -2,12 +2,13 @@
 /**
  *  Field formatter for the field_achievements field collection.
  */
+dpm($teaser);
 ?>
 <div class="artists">
 	<?php foreach($rows as $row): ?>
 	<div class="artist artist-item">
 		<?php 
-		$name = !empty($row['field_link']) ? l($row['field_artist_name']->name, $row['field_link']['url'], array('attributes' => $row['field_link']['attributes'])) : $row['field_artist_name']->name;
+		$name = (!empty($row['field_link']) && !$teaser) ? l($row['field_artist_name']->name, $row['field_link']['url'], array('attributes' => $row['field_link']['attributes'])) : $row['field_artist_name']->name;
 		$bracketContent = !empty($row['field_label']) && !empty($row['field_origin']);
 		$info = '(';
 			$i = 0;

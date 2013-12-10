@@ -247,6 +247,8 @@ function lezoo_preprocess_field(&$vars, $hook){
 		dpm($vars, '$vars');
 		$vars['theme_hook_suggestions'][] = 'field__artist_collection';
 		$vars['theme_hook_suggestions'][] = 'field__artist_collection__';
+		$vars['teaser'] = $vars['element']['#view_mode'] == 'teaser';
+		$vars['view_mode'] = $vars['element']['#view_mode'];
 		$field_array = array('field_artist_name', 'field_label','field_origin', 'field_link', 'field_artist_details');
 		rows_from_field_collection($vars, $vars['element']['#field_name'], $field_array);
 	}
