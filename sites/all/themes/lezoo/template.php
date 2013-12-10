@@ -137,7 +137,6 @@ function lezoo_preprocess_node(&$variables) {
 				$section = $variables['field_section']['und']['0']['tid'];
 				$genres;
 				$tags;
-				dpm(count($variables['field_music_genre']));
 				if(!empty($variables['field_music_genre']) && count($variables['field_music_genre']) != 0)
 				{
 					foreach($variables['field_music_genre'] as $genre)

@@ -41,6 +41,7 @@
 			$('.pinned > .pinned-content').once(function(){
 				$(this).pin({
 					containerSelector: container,
+					fixedHeaderSelector: 'header',
 				});
 			});
 			$(container).css({
