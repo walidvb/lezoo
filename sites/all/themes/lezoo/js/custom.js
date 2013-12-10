@@ -8,15 +8,15 @@
 			$('.primary .dropdown-toggle').html(active_trail + '<span class="caret"></span>');
 		}
 		//-------------- stick menu
-		var threshold = $('.')
+		var threshold = $('header');
 		//-------------- stick months above list
-		$('.page-agenda .view-display-id-panel_pane_1 .view-content')
-		.css('position', 'relative')
-		.stickyHeaders({
-			headlineSelector: 'h3:not(.node-title)',
-			stickyElement: 'h3',
-		});
-
+		$('.page-agenda .view-display-id-panel_pane_1 .view-content').once('lezoo_theme', function(){
+			$(this).css('position', 'relative')
+			.stickyHeaders({
+				headlineSelector: 'h3:not(.node-title)',
+				stickyElement: 'h3',
+			});
+		})
 		var stickEm = function(){
 			$('.sticky-helper').css({
 				width: $('.view-id-teaser_list .view-content').width(),
@@ -25,7 +25,6 @@
 
 		var activeText = $('.primary .last .dropdown-menu .active-trail a').text();
 		var normalText = $('.primary .last .dropdown-toggle').text();
-		console.log(activeText);
 		if(activeText != '')
 		{
 			$('.primary .last .dropdown-toggle').html(activeText + '<span class="caret"></span>');
@@ -33,17 +32,26 @@
 
 		
 		//---------------Pin left cols
-		$(".pinned").wrapInner('<div class="pinned-content"/>');
+		var pinit = function() {}
+		// if( $(".pinned").wrapInner('<div class="pinned-content"/>').length != 0)
+		// {
+		// 	var pinit = function()
+		// 	{
+		// 		var container = '.content';
+		// 		$('.pinned > .pinned-content').pin({
+		// 			containerSelector: container,
+		// 		});
+		// 		$(container).css({
+		// 			display: 'inline-block',
+		// 			width: '100%'
+		// 		});
+		// 	}
+		// }
 
-		var pinit = function()
-		{
-			var container = '.content';
-			$('.pinned > .pinned-content').pin({
-				containerSelector: container,
-			});
-			$(container).css({
-				display: 'inline-block',
-				width: '100%'
+		//--------------------Masonry the installs
+		var isotope = function(){
+			$('.node-installations .col-right').isotope({
+				filter: 'figure',
 			});
 		}
 
@@ -52,14 +60,16 @@
 		{
 			var nodeStatusClasses = Drupal.settings.lezoo_theme.node_status;
 
-			$('.node-blog-post .expand-post').bind('click', function(e){
-				e.preventDefault();
-				$this = $(this);
-				var newText = ($this.text() == 'ouvrir') ? 'fermer' : 'ouvrir';
-				$this.text(newText);
-				var post = $this.parents('.node-blog-post');
-				var isOpen = post.hasClass(nodeStatusClasses.open);
-				post.toggleClass(nodeStatusClasses.closed + ' ' + nodeStatusClasses.open);
+			$('.node-blog-post .expand-post').once('lezoo', function(){
+				$(this).bind('click', function(e){
+					e.preventDefault();
+					$this = $(this);
+					var newText = ($this.text() == 'ouvrir') ? 'fermer' : 'ouvrir';
+					$this.text(newText);
+					var post = $this.parents('.node-blog-post');
+					var isOpen = post.hasClass(nodeStatusClasses.open);
+					post.toggleClass(nodeStatusClasses.closed + ' ' + nodeStatusClasses.open);
+				});
 			});
 		}
 
@@ -82,6 +92,7 @@
 		{
 			pinit();
 			stickEm();
+			isotope();
 		}
 		resize();
 		$(window).resize(resize);

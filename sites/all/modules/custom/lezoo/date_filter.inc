@@ -8,7 +8,6 @@ function lezoo_views_query_alter(&$view, &$query) {
   //If a date was selected in the exposed filter, ignore the default date filter '> today'
   $conditions = $view->query->where['1']['conditions'];
   $date_index = 3;
-  dpm($conditions);
   if(isset($view->query->where['1']['conditions'][$date_index]) &&
     //if a date exposed filter was set
    $view->query->where['1']['conditions'][$date_index]['field'] != 'node.nid')

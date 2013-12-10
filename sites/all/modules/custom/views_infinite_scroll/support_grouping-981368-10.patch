@@ -1,0 +1,43 @@
+diff --git a/views_plugin_pager_infinite_scroll.inc b/views_plugin_pager_infinite_scroll.inc
+index 0c12eb9..a6a65a9 100644
+--- a/views_plugin_pager_infinite_scroll.inc
++++ b/views_plugin_pager_infinite_scroll.inc
+@@ -21,25 +21,31 @@ class views_plugin_pager_infinite_scroll extends views_plugin_pager_full {
+   function render($input) {
+     global $base_url;
+     $content_selector = '';
++
+     $style_options = $this->view->style_options;
+     $items_selector = '';
+     $img_path = $base_url . '/' . drupal_get_path('module', 'views_infinite_scroll') . '/images/ajax-loader.gif';
+     switch ($this->view->plugin_name) {
+       case 'default':
+         $content_selector = 'div.view-content';
+-        $items_selector = '.views-row';
++        if (isset($this->view->style_options['grouping']) && !empty($this->view->style_options['grouping'])) {
++          $items_selector = ' > *';
++        }
++        else {
++          $items_selector = '.views-row';
++        }
+         break;
+       case 'grid':
+         $content_selector = 'div.view-content > table > tbody';
+         $items_selector = 'tr';
+         break;
+       case 'list':
+-       if (array_key_exists('wrapper_class', $style_options) && !empty($style_options['wrapper_class'])) {
+-         $wrapper_class = '.' . $style_options['wrapper_class'];
+-       } else {
+-         $wrapper_class = '.item-list';
+-       }
+-       $content_selector = 'div.view-content>' . $wrapper_class . ' > *';
++        if (array_key_exists('wrapper_class', $style_options) && !empty($style_options['wrapper_class'])) {
++          $wrapper_class = '.' . $style_options['wrapper_class'];
++        } else {
++          $wrapper_class = '.item-list';
++        }
++        $content_selector = 'div.view-content > ' . $wrapper_class . ' > *';
+         $items_selector = '.views-row';
+         break;
+       case 'table':

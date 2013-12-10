@@ -20,10 +20,12 @@ else
 {
 	$title_tag = 'h1';
 }
+
 ?>
 <div class='node-event <?php print $classes ?>' <?php print $attributes; ?> >
 	<div>
 		<div class='event-node dated-node'>
+			<?php print render($content['flippy_pager']); ?>
 			<div class="node-content">
 				<div class='header'>
 					<div class="event-titles">
@@ -41,9 +43,11 @@ else
 					<div class="event-meta">
 						<?php if($view_mode == 'full'): ?>
 							<div class="event-social">
-							<?php print render($content['field_addthis']) ?>
-							<?php if(!empty($ics) && $view_mode != 'mini')
-							print $ics; 
+							<?php print $share42; 
+									if(!empty($ics) && $view_mode != 'mini')
+									{
+										print $ics; 
+									}
 							?>
 							</div>
 						<?php endif; ?>
@@ -81,6 +85,7 @@ else
 					</div>
 				<?php endif; ?>
 			</div>
+
 		</div>
 	</div>
 </div>
