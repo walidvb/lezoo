@@ -7,7 +7,7 @@
     <?php endif ?>
 
     <?php if (!empty($description)): ?>
-      <?php print $description ?>
+      <?php print $description ?>asd
     <?php endif ?>
   </div>
 <?php endif ?>

@@ -2,8 +2,10 @@
 $image = $fields['field_big_image']->content;
 $title = $fields['field_subtitle']->content;
 $description = $fields['title']->content;
+$description .= $fields['field_music_genre']->content;
 $description .= $fields['field_date']->content;
 $description .= $fields['field_artist']->content;
+
 ?>
 <?php print $image ?>
 

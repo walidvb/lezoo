@@ -75,6 +75,8 @@ function lezoo_field_formatter_view($entity_type, $entity, $field, $instance, $l
 //the function rendering a link as an icon.
 function render_date($date_orig, $format)
 {
+  setlocale(LC_ALL, 'fr_FR.UTF-8');
+
   $output = '';
   $date_orig = strtotime($date_orig);  
 	$day = strftime('%a', $date_orig);

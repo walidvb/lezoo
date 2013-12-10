@@ -1,6 +1,5 @@
 <?php 
 
-setlocale(LC_ALL, 'fr_FR.UTF-8');
 
 /**
  * @file template.php
@@ -249,6 +248,7 @@ function lezoo_preprocess_field(&$vars, $hook){
 		$vars['theme_hook_suggestions'][] = 'field__artist_collection__';
 		$field_array = array('field_artist_name', 'field_label','field_origin', 'field_link', 'field_artist_details');
 		rows_from_field_collection($vars, $vars['element']['#field_name'], $field_array);
+
 	}
 }
 

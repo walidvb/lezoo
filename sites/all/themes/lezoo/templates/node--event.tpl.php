@@ -70,18 +70,15 @@ else
 				  		<fig class="event-flyer">
 								<?php print render($content['field_flyer']); ?>
 						</fig>
-				  		<div class="event-details">
-							<?php print render($content['field_details']); ?>
-						</div>
 				  	</div>
 				  	<div class="h2 visible-xs clickable"> Line-up </div>
 				  	<div class="<?php print $right_col_classes ?>">
-
-						<?php if(!$teaser): ?>
+				  		<div class="event-details">
+							<?php print render($content['field_details']); ?>
+						</div>
 							<div class="event-body">
 								<?php print render($content['body']); ?>
 							</div>
-						<?php endif; ?>
 					</div>
 				<?php endif; ?>
 			</div>
