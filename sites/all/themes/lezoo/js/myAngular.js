@@ -11,11 +11,11 @@
         }
       }
     })
+
     leZooApp.controller('feedFilter', function ($scope, genresFactory) {
       genresFactory.getGenresAsync(function(results){
-
         $scope.genres = results.genres;
-        //console.log($scope.genres);
+        console.log(results);
         for(var i = 0; i< $scope.genres.length; i++)
         {
 
