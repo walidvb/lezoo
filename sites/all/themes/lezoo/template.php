@@ -257,6 +257,7 @@ function lezoo_block_info(){
 	$blocks['webcal'] = array(
 		'info' => t('the modal dialog to subsribe to the agenda'),
 	);
+	dpm($blocks);
 	return $blocks;
 }
 

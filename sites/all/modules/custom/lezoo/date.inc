@@ -100,3 +100,55 @@ function render_date($date_orig, $format)
   }
 	return $output;
 }
+
+/**
+ * @file
+ * Token module integration.
+ */
+
+/**
+ * Implements hook_token_info().
+ */
+function lezoo_token_info() {
+  // All date types can share the same date value type.
+  $info['types']['lezoo-date-field-value'] = array(
+    'name' => t('leZOO Date field values'),
+    'description' => t('Tokens related to date field values.'),
+    'needs-data' => 'lezoo-date-field-value',
+    'field-value' => TRUE,
+  );
+  // Provide two tokens: 'date' (the date or start-date), and 'end-date'.
+  $info['tokens']['date-field-value']['date'] = array(
+    'name' => t('Date'),
+    'description' => t('The date value.'),
+    'type' => 'date',
+  );
+  return $info;
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function lezoo_tokens($type, $tokens, array $data = array(), array $options = array()) {
+  $replacements = array();
+  $language_code = isset($options['language']) ? $options['language']->language : NULL;
+
+  if (($type == 'lezoo-date-field-value') && !empty($data['item'])) {
+    $item = $data['item'];
+
+    // Create tokens for the field "Date" or "Start date".
+    if (($date_tokens = token_find_with_prefix($tokens, 'date')) && !empty($item['value'])) {
+      // Load the Start date and convert to a unix timestamp.
+      $date = new DateObject($item['value'], $item['timezone_db'], date_type_format($item['date_type']));
+      if (!empty($date) && $item['timezone_db'] != $item['timezone']) {
+        date_timezone_set($date, timezone_open($item['timezone']));
+      }
+      $timestamp = !empty($date) ? date_format_date($date, 'custom', 'U') : '';
+      // Generate the token replacements, using the date token type provided
+      // by system.module.
+      $replacements += token_generate('date', $date_tokens, array('date' => $timestamp), $options);
+    }
+  }
+
+  return $replacements;
+}
