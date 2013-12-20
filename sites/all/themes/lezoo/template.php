@@ -136,8 +136,8 @@ function lezoo_preprocess_node(&$variables) {
 			{
 				//add related items to the views
 				$section = $variables['field_section']['und']['0']['tid'];
-				$genres;
-				$tags;
+				$genres = null;
+				$tags = null;
 				if(!empty($variables['field_music_genre']) && count($variables['field_music_genre']) != 0)
 				{
 					foreach($variables['field_music_genre'] as $genre)
@@ -257,6 +257,7 @@ function lezoo_block_info(){
 	$blocks = array();
 	$blocks['webcal_lezoo'] = array(
 		'info' => t('Webcal: The modal dialog to subsribe to the agenda'),
+		'cache' => DRUPAL_NO_CACHE,
 		);
 	return $blocks;
 }
@@ -286,7 +287,7 @@ function _modal(){
 						<div ng-app="leZooApp">
 							<div ng-controller="feedFilter">
 								<form>
-									<span ng-repeat="genre in genres">
+									<span ng-repeat="	">
 										<input type="checkbox" name="{{genre.name}}" value="{{genre.selected}}" ng-model="genre.selected" ng-true-value="true"/> {{genre.name}}
 									</span>
 								</form>
@@ -295,7 +296,7 @@ function _modal(){
 						</div>
 					</div>
 					<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->

@@ -129,9 +129,9 @@ if(isset($content['field_tags']))
     <div class="blog-info">
       <?php if(!$is_page): ?>
         <?php if(!$teaser): ?>
-          <a href="#" class="expand-post"><?php print t(ouvrir) ?></a>
+          <a href="#" class="expand-post"><?php print t('ouvrir') ?></a>
         <?php else: ?>
-          <?php print l(t('+Read more'), 'node/' . $nid); ?>
+          <?php print l(t('+Lire l\'article'), 'node/' . $nid); ?>
         <?php endif; ?>
       <?php endif; ?>
 
