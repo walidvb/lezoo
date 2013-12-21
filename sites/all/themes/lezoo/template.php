@@ -39,6 +39,7 @@ function lezoo_menu_link(array $variables) {
   //change behavior for visu
 	if($element['#original_link']['mlid'] == '1266')
 	{
+
   	  // On primary navigation menu, class 'active' is not set on active menu item.
 	  // @see https://drupal.org/node/1896674
 		$current_page = explode('/', $_GET['q']);

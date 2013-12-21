@@ -7,6 +7,7 @@
 		{
 			$('.primary .dropdown-toggle').html(active_trail + '<span class="caret"></span>');
 		}
+		$('.dropdown-toggle').dropdownHover();
 		//-------------- stick menu
 		var threshold = $('header');
 		//-------------- stick months above list

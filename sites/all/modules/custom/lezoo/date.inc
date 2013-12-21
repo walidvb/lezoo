@@ -77,82 +77,48 @@ function lezoo_field_formatter_view($entity_type, $entity, $field, $instance, $l
   }
 
 
-
-/**
- * @file
- * Token module integration.
- */
-
 function lezoo_token_info(){
-  $formats = _lezoo_get_date_formats();
-  $date_formats = array();
-  foreach($formats as $format => $desc)
-  {
-    $date_formats[$format] = array(
-      'name' => $format,
-      'desc' => t('date as @f', array("@f" =>  $desc)),
-      );
-  }
-
-  $info['types']['lezoo-date'] = array(
-      'name' => t('leZoo Date'),
-      'description' => t('The field_date of the node'),
-      'needs-data' => 'date-field-value',
-      'field-value' => TRUE,
+  $types['lezoo'] = array(
+    'name' => t('leZoo custom tokens'),
+    'description' => t('Custom tokens for leZoo'),
     );
 
-  $info['tokens']['lezoo-date'] = array(
-    'lezoo-date' => $date_formats,
+  $tokens['lezoo']['day_date'] = array(
+      'name' => t('Date with day_date'),
+      'description' => t('The node\'s date with day_date')
+    );
+  $tokens['lezoo']['day_date_month'] = array(
+      'name' => t('Date with day_date_month'),
+      'description' => t('The node\'s date with day_date_month')
+    );
+  $tokens['lezoo']['date_month'] = array(
+      'name' => t('Date with date month'),
+      'description' => t('The node\'s date with date month')
     );
 
-  return $info; 
-
-}
-
-/**
- * Implementation of hook_token_info_alter().
- */
-function lezoo_token_info_alter(&$data) {
-  dpm($data, '$data');
-  $fields = field_info_fields();
-  dpm($fields,'$fields');
-  foreach ($fields as $field) {
-    if ($field['type'] == 'datetime') {
-      foreach ($field['bundles'] as $entity_type => $bundles) {
-        $token_type = token_get_entity_mapping('entity', $entity_type);
-        if (!empty($data['tokens'][$token_type][$field['field_name']])) {
-          $data['tokens'][$token_type][$field['field_name']]['type'] = 'lezoo-date';
-        }
-      }
-    }
-  }
+  return array(
+    'types' => $types,
+    'tokens' => $tokens
+    );
 }
 
 function lezoo_tokens($type, $tokens, array $data = array(), array $options = array()) {
   $replacements = array();
-  $language_code = isset($options['language']) ? $options['language']->language : NULL;
 
-  if (($type == 'lezoo-date') && !empty($data['item'])) {
-    $item = $data['item'];
-
-    // Create tokens for the field "Date" or "Start date".
-    if (($date_tokens = token_find_with_prefix($tokens, 'lezoo')) && !empty($item['value'])) {
-      // Load the Start date and convert to a unix timestamp.
-      $date = new DateObject($item['value'], $item['timezone_db'], date_type_format($item['date_type']));
-      if (!empty($date) && $item['timezone_db'] != $item['timezone']) {
-        date_timezone_set($date, timezone_open($item['timezone']));
-      }
-      $timestamp = !empty($date) ? date_format_date($date, 'custom', 'U') : '';
-      // Generate the token replacements, using the date token type provided
-      // by system.module.
-      $replacements += token_generate('date', $date_tokens, array('date' => $timestamp), $options);
+  if($type == 'lezoo')
+  {
+    foreach($tokens as $name => $original)
+    {
+      $format = $name;
+      $date = $data['node']->field_date['und'][0]['value'];
+      dpm($date);
+      $render = lezoo_render_date($date, $format);
+      dpm($render);
+      $replacements[$original] = $render;
     }
-
-    return $replacements;
   }
+  return $replacements;
 }
-//datetime
-
 
 //the function rendering a link as an icon.
 function lezoo_render_date($date_orig, $format)
