@@ -10,7 +10,10 @@
 	$origins = array();
 	foreach($row['field_origin'] as $origin)
 	{
-		$origins[] = $origin->name;
+		if(!empty($origin))
+		{
+			$origins[] = $origin->name;
+		}
 	}
 	$origins_markup = null;
 	if(!empty($origins))

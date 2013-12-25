@@ -111,9 +111,7 @@ function lezoo_tokens($type, $tokens, array $data = array(), array $options = ar
     {
       $format = $name;
       $date = $data['node']->field_date['und'][0]['value'];
-      dpm($date);
       $render = lezoo_render_date($date, $format);
-      dpm($render);
       $replacements[$original] = $render;
     }
   }
@@ -121,15 +119,15 @@ function lezoo_tokens($type, $tokens, array $data = array(), array $options = ar
 }
 
 //the function rendering a link as an icon.
-function lezoo_render_date($date_orig, $format)
+function lezoo_render_date($date_original, $format)
 {
   setlocale(LC_ALL, 'fr_FR.UTF-8');
 
   $output = '';
-  $date_orig = strtotime($date_orig);  
-  $day = strftime('%a', $date_orig);
-  $date = strftime('%d', $date_orig);
-  $month = strftime('%b', $date_orig);
+  $date_original = strtotime($date_original);  
+  $day = strftime('%a', $date_original);
+  $date = strftime('%d', $date_original);
+  $month = strftime('%b', $date_original);
 
   switch($format)
   {

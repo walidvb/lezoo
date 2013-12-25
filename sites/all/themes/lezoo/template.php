@@ -274,6 +274,11 @@ function lezoo_block_view($delta = ''){
 	return $block;
 }
 
+function lezoo_header($title = 'group'){
+	$title = t($title);
+	return "<div class=\"clickable group-trigger visible-xs\">$title</div>";
+}
+
 function _modal(){
 	$output = '
 	<!-- Modal -->

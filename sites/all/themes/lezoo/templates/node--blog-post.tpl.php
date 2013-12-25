@@ -107,15 +107,20 @@ if(isset($content['field_tags']))
 
 
 <div class="content"<?php print $content_attributes; ?>>
+  
   <div class="<?php print $left_col_classes ?>">
     <?php print render($content['field_big_image']); ?>
-    <?php 
-    if(!empty($content['field_links'])){ print render($content['field_links']); } 
-    if(!empty($content['field_soundcloud'])) { print render($content['field_soundcloud']); }
-    if(!empty($content['field_event_ref'])) { print render($content['field_event_ref']); }
-    if(!empty($related) && ($is_page)){print $related;}
-    ?>
+    <?php print lezoo_header('Les Détails'); ?>
+    <div>
+      <?php 
+      if(!empty($content['field_links'])){ print render($content['field_links']); } 
+      if(!empty($content['field_soundcloud'])) { print render($content['field_soundcloud']); }
+      if(!empty($content['field_event_ref'])) { print render($content['field_event_ref']); }
+      if(!empty($related) && ($is_page)){print $related;}
+      ?>
+    </div>
   </div>
+  <?php print lezoo_header('Le Post'); ?>
   <div class="<?php print $right_col_classes ?>">
     <?php
 
