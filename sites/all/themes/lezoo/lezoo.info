@@ -27,6 +27,7 @@ scripts[] = libs/flexslider/jquery.flexslider-min.js
 
 scripts[] = libs/jquery.pin.js
 scripts[] = libs/lightordark.js
+scripts[] = libs/bootstrap-hover-dropdown.min.js
 
 ;scripts[] = libs/jquery.glide.min.js
 ; Stylesheets

@@ -7539,6 +7539,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   text-transform: lowercase;
   line-height: 66px;
   float: left;
+  margin-right: 10px;
 }
 #views-bootstrap-carousel-1 .carousel-caption .date {
   position: absolute;
@@ -7862,6 +7863,9 @@ select.form-control#edit-field-music-genre-tid option:hover {
   color: #ffffff;
   font-size: 12px;
 }
+.video-filter-field {
+  display: inline-block;
+}
 .node-installations .col-right {
   padding-right: 0px;
   padding-left: 0px;
@@ -7884,11 +7888,11 @@ select.form-control#edit-field-music-genre-tid option:hover {
 body {
   background-color: #000000;
   color: #ffffff;
-  margin-top: 40px;
-  margin-bottom: 25px;
+  padding-top: 40px;
+  padding-bottom: 25px;
 }
 body.administrator {
-  margin-top: 70px!important;
+  padding-top: 70px!important;
 }
 a {
   font-family: inherit;

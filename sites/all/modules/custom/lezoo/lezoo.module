@@ -12,8 +12,8 @@ function lezoo_permission() {
     'unconditionally view unpublished content' => array(
       'title' => t('Unconditionally View Unpublished Content'),
       'restrict access' => TRUE
-    )
-  );
+      )
+    );
 }
 
 function lezoo_node_access($node, $op, $account) {
@@ -32,14 +32,71 @@ function lezoo_node_access($node, $op, $account) {
 function lezoo_entity_info_alter(&$entity_info){
   $entity_info['node']['view modes']['mini'] = array(
     'label' => t('Mini'),
-        'custom settings' => TRUE,
+    'custom settings' => TRUE,
     );
   $entity_info['field_collection_item']['view modes']['teaser'] = array(
     'label' => t('Teaser'),
     'custom settings' => TRUE,
-  );
+    );
   $entity_info['field_collection_item']['view modes']['mini'] = array(
     'label' => t('Mini'),
     'custom settings' => TRUE,
-  );
+    );
+}
+
+function lezoo_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == "event_node_form") {   
+    $form['#validate'][]='lezoo_taxonomy_length_check';
+  }
+}
+
+function lezoo_taxonomy_length_check($form, &$form_state) {
+  $artists = array_merge($form_state['values']['field_artist']['und'], $form_state['values']['field_vjs']['und']);
+  $threshold_max = 4;
+
+  foreach ($artists as $artist) {
+    if(gettype($artist) == 'array' && isset($artist['field_origin']))
+    { 
+     $artist_origin = $artist['field_origin']['und'];
+    foreach($artist_origin as $origin)
+    {
+
+      if (strlen($origin['name']) > $threshold_max  || strlen($origin['name']) <= 1) {
+        form_set_error('field_origin', t("Les origines doivent contenir entre 1 et @threshold lettres", array(@threshold => $threshold_max)));
+      }      
+    }
+   }
+ }
+}
+
+/**
+ *  Found this trick on theoleschool.com.
+ *  
+ *  Description: Allows the view developer to specify the query
+ *  group by action in the query comments. Great way to force the
+ *  removal of duplicates.
+ *  
+ *  Just go into your query comments and type in "groupby:" with
+ *  that colon followed by the field you want to group by.
+ * 
+ *  Examples...
+ *  groupby:node.nid
+ *  groupby:file_managed_file_usage.fid
+ * 
+ *  Ref-Comment: http://theoleschool.com/comment/496#comment-496
+ *  Ref-Article: http://theoleschool.com/blog/using-hookviewsalter-add-group-statement
+ */
+function lezoo_query_alter(QueryAlterableInterface $query) {
+  if ($query->hasTag('views')) {
+    static $count;
+    $view =& $query->getMetaData('view');
+
+    if (strstr($groupby = $view->query->options['query_comment'], 'groupby')) {
+      list($action, $field) = explode(':', $groupby);
+
+      if (strlen($field) > 0) {
+        $query->groupBy($field);
+      }
+    }
+  }
 }

@@ -8,6 +8,7 @@ function lezoo_preprocess_html(&$variables) {
 	drupal_add_css('//cdnjs.cloudflare.com/ajax/libs/animate.css/2.0/animate.min.css', array('type' => 'external'));
 	drupal_add_js('//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js', array('type' => 'external'));
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.1/angular.min.js', array('type' => 'external', 'scope' => 'footer'));
+	drupal_add_js(drupal_get_path('theme', 'lezoo'). '/js/myAngular.js', array('scope' => 'footer'));
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', array('type' => 'external', 'scope' => 'footer'));
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js', array('type' => 'external', 'scope' => 'footer'));
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/1.5.25/jquery.isotope.min.js', array('type' => 'external', 'scope' => 'footer'));
@@ -38,6 +39,7 @@ function lezoo_menu_link(array $variables) {
   //change behavior for visu
 	if($element['#original_link']['mlid'] == '1266')
 	{
+
   	  // On primary navigation menu, class 'active' is not set on active menu item.
 	  // @see https://drupal.org/node/1896674
 		$current_page = explode('/', $_GET['q']);
@@ -135,9 +137,8 @@ function lezoo_preprocess_node(&$variables) {
 			{
 				//add related items to the views
 				$section = $variables['field_section']['und']['0']['tid'];
-				$genres;
-				$tags;
-				dpm(count($variables['field_music_genre']));
+				$genres = null;
+				$tags = null;
 				if(!empty($variables['field_music_genre']) && count($variables['field_music_genre']) != 0)
 				{
 					foreach($variables['field_music_genre'] as $genre)
@@ -243,9 +244,10 @@ function rows_from_field_collection(&$vars, $field_name, $field_array) {
 
 function lezoo_preprocess_field(&$vars, $hook){
 	if ($vars['element']['#field_name'] == 'field_artist' || $vars['element']['#field_name'] =='field_vjs') {
-		dpm($vars, '$vars');
 		$vars['theme_hook_suggestions'][] = 'field__artist_collection';
 		$vars['theme_hook_suggestions'][] = 'field__artist_collection__';
+		$vars['teaser'] = $vars['element']['#view_mode'] == 'teaser';
+		$vars['view_mode'] = $vars['element']['#view_mode'];
 		$field_array = array('field_artist_name', 'field_label','field_origin', 'field_link', 'field_artist_details');
 		rows_from_field_collection($vars, $vars['element']['#field_name'], $field_array);
 
@@ -254,56 +256,56 @@ function lezoo_preprocess_field(&$vars, $hook){
 
 function lezoo_block_info(){
 	$blocks = array();
-	$blocks['webcal'] = array(
-		'info' => t('the modal dialog to subsribe to the agenda'),
-	);
+	$blocks['webcal_lezoo'] = array(
+		'info' => t('Webcal: The modal dialog to subsribe to the agenda'),
+		'cache' => DRUPAL_NO_CACHE,
+		);
 	return $blocks;
 }
 
 function lezoo_block_view($delta = ''){
-	  $block = array();
-  switch ($delta) {
-    case 'webcal':
-      $block['subject'] = '';
-      $block['content'] = _modal();
-      break;
-  }
-  return $block;
+	$block = array();
+	switch ($delta) {
+		case 'webcal_lezoo':
+		$block['subject'] = '';
+		$block['content'] = _modal();
+		break;
+	}
+	return $block;
+}
+
+function lezoo_header($title = 'group'){
+	$title = t($title);
+	return "<div class=\"clickable group-trigger visible-xs\">$title</div>";
 }
 
 function _modal(){
 	$output = '
-		<!-- Modal -->
-		<div class="modal fade" id="myModal" tabindex="-1" data-backdrop="true" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-
-
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		                <h4 class="modal-title" id="myModalLabel">Choisis ton style!</h4>
-		      </div>
-		      <div class="modal-body">
-		          <div ng-app="leZooApp">
-		    <div ng-controller="feedFilter">
-		        <form>
-		            <span ng-repeat="genre in genres">
-		                <input type="checkbox" name="{{genre.name}}" value="{{genre.selected}}" ng-model="genre.selected" ng-true-value="true"/> {{genre.name}}
-		            </span>
-		        </form>
-		        <a ng-href="webcal://lezoo.ch/{{params()}}feed.ics" class="btn btn-primary btn-lg">Synchronise ton agenda avec celui du ZOO!</a>
-
-		    </div>
-		        
-		   
-		</div>
-
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		      </div>
-		    </div><!-- /.modal-content -->
-		  </div><!-- /.modal-dialog -->
-		</div><!-- /.modal -->';
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" data-backdrop="true" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel">Choisis ton style!</h4>
+					</div>
+					<div class="modal-body">
+						<div ng-app="leZooApp">
+							<div ng-controller="feedFilter">
+								<form>
+									<span ng-repeat="	">
+										<input type="checkbox" name="{{genre.name}}" value="{{genre.selected}}" ng-model="genre.selected" ng-true-value="true"/> {{genre.name}}
+									</span>
+								</form>
+								<a ng-href="webcal://lezoo.ch/{{params()}}feed.ics" class="btn btn-primary btn-lg">Synchronise ton agenda avec celui du ZOO!</a>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->';
 	return $output;
-	}
+}

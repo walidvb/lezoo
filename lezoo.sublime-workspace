@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"array_",
+				"array_combine"
+			],
+			[
+				"strt",
+				"strtotime"
+			],
+			[
 				"drupal_json",
 				"drupal_json_encode	drupal_json_encode"
 			],
@@ -212,47 +220,10 @@
 	"buffers":
 	[
 		{
-			"file": "sites/all/modules/custom/lezoo/date_filter.inc",
+			"file": "sites/all/themes/lezoo/js/myAngular.js",
 			"settings":
 			{
-				"buffer_size": 1566,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "/* ical feed! */\n\n$view = new view();\n$view->name = 'feed';\n$view->description = '';\n$view->tag = 'default';\n$view->base_table = 'node';\n$view->human_name = 'Feed';\n$view->core = 7;\n$view->api_version = '3.0';\n$view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */\n\n/* Display: Master */\n$handler = $view->new_display('default', 'Master', 'default');\n$handler->display->display_options['use_more_always'] = FALSE;\n$handler->display->display_options['access']['type'] = 'perm';\n$handler->display->display_options['cache']['type'] = 'none';\n$handler->display->display_options['query']['type'] = 'views_query';\n$handler->display->display_options['exposed_form']['type'] = 'basic';\n$handler->display->display_options['pager']['type'] = 'full';\n$handler->display->display_options['style_plugin'] = 'grid';\n$handler->display->display_options['row_plugin'] = 'fields';\n/* Field: Content: Date */\n$handler->display->display_options['fields']['field_date']['id'] = 'field_date';\n$handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';\n$handler->display->display_options['fields']['field_date']['field'] = 'field_date';\n$handler->display->display_options['fields']['field_date']['label'] = '';\n$handler->display->display_options['fields']['field_date']['element_type'] = '0';\n$handler->display->display_options['fields']['field_date']['element_label_colon'] = FALSE;\n$handler->display->display_options['fields']['field_date']['element_wrapper_type'] = '0';\n$handler->display->display_options['fields']['field_date']['element_default_classes'] = FALSE;\n$handler->display->display_options['fields']['field_date']['settings'] = array(\n  'format_type' => 'long',\n  'fromto' => 'both',\n  'multiple_number' => '',\n  'multiple_from' => '',\n  'multiple_to' => '',\n);\n$handler->display->display_options['fields']['field_date']['field_api_classes'] = TRUE;\n/* Field: Content: Genre */\n$handler->display->display_options['fields']['field_music_genre']['id'] = 'field_music_genre';\n$handler->display->display_options['fields']['field_music_genre']['table'] = 'field_data_field_music_genre';\n$handler->display->display_options['fields']['field_music_genre']['field'] = 'field_music_genre';\n$handler->display->display_options['fields']['field_music_genre']['label'] = '';\n$handler->display->display_options['fields']['field_music_genre']['element_type'] = '0';\n$handler->display->display_options['fields']['field_music_genre']['element_label_colon'] = FALSE;\n$handler->display->display_options['fields']['field_music_genre']['element_wrapper_type'] = '0';\n$handler->display->display_options['fields']['field_music_genre']['element_default_classes'] = FALSE;\n$handler->display->display_options['fields']['field_music_genre']['delta_offset'] = '0';\n$handler->display->display_options['fields']['field_music_genre']['field_api_classes'] = TRUE;\n/* Field: Content: Title */\n$handler->display->display_options['fields']['title']['id'] = 'title';\n$handler->display->display_options['fields']['title']['table'] = 'node';\n$handler->display->display_options['fields']['title']['field'] = 'title';\n$handler->display->display_options['fields']['title']['label'] = '';\n$handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;\n$handler->display->display_options['fields']['title']['alter']['text'] = '[title] [ [field_music_genre] ]';\n$handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;\n$handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;\n$handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;\n/* Field: Content: Artist */\n$handler->display->display_options['fields']['field_artist']['id'] = 'field_artist';\n$handler->display->display_options['fields']['field_artist']['table'] = 'field_data_field_artist';\n$handler->display->display_options['fields']['field_artist']['field'] = 'field_artist';\n$handler->display->display_options['fields']['field_artist']['label'] = '';\n$handler->display->display_options['fields']['field_artist']['element_type'] = '0';\n$handler->display->display_options['fields']['field_artist']['element_label_colon'] = FALSE;\n$handler->display->display_options['fields']['field_artist']['element_wrapper_type'] = '0';\n$handler->display->display_options['fields']['field_artist']['element_default_classes'] = FALSE;\n$handler->display->display_options['fields']['field_artist']['settings'] = array(\n  'view_mode' => 'full',\n);\n$handler->display->display_options['fields']['field_artist']['delta_offset'] = '0';\n$handler->display->display_options['fields']['field_artist']['field_api_classes'] = TRUE;\n/* Field: Content: Vjs */\n$handler->display->display_options['fields']['field_vjs']['id'] = 'field_vjs';\n$handler->display->display_options['fields']['field_vjs']['table'] = 'field_data_field_vjs';\n$handler->display->display_options['fields']['field_vjs']['field'] = 'field_vjs';\n$handler->display->display_options['fields']['field_vjs']['label'] = '';\n$handler->display->display_options['fields']['field_vjs']['alter']['alter_text'] = TRUE;\n$handler->display->display_options['fields']['field_vjs']['alter']['text'] = '[field_artist]\n[field_vjs]';\n$handler->display->display_options['fields']['field_vjs']['element_type'] = '0';\n$handler->display->display_options['fields']['field_vjs']['element_label_colon'] = FALSE;\n$handler->display->display_options['fields']['field_vjs']['element_wrapper_type'] = '0';\n$handler->display->display_options['fields']['field_vjs']['element_default_classes'] = FALSE;\n$handler->display->display_options['fields']['field_vjs']['settings'] = array(\n  'view_mode' => 'full',\n);\n$handler->display->display_options['fields']['field_vjs']['delta_offset'] = '0';\n$handler->display->display_options['fields']['field_vjs']['field_api_classes'] = TRUE;\n/* Sort criterion: Content: Post date */\n$handler->display->display_options['sorts']['created']['id'] = 'created';\n$handler->display->display_options['sorts']['created']['table'] = 'node';\n$handler->display->display_options['sorts']['created']['field'] = 'created';\n$handler->display->display_options['sorts']['created']['order'] = 'DESC';\n/* Contextual filter: Content: Nid */\n$handler->display->display_options['arguments']['nid']['id'] = 'nid';\n$handler->display->display_options['arguments']['nid']['table'] = 'node';\n$handler->display->display_options['arguments']['nid']['field'] = 'nid';\n$handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';\n$handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';\n$handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';\n$handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';\n/* Filter criterion: Content: Published */\n$handler->display->display_options['filters']['status']['id'] = 'status';\n$handler->display->display_options['filters']['status']['table'] = 'node';\n$handler->display->display_options['filters']['status']['field'] = 'status';\n$handler->display->display_options['filters']['status']['value'] = 1;\n$handler->display->display_options['filters']['status']['group'] = 1;\n$handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;\n/* Filter criterion: Content: Type */\n$handler->display->display_options['filters']['type']['id'] = 'type';\n$handler->display->display_options['filters']['type']['table'] = 'node';\n$handler->display->display_options['filters']['type']['field'] = 'type';\n$handler->display->display_options['filters']['type']['value'] = array(\n  'event' => 'event',\n);\n\n/* Display: Page */\n$handler = $view->new_display('page', 'Page', 'page_1');\n$handler->display->display_options['path'] = 'calendar';\n\n/* Display: Feed */\n$handler = $view->new_display('feed', 'Feed', 'feed_1');\n$handler->display->display_options['pager']['type'] = 'some';\n$handler->display->display_options['style_plugin'] = 'date_ical';\n$handler->display->display_options['style_options']['cal_name'] = 'lezoo';\n$handler->display->display_options['row_plugin'] = 'date_ical_fields';\n$handler->display->display_options['row_options']['date_field'] = 'field_date';\n$handler->display->display_options['row_options']['title_field'] = 'title';\n$handler->display->display_options['row_options']['description_field'] = 'field_vjs';\n$handler->display->display_options['row_options']['additional_settings'] = array(\n  'skip_blank_dates' => 0,\n);\n$handler->display->display_options['path'] = 'feed.ics';\n$translatables['feed'] = array(\n  t('Master'),\n  t('more'),\n  t('Apply'),\n  t('Reset'),\n  t('Sort by'),\n  t('Asc'),\n  t('Desc'),\n  t('Items per page'),\n  t('- All -'),\n  t('Offset'),\n  t('« first'),\n  t('‹ previous'),\n  t('next ›'),\n  t('last »'),\n  t('[title] [ [field_music_genre] ]'),\n  t('[field_artist]\n[field_vjs]'),\n  t('All'),\n  t('Page'),\n  t('Feed'),\n);\n",
-			"file": "sites/all/themes/lezoo/:* ical feed! *:",
-			"file_size": 8957,
-			"file_write_time": 1384395484000000,
-			"settings":
-			{
-				"buffer_size": 8951,
-				"line_ending": "Unix",
-				"name": "/* ical feed! */"
-			}
-		},
-		{
-			"contents": "support.garagecube.com\nuser: garagecube\npw: madeinswitzerland\n\nmyuser: walidvb\nmypw: walid4ever\n\nassigner to me-> search for: staff:walidvb\n\nTicket patterns: \nGS: Support\n\nQuestion général -> Gael\nQuestion vente/collab -> Aïda\n	Paiement par carte bancaire passent par shareit. le reste par paypal/transfer\n\nQuestion tech modul8 -> private note à David(mardi seul)\nQuestion tech madmapper -> private note à Mathieux/Alex / Franz sinon.\nQuestion projet/sponsor -> canned response reversehead et assign to justine\nTransfer de mail au support -> New ticket\n\ninvoice@garagecube.com\n\nSi trop de couilles share-it-> fwd la conversation à authors@shareit.com + cc Daniel Hubrich dhubrich@digitalriver.com",
-			"settings":
-			{
-				"buffer_size": 696,
-				"line_ending": "Unix",
-				"name": "support.garagecube.com"
-			}
-		},
-		{
-			"file": "sites/all/modules/custom/lezoo/modal.inc",
-			"settings":
-			{
-				"buffer_size": 588,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "sites/all/themes/lezoo/js/custom.js",
-			"settings":
-			{
-				"buffer_size": 1932,
+				"buffer_size": 1139,
 				"line_ending": "Unix"
 			}
 		},
@@ -260,47 +231,90 @@
 			"file": "sites/all/themes/lezoo/template.php",
 			"settings":
 			{
-				"buffer_size": 6967,
+				"buffer_size": 10215,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "sites/all/themes/lezoo/templates/node--person.tpl.php",
+			"file": "sites/all/themes/lezoo/lezoo.info",
 			"settings":
 			{
-				"buffer_size": 5347,
+				"buffer_size": 1946,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "sites/all/themes/lezoo/templates/node--blog-post.tpl.php",
+			"file": "sites/all/modules/custom/lezoo/lezoo.module",
 			"settings":
 			{
-				"buffer_size": 6444,
+				"buffer_size": 3156,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "sites/all/themes/lezoo/templates/page.tpl.php",
+			"file": "sites/all/modules/custom/lezoo/modal.inc",
 			"settings":
 			{
-				"buffer_size": 4288,
+				"buffer_size": 587,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "sites/all/themes/lezoo/templates/node.tpl.php",
+			"file": "sites/all/modules/custom/lezoo_feed/lezoo_feed.info",
 			"settings":
 			{
-				"buffer_size": 5366,
+				"buffer_size": 143,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "sites/all/themes/lezoo/templates/node--installations.tpl.php",
+			"file": "sites/all/modules/custom/lezoo_feed/lezoo_feed.module",
 			"settings":
 			{
-				"buffer_size": 5626,
+				"buffer_size": 580,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php\n\n\ndefine('PATH_LEZOO_FILES', '/home/flyer/');\n\n\nclass FeedsleZooEventsProcessor extends FeedsProcessor {\n\n  /**\n   * Define entity type.\n   */\n  public function entityType() {\n    return 'event';\n  }\n\n  /**\n   * Implements parent::entityInfo().\n   */\n  protected function entityInfo() {\n    $info = parent::entityInfo();\n    $info['label plural'] = t('leZoo events');\n    return $info;\n  }\n\n  /**\n   * Creates a new resource in memory and returns it.\n   */\n  protected function newEntity(FeedsSource $source) {\n    $resource = entity_get_controller('event')->create();\n    return $resource;\n  }\n\n  /**\n   * Loads an existing resource.\n   */\n  protected function entityLoad(FeedsSource $source, $rid) {\n    return shelter_resource_load($rid);\n  }\n\n  /**\n   * Validates a resource.\n   */\n  protected function entityValidate($resource) {\n    if (empty($resource->title)) {\n      throw new FeedsValidationException(t('Unable to create resource with empty title.'));\n    }\n  }\n\n  /**\n   * Save a resource.\n   */\n  public function entitySave($resource) {\n    $resource->type = 'event';\n    shelter_resource_save($resource);\n  }\n\n  /**\n   * Override setTargetElement to operate on a target item that is a resource.\n   */\n  public function setTargetElement(FeedsSource $source, $target_resource, $target_element, $value) {\n\n    switch ($target_element) {\n\n      case 'guid':\n        $target_resource->feeds_item->guid = $value;\n        break;\n\n\n      // try to extract date from multiple formats\n      case 'date':\n        $saved_value = $value;\n        $validated = FALSE;\n        if (preg_match('/\\d{4}/', $value)) {\n          $validated = TRUE;\n        }\n        if (preg_match('/(\\d{2})[-\\/\\s]+(\\d{4})/', $value, $matches)) {\n          $value = $matches[1] . $matches[2];\n          $validated = TRUE;\n        }\n        if (preg_match('/(\\d{2})[-\\/\\s]+(\\d{2})[-\\/\\s]+(\\d{4})/', $value, $matches)) {\n          $value = mktime(0, 0, 0, $matches[2], $matches[1], $matches[3]);\n          $validated = TRUE;\n        }\n        if ($validated) {\n          $target_resource->$target_element = $value;\n        }\n        elseif (!empty($value)) {\n          throw new FeedsValidationException(t('Date \"@date\" format is not valid.', array('@date' => $value)));\n        }\n        break;\n\n\n      case 'multiple_publishers':\n        $exploded = array_filter(explode('|', $value));\n        foreach ($exploded as $publisher) {\n          $publisher = trim($publisher);\n          $terms = taxonomy_get_term_by_name($publisher, 'publisher');\n          $found = FALSE;\n          foreach ($terms as $term) {\n            if ($term->name == $publisher) {\n              $target_resource->field_publisher[LANGUAGE_NONE][] = array('tid' => $term->tid);\n              $found = TRUE;\n              break;\n            }\n          }\n          if (!$found) {\n            throw new FeedsValidationException(t('\"@publisher\" not found in publisher.', array('@publisher' => $publisher)));\n          }\n        }\n        break;\n\n\n      case 'multiple_locations':\n        $exploded = array_filter(explode('|', $value));\n        foreach ($exploded as $location) {\n          $location = trim($location);\n          $terms = taxonomy_get_term_by_name($location, 'location');\n          $found = FALSE;\n          foreach ($terms as $term) {\n            if ($term->name == $location) {\n              $target_resource->field_location[LANGUAGE_NONE][] = array('tid' => $term->tid);\n              $found = TRUE;\n              break;\n            }\n          }\n          if (!$found) {\n            throw new FeedsValidationException(t('\"@location\" not found in location.', array('@location' => $location)));\n          }\n        }\n        break;\n\n\n      // Taxonomy 'type' is hierarchical so we have to look for the parent name\n      // before saving the term.\n      case 'type_parent':\n        $target_resource->tmp['type_parent'] = $value;\n        break;\n      case 'type_term':\n        $type_parent = $target_resource->tmp['type_parent'];\n        $terms = taxonomy_get_term_by_name($value, 'type');\n        $found = FALSE;\n        foreach ($terms as $term) {\n          $parents = taxonomy_get_parents($term->tid);\n          foreach ($parents as $parent) {\n            if ($parent->name == $type_parent) {\n              $found = TRUE;\n              break;\n            }\n          }\n          if ($found) {\n            break;\n          }\n        }\n        if ($found) {\n          $target_resource->field_type[LANGUAGE_NONE][0]['tid'] = $term->tid;\n        }\n        else {\n          throw new FeedsValidationException(t('\"@parent\"/\"@term\" combination could not be validated.', array('@term' => $value, '@parent' => $type_parent)));\n        }\n        break;\n\n\n\n      // sector 1 & sector 2\n      case 'sector1':\n        $target_resource->tmp['sector1'] = $value;\n        break;\n      case 'sector2':\n        $values = array($target_resource->tmp['sector1'], $value);\n        $terms = array();\n        foreach ($values as $value) {\n          $term = taxonomy_get_term_by_name($value, 'cluster');\n          if ($term) {\n            $term = current($term);\n            $terms[] = array('tid' => $term->tid);\n          }\n          elseif (!empty($value)) {\n            throw new FeedsValidationException(t('Sector \"@term\" not found in cluster vocabulary.', array('@term' => $value)));\n          }\n        }\n        $target_resource->field_cluster[LANGUAGE_NONE] = $terms;\n        break;\n\n\n\n      // keywords\n      // The most complex part because vocabularies and terms are serialized:\n      // field keywords_parents:\n      // voc_name1 | voc_name2 | ...\n      // field keywords_terms:\n      // term1 for voc1, term2 for voc2... | term1 for voc2, term2 for voc2...\n      case 'keywords_parents':\n        $target_resource->tmp['keywords_parents'] = $value;\n        break;\n      case 'keywords_terms':\n        $vocabularies = array_filter(explode('|', $target_resource->tmp['keywords_parents']));\n        $lists_of_terms = array_filter(explode('|', $value));\n\n        // load matching array\n        $matching = $this->getVocabularyFields();\n\n        for ($i = 0; $i < count($vocabularies); $i++) {\n\n          $vocabulary_name = trim($vocabularies[$i]);\n          $terms = array_filter(explode(',', $lists_of_terms[$i]));\n\n          $matches = array();\n          foreach ($terms as $term_name) {\n            $term_name = trim($term_name);\n\n            // throw an exception if vocabulary is not in the matching table\n            if (!isset($matching[$vocabulary_name])) {\n              throw new FeedsValidationException(t('Vocabulary \"@vocabulary\" not found.', array('@vocabulary' => $vocabulary_name)));\n              continue;\n            }\n\n            // try to load the term object\n            $vid = $matching[$vocabulary_name]['vid'];\n            $term = taxonomy_get_term_by_name($term_name, $vid);\n            $term = current($term);\n\n            // uncomment to create terms\n            // if (!$term && $vid) {\n            //  $term = (object) array('name' => $term_name, 'vid' => $vid);\n            //  taxonomy_term_save($term);\n            // }\n\n            // if we have a valid term object, add to the references array\n            if ($term) {\n              $matches[] = array('tid' => $term->tid);\n            }\n            else {\n              throw new FeedsValidationException(t('@term not found in vocabulary @vocabulary.', array('@term' => $term_name, '@vocabulary' => $vocabulary_name)));\n            }\n          }\n\n          // set field value\n          if (count($matches)) {\n            $target_resource->{$matching[$vocabulary_name]['field_name']}[LANGUAGE_NONE] = $matches;\n          }\n        }\n        break;\n\n\n      // file upload\n      case 'upload':\n        //@todo cardinality ?\n        if (!preg_match('/^http/i', $value)) {\n          $value = PATH_LEZOO_FILES . $value;\n        }\n        else {\n          $value = rawurldecode($value);\n        }\n        $target_element = 'field_file';\n        file_feeds_set_target($source, $target_resource, $target_element, $value);\n        break;\n\n      case 'cover':\n        if (!preg_match('/^http/i', $value)) {\n          $value = PATH_LEZOO_FILES . $value;\n        }\n        else {\n          $value = rawurldecode($value);\n        }\n        $target_element = 'field_image';\n        file_feeds_set_target($source, $target_resource, $target_element, $value);\n        break;\n\n      default:\n        parent::setTargetElement($source, $target_resource, $target_element, $value);\n        break;\n    }\n\n  }\n\n\n  /**\n   * Return available mapping targets.\n   */\n  public function getMappingTargets() {\n    $targets = parent::getMappingTargets();\n    $targets['rid'] = array(\n      'name' => 'Resource id',\n      'description' => t('Resource ID'),\n    );\n    $targets['title'] = array(\n      'name' => 'Title',\n      'description' => t('Title'),\n    );\n    $targets['uid'] = array(\n      'name' => 'User id',\n      'description' => t('User ID'),\n    );\n    $targets['description'] = array(\n      'name' => 'Description',\n      'description' => t('Description'),\n    );\n    $targets['date'] = array(\n      'name' => 'Published date',\n      'description' => t('Published date. Allowed format: DD*MM*YYYY, MM*YYYY, YYYY. * means -, / or space.'),\n    );\n    $targets['type_parent'] = array(\n      'name' => 'Type (parent)',\n      'description' => t('Parent term for type.'),\n    );\n    $targets['type_term'] = array(\n      'name' => 'Type (term)',\n      'description' => t('Type (term)'),\n    );\n    $targets['sector1'] = array(\n      'name' => 'Sector 1',\n      'description' => t('Sector 1'),\n    );\n    $targets['sector2'] = array(\n      'name' => 'Sector 2',\n      'description' => t('Sector 2'),\n    );\n    $targets['keywords_parents'] = array(\n      'name' => 'Keywords parent(s)',\n      'description' => t('Vocabularies separated by |'),\n    );\n    $targets['keywords_terms'] = array(\n      'name' => 'Keywords terms',\n      'description' => t('List of terms separated by |. Each list contains terms separated by colon.'),\n    );\n    $targets['upload'] = array(\n      'name' => 'Upload',\n      'description' => t('Filename or URL. The file will be taken from the migration directory or via CURL if a path is provided.'),\n    );\n    $targets['cover'] = array(\n      'name' => 'Cover',\n      'description' => t('An image to illustrate the resource'),\n    );\n    $targets['multiple_publishers'] = array(\n      'name' => 'Multiple publishers',\n      'description' => t('List of publishers separated by a pipe character.'),\n    );\n    $targets['multiple_locations'] = array(\n      'name' => 'Multiple locations',\n      'description' => t('List of locations separated by a pipe character.'),\n    );\n    $info_instances = field_info_instances('shelter_resource', 'shelter_resource');\n\n    foreach ($info_instances as $field_name => $field_info_instance) {\n\n      $targets[$field_name] = array (\n        'name' => $field_info_instance['label'],\n        'description' => $field_info_instance['description'],\n      );\n\n      $info_field = field_info_field($field_name);\n      switch ($info_field['module']) {\n        case 'list':\n        case 'number':\n          if ($info_field['type'] == 'list_text') {\n            $targets[$field_name]['callback'] = 'text_feeds_set_target';\n          }\n          else {\n            $targets[$field_name]['callback'] = 'number_feeds_set_target';\n          }\n          break;\n        case 'date':\n          $targets[$field_name]['callback'] = 'date_feeds_set_target';\n          break;\n        case 'image':\n        case 'file':\n          $targets[$field_name]['callback'] = 'file_feeds_set_target';\n          break;\n        case 'text':\n          $targets[$field_name]['callback'] = 'text_feeds_set_target';\n          break;\n        case 'taxonomy':\n          $targets[$field_name]['callback'] = 'taxonomy_feeds_set_target';\n          break;\n      }\n\n    }\n\n    // Let other modules expose mapping targets.\n    self::loadMappers();\n    feeds_alter('feeds_shelter_resource_processor_targets', $targets);\n    $entity_type = $bundle = 'shelter_resource';\n    drupal_alter('feeds_processor_targets', $targets, $entity_type, $bundle);\n    return $targets;\n  }\n\n  /**\n   * Get id of an existing feed item if available.\n   */\n  protected function existingEntityId(FeedsSource $source, FeedsParserResult $result) {\n    if ($rid = parent::existingEntityId($source, $result)) {\n      return $rid;\n    }\n\n    foreach ($this->uniqueTargets($source, $result) as $target => $value) {\n      switch ($target) {\n        case 'guid':\n          $params = array(\n            ':feed_nid' => $source->feed_nid,\n            ':id' => $source->id,\n            ':guid' => $value,\n          );\n          $rid = db_query(\"SELECT entity_id FROM {feeds_item} WHERE feed_nid = :feed_nid AND id = :id AND guid = :guid\", $params)->fetchField();\n          break;\n      }\n      if ($rid) {\n        return $rid;\n      }\n    }\n    return 0;\n  }\n\n\n  /**\n   * Builds and returns an array of vocabulary fields used by the entity.\n   * This helper is used to map a keyword to his field (the field that\n   * references terms from a specific vocabulary).\n   */\n  private function getVocabularyFields() {\n    $cache = &drupal_static(__FUNCTION__);\n    if (!isset($cache)) {\n      $cache = array();\n      $fields = field_info_instances('shelter_resource', 'shelter_resource');\n      foreach (array_keys($fields) as $field_name) {\n        $field = field_info_field($field_name);\n        if ($field['type'] == 'taxonomy_term_reference') {\n          $vocabulary_name = $field['settings']['allowed_values'][0]['vocabulary'];\n          $vocabulary = taxonomy_vocabulary_machine_name_load($vocabulary_name);\n          $cache[$vocabulary->name] = array('field_name' => $field_name, 'vid' => $vocabulary->vid);\n        }\n      }\n    }\n    return $cache;\n  }\n\n}\n",
+			"file": "sites/all/modules/custom/lezoo_feed/resource.processor.inc",
+			"file_size": 13994,
+			"file_write_time": 1386778748000000,
+			"settings":
+			{
+				"buffer_size": 13848,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "sites/all/modules/custom/lezoo/date.inc",
+			"settings":
+			{
+				"buffer_size": 5408,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "sites/all/themes/lezoo/templates/field--artist-collection.tpl.php",
+			"settings":
+			{
+				"buffer_size": 1366,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "sites/all/modules/date/date.tokens.inc",
+			"settings":
+			{
+				"buffer_size": 2679,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "sites/all/modules/imagecache_token/imagecache_token.module",
+			"settings":
+			{
+				"buffer_size": 3511,
 				"line_ending": "Unix"
 			}
 		}
@@ -316,8 +330,32 @@
 				"Indentation: Reindent Lines"
 			],
 			[
+				"git",
+				"Git: Quick Commit"
+			],
+			[
 				"cdn",
 				"Cdnjs: Import URL only"
+			],
+			[
+				"cdnjs",
+				"Cdnjs: Import URL only"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"format ",
+				"Format: Php"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
 			],
 			[
 				"syntax html",
@@ -336,20 +374,12 @@
 				"Package Control: Install Package"
 			],
 			[
-				"insta",
-				"Package Control: Install Package"
-			],
-			[
 				"install",
 				"Package Control: Install Package"
 			],
 			[
 				"inde",
 				"Indentation: Reindent Lines"
-			],
-			[
-				"packa",
-				"Package Control: List Packages"
 			],
 			[
 				"list",
@@ -366,10 +396,6 @@
 			[
 				"syntax",
 				"Set Syntax: PHP"
-			],
-			[
-				"inst",
-				"Package Control: Install Package"
 			],
 			[
 				"preproce",
@@ -398,10 +424,6 @@
 			[
 				"2ham",
 				"HTML2Haml: Convert file"
-			],
-			[
-				"cdnjs",
-				"Cdnjs: Import Script"
 			],
 			[
 				"coffe",
@@ -496,10 +518,6 @@
 				"Set Syntax: HTML"
 			],
 			[
-				"git",
-				"Git: Quick Commit"
-			],
-			[
 				"insa",
 				"Indentation: Convert to Spaces"
 			],
@@ -524,7 +542,7 @@
 				"Snippet: h_preprocess"
 			]
 		],
-		"width": 593.0
+		"width": 571.0
 	},
 	"console":
 	{
@@ -541,39 +559,75 @@
 	},
 	"file_history":
 	[
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/js/myAngular.js",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/lezoo.info",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/angular_filter/angular.js",
-		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/date.inc",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/js/#*merge*#62198T5l#",
-		"/Users/Gaston/Sites/zoo/.git/MERGE_MSG",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--event.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/views-view--mini-blocks.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/widget.less",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/page.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/angular_filter/index.html",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--installations--mini.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/views-bootstrap-carousel-plugin-rows--events-carousel.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/lezoo.module",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/field--artist-collection.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/libs/jquery.pin.js",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/template.php",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--installations.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/views-view-fields--carousel--events-carousel.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--blog-post.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/js/custom.js",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/imagecache_actions/utility-form.inc",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/imagecache_actions/canvasactions/imagecache_canvasactions.module",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/imagecache_actions/canvasactions/canvasactions.inc",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/date.inc",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/blog.less",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/style.less",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/variables.less",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--installations--mini.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/home.less",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--event.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--event--teaser.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/template.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/install.less",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/libs/jquery.pin.js",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/views-view-fields--carousel--events-carousel.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/lezoo.module",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/date_filter.inc",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/_node--event--teaser.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/views_infinite_scroll/js/views_infinite_scroll.js",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/views-bootstrap-carousel-plugin-rows--events-carousel.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/panels_bootstrap_layouts/plugins/layouts/bootstrap_twocol_stacked/bootstrap-twocol-stacked.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--installations.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/custom.js",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/page_emulator/page_emulator.module",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/lezoo.info",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/js/myAngular.js",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--blog-post--mini.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--blog-post.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/views_infinite_scroll/views_infinite_scroll.module",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/footer.less",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/admin.js",
+		"/Users/Gaston/Sites/zoo/.git/MERGE_MSG",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo_modules/modal.inc",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo_modules/lezoo.module",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo_modules/date_filter.inc",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo_modules/date.inc",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/css/style.css",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/carousel/carousel.info",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/links_to_social/links_to_social.info",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/load_more/load_more.info",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/views_offset/views_offset.info",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/modal.inc",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/:* ical feed! *:",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/links_to_social/links_to_social.module",
+		"/Users/Gaston/Documents/support.garagecube.com",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/carousel/carousel.module",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/layouts/lezoo_twocols/lezoo_twocols.inc",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/lezoo.info",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/libs/lightordark.js",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--person.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/layouts/lezoo_twocols/lezoo_twocols.inc",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/layouts/lezoo_twocols/lezoo_twocols.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/overrides.less",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/angular_filter/angular.js",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/js/#*merge*#62198T5l#",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/views-view--mini-blocks.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/angular_filter/index.html",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/fronts.less",
 		"/Users/Gaston/Library/Caches/Cleanup At Startup/Transmit/59AF24F4-683B-49E7-BE7A-54D8281F6A7A/style.less",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/date_ical/date_ical.make",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/blog.less",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/events.less",
-		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/date_filter.inc",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/style.less",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/views-bootstrap-carousel-plugin-rows.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/field_coll.inc",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/bootstrap/less/mixins.less",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/variables.less",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/overrides.less",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/date/date_views/date_views.module",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/lezoo-views.less",
 		"/Users/Gaston/Desktop/calendar",
@@ -581,7 +635,6 @@
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/links_to_social/links_to_social.css",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/dat",
 		"/Users/Gaston/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--event--teaser.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--installation.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/bootstrap/theme/system/page.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/ctools/page_manager/help/custom-pages.html",
@@ -591,8 +644,6 @@
 		"/Users/Gaston/Sites/zoo/sites/all/themes/bluemasters/node.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/header.less",
 		"/Users/Gaston/Sites/zoo/sites/default/settings.php",
-		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/lezoo.info",
-		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/page_emulator/page_emulator.module",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/bootstrap/less/variables.less",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/favicon.ico",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/libs/stickyHeaders/jquery.stickyHeaders.css",
@@ -635,40 +686,7 @@
 		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/books/index.html.erb",
 		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/helpers/users_helper.rb",
 		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/db/seeds.rb",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/helpers/books_helper.rb",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/spec/requests/authentication_pages_spec.rb",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/controllers/application_controller.rb",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/db/migrate/20131027194349_add_remember_token_to_users.rb",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/spec/requests/static_pages_spec.rb",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/assets/stylesheets/users.css.scss",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/assets/stylesheets/mixins.css.scss",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/config/environments/production.rb",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/shared/_error_messages.html.haml",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/config/application.rb",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/db/schema.rb",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/static_pages/home.html.haml",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/assets/javascripts/static_pages.js.coffee",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/assets/stylesheets/static_pages.css.scss",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/db/migrate/20131027162234_add_roles_to_users.rb",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/config/environments/test.rb",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/spec/controllers/static_pages_controller_spec.rb",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/db/migrate/20131027120203_create_users.rb",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/db/migrate/20131027140912_add_index_to_users_email.rb",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/spec/views/static_pages/contact.html.erb_spec.rb",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/spec/helpers/static_pages_helper_spec.rb",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/spec/support/utilities.rb",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/static_pages/contact.html.erb",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/static_pages/books.html.haml",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/.git/MERGE_MSG",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/controllers/static_pages_controller.rb",
-		"/Users/Gaston/Sites/cordesavides/sites/all/themes/cordesavides/less/variables.less",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/assets/stylesheets/scaffolds.css.scss",
-		"/Users/Gaston/Library/Application Support/Sublime Text 2/Packages/Package Control/Package Control.sublime-settings",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/layouts/bckapplication.html.erb",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/tmp/cache/assets/development/sass/3f2ce0e293c181fa9dadc4500877b6bec40514c3/static_pages.css.scssc",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/public/assets/fonts/MyFontsWebfontsKit/MyFontsWebfontsKit.css",
-		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/views/layouts/_header.html.erb",
-		"/Users/Gaston/Library/Application Support/Sublime Text 2/Packages/User/Package Control.sublime-settings"
+		"/Users/Gaston/Dropbox/pigeonhole/rails_projects/first_app/app/helpers/books_helper.rb"
 	],
 	"find":
 	{
@@ -686,6 +704,18 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"_render_date",
+			"render_date",
+			"lezoo-node-date",
+			"PATH_SHELTER_FILES",
+			"240",
+			"imagecache_actions_file_field_description",
+			"topPadding",
+			"paddingTop",
+			"details",
+			"vars",
+			"ezoo",
+			"lezoo",
 			"bigimage",
 			"flyer",
 			"'field_flyer'",
@@ -801,19 +831,7 @@
 			"example",
 			"bootstrap_barrio",
 			"load_posts",
-			"x_",
-			"../bootstrap",
-			"load_posts",
-			"node",
-			"share",
-			"5s",
-			"2s",
-			"3s",
-			"all",
-			"0.5s",
-			"0.3s",
-			"list",
-			"$title"
+			"x_"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -831,23 +849,23 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "sites/all/modules/custom/lezoo/date_filter.inc",
+					"file": "sites/all/themes/lezoo/js/myAngular.js",
 					"settings":
 					{
-						"buffer_size": 1566,
+						"buffer_size": 1139,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1049,
-								1049
+								282,
+								363
 							]
 						],
 						"settings":
@@ -899,7 +917,7 @@
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -911,24 +929,23 @@
 				},
 				{
 					"buffer": 1,
-					"file": "sites/all/themes/lezoo/:* ical feed! *:",
+					"file": "sites/all/themes/lezoo/template.php",
 					"settings":
 					{
-						"buffer_size": 8951,
+						"buffer_size": 10215,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1395,
-								1395
+								9009,
+								9009
 							]
 						],
 						"settings":
 						{
 							"BracketHighlighterBusy": false,
-							"auto_name": "/* ical feed! */",
 							"bh_regions":
 							[
 								"bh_regex",
@@ -975,9 +992,8 @@
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -987,23 +1003,23 @@
 				},
 				{
 					"buffer": 2,
+					"file": "sites/all/themes/lezoo/lezoo.info",
 					"settings":
 					{
-						"buffer_size": 696,
+						"buffer_size": 1946,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								577,
-								577
+								835,
+								860
 							]
 						],
 						"settings":
 						{
 							"BracketHighlighterBusy": false,
-							"auto_name": "support.garagecube.com",
 							"bh_regions":
 							[
 								"bh_regex",
@@ -1050,7 +1066,7 @@
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Drupal/Drupal Info File/Drupal Info Files.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1060,18 +1076,18 @@
 				},
 				{
 					"buffer": 3,
-					"file": "sites/all/modules/custom/lezoo/modal.inc",
+					"file": "sites/all/modules/custom/lezoo/lezoo.module",
 					"settings":
 					{
-						"buffer_size": 588,
+						"buffer_size": 3156,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								38,
-								38
+								2134,
+								2134
 							]
 						],
 						"settings":
@@ -1135,18 +1151,18 @@
 				},
 				{
 					"buffer": 4,
-					"file": "sites/all/themes/lezoo/js/custom.js",
+					"file": "sites/all/modules/custom/lezoo/modal.inc",
 					"settings":
 					{
-						"buffer_size": 1932,
+						"buffer_size": 587,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1532,
-								1532
+								584,
+								584
 							]
 						],
 						"settings":
@@ -1198,29 +1214,30 @@
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 221.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "sites/all/themes/lezoo/template.php",
+					"file": "sites/all/modules/custom/lezoo_feed/lezoo_feed.info",
 					"settings":
 					{
-						"buffer_size": 6967,
+						"buffer_size": 143,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2692,
-								2692
+								142,
+								142
 							]
 						],
 						"settings":
@@ -1272,29 +1289,28 @@
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Drupal/Drupal Info File/Drupal Info Files.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1220.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 6,
-					"file": "sites/all/themes/lezoo/templates/node--person.tpl.php",
+					"file": "sites/all/modules/custom/lezoo_feed/lezoo_feed.module",
 					"settings":
 					{
-						"buffer_size": 5347,
+						"buffer_size": 580,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4766,
-								4766
+								415,
+								440
 							]
 						],
 						"settings":
@@ -1346,30 +1362,30 @@
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 990.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 7,
-					"file": "sites/all/themes/lezoo/templates/node--blog-post.tpl.php",
+					"file": "sites/all/modules/custom/lezoo_feed/resource.processor.inc",
 					"settings":
 					{
-						"buffer_size": 6444,
+						"buffer_size": 13848,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4478,
-								4478
+								250,
+								250
 							]
 						],
 						"settings":
@@ -1421,30 +1437,30 @@
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1237.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 8,
-					"file": "sites/all/themes/lezoo/templates/page.tpl.php",
+					"file": "sites/all/modules/custom/lezoo/date.inc",
 					"settings":
 					{
-						"buffer_size": 4288,
+						"buffer_size": 5408,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3316,
-								3316
+								5374,
+								5374
 							]
 						],
 						"settings":
@@ -1496,7 +1512,7 @@
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -1508,18 +1524,18 @@
 				},
 				{
 					"buffer": 9,
-					"file": "sites/all/themes/lezoo/templates/node.tpl.php",
+					"file": "sites/all/themes/lezoo/templates/field--artist-collection.tpl.php",
 					"settings":
 					{
-						"buffer_size": 5366,
+						"buffer_size": 1366,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4219,
-								4219
+								372,
+								372
 							]
 						],
 						"settings":
@@ -1572,11 +1588,10 @@
 							"remote_loading": false,
 							"synced": false,
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1091.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1589,18 +1604,18 @@
 			[
 				{
 					"buffer": 10,
-					"file": "sites/all/themes/lezoo/templates/node--installations.tpl.php",
+					"file": "sites/all/modules/date/date.tokens.inc",
 					"settings":
 					{
-						"buffer_size": 5626,
+						"buffer_size": 2679,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5383,
-								5383
+								394,
+								372
 							]
 						],
 						"settings":
@@ -1652,12 +1667,87 @@
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1215.0,
+						"translation.y": 511.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "sites/all/modules/imagecache_token/imagecache_token.module",
+					"settings":
+					{
+						"buffer_size": 3511,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1796,
+								1729
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 703.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1693,7 +1783,7 @@
 		"cols":
 		[
 			0.0,
-			0.628727213542,
+			0.789232219828,
 			1.0
 		],
 		"rows":
@@ -1726,12 +1816,144 @@
 		"selected_items":
 		[
 			[
-				"nodeblog",
-				"lezoo/templates/node--blog-post.tpl.php"
+				"fieldcoll",
+				"lezoo/templates/field--artist-collection.tpl.php"
+			],
+			[
+				"date",
+				"custom/lezoo/date.inc"
+			],
+			[
+				"lezoo.modu",
+				"custom/lezoo/lezoo.module"
+			],
+			[
+				"info",
+				"lezoo/lezoo.info"
+			],
+			[
+				"page",
+				"lezoo/templates/page.tpl.php"
 			],
 			[
 				"templ",
 				"lezoo/template.php"
+			],
+			[
+				"angula",
+				"lezoo/js/myAngular.js"
+			],
+			[
+				"pin",
+				"lezoo/libs/jquery.pin.js"
+			],
+			[
+				"field",
+				"lezoo/templates/field--artist-collection.tpl.php"
+			],
+			[
+				"nodeevent",
+				"lezoo/templates/node--event.tpl.php"
+			],
+			[
+				"date_fil",
+				"custom/lezoo/date_filter.inc"
+			],
+			[
+				"lezoo",
+				"custom/lezoo/lezoo.module"
+			],
+			[
+				"event",
+				"lezoo/templates/node--event.tpl.php"
+			],
+			[
+				"eventteas",
+				"lezoo/templates/_node--event--teaser.tpl.php"
+			],
+			[
+				"viewscarousl",
+				"lezoo/templates/views-view-fields--carousel--events-carousel.tpl.php"
+			],
+			[
+				"carou",
+				"lezoo/templates/views-bootstrap-carousel-plugin-rows--events-carousel.tpl.php"
+			],
+			[
+				"node",
+				"lezoo/templates/node.tpl.php"
+			],
+			[
+				"ode-even",
+				"lezoo/templates/node--event.tpl.php"
+			],
+			[
+				"custom",
+				"lezoo/js/custom.js"
+			],
+			[
+				"date.",
+				"custom/lezoo/date.inc"
+			],
+			[
+				"field-coll",
+				"lezoo/templates/field--artist-collection.tpl.php"
+			],
+			[
+				"nodeinsta",
+				"lezoo/templates/node--installations.tpl.php"
+			],
+			[
+				"nodeblog",
+				"lezoo/templates/node--blog-post.tpl.php"
+			],
+			[
+				"dat",
+				"custom/lezoo/date_filter.inc"
+			],
+			[
+				"page.",
+				"lezoo/templates/page.tpl.php"
+			],
+			[
+				"template",
+				"lezoo/template.php"
+			],
+			[
+				"myangul",
+				"lezoo/js/myAngular.js"
+			],
+			[
+				"node-even",
+				"lezoo/templates/node--event.tpl.php"
+			],
+			[
+				"templa",
+				"lezoo/template.php"
+			],
+			[
+				"nodeeven",
+				"lezoo/templates/node--event.tpl.php"
+			],
+			[
+				"angul",
+				"lezoo/js/myAngular.js"
+			],
+			[
+				"node-e",
+				"lezoo/templates/node--event.tpl.php"
+			],
+			[
+				"date.inc",
+				"custom/lezoo/date.inc"
+			],
+			[
+				"myangu",
+				"lezoo/js/myAngular.js"
+			],
+			[
+				"carousel",
+				"custom/carousel/carousel.module"
 			],
 			[
 				"node.tpl",
@@ -1742,35 +1964,11 @@
 				"lezoo/templates/page.tpl.php"
 			],
 			[
-				"template",
-				"lezoo/template.php"
-			],
-			[
 				"myan",
 				"lezoo/js/myAngular.js"
 			],
 			[
 				"templat",
-				"lezoo/template.php"
-			],
-			[
-				"myangu",
-				"lezoo/js/myAngular.js"
-			],
-			[
-				"custom",
-				"lezoo/js/custom.js"
-			],
-			[
-				"date.inc",
-				"custom/lezoo/date.inc"
-			],
-			[
-				"date.",
-				"custom/lezoo/date.inc"
-			],
-			[
-				"templa",
 				"lezoo/template.php"
 			],
 			[
@@ -1782,32 +1980,8 @@
 				"lezoo/js/myAngular.js"
 			],
 			[
-				"angul",
-				"lezoo/angular_filter/angular.js"
-			],
-			[
-				"page",
-				"lezoo/templates/page.tpl.php"
-			],
-			[
 				"modal",
 				"custom/lezoo/modal.inc"
-			],
-			[
-				"info",
-				"lezoo/lezoo.info"
-			],
-			[
-				"nodeevent",
-				"lezoo/templates/node--event.tpl.php"
-			],
-			[
-				"node",
-				"lezoo/templates/node--blog-post.tpl.php"
-			],
-			[
-				"pin",
-				"lezoo/libs/jquery.pin.js"
 			],
 			[
 				"views",
@@ -1828,14 +2002,6 @@
 			[
 				"carouse",
 				"lezoo/templates/views-bootstrap-carousel-plugin-rows--events-carousel.tpl.php"
-			],
-			[
-				"field",
-				"lezoo/templates/field--artist-collection.tpl.php"
-			],
-			[
-				"lezoo",
-				"custom/lezoo/lezoo.module"
 			],
 			[
 				"less",
@@ -1864,10 +2030,6 @@
 			[
 				"nodeins",
 				"lezoo/templates/node--installations.tpl.php"
-			],
-			[
-				"date",
-				"custom/lezoo/date_filter.inc"
 			],
 			[
 				"date_f",
@@ -1906,10 +2068,6 @@
 				"lezoo/templates/node--installations.tpl.php"
 			],
 			[
-				"event",
-				"lezoo/less/events.less"
-			],
-			[
 				"lezooviews",
 				"lezoo/less/lezoo-views.less"
 			],
@@ -1920,10 +2078,6 @@
 			[
 				"links",
 				"custom/links_to_social/links_to_social.css"
-			],
-			[
-				"page.",
-				"lezoo/templates/page.tpl.php"
 			],
 			[
 				"nodeteaser",
@@ -2172,70 +2326,6 @@
 			[
 				"conta",
 				"app/views/static_pages/contact.html.erb"
-			],
-			[
-				"specs",
-				"spec/controllers/static_pages_controller_spec.rb"
-			],
-			[
-				"css",
-				"app/assets/stylesheets/custom.css.scss"
-			],
-			[
-				"statjs",
-				"app/assets/javascripts/static_pages.js.coffee"
-			],
-			[
-				"stat",
-				"app/controllers/static_pages_controller.rb"
-			],
-			[
-				"applichaml",
-				"app/views/layouts/application.html.haml"
-			],
-			[
-				"scaff",
-				"app/assets/stylesheets/scaffolds.css.scss"
-			],
-			[
-				"applham",
-				"app/views/layouts/application.html.haml"
-			],
-			[
-				"utili",
-				"spec/support/utilities.rb"
-			],
-			[
-				"rspec",
-				"spec/requests/static_pages_spec.rb"
-			],
-			[
-				"guard",
-				"Guardfile"
-			],
-			[
-				".rspe",
-				".rspec"
-			],
-			[
-				"spec_",
-				"spec/spec_helper.rb"
-			],
-			[
-				"staticpa",
-				"app/controllers/static_pages_controller.rb"
-			],
-			[
-				"p",
-				"cordesavides/templates/page.tpl.php"
-			],
-			[
-				"varia",
-				"cordesavides/less/variables.less"
-			],
-			[
-				"var",
-				"cordesavides/less/variables.less"
 			]
 		],
 		"width": 0.0

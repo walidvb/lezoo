@@ -89,7 +89,15 @@ else
   $tags = '';
 }
 
-hide($content['field_video']);
+if(empty($content['field_video']))
+{
+  hide($content['field_video']);
+}
+else
+{
+  hide($content['field_photos']);
+}
+
 if(!$page)
 {
   $title_tag = 'h3';
@@ -103,7 +111,7 @@ else
             <?php print render($title_prefix); ?>
                 <<?php print $title_tag; print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></<?php print $title_tag?>>
             <?php print render($title_suffix); ?>
-  <div class="content"<?php print $content_attributes; ?>>
-      <?php print render($content) ?>
-    </div>
+            <div class="content"<?php print $content_attributes; ?>>
+                <?php print render($content) ?>
+              </div>
 </div>

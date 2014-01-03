@@ -7,6 +7,7 @@
 		{
 			$('.primary .dropdown-toggle').html(active_trail + '<span class="caret"></span>');
 		}
+		$('.dropdown-toggle').dropdownHover();
 		//-------------- stick menu
 		var threshold = $('header');
 		//-------------- stick months above list
@@ -32,21 +33,25 @@
 
 		
 		//---------------Pin left cols
-		var pinit = function() {}
-		// if( $(".pinned").wrapInner('<div class="pinned-content"/>').length != 0)
-		// {
-		// 	var pinit = function()
-		// 	{
-		// 		var container = '.content';
-		// 		$('.pinned > .pinned-content').pin({
-		// 			containerSelector: container,
-		// 		});
-		// 		$(container).css({
-		// 			display: 'inline-block',
-		// 			width: '100%'
-		// 		});
-		// 	}
-		// }
+		$(".no-touch .pinned").once(function(){
+			$(this).wrapInner('<div class="pinned-content"/>');
+		});
+		var pinit = function()
+		{
+			var container = '.content';
+			$('.pinned > .pinned-content').once(function(){
+				$(this).pin({
+					containerSelector: container,
+					fixedHeaderSelector: 'header',
+					 minWidth: 770,
+				});
+			});
+			$(container).css({
+				display: 'inline-block',
+				width: '100%'
+			});
+		}
+
 
 		//--------------------Masonry the installs
 		var isotope = function(){
@@ -55,7 +60,46 @@
 			});
 		}
 
-		//--------------------open/close blog posts
+		//--------------------open/close 
+		//---------region for mobile
+		//Add Comments title as trigger for the box
+		var $blockTitle = $('.group-trigger, .pane-title', context);
+		$blockTitle.once('lezoo', function(){
+			$(this).addClass('clickable').bind('click', function()
+			{
+				if($(window).width() <= 767)
+				{
+					var title = $(this);
+					var block = title.next();
+
+					block.slideToggle( function()
+					{
+						if(!title.toggleClass('closed').hasClass('closed'))
+						{
+							$('html, body').animate(
+							{
+								scrollTop: title.offset().top,
+							});
+						};
+					});
+				}
+				else
+				{
+
+				}
+			})
+		});
+
+		var closeBlocks = function(){
+			
+			{
+				$blockTitle.each(function(){
+					$(this).trigger('click');
+				});
+				console.log('clicked');
+			}
+		}
+		//---------blog posts
 		if(typeof Drupal.settings.lezoo_theme !== 'undefined')
 		{
 			var nodeStatusClasses = Drupal.settings.lezoo_theme.node_status;
@@ -87,28 +131,27 @@
 				}
 			})
 		});
+
 		//--------------------Overall
+		var timer;
 		function resize() 
 		{
+			clearTimeout(timer);
+			timer = setTimeout(function(){
 			pinit();
 			stickEm();
 			isotope();
+			closeBlocks();
+			}, 300);
 		}
 		resize();
 		$(window).resize(resize);
 
 
 		//--------------UUUUUGLY hack
-		$('.bootstrap-twocol-stacked .panel-panel.right').addClass('col-md-6 col-sm-6 col-xs-12');
+		//$('.bootstrap-twocol-stacked .panel-panel.right').addClass('col-md-6 col-sm-6 col-xs-12');
 
 
-		//--------------Another ugly hack to avoid rewriting the whole carousel tpl
-		// $('.carousel-caption').once('lezoo', function(){
-		// 	$(this).addClass('clickable').on('click', function(){
-		// 		console.log($('h4', $(this));
-		// 		$('h4 a', $(this)).trigger('click');
-		// 	});
-		// })
 };
 
 })(jQuery);
