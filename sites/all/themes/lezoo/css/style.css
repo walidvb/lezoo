@@ -7088,8 +7088,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .event-node .header .event-genre a {
   color: #bfbfbf;
 }
-.event-node .header .event-subtitle,
-.event-node .header h3 {
+.event-node .header .event-subtitle {
   display: block;
   padding-left: 0px;
   color: #bfbfbf;
@@ -7097,10 +7096,10 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .event-node .header .event-title {
   margin-top: 0px;
   font-size: 25px;
-  color: #494949;
+  font-family: Georgia, "Times New Roman", Times, serif !important;
 }
-.event-node .header .event-title a {
-  font-family: Georgia, "Times New Roman", Times, serif;
+.event-node .header .event-title .node-title {
+  font-family: inherit;
 }
 .event-node .line-up {
   position: relative;
@@ -7743,7 +7742,12 @@ select.form-control#edit-field-music-genre-tid option:hover {
   margin-top: 15px;
   font-size: 15px;
 }
-#node-154 .field-image img {
+/*
+.view-mode-mini{
+	.make-md-column(6);
+	background-color: blue;
+}
+*/#node-154 .field-image img {
   width: 100%;
 }
 .quicktabs-tabs {

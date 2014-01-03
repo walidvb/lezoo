@@ -6,7 +6,7 @@
 				@font-size: @font-size-h3;
 			}
 	}
-	.event-subtitle, h3{
+	.event-subtitle{
 		display: block;
 		padding-left: 0px;
 		color: @tertiary-color;
@@ -14,9 +14,9 @@
 	.event-title{
 		margin-top: 0px;
 		font-size: @font-size-h2;
-		color: @secondary-color;
-		a{
-			font-family: @font-family-serif;
+		font-family: @font-family-serif !important;
+		.node-title{
+			font-family: inherit;
 		}
 	}
 }
