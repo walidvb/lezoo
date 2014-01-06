@@ -5,15 +5,38 @@
 .field-event-ref{
 	padding-left: @padding-base-horizontal;
 }
+.page-podcasts{
+	.views-row:not(.views-row-first){
+		border-top: solid 6px white;
+	}
+}
 
 .node-blog-post{
+	margin-bottom: @padding-base-vertical;
+	.node-title{
+		padding-left: @padding-base-horizontal;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		padding-top: 12px;
+		padding-bottom: 12px;
+		border-bottom: solid 1px @primary-color;
+		font-family: @font-family-serif !important;
+		text-transform: uppercase;
+		.transition-duration(0.5s);
+		background-color: lighten(@fourth-color, 2%);
+		&:hover{
+			.transition-duration(0.5s);
+			background-color: lighten(@fourth-color, 30%);
+		}
+	}
 	.field-big-image{
+		max-height: 330px;
+		overflow: hidden;
 		img{
 			width: 100%;
 		}
 	}
 	.field-body{
-		background-color: @secondary-color;
 		padding: @padding-base-horizontal;
 	}
 	.contextual-links-region{
@@ -34,23 +57,41 @@
 			padding-right: @padding-base-horizontal;
 		}
 	}
+	.field-podcast-section{
+		float: right;
+		padding-top: @padding-base-vertical;
+		border-top: 1px solid @fourth-color;
+	}
+}
+
+.node-blog-post-single{
+	.node-title{
+		font-size: @font-size-h1*2.2;
+		padding-left: @padding-base-horizontal;
+		border-bottom: solid 6px @primary-color;
+		@media (max-width: @screen-sm){
+			font-size: @font-size-h1*1.5;
+		}
+	}
 }
 //needed for when the left column is pinned
 .pin-fixed{
 }
 
 .blog-info{
-	background-color: lighten(@tertiary-color, 15%);
-	color: @secondary-color;
+	color: @tertiary-color;
 	margin-top: 3px;
 	padding: 3px 5px;
-	text-align: right;
 	display: inline-block;
 	width: 100%;
 	>div, .tags > div{
 		display: inline-block;
 	}
 
+	.tags{
+		float:right;
+		font-style: italic;
+	}
 	.expand-post{
 		color: @fourth-color;
 	}
@@ -71,6 +112,13 @@
 	.field-tags{
 		padding-right: 3px;
 		display: inline-block;
+		color: @primary-color;
+		a{
+			color: inherit;
+			:hover{
+				color: darken(@primary-color, 10%);
+			}
+		}
 	}
 	.submitted{
 		margin-bottom: 0;
