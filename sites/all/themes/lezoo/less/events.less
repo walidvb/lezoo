@@ -3,6 +3,7 @@
 		.event-genre{
 			a{
 				color: @tertiary-color;
+				font-style: italic;
 				@font-size: @font-size-h3;
 			}
 	}
@@ -34,19 +35,10 @@
 	.artist-info{
 		font-size: @font-size-h4;
 	}
-	/*
-	&:before{
-		.make-md-column(1);
-		padding-left: 0px;
-		top:5px;
-		vertical-align: top;
-		color:@tertiary-color;
-	}
-	*/
 	&.event-line-up-vjs:before{
 		display: inline-block;
 		font-size: @font-size-h4;
-		content:'visuals by ';
+		content:'visuals by : ';
 		padding-right: @padding-base-horizontal/2;
 	}
 	&.event-line-up-djs:before{
@@ -60,7 +52,6 @@
 .event-line-up-djs{
 
 	.artist{
-		//display:block;
 		z-index: 1;
 		font-size: @font-size-h2;
 		text-transform: uppercase;
@@ -89,7 +80,7 @@
 /////// FULL EVENT NODE
 .node-event.view-mode-full{
 	.header{
-		min-height: 180px;
+		min-height: 170px;
 		border-bottom: solid 6px @primary-color;
 		.event-titles{
 			display: inline-block;
@@ -100,29 +91,37 @@
 				margin-top: 50px;
 				margin-bottom: 2px;
 				border-top: solid 1px @primary-color;
+				padding-left: @padding-base-horizontal;
 				@media (max-width: @screen-sm){
 					font-size: @font-size-h1*1.5;
 				}
 			}
-			.node-subtitle{
-				font-size: @font-size-h2;
+			.event-subtitle{
+				float: left;
+				padding-left: @padding-base-horizontal;
+				padding-top: 30px;
 			}
 		}
 		.event-meta{
-			float: right;
 			width: 100%;
 			overflow: hidden;
-			top: 23px;
+			padding-top: 7px;
 			position: relative;
 			.event-social{
-				padding-right: @padding-base-horizontal;
+				margin-top: 7px;
+				height: 15px;
+				overflow: hidden;
+				position: absolute;
+				right: 10%;
 			}
 			.ics-container {
 				float: right;
 			}
 			.genre{
-				.event-social;
-				padding-left: 15px;
+				padding-left: @padding-base-horizontal;
+				font-size: @font-size-h3;
+				text-transform: uppercase;
+				float: left;
 			}
 		}
 		.date{
@@ -132,41 +131,57 @@
 		}
 	}
 
-	.event-line-up{
-		//border-bottom: solid 6px @primary-color;
+	.event-line-up-djs{
+		.artist {
+			display: inline-block;
+			&:after{
+				content:' / ';
+				margin-left: 5px;
+				margin-right: 5px;
+			}
+			.artist-info{
+				color: @secondary-color;
+			}
+		}
 	}
-	.artists{
-		display: inline-block;
-	}
-	.artist {
-		display: block;
-		.artist-info{
-			color: @secondary-color;
+	.event-line-up-vjs{
+		.artists{
+			display: inline-block;
+			.artist{
+				display: inline-block;
+				&:after{
+					content:'/';
+					margin-left: 5px;
+					margin-right: 5px;
+				}
+			}
 		}
 	}
 	.col-left{
 		.event-flyer{
 			display: block;
+			.field-slideshow-wrapper{
+				width: 100% !important;
+			}
 			img{
 				width: 100%;
 			}
 		}
+	}
+	.col-right{
+		padding-left: @padding-base-vertical;
+		padding-right: @padding-base-vertical;
 		.event-details{
-			background-color: @primary-color;
-			color: darken(@primary-color, 100%);
-			font-size: @font-size-smaller;
 			display: block;
+			border-bottom: solid 1px @primary-color;
+			margin-bottom: 20px;
+			pa
 			a{
 				color: darken(@primary-color, 100%);
 			}
 		}
-	}
-	.col-right{
 		.event-body{
-			//background-color: @secondary-color;
 			height: 100%;
-			padding-left: @padding-base-vertical;
-			padding-right: @padding-base-vertical;
 			.field-body{
 			}
 		}
@@ -187,6 +202,13 @@
 		&:hover{
 			.transition-duration(0.5s);
 			background-color: lighten(@fourth-color, 30%);
+		}
+
+		.event-line-up-djs{
+			padding-right: 15%;
+		}
+		.event-meta{
+			padding-left: @padding-base-horizontal;
 		}
 	}
 	.header{
@@ -220,6 +242,7 @@
 		min-height: 17px;
 		.field-music-genre{
 			display: inline-block;
+			font-style: italic;
 			a{
 				color: darken(@primary-color, 50%);
 			}
