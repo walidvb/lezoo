@@ -8,14 +8,6 @@
 			<?php print render($content['flippy_pager']); ?>
 			<div class="node-content">
 				<div class='header'>
-					<div class="event-meta">
-						<?php if($view_mode == 'full'): ?>
-							<div class="event-social">
-							<?php print $share42 . $ics; ?>
-							</div>
-						<?php endif; ?>
-						<div class='event-genre genre'><?php print render($content['field_music_genre']); ?></div>
-					</div>
 					<div class="event-titles">
 						<?php if(!$teaser): ?>
 							<div class="event-subtitle">
@@ -28,7 +20,14 @@
 							<?php print render($title_suffix); ?>
 						</div>
 					</div>
-					
+					<div class="event-meta">
+						<?php if($view_mode == 'full'): ?>
+							<div class="event-social">
+							<?php print $share42 . $ics; ?>
+							</div>
+						<?php endif; ?>
+						<div class='event-genre genre'><?php print render($content['field_music_genre']); ?></div>
+					</div>
 				<?php print render($content['field_date']) ?>
 				</div>
 				<?php print render($content['field_big_image']) ?>

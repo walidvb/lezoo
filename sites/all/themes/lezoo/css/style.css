@@ -7827,6 +7827,18 @@ select.form-control#edit-field-music-genre-tid option:hover {
 #event-filter-block {
   display: none;
 }
+/*   Subscribe   */
+#myModal .genre {
+  cursor: pointer;
+  color: gray;
+  width: 80%;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 4px 5px;
+  margin: 5px 0px;
+}
+#myModal .genre.selected {
+  color: white;
+}
 .pagination {
   display: none;
 }
