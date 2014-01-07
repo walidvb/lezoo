@@ -7111,6 +7111,11 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .event-node .line-up h3 {
   margin: 0px;
 }
+.event-node .line-up .artist:after {
+  content: ' / ';
+  margin-left: 5px;
+  margin-right: 5px;
+}
 .event-node .line-up .artist-info {
   font-size: 15px;
 }
@@ -7157,6 +7162,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   margin-bottom: 2px;
   border-top: solid 1px #ffffff;
   padding-left: 12px;
+  padding-right: 15%;
 }
 @media (max-width: 768px) {
   .node-event.view-mode-full .header .event-titles .node-title {
@@ -7197,11 +7203,14 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .node-event.view-mode-full .event-line-up-djs .artist {
   display: inline-block;
-}
-.node-event.view-mode-full .event-line-up-djs .artist:after {
-  content: ' / ';
-  margin-left: 5px;
-  margin-right: 5px;
+  /*
+			&:after{
+				content:' / ';
+				margin-left: 5px;
+				margin-right: 5px;
+			}
+			*/
+
 }
 .node-event.view-mode-full .event-line-up-djs .artist .artist-info {
   color: #494949;
@@ -7211,11 +7220,14 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .node-event.view-mode-full .event-line-up-vjs .artists .artist {
   display: inline-block;
-}
-.node-event.view-mode-full .event-line-up-vjs .artists .artist:after {
-  content: '/';
-  margin-left: 5px;
-  margin-right: 5px;
+  /*
+				&:after{
+					content:'/';
+					margin-left: 5px;
+					margin-right: 5px;
+				}
+				*/
+
 }
 .node-event.view-mode-full .col-left .event-flyer {
   display: block;
@@ -7266,22 +7278,22 @@ select.form-control#edit-field-music-genre-tid option:hover {
   padding-left: 12px;
 }
 .node-teaser .header {
-  width: 100%;
-  min-height: 40px;
-  padding-top: 15px;
+  width: 85%;
+  height: 50px;
+  padding-top: 4px;
 }
 .node-teaser .field-big-image {
   display: none;
 }
 .node-teaser .event-titles {
   display: inline-block;
-  padding-left: 0px;
+  max-width: 90%;
+  width: 85%;
 }
-.node-teaser .event-titles .node-title {
+.node-teaser .event-titles .event-title {
   margin-top: 2px;
   margin-bottom: 2px;
   padding-left: 12px;
-  padding-right: 12px;
 }
 .node-teaser .event-titles .event-subtitle {
   display: none;
@@ -7320,6 +7332,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
+  float: none!important;
   width: 100%;
 }
 @media (min-width: 992px) {
@@ -7334,6 +7347,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
+  float: none!important;
 }
 @media (min-width: 992px) {
   .node-teaser .event-line-up-vjs {
@@ -7647,6 +7661,11 @@ select.form-control#edit-field-music-genre-tid option:hover {
     float: left;
   }
 }
+#views-bootstrap-carousel-1 .carousel-caption .artists .artist:after {
+  content: ' / ';
+  margin-left: 5px;
+  margin-right: 5px;
+}
 #views-bootstrap-carousel-1 .carousel-caption .artists .field-artist-name {
   display: inline-block;
   font-size: 31px;
@@ -7809,6 +7828,9 @@ select.form-control#edit-field-music-genre-tid option:hover {
   color: #2b2b2b;
   width: 0px;
   margin-right: 0;
+}
+#event-filter-block {
+  display: none;
 }
 .pagination {
   display: none;
