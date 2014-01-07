@@ -94,12 +94,11 @@ if(isset($content['field_tags']))
 
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes ?> clearfix"<?php print $attributes; ?>>
       <?php print render($content['flippy_pager']); ?>
-
   <?php print $user_picture; ?>
 
   <?php print render($title_prefix); ?>
   <?php if(!empty($title) || !$is_page): ?>
-  <h3 <?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h3>
+  <a href="<?php print $node_url; ?>"><h3 <?php print $title_attributes; ?>><?php print $title; ?></h3></a>
 <?php endif; ?>
 <?php print $share42; ?>
 <?php print render($title_suffix); ?> 
@@ -107,7 +106,27 @@ if(isset($content['field_tags']))
 
 
 <div class="content"<?php print $content_attributes; ?>>
-  
+  <?php if ($display_submitted): ?>
+    <div class="blog-info">
+      <?php if(!$is_page): ?>
+        <?php if(!$teaser): ?>
+          <a href="#" class="expand-post"><?php print t('ouvrir') ?></a>
+        <?php else: ?>
+          <?php print l(t('+Lire l\'article'), 'node/' . $nid); ?>
+        <?php endif; ?>
+      <?php endif; ?>
+
+      <div class="submitted">
+        <?php print $submitted; ?>
+      </div>
+      <?php if(isset($tags) || isset($genres)): ?>
+        <div class="tags">
+          <?php print render($tags); ?>
+          <?php print render($genres); ?>
+        </div>
+      <?php endif; ?>
+    </div>
+  <?php endif; ?>
   <div class="<?php print $left_col_classes ?>">
     <?php print render($content['field_big_image']); ?>
     <?php print lezoo_header('Les Détails'); ?>
@@ -130,27 +149,7 @@ if(isset($content['field_tags']))
     print render($content);
     ?>
   </div>
-  <?php if ($display_submitted): ?>
-    <div class="blog-info">
-      <?php if(!$is_page): ?>
-        <?php if(!$teaser): ?>
-          <a href="#" class="expand-post"><?php print t('ouvrir') ?></a>
-        <?php else: ?>
-          <?php print l(t('+Lire l\'article'), 'node/' . $nid); ?>
-        <?php endif; ?>
-      <?php endif; ?>
-
-      <div class="submitted">
-        <?php print $submitted; ?>
-      </div>
-      <?php if(isset($tags) || isset($genres)): ?>
-        <div class="tags">
-          <?php print render($tags); ?>
-          <?php print render($genres); ?>
-        </div>
-      <?php endif; ?>
-    </div>
-  <?php endif; ?>
+  
 </div>
 
 

@@ -18,6 +18,11 @@
 	max-width: 1170px;
 }
 
+//filters
+#edit-month-wrapper .form-item-month-value-year{
+	display: none;
+}
+
 // Pager
 .pager{
 	color: @secondary-color;
@@ -148,4 +153,20 @@
 
 #event-filter-block{
 	display: none;
+}
+
+/*   Subscribe   */
+#myModal
+{
+	.genre {
+		cursor: pointer;
+		color: gray;
+		width: 80%;
+		background: rgba(0,0,0,0.8);
+		padding: 4px 5px;
+		margin: 5px 0px;
+		&.selected{
+			color: white;
+		}
+	}
 }

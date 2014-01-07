@@ -9,13 +9,13 @@
 				<?php print render($content['flippy_pager']); ?>
 				<div class="node-content">
 					<div class='header'>
+						<div class="event-meta">
+							<div class='event-genre genre'><?php print render($content['field_music_genre']); ?></div>
+						</div>
 						<div class="event-titles">
 							<div class='event-title title'> 
 								<h2 <?php print $title_attributes; ?>><?php print $title ?></h2>
 							</div>
-						</div>
-						<div class="event-meta">
-							<div class='event-genre genre'><?php print render($content['field_music_genre']); ?></div>
 						</div>
 					<?php print render($content['field_date']) ?>
 					</div>
