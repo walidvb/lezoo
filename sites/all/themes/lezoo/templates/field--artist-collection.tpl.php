@@ -6,35 +6,35 @@
 <div class="artists">
 	<?php foreach($rows as $row): ?>
 	<?php 
-	$name = (!empty($row['field_link']) && !$teaser) ? l($row['field_artist_name']->name, $row['field_link']['url'], array('attributes' => $row['field_link']['attributes'])) : $row['field_artist_name']->name;
-	$origins = array();
-	foreach($row['field_origin'] as $origin)
-	{
-		if(!empty($origin))
+		$name = (!empty($row['field_link']) && !$view_mode) ? l($row['field_artist_name']->name, $row['field_link']['url'], array('attributes' => $row['field_link']['attributes'])) : $row['field_artist_name']->name;
+		$origins = array();
+		foreach($row['field_origin'] as $origin)
 		{
-			$origins[] = $origin->name;
+			if(!empty($origin))
+			{
+				$origins[] = $origin->name;
+			}
 		}
-	}
-	$origins_markup = null;
-	if(!empty($origins))
-	{
-		$origins_markup = '<span class="artist-origin">' . implode(', ', $origins) . '</span>';
-	}
+		$origins_markup = null;
+		if(!empty($origins))
+		{
+			$origins_markup = '<span class="artist-origin">' . implode(', ', $origins) . '</span>';
+		}
 
-	$labels = array();
-	foreach($row['field_label'] as $label)
-	{
-		$labels[] = $label->name;
-	}
-	$labels_markup = null;
-	if(!empty($labels))
-	{
-		$labels_markup = '<span class="artist-labels">' . implode(', ', $labels) . '</span>';
-	}
+		$labels = array();
+		foreach($row['field_label'] as $label)
+		{
+			$labels[] = $label->name;
+		}
+		$labels_markup = null;
+		if(!empty($labels))
+		{
+			$labels_markup = '<span class="artist-labels">' . implode(', ', $labels) . '</span>';
+		}
 
-	$infos = array($labels_markup, $origins_markup);
-	$infos = array_filter($infos, 'strlen');
-	$info = implode( ' / ',  $infos);
+		$infos = array($labels_markup, $origins_markup);
+		$infos = array_filter($infos, 'strlen');
+		$info = implode( ' / ',  $infos);
 	?>
 	<div class="artist artist-item">
 	<span class="artist-name">

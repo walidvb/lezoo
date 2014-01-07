@@ -89,7 +89,10 @@ function lezoo_preprocess_page(&$variables) {
 			}
 			break;
 		}
-		menu_set_active_item($menu_active_item);
+		if(!empty($menu_active_item))
+		{
+			menu_set_active_item($menu_active_item);
+		}
 	}
 	else
 	{
