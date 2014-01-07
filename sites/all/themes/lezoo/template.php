@@ -67,27 +67,29 @@ function lezoo_menu_link(array $variables) {
 function lezoo_preprocess_page(&$variables) {
 	if(!empty($variables['node']))
 	{
+		$menu_active_item;
 		switch($variables['node']->type)
 		{
 			case 'event':
-			menu_set_active_item('agenda');
+				$menu_active_item ='agenda';
 			break;
 			case 'installations':
-			menu_set_active_item('visu');
+				$menu_active_item ='visu';
 			break;
 			case 'blog_post':
 			dpm($variables['node']->field_section['und']['0']['tid']);
 			switch($variables['node']->field_section['und']['0']['tid'])
 			{
 				case 28:
-				menu_set_active_item('podcasts');
+				$menu_active_item ='podcasts';
 				break;
 				case 27:
-				menu_set_active_item('visu');
+				$menu_active_item ='visu';
 				break;
 			}
 			break;
 		}
+		menu_set_active_item($menu_active_item);
 	}
 	else
 	{

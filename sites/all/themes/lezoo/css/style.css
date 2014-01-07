@@ -1,6 +1,4 @@
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
-
-@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
 /*@primary-color: rgb(99,162, 215);
 @secondary-color: rgb(190,61,68);
 @tertiary-color: hsb(0,0,10);
@@ -5928,12 +5926,6 @@ td.visible-print {
     display: none !important;
   }
 }
-/*@primary-color: rgb(99,162, 215);
-@secondary-color: rgb(190,61,68);
-@tertiary-color: hsb(0,0,10);
-@primary-color: @white;
-@secondary-color: @black;
-*/
 html.overlay-open .navbar-fixed-top {
   z-index: 400;
 }
@@ -7602,6 +7594,9 @@ select.form-control#edit-field-music-genre-tid option:hover {
   margin-left: auto;
   margin-right: auto;
   max-width: 1170px;
+}
+#edit-month-wrapper .form-item-month-value-year {
+  display: none;
 }
 .pager {
   color: #494949;
