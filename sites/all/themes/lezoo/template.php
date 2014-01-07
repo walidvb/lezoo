@@ -67,7 +67,7 @@ function lezoo_menu_link(array $variables) {
 function lezoo_preprocess_page(&$variables) {
 	if(!empty($variables['node']))
 	{
-		$menu_active_item;
+		$menu_active_item = null;
 		switch($variables['node']->type)
 		{
 			case 'event':
@@ -295,8 +295,8 @@ function _modal(){
 						<div ng-app="leZooApp">
 							<div ng-controller="feedFilter">
 								<form>
-									<span ng-repeat="	">
-										<input type="checkbox" name="{{genre.name}}" value="{{genre.selected}}" ng-model="genre.selected" ng-true-value="true"/> {{genre.name}}
+									<span ng-repeat="genre in genres" class="genre" ng-class="{\'selected\': genre.selected}" ng-click="genre.selected = !genre.selected"> 
+										{{genre.name}}
 									</span>
 								</form>
 								<a ng-href="webcal://lezoo.ch/{{params()}}feed.ics" class="btn btn-primary btn-lg">Synchronise ton agenda avec celui du ZOO!</a>
@@ -304,7 +304,7 @@ function _modal(){
 						</div>
 					</div>
 					<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Fermerasd</button>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->

@@ -94,12 +94,11 @@ if(isset($content['field_tags']))
 
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes ?> clearfix"<?php print $attributes; ?>>
       <?php print render($content['flippy_pager']); ?>
-
   <?php print $user_picture; ?>
 
   <?php print render($title_prefix); ?>
   <?php if(!empty($title) || !$is_page): ?>
-  <h3 <?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h3>
+  <a href="<?php print $node_url; ?>"><h3 <?php print $title_attributes; ?>><?php print $title; ?></h3></a>
 <?php endif; ?>
 <?php print $share42; ?>
 <?php print render($title_suffix); ?> 
