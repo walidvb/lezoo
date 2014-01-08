@@ -10,6 +10,7 @@
 				<div class='header'>
 					<div class="event-titles">
 						<?php if(!$teaser): ?>
+							<div class='event-genre genre'><?php print render($content['field_music_genre']); ?></div>
 							<div class="event-subtitle">
 								<?php print render($content['field_subtitle']) ?>
 							</div>
@@ -26,7 +27,6 @@
 							<?php print $share42 . $ics; ?>
 							</div>
 						<?php endif; ?>
-						<div class='event-genre genre'><?php print render($content['field_music_genre']); ?></div>
 					</div>
 				<?php print render($content['field_date']) ?>
 				</div>

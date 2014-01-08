@@ -19,7 +19,6 @@
 						</div>
 					<?php print render($content['field_date']) ?>
 					</div>
-					<?php print render($content['field_big_image']) ?>
 					<div class="event-line-up">
 						<div class='event-line-up event-line-up-djs line-up'> <?php print render($content['field_artist']); ?>
 						</div>
