@@ -7062,6 +7062,13 @@ h1 a {
   -moz-column-count: 3;
   column-count: 3;
 }
+.view-mode-teaser {
+  border-top: solid 3px #ffffff;
+  border-bottom: solid 3px #ffffff;
+}
+.view-mode-teaser .node-title {
+  background-color: none !important;
+}
 .view-id-teaser_list .form-type-select {
   display: inline-block;
 }
@@ -7155,12 +7162,14 @@ select.form-control#edit-field-music-genre-tid option:hover {
   min-height: 170px;
   border-bottom: solid 6px #ffffff;
 }
-.node-event.view-mode-full .header .event-titles {
+.node-event.view-mode-full .header .event-titles,
+.node-event.view-mode-full .header .install-titles {
   display: inline-block;
   padding-left: 0px;
   width: 100%;
 }
-.node-event.view-mode-full .header .event-titles .node-title {
+.node-event.view-mode-full .header .event-titles .node-title,
+.node-event.view-mode-full .header .install-titles .node-title {
   font-size: 68.2px;
   margin-top: 50px;
   margin-bottom: 2px;
@@ -7169,14 +7178,28 @@ select.form-control#edit-field-music-genre-tid option:hover {
   padding-right: 15%;
 }
 @media (max-width: 768px) {
-  .node-event.view-mode-full .header .event-titles .node-title {
+  .node-event.view-mode-full .header .event-titles .node-title,
+  .node-event.view-mode-full .header .install-titles .node-title {
     font-size: 46.5px;
   }
 }
-.node-event.view-mode-full .header .event-titles .event-subtitle {
+.node-event.view-mode-full .header .event-titles .event-subtitle,
+.node-event.view-mode-full .header .install-titles .event-subtitle {
   float: left;
   padding-left: 12px;
-  padding-top: 30px;
+  padding-top: 6px;
+  font-size: 21px;
+  text-transform: uppercase;
+}
+.node-event.view-mode-full .header .event-titles .genre,
+.node-event.view-mode-full .header .install-titles .genre {
+  padding-left: 12px;
+  font-size: 15px;
+  text-transform: uppercase;
+  float: left;
+  display: block;
+  height: 15px;
+  width: 100%;
 }
 .node-event.view-mode-full .header .event-meta {
   width: 100%;
@@ -7193,12 +7216,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .node-event.view-mode-full .header .event-meta .ics-container {
   float: right;
-}
-.node-event.view-mode-full .header .event-meta .genre {
-  padding-left: 12px;
-  font-size: 21px;
-  text-transform: uppercase;
-  float: left;
 }
 .node-event.view-mode-full .header .date {
   position: absolute;
@@ -7405,12 +7422,12 @@ select.form-control#edit-field-music-genre-tid option:hover {
   text-transform: uppercase;
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
-  background-color: #050505;
+  background-color: transparent;
 }
 .node-blog-post .node-title:hover {
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
-  background-color: #4d4d4d;
+  background-color: rgba(77, 77, 77, 0.5);
 }
 .node-blog-post .field-big-image {
   max-height: 330px;
@@ -7541,13 +7558,17 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 @media (min-width: 992px) {
   .carousel {
-    min-height: 220px;
+    min-height: 240px;
   }
 }
 @media (min-width: 1200px) {
   .carousel {
-    min-height: 340px;
+    min-height: 360px;
   }
+}
+#views-bootstrap-carousel-1 {
+  padding-left: 15px;
+  padding-right: 15px;
 }
 #views-bootstrap-carousel-1 .light .carousel-caption {
   color: #000000;
@@ -7568,7 +7589,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
 #views-bootstrap-carousel-1 .carousel-indicators {
   width: 100%;
   left: 30%;
-  bottom: -5px;
   max-height: 12px;
 }
 #views-bootstrap-carousel-1 .carousel-caption {
@@ -7579,7 +7599,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
-  top: 20%;
+  top: 25%;
   position: absolute;
 }
 @media (max-width: 992px) {
@@ -7627,6 +7647,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
 #views-bootstrap-carousel-1 .carousel-caption .banner-title .field-music-genre {
   display: inline-block;
   font-size: 21px;
+  font-style: italic;
   text-transform: lowercase;
   line-height: 66px;
   float: left;
@@ -7684,7 +7705,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
   font-size: 12px;
   font-size: 15px;
   padding-right: 6px;
-  display: none;
 }
 .ics-container .event-ics {
   font-size: 12px !important;
@@ -7800,9 +7820,13 @@ select.form-control#edit-field-music-genre-tid option:hover {
   transition-duration: 0.5s;
   position: relative;
   width: 3px;
-  height: 9px;
+  height: 18px;
+  top: -10px;
   float: right;
   background-image: url('../background_imgs/bg_med.gif');
+  overflow: hidden;
+  padding-top: 2px;
+  text-align: right;
 }
 .share42init:before {
   content: 'k';
@@ -7816,14 +7840,14 @@ select.form-control#edit-field-music-genre-tid option:hover {
   color: #ffffff;
   cursor: pointer;
 }
-.header:hover .share42init {
-  width: 120px;
+.node:not(.node-panel):hover .share42init {
+  width: 100%;
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
   -webkit-transition-delay: 0.3s;
   transition-delay: 0.3s;
 }
-.header:hover .share42init:before {
+.node:hover:not(.node-panel) .share42init:before {
   opacity: 0;
   -webkit-transition-delay: 0.3s;
   transition-delay: 0.3s;
@@ -7846,6 +7870,12 @@ select.form-control#edit-field-music-genre-tid option:hover {
 #myModal .genre.selected {
   color: white;
 }
+#modal-content {
+  color: black;
+}
+#modal-content a {
+  color: inherit;
+}
 .pagination {
   display: none;
 }
@@ -7853,12 +7883,13 @@ select.form-control#edit-field-music-genre-tid option:hover {
   margin-top: 15px;
   font-size: 15px;
 }
-/*
-.view-mode-mini{
-	.make-md-column(6);
-	background-color: blue;
+.view-mode-mini {
+  height: 160px;
 }
-*/#node-154 .field-image img {
+.view-mode-mini .node-title {
+  background-color: none !important;
+}
+#node-154 .field-image img {
   width: 100%;
 }
 .quicktabs-tabs {
