@@ -101,25 +101,28 @@
 			display:inline-block;
 			left:0px;
 			padding-left: 0px!important;
-			.make-md-column(9);
+			width: 85%;
+			float: left;
 			@media (max-width: @screen-md-min){
-				width: 80%;
+				width: width: 80%;
 				float: left;
 			}	
 
 			.artist{
+				display: inline-block;
 				&:after{
+					font-size: @font-size-h1;
 					content:' / ';
 					margin-left: 5px;
 					margin-right: 5px;
 				}
 			}
-			.field-artist-name{
+			.artist-name{
 				display: inline-block;
 				font-size: @font-size-h1;
 				padding-right: @padding-base-horizontal/2;
 			}
-			.field-label{
+			.artist-labels{
 				display: inline-block;
 				font-size: @font-size-base;
 				font-size: @font-size-h4;
@@ -128,8 +131,8 @@
 			.field-artist-details{
 				display: inline-block;
 			}
-			.field-origin{
-				.field-label;
+			.artist-origin{
+				.artist-labels;
 				display: none;
 			}			
 		}
