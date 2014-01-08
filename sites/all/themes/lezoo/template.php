@@ -218,6 +218,13 @@ function lezoo_image(&$variables){
 	return theme_image($variables);
 }
 
+
+function get_img_url($style, $field_name, $node){
+	$field = $node->$field_name;
+	$file = file_load($field['und'][0]['fid']);
+	return image_style_url($style, $file->uri);
+
+}
 //---------------------- Field Collection
 /**
  * Creates a simple text rows array from a field collections, to be used in a

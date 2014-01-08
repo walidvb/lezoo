@@ -22,49 +22,42 @@ else
   $title_tag = 'h1';
 }
 
-
 ?>
 
-<div id="node-<?php print $node->nid; ?>" class="<?php print $classes ?> clearfix"<?php print $attributes; ?>>
+<div id="node-<?php print $node->nid; ?>" class="<?php print $classes ?> clearfix"<?php print $attributes; ?> style="background-image: url('<?php print get_img_url('node_teaser_mini_image','field_big_image', $node)?>')">
 
   <?php print $user_picture; ?>
 
   <?php print render($title_prefix); ?>
   <?php if(!empty($title) && !$is_page): ?>
-  <h3<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h3>
+  <a href="<?php print $node_url; ?>"><h3<?php print $title_attributes; ?>><?php print $title; ?></h3></a>
+  <?php print $share42; ?>
+  <?php if ($display_submitted): ?>
+    <div class="blog-info">
+      <div class="submitted">
+        <?php print $submitted; ?>
+      </div>
+      <?php if(isset($tags) || isset($genres)): ?>
+        <div class="tags">
+          <?php print render($tags); ?>
+          <?php print render($genres); ?>
+        </div>
+      <?php endif; ?>
+    </div>
+  <?php endif; ?>
 <?php endif; ?>
-<?php print $share42; ?>
 <?php print render($title_suffix); ?> 
 
 
 
 <div class="content"<?php print $content_attributes; ?>>
-  <div class="<?php print $left_col_classes ?>">
-    <?php print render($content['field_big_image']); ?>
-  </div>
-  <div class="<?php print $right_col_classes ?>">
     <?php
         // We hide the comments and links now so that we can render them later.
     hide($content['comments']);
     hide($content['links']);
     print render($content);
     ?>
-  </div>
-  <?php if ($display_submitted): ?>
-
-  <div class="blog-info">
-  <?php print l(t('+Read more'), 'node/' . $nid); ?>
-<div class="submitted">
-  <?php print $submitted; ?>
-</div>
-<?php if(isset($tags) || isset($genres)): ?>
-  <div class="tags">
-    <?php print render($tags); ?>
-    <?php print render($genres); ?>
-  </div>
-<?php endif; ?>
-</div>
-<?php endif; ?>
+  
 </div>
 
 

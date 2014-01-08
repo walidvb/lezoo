@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * Implements hook_feeds_plugins().
+ */
+function lezoo_feed_feeds_plugins() {
+  $path = drupal_get_path('module', 'shelter_migration');
+
+  $info = array();
+  $info['LeZooResourceProcessor'] = array(
+    'name' => 'leZoo resource processor',
+    'description' => 'Process leZoo events.',
+    'help' => 'Process leZoo events.',
+    'handler' => array(
+      'parent' => 'FeedsProcessor',
+      'class' => 'FeedsleZooEventsProcessor',
+      'file' => 'resource.processor.inc',
+      'path' => drupal_get_path('module', 'shelter_migration'),
+    ),
+  );
+  return $info;
+}
+
