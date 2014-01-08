@@ -222,30 +222,29 @@
 		}
 	}
 	.header{
+		min-height: 50px;
 		width: 85%;
-		height: 50px;
-		padding-top: 4px;
 	}
 	.field-big-image{
 		display: none;
 	}
 	.event-titles{
-		display: inline-block;
-		max-width: 90%;
-		width: 85%;
+		display: block;
 		.event-title{
-			margin-top: 2px;
-			margin-bottom: 2px;
 			padding-left: @padding-base-horizontal;
+			h2{
+				margin-top: 0px;
+				margin-bottom: 0px;
+			}
 		}
 		.event-subtitle{
 			display: none;
 		}
 	}
 	.event-meta{
-		display: inline-block;
+		display: block;
+		width: 100%;
 		@media (max-width: @screen-md-min){
-			width: 85%;
 			float: left;
 			display: block;
 		}
