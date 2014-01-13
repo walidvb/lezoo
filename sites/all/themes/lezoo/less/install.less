@@ -1,38 +1,38 @@
 // Teaser install
 .view-installations{
-	.date-display-single {
-		font-size: @font-size-h2;
-		font-family: @font-family-serif !important;
-	}
-	.views-field-title{
-		.field-content a{
+	.view-mode-mini{
+		height: 300px;
+		background: blue;
+		.date-display-single {
+			font-size: @font-size-h2;
+			font-family: @font-family-serif !important;
+		}
+		a{
 			height: 160px;
 			display: block;
-			padding-top: 100px;
+			margin-top: 0px;
+			margin-bottom: 0px;
+			padding-top: 80px;
 			background: rgba(250, 250, 250, 0);
 			.transition-duration(0.5s);
 			&:hover{
-				background: rgba(250,250,250, 0.5);
+				background: rgba(250,250,250, 0.3);
 				.transition-duration(0.5s);
 			}
 		}
-	}
 
-	.field-big-image{
-		position: absolute;
-		height: 160px;
-		top: 0px;
-		z-index: -10;
-		padding-right: 15px;
-		overflow: hidden;
-		width: 100%;
-	}
+		.node-title{
+			border-bottom: solid 1px white;
+			padding-right: 27%;
+			padding-left: @padding-base-horizontal;
+		}
 
-	.date{
-		position: relative;
-		top: -110px;
-		z-index: -9;
-		padding-left: 75%;
+		.date{
+			right: 15%;
+			top: 55px;
+			z-index: 0;
+			position: absolute;
+		}
 	}
 }
 
@@ -42,10 +42,62 @@
 	display: inline-block;
 }
 // Full installation
-.node-installations{
+.node-installations.view-mode-full{
+	.install-header{
+		min-height: 170px;
+		border-bottom: solid 6px @primary-color;
+		.event-titles, .install-titles{
+			display: inline-block;
+			padding-left: 0px;
+			width: 100%;
+			.node-title{
+				font-size: @font-size-h1*2.2;
+				margin-top: 50px;
+				margin-bottom: 2px;
+				border-top: solid 1px @primary-color;
+				padding-left: @padding-base-horizontal;
+				padding-right: 15%;
+				@media (max-width: @screen-sm){
+					font-size: @font-size-h1*1.5;
+				}
+			}
+			.event-subtitle{
+				float: left;
+				padding-left: @padding-base-horizontal;
+				padding-top:6px;
+				font-size: @font-size-h3;
+				text-transform: uppercase;
+			}
+		}
+	}
+	.col-left{
+		.field-body{
+			@media(max-width: @screen-sm-min){
+				min-height: 160px;
+			}
+			min-height: 240px;
+			padding-top: @padding-base-horizontal;
+			padding-left: @padding-base-horizontal;
+		}
+		.field-label{
+			display: block;
+			padding-top: @padding-base-vertical;
+			padding-bottom: @padding-base-vertical;
+			padding-left: @padding-base-horizontal;
+			margin-bottom: 10px;
+			font-size: @font-size-h4;
+			font-family: @font-family-sans-serif;
+			color: @primary-color;
+			background-color: #404040;
+			text-transform: uppercase;
+		}
+		.field-event-ref{
+			padding-left: 0px;
+		}
+	}
+
 	.col-right{
 		padding-right: 0px;
-		padding-left: 0px;
 	}
 	.field-photos{
 		display: inline-block;
