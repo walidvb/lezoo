@@ -2,6 +2,12 @@
 footer{
 	@media (max-width: @screen-sm-min){
 		position: relative;
+		height: 100%;
+
+		.block-title{
+			margin-top: @padding-base-vertical;
+		}
+
 	}
 	.transition(all 0.4s);
 	margin-top: 5px;
@@ -43,8 +49,7 @@ footer{
 		  content: ' | ';
 		}
 	}
-}
-
-footer:hover{
-		height:120px;
+	&:hover{
+		height: 120px;
 	}
+}
