@@ -1,6 +1,6 @@
 // Insert your styling here.
 footer{
-	@media (max-width: @screen-sm-min){
+	@media @mobile{
 		position: relative;
 		height: 100%;
 
@@ -33,10 +33,27 @@ footer{
 	}
 
 	.social:before{
- 		.icon(font-size);
- 		content: 'M';
+		.icon(@font-size-h4);
 	}
-	
+	.facebook:before{
+		content: 'f';	
+	}
+	.twitter:before{
+		content: 't';	
+	}
+	.vimeo:before{
+		content: 'v';	
+	}
+	.soundcloud:before{
+		content: 's';	
+	}
+	.tumblr:before{
+		content: 'r';	
+	}
+	.youtube:before{
+		content: 'y';	
+	}
+
 	.block{
 		p{
 			margin:0px;
@@ -46,7 +63,7 @@ footer{
 		margin:0px;
 
 		li+li:before{
-		  content: ' | ';
+			content: ' | ';
 		}
 	}
 	&:hover{

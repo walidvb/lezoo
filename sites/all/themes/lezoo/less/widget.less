@@ -18,11 +18,6 @@
 	max-width: 1170px;
 }
 
-//filters
-#edit-month-wrapper .form-item-month-value-year{
-	display: none;
-}
-
 // Pager
 .pager{
 	color: @secondary-color;
@@ -121,43 +116,42 @@
 
 .share42init{
 	.transition-duration (0.5s);
+	position: relative;
+	width: 3px;
+	height: 18px;
+	top: -10px;
+	float: right;
+	background-image: url('../background_imgs/bg_med.gif');
+	overflow: hidden;
+	padding-top: 2px;
+	padding-top: 2px;
+	text-align: right;
+	&:before{
+		content: 'k';
+		font-size: medium!important;
+		margin-right: 0.6em;
+		margin-left: 0.3em;
+		.transition-duration (0.5s);
 		position: relative;
-		width: 3px;
-		height: 18px;
-		top: -10px;
-		float: right;
-		background-image: url('../background_imgs/bg_med.gif');
-		overflow: hidden;
-		padding-top: 2px;
-		padding-top: 2px;
-		text-align: right;
-		&:before{
-			content: 'k';
-			font-size: medium!important;
-			margin-right: 0.6em;
-			margin-left: 0.3em;
-			.transition-duration (0.5s);
-			position: relative;
-			top: -3px;
-			color: @primary-color;
-			cursor: pointer;
-		}
-		.node:not(.node-panel):hover &{
-			width:100%;
-			.transition-duration (0.5s);
-			.transition-delay (0.3s);
-		}
-		.node:hover:not(.node-panel) &:before{
-			opacity: 0;
-			.transition-delay (0.3s);
-			color: rgb(43, 43, 43);
-			width: 0px;
-			margin-right: 0;
-		}
+		top: -3px;
+		color: @primary-color;
+		cursor: pointer;
+	}
+	.node:not(.node-panel):hover &{
+		width:100%;
+		.transition-duration (0.5s);
+		.transition-delay (0.3s);
+	}
+	.node:hover:not(.node-panel) &:before{
+		opacity: 0;
+		.transition-delay (0.3s);
+		color: rgb(43, 43, 43);
+		width: 0px;
+		margin-right: 0;
+	}
 }
 
 #event-filter-block{
-	display: none;
 }
 
 /*   Subscribe   */
@@ -181,4 +175,146 @@
 	a{
 		color: inherit;
 	}
+}
+
+/* sticky */
+
+.is-sticky{
+	position: fixed;
+	top: 70px !important;
+	padding-left: @padding-base-horizontal;
+}
+
+/* chosen */
+#event-filter-block{
+	label{
+		display: none;
+	}
+
+	.form-item-month-value-year{
+		display: none;
+	}
+
+	/* dark color overrides */
+
+	.chosen-container .chosen-results li {
+		color: @primary-color;   
+	}
+	.chosen-container .chosen-drop, .chosen-container-single .chosen-single {
+		background-color: @fourth-color;
+		color: @primary-color;
+		
+	}
+	/* Some IE 7-9 fun with this next one - filter likes to override background */
+	.chosen-container-single .chosen-single {
+		background-color: #000000;
+		background-image: none;
+		background: #000000 none top left no-repeat;
+		filter: none;
+		border: none;
+		display: block;
+		height: 30px;
+		padding-top: 4px;
+	}
+	.chosen-container .chosen-drop {
+		border: 1px solid #121212;    
+	}
+	.chosen-container-single .chosen-single div {
+		background-image: -webkit-gradient(linear, left bottom, left top, 
+			color-stop(0, #333333), color-stop(0.6, #121212));
+		background-image: -webkit-linear-gradient(center bottom, #333333 0%, #121212 60%);
+		background-image: -moz-linear-gradient(center bottom, #333333 0%, #121212 60%);
+		background-image: -o-linear-gradient(bottom, #333333 0%, #121212 60%);
+		background-image: -ms-linear-gradient(top, #333333 0%,#121212 60%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', 
+			endColorstr='#121212',GradientType=0 );
+		background-image: linear-gradient(top, #333333 0%,#121212 60%);
+		border-left: 1px solid @fourth-color;
+	}
+	.chosen-container-active .chosen-single-with-drop {
+		box-shadow: none; 
+	}
+	.chosen-container .chosen-results .highlighted {
+		background: #333333;
+		color: #eeeeee;
+	}
+	.chosen-container .chosen-results .no-results {
+		background: #333;
+	}
+	.chosen-container .chosen-results li em {
+		background: none;
+	}
+
+	/* dark sprite overrides */
+
+	.chosen-container-single .chosen-single abbr {
+		background: url('https://www.exratione.com/assets/chosen-sprite-dark.png') right top no-repeat;
+	}
+	.chosen-container-single .chosen-single div b {
+		background: url('https://www.exratione.com/assets/chosen-sprite-dark.png') no-repeat 0 1px;
+	}
+	.chosen-container-single .chosen-search input,
+	.chosen-rtl .chosen-search input {
+		background: #333 url('https://www.exratione.com/assets/chosen-sprite-dark.png') no-repeat 100% -22px;
+		color: @primary-color;
+		border: 1px solid #555555;
+	}
+	.chosen-container-multi .chosen-choices .search-choice .search-choice-close {
+		background: url('https://www.exratione.com/assets/chosen-sprite-dark.png') right top no-repeat;
+	}
+
+	.form-control:-moz-placeholder {
+		color: #999999;
+	}
+	.form-control::-moz-placeholder {
+		color: #999999;
+	}
+	.form-control:-ms-input-placeholder {
+		color: #999999;
+	}
+	.form-control::-webkit-input-placeholder {
+		color: #999999;
+	}
+	.form-control {
+		display: block;
+		width: 100%;
+		height: 31px;
+		padding: 0px;
+		font-size: @font-size-h4;
+		font-family: @font-family-serif;
+		line-height: 1.428571429;
+		vertical-align: middle;
+		background-color: @fourth-color; 
+		border: none;
+		-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+		-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+		-webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+		transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	}
+	.form-control:focus {
+		border-color: #66afe9;
+		outline: 0;
+		-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+		-moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+		box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+	}
+}
+
+
+/* extra */
+
+#install-photos {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.swipe-wrap > figure {
+  float:left;
+  width:100%;
+  position: relative;
 }

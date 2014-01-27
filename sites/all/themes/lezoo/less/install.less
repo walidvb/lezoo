@@ -1,18 +1,24 @@
 // Teaser install
 .view-installations{
 	.view-mode-mini{
-		height: 300px;
-		background: blue;
+		height: 180px;
+		background-repeat:	no-repeat;
+		background-position: center;
+		>	div:not(:first-child){ 
+			border-top: solid 3px @primary-color;
+		}
+		border-bottom: solid 3px @primary-color;
+		padding-bottom: @padding-base-vertical/2 !important;
 		.date-display-single {
 			font-size: @font-size-h2;
 			font-family: @font-family-serif !important;
 		}
 		a{
-			height: 160px;
+			height: 180px;
 			display: block;
 			margin-top: 0px;
 			margin-bottom: 0px;
-			padding-top: 80px;
+			padding-top: 25px;
 			background: rgba(250, 250, 250, 0);
 			.transition-duration(0.5s);
 			&:hover{
@@ -28,10 +34,12 @@
 		}
 
 		.date{
-			right: 15%;
-			top: 55px;
-			z-index: 0;
-			position: absolute;
+			width: 80px;
+			float: right;
+			top: -115px;
+			z-index: 2;
+			position: relative;
+			display: block;
 		}
 	}
 }
