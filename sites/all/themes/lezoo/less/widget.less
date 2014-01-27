@@ -183,20 +183,91 @@
 	position: fixed;
 	top: 70px !important;
 	padding-left: @padding-base-horizontal;
+	padding-top: 0px;
 }
 
 /* chosen */
 #event-filter-block{
+	display: inline-block;
+	width: 100%;
+
 	label{
 		display: none;
+	}
+
+	.pane-title{
+		margin-bottom: 0px;
+		margin-top: 0px;
 	}
 
 	.form-item-month-value-year{
 		display: none;
 	}
 
-	/* dark color overrides */
+	/* FORM */
 
+	.views-exposed-form .views-exposed-widget {
+		float: left;
+		padding-right: 5px;
+	}
+
+	.form-control:-moz-placeholder {
+		color: #999999;
+	}
+	.form-control::-moz-placeholder {
+		color: #999999;
+	}
+	.form-control:-ms-input-placeholder {
+		color: #999999;
+	}
+	.form-control::-webkit-input-placeholder {
+		color: #999999;
+	}
+	.form-control {
+		display: block;
+		height: 31px;
+		padding: 0px;
+		font-size: @font-size-h4;
+		font-family: @font-family-serif;
+		line-height: 1.428571429;
+		vertical-align: middle;
+		background-color: @fourth-color; 
+		border: none;
+		-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+		-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+		-webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+		transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	}
+	.form-control:focus {
+		border-color: #66afe9;
+		outline: 0;
+		-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+		-moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+		box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+	}
+	.form-submit{
+		margin-top: 0px;
+	}
+
+	/* BUTTON */
+	.btn-info {
+		color: black;
+		background-color: white;
+		border-color: white;
+		@media @mobile{
+			width: 441px !important;
+		}
+		width : 120px !important;
+	}
+	/* CHOSEN */
+	/* dark color overrides */
+	.chosen-container {
+		@media @mobile{
+			width: 441px !important;
+		}
+		width: 200px !important;
+	}
 	.chosen-container .chosen-results li {
 		color: @primary-color;   
 	}
@@ -212,6 +283,7 @@
 		background: #000000 none top left no-repeat;
 		filter: none;
 		border: none;
+		border-radius: 0px;
 		display: block;
 		height: 30px;
 		padding-top: 4px;
@@ -220,16 +292,6 @@
 		border: 1px solid #121212;    
 	}
 	.chosen-container-single .chosen-single div {
-		background-image: -webkit-gradient(linear, left bottom, left top, 
-			color-stop(0, #333333), color-stop(0.6, #121212));
-		background-image: -webkit-linear-gradient(center bottom, #333333 0%, #121212 60%);
-		background-image: -moz-linear-gradient(center bottom, #333333 0%, #121212 60%);
-		background-image: -o-linear-gradient(bottom, #333333 0%, #121212 60%);
-		background-image: -ms-linear-gradient(top, #333333 0%,#121212 60%);
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', 
-			endColorstr='#121212',GradientType=0 );
-		background-image: linear-gradient(top, #333333 0%,#121212 60%);
-		border-left: 1px solid @fourth-color;
 	}
 	.chosen-container-active .chosen-single-with-drop {
 		box-shadow: none; 
@@ -263,58 +325,12 @@
 		background: url('https://www.exratione.com/assets/chosen-sprite-dark.png') right top no-repeat;
 	}
 
-	.form-control:-moz-placeholder {
-		color: #999999;
-	}
-	.form-control::-moz-placeholder {
-		color: #999999;
-	}
-	.form-control:-ms-input-placeholder {
-		color: #999999;
-	}
-	.form-control::-webkit-input-placeholder {
-		color: #999999;
-	}
-	.form-control {
-		display: block;
-		width: 100%;
-		height: 31px;
-		padding: 0px;
-		font-size: @font-size-h4;
-		font-family: @font-family-serif;
-		line-height: 1.428571429;
-		vertical-align: middle;
-		background-color: @fourth-color; 
-		border: none;
-		-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-		-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-		-webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-		transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-	}
-	.form-control:focus {
-		border-color: #66afe9;
-		outline: 0;
-		-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
-		-moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
-		box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
-	}
+
 }
 
-
-/* extra */
-
-#install-photos {
-  overflow: hidden;
-  visibility: hidden;
-  position: relative;
+.sync-calendar{
+	display: inline-block;
 }
-.swipe-wrap {
-  overflow: hidden;
-  position: relative;
-}
-.swipe-wrap > figure {
-  float:left;
-  width:100%;
-  position: relative;
+.panel-separator{
+	display: none;
 }
