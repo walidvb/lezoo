@@ -13,7 +13,6 @@ function lezoo_views_query_alter(&$view, &$query) {
     //if a date exposed filter was set
    $view->query->where['1']['conditions'][$date_index]['field'] != 'node.nid')
   {
-  	dpm($view,'query altered for');
     unset($view->query->where['1']['conditions'][2]);
   }
 }

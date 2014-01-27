@@ -8,6 +8,7 @@
         var recalculateLimits = function () {
             for (var i=0, len=elements.length; i<len; i++) {
                 var $this = elements[i];
+                    $this.css({width: "", left: "", top: "", position: ""});
 
                 if (options.minWidth && $window.width() <= options.minWidth) {
                     if ($this.parent().is(".pin-wrapper")) { $this.unwrap(); }
