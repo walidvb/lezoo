@@ -1,6 +1,6 @@
 .carousel{
-	@media (max-width: @screen-sm-min){
-		display:none;
+	@media (max-width: @screen-md-min){
+		height:480px !important;
 	}
 	@media (min-width: @screen-md-min){
 		min-height:240px;
@@ -11,6 +11,10 @@
 }
 
 #views-bootstrap-carousel-1{
+	@media @mobile{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
 	padding-left: 15px;
 	padding-right: 15px;
 	/*
@@ -30,8 +34,23 @@
 	}
 	*/
 
+	.img-responsive{
+		@media (max-width: @screen-md-min){
+			display: block;
+			height: 480px;
+			max-width: auto;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
 	.carousel-control{
-		padding-top:14%;
+		@media (max-width: @screen-md-min){
+			padding-top:80%;
+		}
+		a{
+			padding-top: 310px;
+		}
 		z-index: 10;
 	}
 	.carousel-indicators{
@@ -41,9 +60,8 @@
 	}
 	.carousel-caption{
 		@media (max-width: @screen-md-min){
-			margin-left: 10%;
 			top:10%;
-		}	
+		}
 		height: 100%;
 		left: 0px;
 		right: 0px;

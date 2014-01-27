@@ -7628,9 +7628,9 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .node-promoted .pinned {
   padding-left: 0px;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .carousel {
-    display: none;
+    height: 480px !important;
   }
 }
 @media (min-width: 992px) {
@@ -7664,9 +7664,31 @@ select.form-control#edit-field-music-genre-tid option:hover {
 	*/
 
 }
+@media (max-width: 767px) {
+  #views-bootstrap-carousel-1 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media (max-width: 992px) {
+  #views-bootstrap-carousel-1 .img-responsive {
+    display: block;
+    height: 480px;
+    max-width: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 #views-bootstrap-carousel-1 .carousel-control {
-  padding-top: 14%;
   z-index: 10;
+}
+@media (max-width: 992px) {
+  #views-bootstrap-carousel-1 .carousel-control {
+    padding-top: 80%;
+  }
+}
+#views-bootstrap-carousel-1 .carousel-control a {
+  padding-top: 310px;
 }
 #views-bootstrap-carousel-1 .carousel-indicators {
   width: 100%;
@@ -7687,7 +7709,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 @media (max-width: 992px) {
   #views-bootstrap-carousel-1 .carousel-caption {
-    margin-left: 10%;
     top: 10%;
   }
 }
@@ -7958,9 +7979,18 @@ select.form-control#edit-field-music-genre-tid option:hover {
   position: fixed;
   top: 70px !important;
   padding-left: 12px;
+  padding-top: 0px;
 }
 /* chosen */
 #event-filter-block {
+  display: inline-block;
+  width: 100%;
+  /* FORM */
+
+  /* BUTTON */
+
+  /* CHOSEN */
+
   /* dark color overrides */
 
   /* Some IE 7-9 fun with this next one - filter likes to override background */
@@ -7971,8 +8001,73 @@ select.form-control#edit-field-music-genre-tid option:hover {
 #event-filter-block label {
   display: none;
 }
+#event-filter-block .pane-title {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
 #event-filter-block .form-item-month-value-year {
   display: none;
+}
+#event-filter-block .views-exposed-form .views-exposed-widget {
+  float: left;
+  padding-right: 5px;
+}
+#event-filter-block .form-control:-moz-placeholder {
+  color: #999999;
+}
+#event-filter-block .form-control::-moz-placeholder {
+  color: #999999;
+}
+#event-filter-block .form-control:-ms-input-placeholder {
+  color: #999999;
+}
+#event-filter-block .form-control::-webkit-input-placeholder {
+  color: #999999;
+}
+#event-filter-block .form-control {
+  display: block;
+  height: 31px;
+  padding: 0px;
+  font-size: 15px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  line-height: 1.428571429;
+  vertical-align: middle;
+  background-color: #000000;
+  border: none;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+#event-filter-block .form-control:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+#event-filter-block .form-submit {
+  margin-top: 0px;
+}
+#event-filter-block .btn-info {
+  color: black;
+  background-color: white;
+  border-color: white;
+  width: 120px !important;
+}
+@media (max-width: 767px) {
+  #event-filter-block .btn-info {
+    width: 441px !important;
+  }
+}
+#event-filter-block .chosen-container {
+  width: 200px !important;
+}
+@media (max-width: 767px) {
+  #event-filter-block .chosen-container {
+    width: 441px !important;
+  }
 }
 #event-filter-block .chosen-container .chosen-results li {
   color: #ffffff;
@@ -7988,22 +8083,13 @@ select.form-control#edit-field-music-genre-tid option:hover {
   background: #000000 none top left no-repeat;
   filter: none;
   border: none;
+  border-radius: 0px;
   display: block;
   height: 30px;
   padding-top: 4px;
 }
 #event-filter-block .chosen-container .chosen-drop {
   border: 1px solid #121212;
-}
-#event-filter-block .chosen-container-single .chosen-single div {
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #333333), color-stop(0.6, #121212));
-  background-image: -webkit-linear-gradient(center bottom, #333333 0%, #121212 60%);
-  background-image: -moz-linear-gradient(center bottom, #333333 0%, #121212 60%);
-  background-image: -o-linear-gradient(bottom, #333333 0%, #121212 60%);
-  background-image: -ms-linear-gradient(top, #333333 0%, #121212 60%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#121212', GradientType=0);
-  background-image: linear-gradient(top, #333333 0%, #121212 60%);
-  border-left: 1px solid #000000;
 }
 #event-filter-block .chosen-container-active .chosen-single-with-drop {
   box-shadow: none;
@@ -8033,56 +8119,11 @@ select.form-control#edit-field-music-genre-tid option:hover {
 #event-filter-block .chosen-container-multi .chosen-choices .search-choice .search-choice-close {
   background: url('https://www.exratione.com/assets/chosen-sprite-dark.png') right top no-repeat;
 }
-#event-filter-block .form-control:-moz-placeholder {
-  color: #999999;
+.sync-calendar {
+  display: inline-block;
 }
-#event-filter-block .form-control::-moz-placeholder {
-  color: #999999;
-}
-#event-filter-block .form-control:-ms-input-placeholder {
-  color: #999999;
-}
-#event-filter-block .form-control::-webkit-input-placeholder {
-  color: #999999;
-}
-#event-filter-block .form-control {
-  display: block;
-  width: 100%;
-  height: 31px;
-  padding: 0px;
-  font-size: 15px;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  line-height: 1.428571429;
-  vertical-align: middle;
-  background-color: #000000;
-  border: none;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-}
-#event-filter-block .form-control:focus {
-  border-color: #66afe9;
-  outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-}
-/* extra */
-#install-photos {
-  overflow: hidden;
-  visibility: hidden;
-  position: relative;
-}
-.swipe-wrap {
-  overflow: hidden;
-  position: relative;
-}
-.swipe-wrap > figure {
-  float: left;
-  width: 100%;
-  position: relative;
+.panel-separator {
+  display: none;
 }
 .pagination {
   display: none;
