@@ -1,13 +1,17 @@
 (function($) {
 	Drupal.behaviors.lezoo = {};
 	Drupal.behaviors.lezoo.attach = function(context) {
+		var $ = jQuery;
 		//-------------- change menu item
 		var active_trail = $('.primary > .dropdown').find('ul .active-trail a').text();
 		if(active_trail)
 		{
 			$('.primary .dropdown-toggle').html(active_trail + '<span class="caret"></span>');
 		}
-		$('.dropdown-toggle').dropdownHover();
+		if($.fn.dropdownHover)
+		{
+			$('.no-touch .dropdown-toggle').dropdownHover();
+		}
 		//-------------- stick menu
 		var threshold = $('header');
 		//-------------- stick months above list
@@ -54,16 +58,29 @@
 
 
 		//--------------------Masonry the installs
-		var isotope = function(){
-			$('.node-installations .col-right').isotope({
-				filter: 'figure',
-			});
+		var installsPics = function(){
+
+				//on not mobile, isotope
+				$('.no-touch .node-installations .col-right').isotope({
+					filter: 'figure',
+				});
+
+				//on mobile, slidejs the whole
+				// $('.touch .node-installations .col-right').slidesjs({
+				// 	width: $(window).width(),
+				// 	pagination: {
+				// 		active: false,
+				// 	},
+				// 	navigation: {
+				// 		active: false,
+				// 	}
+				// });
 		}
 
 		//--------------------open/close 
 		//---------region for mobile
 		//Add Comments title as trigger for the box
-		var $blockTitle = $('.group-trigger, .pane-title', context);
+		var $blockTitle = $('.group-trigger, .pane-title, .field-label', context);
 		$blockTitle.once('lezoo', function(){
 			$(this).addClass('clickable').bind('click', function()
 			{
@@ -91,31 +108,30 @@
 		});
 
 		var closeBlocks = function(){
-			
+			if($(window).width <= 769)
 			{
 				$blockTitle.each(function(){
-					$(this).trigger('click');
+					$(this).next().hide();
 				});
-				console.log('clicked');
 			}
 		}
 		//---------blog posts
-		if(typeof Drupal.settings.lezoo_theme !== 'undefined')
-		{
-			var nodeStatusClasses = Drupal.settings.lezoo_theme.node_status;
+		// if(typeof Drupal.settings.lezoo_theme !== 'undefined')
+		// {
+		// 	var nodeStatusClasses = Drupal.settings.lezoo_theme.node_status;
 
-			$('.node-blog-post .expand-post').once('lezoo', function(){
-				$(this).bind('click', function(e){
-					e.preventDefault();
-					$this = $(this);
-					var newText = ($this.text() == 'ouvrir') ? 'fermer' : 'ouvrir';
-					$this.text(newText);
-					var post = $this.parents('.node-blog-post');
-					var isOpen = post.hasClass(nodeStatusClasses.open);
-					post.toggleClass(nodeStatusClasses.closed + ' ' + nodeStatusClasses.open);
-				});
-			});
-		}
+		// 	$('.node-blog-post .expand-post').once('lezoo', function(){
+		// 		$(this).bind('click', function(e){
+		// 			e.preventDefault();
+		// 			$this = $(this);
+		// 			var newText = ($this.text() == 'ouvrir') ? 'fermer' : 'ouvrir';
+		// 			$this.text(newText);
+		// 			var post = $this.parents('.node-blog-post');
+		// 			var isOpen = post.hasClass(nodeStatusClasses.open);
+		// 			post.toggleClass(nodeStatusClasses.closed + ' ' + nodeStatusClasses.open);
+		// 		});
+		// 	});
+		// }
 
 
 		//--------------------carousel light or dark
@@ -140,7 +156,7 @@
 			timer = setTimeout(function(){
 			pinit();
 			stickEm();
-			isotope();
+			installsPics();
 			closeBlocks();
 			}, 300);
 		}
