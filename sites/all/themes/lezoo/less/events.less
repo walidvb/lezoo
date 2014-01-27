@@ -83,11 +83,11 @@
 }
 
 /////// FULL EVENT NODE
-.node-event.view-mode-full{
+.node-event.view-mode-full, .node-installations.view-mode-full{
 	.header{
 		min-height: 170px;
 		border-bottom: solid 6px @primary-color;
-		.event-titles{
+		.event-titles, .install-titles{
 			display: inline-block;
 			padding-left: 0px;
 			width: 100%;
@@ -105,7 +105,18 @@
 			.event-subtitle{
 				float: left;
 				padding-left: @padding-base-horizontal;
-				padding-top: 30px;
+				padding-top:6px;
+				font-size: @font-size-h3;
+				text-transform: uppercase;
+			}
+			.genre{
+				padding-left: @padding-base-horizontal;
+				font-size: @font-size-h4;
+				text-transform: uppercase;
+				float: left;
+				display: block;
+				height: 15px;
+				width: 100%;
 			}
 		}
 		.event-meta{
@@ -122,12 +133,6 @@
 			}
 			.ics-container {
 				float: right;
-			}
-			.genre{
-				padding-left: @padding-base-horizontal;
-				font-size: @font-size-h3;
-				text-transform: uppercase;
-				float: left;
 			}
 		}
 		.date{
@@ -302,4 +307,18 @@
 	position: fixed;
 	top: 70px !important;
 }
+
+.event-node{
+	@media (max-width: 767px){
+		.group-trigger{
+			padding-top: @padding-base-vertical;
+			padding-bottom: @padding-base-vertical;
+			padding-left: @padding-base-horizontal;
+			border-bottom: solid 1px @primary-color;
+			font-size: @font-size-h4;
+			text-transform: uppercase;
+		} 	
+	}
+}
+
 

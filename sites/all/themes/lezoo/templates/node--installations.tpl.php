@@ -29,7 +29,7 @@ hide($content['links']);
         <?php print render($content['flippy_pager']); ?>
 
   <div class="content"<?php print $content_attributes; ?>>
-    <div class='header'>
+    <div class='header install-header'>
           <div class="install-titles">
             <div class='install-title title'> 
               <?php print render($title_prefix); ?>
