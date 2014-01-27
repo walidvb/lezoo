@@ -235,7 +235,7 @@
 			"file": "sites/all/themes/lezoo/template.php",
 			"settings":
 			{
-				"buffer_size": 10468,
+				"buffer_size": 10642,
 				"line_ending": "Unix"
 			}
 		},
@@ -267,7 +267,7 @@
 			"file": "sites/all/themes/lezoo/templates/node--event.tpl.php",
 			"settings":
 			{
-				"buffer_size": 2082,
+				"buffer_size": 2083,
 				"line_ending": "Unix"
 			}
 		},
@@ -323,7 +323,7 @@
 			"file": "sites/all/themes/lezoo/templates/node--event--teaser.tpl.php",
 			"settings":
 			{
-				"buffer_size": 1188,
+				"buffer_size": 1132,
 				"line_ending": "Unix"
 			}
 		}
@@ -858,7 +858,6 @@
 	"groups":
 	[
 		{
-			"selected": 2,
 			"sheets":
 			[
 				{
@@ -1029,15 +1028,15 @@
 					"file": "sites/all/themes/lezoo/template.php",
 					"settings":
 					{
-						"buffer_size": 10468,
+						"buffer_size": 10642,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8462,
-								8462
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1199,8 +1198,8 @@
 						"selection":
 						[
 							[
-								641,
-								641
+								81,
+								81
 							]
 						],
 						"settings":
@@ -1344,7 +1343,7 @@
 							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 63.0,
+						"translation.x": 14.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
@@ -1683,15 +1682,15 @@
 					"file": "sites/all/themes/lezoo/templates/node--event.tpl.php",
 					"settings":
 					{
-						"buffer_size": 2082,
+						"buffer_size": 2083,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								676,
-								959
+								0,
+								0
 							]
 						],
 						"settings":
@@ -2828,15 +2827,15 @@
 					"file": "sites/all/themes/lezoo/templates/node--event--teaser.tpl.php",
 					"settings":
 					{
-						"buffer_size": 1188,
+						"buffer_size": 1132,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								660,
-								660
+								0,
+								0
 							]
 						],
 						"settings":

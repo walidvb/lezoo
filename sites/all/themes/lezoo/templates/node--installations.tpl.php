@@ -50,8 +50,11 @@ hide($content['links']);
       <?php print render($content) ?>
     </div>
     <div class="<?php print $right_col_classes?>">
-      
-      <?php print render($content['field_photos']) ?>
+      <div id="install-photos">
+        <div class="swipe-wrap">
+          <?php print render($content['field_photos']) ?>
+        </div>
+      </div>
     </div>
   </div>
   <?php print render($content['links']); ?>
