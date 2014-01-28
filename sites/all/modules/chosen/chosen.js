@@ -40,15 +40,19 @@
             options = $.extend(options, {
               width: (($(this).width() < minWidth) ? minWidth : $(this).width()) + 'px'
             });
+                            console.log(options);
+                            console.log($(this));
             $(this).chosen(options);
           }
       });
-
+      
       // Enable chosen for widgets.
+
       $('select.chosen-widget', context).each(function() {
         options = $.extend(options, {
           width: (($(this).width() < minWidth) ? minWidth : $(this).width()) + 'px'
         });
+
         $(this).chosen(options);
       });
     }

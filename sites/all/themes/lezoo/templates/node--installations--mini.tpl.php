@@ -107,13 +107,14 @@ else
   $title_tag = 'h1';
 }
 ?>
- <a href="<?php print $node_url; ?>">
   <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?> style="background-image: url('<?php print get_img_url('node_install_background_img','field_big_image', $node)?>')"2>
-            <?php print render($title_prefix); ?>
-               <<?php print $title_tag; print $title_attributes; ?>><?php print $title; ?></<?php print $title_tag?>>
-            <?php print render($title_suffix); ?>
+     <a href="<?php print $node_url; ?>">
+          <?php print render($title_prefix); ?>
+             <<?php print $title_tag; print $title_attributes; ?>><?php print $title; ?></<?php print $title_tag?>>
+          <?php print render($title_suffix); ?>
+      </a>
+
             <div class="content"<?php print $content_attributes; ?>>
                 <?php print render($content) ?>
               </div>
   </div>
-</a>

@@ -1,7 +1,7 @@
 (function($) {
 	Drupal.behaviors.lezoo = {};
 	Drupal.behaviors.lezoo.attach = function(context) {
-		var $ = jQuery;
+		//trigger chosen all the time
 		//-------------- change menu item
 		var active_trail = $('.primary > .dropdown').find('ul .active-trail a').text();
 		if(active_trail)
@@ -61,9 +61,9 @@
 		var installsPics = function(){
 
 				//on not mobile, isotope
-				$('.no-touch .node-installations .col-right').isotope({
-					filter: 'figure',
-				});
+				// $('.no-touch .node-installations .col-right').isotope({
+				// 	filter: 'figure',
+				// });
 
 				//on mobile, slidejs the whole
 				// $('.touch .node-installations .col-right').slidesjs({

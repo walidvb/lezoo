@@ -6,6 +6,9 @@
 		},
 		{
 			"path": "sites/all/modules/custom"
+		},
+		{
+			"path": "sites/all/modules"
 		}
 	]
 }
