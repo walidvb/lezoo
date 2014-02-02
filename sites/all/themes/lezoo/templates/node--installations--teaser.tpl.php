@@ -88,7 +88,6 @@ else
 {
   $tags = '';
 }
-
 if(empty($content['field_video']))
 {
   hide($content['field_video']);
@@ -107,6 +106,7 @@ else
   $title_tag = 'h1';
 }
 ?>
+
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
             <?php print render($title_prefix); ?>
                 <<?php print $title_tag; print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></<?php print $title_tag?>>

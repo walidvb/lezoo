@@ -50,10 +50,10 @@
 					 minWidth: 770,
 				});
 			});
-			$(container).css({
-				display: 'inline-block',
-				width: '100%'
-			});
+			// $(container).css({
+			// 	display: 'inline-block',
+			// 	width: '100%'
+			// });
 		}
 
 
@@ -62,7 +62,7 @@
 
 				//on not mobile, isotope
 				// $('.no-touch .node-installations .col-right').isotope({
-				// 	filter: 'figure',
+				// 	filter: 'img',
 				// });
 
 				//on mobile, slidejs the whole
@@ -91,7 +91,7 @@
 
 					block.slideToggle( function()
 					{
-						if(!title.toggleClass('closed').hasClass('closed'))
+						if(title.toggleClass('closed').hasClass('closed'))
 						{
 							$('html, body').animate(
 							{

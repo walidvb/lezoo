@@ -78,7 +78,6 @@ function lezoo_preprocess_page(&$variables) {
 				$menu_active_item ='visu';
 			break;
 			case 'blog_post':
-			dpm($variables['node']->field_section['und']['0']['tid']);
 			switch($variables['node']->field_section['und']['0']['tid'])
 			{
 				case 28:
@@ -171,9 +170,11 @@ function lezoo_preprocess_node(&$variables) {
 					$genres = empty($genres) ? null : $genres;
 					$tags = empty($tags) ? null : $tags;
 					$related = views_embed_view('related', 'default', $variables['nid'], $section, $genres, $tags);
-
-					$related_block = "<aside class=\"related-posts\"><h3 class=\"block-title related-title\">". t('Encore plus') ."</h3>" . $related . "</aside>";
-					$variables['related'] = $related_block;
+					if($related)
+					{
+						$related_block = "<aside class=\"related-posts\"><h3 class=\"block-title related-title\">". t('Encore plus') ."</h3>" . $related . "</aside>";
+						$variables['related'] = $related_block;
+					}
 				}
 
 			}

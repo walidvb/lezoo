@@ -33,7 +33,7 @@ hide($content['links']);
           <div class="install-titles">
             <div class='install-title title'> 
               <?php print render($title_prefix); ?>
-                <a href="<?php print $node_url; ?>"><h1 <?php print $title_attributes; ?>><?php print $title; ?></h1></a>
+                <h1 <?php print $title_attributes; ?>><?php print $title; ?></h1>
               <?php print render($title_suffix); ?>
             </div>
           </div>
@@ -50,6 +50,7 @@ hide($content['links']);
       <?php print render($content) ?>
     </div>
     <div class="<?php print $right_col_classes?>">
+      <?php lezoo_header('Les Photos') ?>
       <div id="install-photos">
         <div class="swipe-wrap">
           <?php print render($content['field_photos']) ?>

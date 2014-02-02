@@ -5,10 +5,10 @@
 			"path": "sites/all/themes/lezoo"
 		},
 		{
-			"path": "sites/all/modules/custom"
+			"path": "sites/all/modules"
 		},
 		{
-			"path": "sites/all/modules"
+			"path": "sites/all/modules/custom"
 		}
 	]
 }
