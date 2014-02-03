@@ -1,7 +1,9 @@
 <?php
 
+dpm($content);
 if(isset($content['field_tags']))
 {
+
   $tags = $content['field_tags'];
   hide($content['field_tags']);
 }
@@ -25,9 +27,9 @@ else
 hide($content['comments']);
 hide($content['links']);
 ?>
-<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-        <?php print render($content['flippy_pager']); ?>
+<?php print render($content['flippy_pager']); ?>
 
+<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <div class="content"<?php print $content_attributes; ?>>
     <div class='header install-header'>
           <div class="install-titles">

@@ -93,10 +93,10 @@
 					{
 						if(title.toggleClass('closed').hasClass('closed'))
 						{
-							$('html, body').animate(
-							{
-								scrollTop: title.offset().top,
-							});
+							// $('html, body').animate(
+							// {
+							// 	scrollTop: title.offset().top,
+							// });
 						};
 					});
 				}
@@ -133,7 +133,15 @@
 		// 	});
 		// }
 
+		//--------------------carousel work
+		$('a.carousel-control').click(function(e){
+			e.stopPropagation();
+			e.preventDefault();
+			var trg = $(this).attr('href');
 
+			var dir = $(this).attr('data-slide');
+			$(trg).carousel(dir);
+		});
 		//--------------------carousel light or dark
 		$('.view-carousel .item').once('lezoo', function(){
 			$(this).each(function(){
@@ -162,7 +170,17 @@
 		}
 		resize();
 		$(window).resize(resize);
+		$(window).scroll(function(){
+			if($(this).scrollTop() + $(this).outerHeight(true)  >= $(document).height())
+			{
+				$('footer').addClass('open');
+			}
+			else
+			{
+				$('footer').removeClass('open');
+			}
 
+		})
 
 		//--------------UUUUUGLY hack
 		//$('.bootstrap-twocol-stacked .panel-panel.right').addClass('col-md-6 col-sm-6 col-xs-12');

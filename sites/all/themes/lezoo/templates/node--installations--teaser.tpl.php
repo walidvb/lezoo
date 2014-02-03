@@ -96,7 +96,7 @@ else
 {
   hide($content['field_photos']);
 }
-
+hide($content['links']);
 if(!$page)
 {
   $title_tag = 'h3';

@@ -15,9 +15,15 @@
         $scope.genres = results.genres;
         for(var i = 0; i < $scope.genres.length; i++)
         {
-          $scope.genres[i].selected = 'true';
+          $scope.genres[i].selected = true;
         }
 
+        $scope.changeAll = function(value){
+          for(var i = 0; i < $scope.genres.length; i++)
+          {
+            $scope.genres[i].selected = value;
+          }
+        }
         $scope.params = function(){
           var result = [];
           angular.forEach($scope.genres, function(item){

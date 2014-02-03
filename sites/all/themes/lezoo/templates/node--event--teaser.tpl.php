@@ -3,7 +3,6 @@
 	<a href="<?php print drupal_get_path_alias($node_url)?>">
 		<div>
 			<div class='event-node dated-node'>
-				<?php print render($content['flippy_pager']); ?>
  			<div class="node-content">
 					<div class='header'>
 						<div class="event-meta">

@@ -119,12 +119,10 @@ function lezoo_preprocess_node(&$variables) {
 	drupal_add_js(array('lezoo_theme' => array('node_status' => $node_status)), 'setting');
 	$variables['is_page'] = !empty($variables['is_page']) ? $variables['is_page'] : false;
 	$variables['classes_array'][] = (!empty($variables['is_page']) && $variables['is_page']) ? $node_status['open']. " node-full-page" : $node_status['closed'] . ' node-in-list';
-
 	$variables['left_col_classes'] = "col-left col-lg-5 col-md-4 col-sm-3 col-xs-12 pinned";
 	$variables['right_col_classes'] = "col-right col-lg-7 col-md-8 col-sm-9 col-xs-12";
-
 	$variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__' . $variables['view_mode'];
-	$variables['submitted'] = '<span class="user">'. $variables['user']->name . '</span><span class="timestamp">' . strftime('%d/%m/%Y', $variables['created']) . '</span>';
+	$variables['submitted'] = '<span class="user">'. $variables['node']->name . '</span><span class="timestamp">' . strftime('%d/%m/%Y', $variables['created']) . '</span>';
 	if(!$variables['is_front'])
 	{
 		if($variables['type'] == 'event')

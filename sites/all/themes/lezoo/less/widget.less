@@ -157,15 +157,75 @@
 /*   Subscribe   */
 #myModal
 {
-	.genre {
-		cursor: pointer;
-		color: gray;
-		width: 80%;
+	.genre-select{
+		display: inline-block;
+		width: 100%;
+		.genre-select-all{
+			display: inline-block;
+			width: 49.5%;
+			text-align: center;
+			&:hover{
+				text-transform: uppercase;
+			}
+			&:first-child{
+				float: left;
+			}
+			&:last-child{
+				float: right;
+			}
+		}
+	}	
+	.genre, .genre-select-all{
+		cursor : pointer;
+		color: white;
 		background: rgba(0,0,0,0.8);
 		padding: 4px 5px;
 		margin: 5px 0px;
+		font-family: 'Oswald';
+		font-size: larger;
+	}
+	.genre{
+		text-transform: uppercase;
+		width: 100%;
+		.glyphicon{
+			margin-right: 5px;
+		}
+
 		&.selected{
-			color: white;
+
+			
+			.glyphicon-ok{
+				display: inline;
+			}
+			.glyphicon-remove{
+				display: none;
+			}
+			&:hover{ 
+				.glyphicon-ok{
+					display: none;
+				}
+				.glyphicon-remove{
+					display: inline;
+				}
+			}
+		}
+		&:not(.selected){
+			color: grey;
+			text-transform: none;
+			.glyphicon-ok{
+				display: none;
+			}
+			.glyphicon-remove{
+				display: inline;
+			}
+			&:hover{
+				.glyphicon-ok{
+					display: inline;
+				}
+				.glyphicon-remove{
+					display: none;
+				}
+			}
 		}
 	}
 }
@@ -176,12 +236,12 @@
 		color: inherit;
 	}
 }
-
+.modal-body{
+	overflow: auto;
+}
 /* sticky */
 
 .is-sticky{
-	position: fixed;
-	top: 70px !important;
 	padding-left: @padding-base-horizontal;
 	padding-top: 0px;
 }
