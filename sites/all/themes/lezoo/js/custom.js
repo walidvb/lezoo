@@ -21,7 +21,7 @@
 				headlineSelector: 'h3:not(.node-title)',
 				stickyElement: 'h3',
 			});
-		})
+		});
 		var stickEm = function(){
 			$('.sticky-helper').css({
 				width: $('.view-id-teaser_list .view-content').width(),
@@ -47,7 +47,7 @@
 				$(this).pin({
 					containerSelector: container,
 					fixedHeaderSelector: 'header',
-					 minWidth: 770,
+					minWidth: 770,
 				});
 			});
 			// $(container).css({
@@ -95,16 +95,16 @@
 						{
 							// $('html, body').animate(
 							// {
-							// 	scrollTop: title.offset().top,
+							//	scrollTop: title.offset().top,
 							// });
-						};
+						}
 					});
 				}
 				else
 				{
 
 				}
-			})
+			});
 		});
 
 		var closeBlocks = function(){
@@ -114,24 +114,26 @@
 					$(this).next().hide();
 				});
 			}
-		}
+		};
 		//---------blog posts
-		// if(typeof Drupal.settings.lezoo_theme !== 'undefined')
-		// {
-		// 	var nodeStatusClasses = Drupal.settings.lezoo_theme.node_status;
+		/* 
+		if(typeof Drupal.settings.lezoo_theme !== 'undefined')
+		{
+			var nodeStatusClasses = Drupal.settings.lezoo_theme.node_status;
 
-		// 	$('.node-blog-post .expand-post').once('lezoo', function(){
-		// 		$(this).bind('click', function(e){
-		// 			e.preventDefault();
-		// 			$this = $(this);
-		// 			var newText = ($this.text() == 'ouvrir') ? 'fermer' : 'ouvrir';
-		// 			$this.text(newText);
-		// 			var post = $this.parents('.node-blog-post');
-		// 			var isOpen = post.hasClass(nodeStatusClasses.open);
-		// 			post.toggleClass(nodeStatusClasses.closed + ' ' + nodeStatusClasses.open);
-		// 		});
-		// 	});
-		// }
+			$('.node-blog-post .expand-post').once('lezoo', function(){
+				$(this).bind('click', function(e){
+					e.preventDefault();
+					$this = $(this);
+					var newText = ($this.text() == 'ouvrir') ? 'fermer' : 'ouvrir';
+					$this.text(newText);
+					var post = $this.parents('.node-blog-post');
+					var isOpen = post.hasClass(nodeStatusClasses.open);
+					post.toggleClass(nodeStatusClasses.closed + ' ' + nodeStatusClasses.open);
+				});
+			});
+		} 
+		*/
 
 		//--------------------carousel work
 		$('a.carousel-control').click(function(e){
@@ -153,7 +155,7 @@
 						$this.addClass(( isDark ? 'dark' : 'light' ));
 					});
 				}
-			})
+			});
 		});
 
 		//--------------------Overall
@@ -180,7 +182,7 @@
 				$('footer').removeClass('open');
 			}
 
-		})
+		});
 
 		//--------------UUUUUGLY hack
 		//$('.bootstrap-twocol-stacked .panel-panel.right').addClass('col-md-6 col-sm-6 col-xs-12');

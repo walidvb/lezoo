@@ -23,18 +23,18 @@
           {
             $scope.genres[i].selected = value;
           }
-        }
+        };
         $scope.params = function(){
           var result = [];
           angular.forEach($scope.genres, function(item){
-            if (item.selected) 
+            if (item.selected)
             {
               result.push(item.tid);
             }
           });
-          return (result != "undefined" && (result.length == $scope.genres.length || result.length == 0) ) ? '' : result.join('+') + '/';
+          return (result !== "undefined" && (result.length === $scope.genres.length || result.length === 0) ) ? '' : (result.join('+') + '/');
         };
       });
     });
-  }
+  };
 })(jQuery);
