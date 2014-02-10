@@ -9,7 +9,7 @@ function lezoo_preprocess_html(&$variables) {
 	drupal_add_js('//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js', array('type' => 'external'));
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.1/angular.min.js', array('type' => 'external', 'scope' => 'footer'));
 	drupal_add_js(drupal_get_path('theme', 'lezoo'). '/js/myAngular.js', array('scope' => 'footer'));
-	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/swipe/2.0/swipe.min.js', array('type' => 'external'));
+	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/chosen/1.0/chosen.jquery.min.js', array('type' => 'external'));
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', array('type' => 'external', 'scope' => 'footer'));
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js', array('type' => 'external', 'scope' => 'footer'));
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/1.5.25/jquery.isotope.min.js', array('type' => 'external', 'scope' => 'footer'));
@@ -78,7 +78,6 @@ function lezoo_preprocess_page(&$variables) {
 				$menu_active_item ='visu';
 			break;
 			case 'blog_post':
-			dpm($variables['node']->field_section['und']['0']['tid']);
 			switch($variables['node']->field_section['und']['0']['tid'])
 			{
 				case 28:
@@ -120,12 +119,10 @@ function lezoo_preprocess_node(&$variables) {
 	drupal_add_js(array('lezoo_theme' => array('node_status' => $node_status)), 'setting');
 	$variables['is_page'] = !empty($variables['is_page']) ? $variables['is_page'] : false;
 	$variables['classes_array'][] = (!empty($variables['is_page']) && $variables['is_page']) ? $node_status['open']. " node-full-page" : $node_status['closed'] . ' node-in-list';
-
 	$variables['left_col_classes'] = "col-left col-lg-5 col-md-4 col-sm-3 col-xs-12 pinned";
 	$variables['right_col_classes'] = "col-right col-lg-7 col-md-8 col-sm-9 col-xs-12";
-
 	$variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__' . $variables['view_mode'];
-	$variables['submitted'] = '<span class="user">'. $variables['user']->name . '</span><span class="timestamp">' . strftime('%d/%m/%Y', $variables['created']) . '</span>';
+	$variables['submitted'] = '<span class="user">'. $variables['node']->name . '</span><span class="timestamp">' . strftime('%d/%m/%Y', $variables['created']) . '</span>';
 	if(!$variables['is_front'])
 	{
 		if($variables['type'] == 'event')
@@ -171,9 +168,11 @@ function lezoo_preprocess_node(&$variables) {
 					$genres = empty($genres) ? null : $genres;
 					$tags = empty($tags) ? null : $tags;
 					$related = views_embed_view('related', 'default', $variables['nid'], $section, $genres, $tags);
-
-					$related_block = "<aside class=\"related-posts\"><h3 class=\"block-title related-title\">". t('Encore plus') ."</h3>" . $related . "</aside>";
-					$variables['related'] = $related_block;
+					if($related)
+					{
+						$related_block = "<aside class=\"related-posts\"><h3 class=\"block-title related-title\">". t('Encore plus') ."</h3>" . $related . "</aside>";
+						$variables['related'] = $related_block;
+					}
 				}
 
 			}

@@ -45,6 +45,7 @@ function _lezoo_get_date_formats(){
     'day_date'  => 'ven 15',
     'day_date_month' => 'ven 15 oct',
     'date_month' => '15 oct',
+    'date_year' => '15 oct 2012',
     );
 }
 /**
@@ -95,7 +96,10 @@ function lezoo_token_info(){
       'name' => t('Date with date month'),
       'description' => t('The node\'s date with date month')
     );
-
+  $tokens['lezoo']['day_year'] = array(
+      'name' => t('Date with day_year'),
+      'description' => t('The node\'s date with 23 jan 2012')
+    );
   return array(
     'types' => $types,
     'tokens' => $tokens
@@ -128,7 +132,7 @@ function lezoo_render_date($date_original, $format)
   $day = strftime('%a', $date_original);
   $date = strftime('%d', $date_original);
   $month = strftime('%b', $date_original);
-
+  $year = strftime('%Y', $date_original);
   switch($format)
   {
     case 'day_date_month':
@@ -141,7 +145,9 @@ function lezoo_render_date($date_original, $format)
     case 'date_month':
     return "<span class=\"date-number\">$date</span>\n<span class=\"month\">$month</span>";
     break;
-
+    case 'day_year':
+    return "<span class=\"date-number\">$date</span>\n<span class=\"month\">$month</span><span class=\"date-year\">year</span>";
+    break;
   }
   return $output;
 }

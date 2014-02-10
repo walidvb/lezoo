@@ -196,7 +196,7 @@ function DrupalPanelsIPE(cache_key, cfg) {
 
     $('.panels-ipe-form-container', ipe.control).append(formdata);
 
-    $('input:submit:not(.ajax-processed)', ipe.control).addClass('ajax-processed').each(function() {
+    $('input:submit:not(.ajax-processed), button:not(.ajax-processed)', ipe.control).addClass('ajax-processed').each(function() {
       var element_settings = {};
 
       element_settings.url = $(this.form).attr('action');
@@ -277,7 +277,7 @@ function DrupalPanelsIPE(cache_key, cfg) {
           val += id;
         }
       });
-      $('input[name="panel[pane][' +  region + ']"]', ipe.control).val(val);
+      $('[name="panel[pane][' +  region + ']"]', ipe.control).val(val);
     });
   }
 

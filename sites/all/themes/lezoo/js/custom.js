@@ -1,7 +1,7 @@
 (function($) {
 	Drupal.behaviors.lezoo = {};
 	Drupal.behaviors.lezoo.attach = function(context) {
-		var $ = jQuery;
+		//trigger chosen all the time
 		//-------------- change menu item
 		var active_trail = $('.primary > .dropdown').find('ul .active-trail a').text();
 		if(active_trail)
@@ -21,7 +21,7 @@
 				headlineSelector: 'h3:not(.node-title)',
 				stickyElement: 'h3',
 			});
-		})
+		});
 		var stickEm = function(){
 			$('.sticky-helper').css({
 				width: $('.view-id-teaser_list .view-content').width(),
@@ -47,13 +47,13 @@
 				$(this).pin({
 					containerSelector: container,
 					fixedHeaderSelector: 'header',
-					 minWidth: 770,
+					minWidth: 770,
 				});
 			});
-			$(container).css({
-				display: 'inline-block',
-				width: '100%'
-			});
+			// $(container).css({
+			// 	display: 'inline-block',
+			// 	width: '100%'
+			// });
 		}
 
 
@@ -61,9 +61,9 @@
 		var installsPics = function(){
 
 				//on not mobile, isotope
-				$('.no-touch .node-installations .col-right').isotope({
-					filter: 'figure',
-				});
+				// $('.no-touch .node-installations .col-right').isotope({
+				// 	filter: 'img',
+				// });
 
 				//on mobile, slidejs the whole
 				// $('.touch .node-installations .col-right').slidesjs({
@@ -91,20 +91,20 @@
 
 					block.slideToggle( function()
 					{
-						if(!title.toggleClass('closed').hasClass('closed'))
+						if(title.toggleClass('closed').hasClass('closed'))
 						{
-							$('html, body').animate(
-							{
-								scrollTop: title.offset().top,
-							});
-						};
+							// $('html, body').animate(
+							// {
+							//	scrollTop: title.offset().top,
+							// });
+						}
 					});
 				}
 				else
 				{
 
 				}
-			})
+			});
 		});
 
 		var closeBlocks = function(){
@@ -114,26 +114,36 @@
 					$(this).next().hide();
 				});
 			}
-		}
+		};
 		//---------blog posts
-		// if(typeof Drupal.settings.lezoo_theme !== 'undefined')
-		// {
-		// 	var nodeStatusClasses = Drupal.settings.lezoo_theme.node_status;
+		/* 
+		if(typeof Drupal.settings.lezoo_theme !== 'undefined')
+		{
+			var nodeStatusClasses = Drupal.settings.lezoo_theme.node_status;
 
-		// 	$('.node-blog-post .expand-post').once('lezoo', function(){
-		// 		$(this).bind('click', function(e){
-		// 			e.preventDefault();
-		// 			$this = $(this);
-		// 			var newText = ($this.text() == 'ouvrir') ? 'fermer' : 'ouvrir';
-		// 			$this.text(newText);
-		// 			var post = $this.parents('.node-blog-post');
-		// 			var isOpen = post.hasClass(nodeStatusClasses.open);
-		// 			post.toggleClass(nodeStatusClasses.closed + ' ' + nodeStatusClasses.open);
-		// 		});
-		// 	});
-		// }
+			$('.node-blog-post .expand-post').once('lezoo', function(){
+				$(this).bind('click', function(e){
+					e.preventDefault();
+					$this = $(this);
+					var newText = ($this.text() == 'ouvrir') ? 'fermer' : 'ouvrir';
+					$this.text(newText);
+					var post = $this.parents('.node-blog-post');
+					var isOpen = post.hasClass(nodeStatusClasses.open);
+					post.toggleClass(nodeStatusClasses.closed + ' ' + nodeStatusClasses.open);
+				});
+			});
+		} 
+		*/
 
+		//--------------------carousel work
+		$('a.carousel-control').click(function(e){
+			e.stopPropagation();
+			e.preventDefault();
+			var trg = $(this).attr('href');
 
+			var dir = $(this).attr('data-slide');
+			$(trg).carousel(dir);
+		});
 		//--------------------carousel light or dark
 		$('.view-carousel .item').once('lezoo', function(){
 			$(this).each(function(){
@@ -145,7 +155,7 @@
 						$this.addClass(( isDark ? 'dark' : 'light' ));
 					});
 				}
-			})
+			});
 		});
 
 		//--------------------Overall
@@ -162,7 +172,17 @@
 		}
 		resize();
 		$(window).resize(resize);
+		$(window).scroll(function(){
+			if($(this).scrollTop() + $(this).outerHeight(true)  >= $(document).height())
+			{
+				$('footer').addClass('open');
+			}
+			else
+			{
+				$('footer').removeClass('open');
+			}
 
+		});
 
 		//--------------UUUUUGLY hack
 		//$('.bootstrap-twocol-stacked .panel-panel.right').addClass('col-md-6 col-sm-6 col-xs-12');

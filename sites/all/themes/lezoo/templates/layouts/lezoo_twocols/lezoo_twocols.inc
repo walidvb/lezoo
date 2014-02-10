@@ -12,8 +12,11 @@ $plugin = array(
   'admin css' => '../panels-bootstrap-layouts-admin.css',
   'regions' => array(
     'top' => t('Top'),
-    'left' => t('Left'),
-    'right' => t('Right'),
+    'top_left' => t('Top Left'),
+    'top_right' => t('Top Right'),
+    'center' => t('Center'),
+    'bottom_left' => t('Bottom Left'),
+    'bottom_right' => t('Bottom Right'),
     'bottom' => t('Bottom'),
   ),
 );

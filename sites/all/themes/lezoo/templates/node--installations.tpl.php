@@ -1,7 +1,9 @@
 <?php
 
+dpm($content);
 if(isset($content['field_tags']))
 {
+
   $tags = $content['field_tags'];
   hide($content['field_tags']);
 }
@@ -25,15 +27,15 @@ else
 hide($content['comments']);
 hide($content['links']);
 ?>
-<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-        <?php print render($content['flippy_pager']); ?>
+<?php print render($content['flippy_pager']); ?>
 
+<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <div class="content"<?php print $content_attributes; ?>>
     <div class='header install-header'>
           <div class="install-titles">
             <div class='install-title title'> 
               <?php print render($title_prefix); ?>
-                <a href="<?php print $node_url; ?>"><h1 <?php print $title_attributes; ?>><?php print $title; ?></h1></a>
+                <h1 <?php print $title_attributes; ?>><?php print $title; ?></h1>
               <?php print render($title_suffix); ?>
             </div>
           </div>
@@ -50,6 +52,7 @@ hide($content['links']);
       <?php print render($content) ?>
     </div>
     <div class="<?php print $right_col_classes?>">
+      <?php lezoo_header('Les Photos') ?>
       <div id="install-photos">
         <div class="swipe-wrap">
           <?php print render($content['field_photos']) ?>

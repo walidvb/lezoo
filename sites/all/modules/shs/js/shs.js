@@ -450,6 +450,7 @@
         $element.css({
           width : ($element.width() < minWidth) ? minWidth : $element.width()
         }).chosen(options);
+        console.log($element, options);
         return true;
       }
     }

@@ -91,14 +91,13 @@ if(isset($content['field_tags']))
   hide($content['field_tags']);
 }
 ?>
-
+<?php print render($content['flippy_pager']); ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes ?> clearfix"<?php print $attributes; ?>>
-      <?php print render($content['flippy_pager']); ?>
   <?php print $user_picture; ?>
 
   <?php print render($title_prefix); ?>
   <?php if(!empty($title) || !$is_page): ?>
-  <a href="<?php print $node_url; ?>"><h1 <?php print $title_attributes; ?>><?php print $title; ?></h1></a>
+    <h1 <?php print $title_attributes; ?>><?php print $title; ?></h1>
 <?php endif; ?>
 <?php print $share42; ?>
 <?php print render($title_suffix); ?> 

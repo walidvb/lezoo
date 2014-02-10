@@ -7010,10 +7010,8 @@ footer .block p {
 footer #footer-sitemap {
   margin: 0px;
 }
-footer #footer-sitemap li + li:before {
-  content: ' | ';
-}
-footer:hover {
+footer:hover,
+footer.open {
   height: 120px;
 }
 .node {
@@ -7642,21 +7640,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .node-promoted .pinned {
   padding-left: 0px;
 }
-@media (max-width: 992px) {
-  .carousel {
-    height: 480px !important;
-  }
-}
-@media (min-width: 992px) {
-  .carousel {
-    min-height: 240px;
-  }
-}
-@media (min-width: 1200px) {
-  .carousel {
-    min-height: 360px;
-  }
-}
 #views-bootstrap-carousel-1 {
   padding-left: 15px;
   padding-right: 15px;
@@ -7687,7 +7670,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
 @media (max-width: 992px) {
   #views-bootstrap-carousel-1 .img-responsive {
     display: block;
-    height: 480px;
     max-width: auto;
     margin-left: auto;
     margin-right: auto;
@@ -7972,16 +7954,68 @@ select.form-control#edit-field-music-genre-tid option:hover {
   margin-right: 0;
 }
 /*   Subscribe   */
-#myModal .genre {
+#myModal .genre-select {
+  display: inline-block;
+  width: 100%;
+}
+#myModal .genre-select .genre-select-all {
+  display: inline-block;
+  width: 49.5%;
+  text-align: center;
+}
+#myModal .genre-select .genre-select-all:hover {
+  text-transform: uppercase;
+}
+#myModal .genre-select .genre-select-all:first-child {
+  float: left;
+}
+#myModal .genre-select .genre-select-all:last-child {
+  float: right;
+}
+#myModal .genre,
+#myModal .genre-select-all {
   cursor: pointer;
-  color: gray;
-  width: 80%;
+  color: white;
   background: rgba(0, 0, 0, 0.8);
   padding: 4px 5px;
   margin: 5px 0px;
+  font-family: 'Oswald';
+  font-size: larger;
 }
-#myModal .genre.selected {
-  color: white;
+#myModal .genre {
+  text-transform: uppercase;
+  width: 100%;
+}
+#myModal .genre .glyphicon {
+  margin-right: 5px;
+}
+#myModal .genre.selected .glyphicon-ok {
+  display: inline;
+}
+#myModal .genre.selected .glyphicon-remove {
+  display: none;
+}
+#myModal .genre.selected:hover .glyphicon-ok {
+  display: none;
+}
+#myModal .genre.selected:hover .glyphicon-remove {
+  display: inline;
+}
+#myModal .genre:not(.selected) {
+  color: grey;
+  text-transform: none;
+}
+#myModal .genre:not(.selected) .glyphicon-ok {
+  display: none;
+}
+#myModal .genre:not(.selected) .glyphicon-remove {
+  display: inline;
+}
+#myModal .genre:not(.selected):hover .glyphicon-ok {
+  display: inline;
+}
+#myModal .genre:not(.selected):hover .glyphicon-remove {
+  display: none;
 }
 #modal-content {
   color: black;
@@ -7989,10 +8023,11 @@ select.form-control#edit-field-music-genre-tid option:hover {
 #modal-content a {
   color: inherit;
 }
+.modal-body {
+  overflow: auto;
+}
 /* sticky */
 .is-sticky {
-  position: fixed;
-  top: 70px !important;
   padding-left: 12px;
   padding-top: 0px;
 }
@@ -8144,7 +8179,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
   display: none;
 }
 .pane-title {
-  cursor: pointer;
   margin-top: 15px;
   font-size: 15px;
 }
@@ -8152,6 +8186,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   .pane-title {
     font-size: 21px;
     line-height: 2;
+    cursor: pointer;
   }
 }
 .view-mode-mini {
@@ -8349,7 +8384,7 @@ body {
   background-color: #000000;
   color: #ffffff;
   padding-top: 40px;
-  padding-bottom: 25px;
+  padding-bottom: 125px;
 }
 body.administrator {
   padding-top: 70px!important;

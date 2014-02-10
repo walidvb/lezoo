@@ -1,13 +1,9 @@
-
-	<div class='node-event <?php print $classes ?>' <?php print $attributes; ?> >
-									<?php print render($title_suffix); ?>
-
-		<a href="<?php print drupal_get_path_alias($node_url)?>">
-
+<div class='node-event <?php print $classes ?>' <?php print $attributes; ?> >
+	<?php print render($title_suffix); ?>
+	<a href="<?php print drupal_get_path_alias($node_url)?>">
 		<div>
 			<div class='event-node dated-node'>
-				<?php print render($content['flippy_pager']); ?>
-				<div class="node-content">
+ 			<div class="node-content">
 					<div class='header'>
 						<div class="event-meta">
 							<div class='event-genre genre'><?php print render($content['field_music_genre']); ?></div>
@@ -31,7 +27,6 @@
 
 			</div>
 		</div>
-</a>
-		
-	</div>
+	</a>		
+</div>
 

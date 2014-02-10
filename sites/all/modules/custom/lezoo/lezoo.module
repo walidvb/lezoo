@@ -48,6 +48,10 @@ function lezoo_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == "event_node_form") {   
     $form['#validate'][]='lezoo_taxonomy_length_check';
   }
+  else if($form_id == 'views_exposed_form')
+  {
+    $form['genre']['#attributes']['data-placeholder'] = 'genre';
+  }
 }
 
 function lezoo_taxonomy_length_check($form, &$form_state) {

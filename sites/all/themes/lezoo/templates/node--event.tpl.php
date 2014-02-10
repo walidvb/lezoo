@@ -1,11 +1,8 @@
+<?php print render($content['flippy_pager']); ?>
 
-<?php 
-
-?>
 <div class='node-event <?php print $classes ?>' <?php print $attributes; ?> >
 	<div>
 		<div class='event-node dated-node'>
-			<?php print render($content['flippy_pager']); ?>
 			<div class="node-content">
 				<div class='header'>
 					<div class="event-titles">
@@ -17,7 +14,7 @@
 						<?php endif; ?>
 						<div class='event-title title'> 
 							<?php print render($title_prefix); ?>
-							<h1<?php print $title_attributes; ?>><?php print l($title,$node_url) ?></h1>
+							<h1<?php print $title_attributes; ?>><?php print $title ?></h1>
 							<?php print render($title_suffix); ?>
 						</div>
 					</div>

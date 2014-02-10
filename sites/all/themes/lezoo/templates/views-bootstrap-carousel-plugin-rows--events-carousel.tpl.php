@@ -7,7 +7,6 @@ if (!empty($title) || !empty($description))
 		$slide .= "<h5>$title</h5>";
 	}
 
-<<<<<<< HEAD
 <?php if (!empty($title) || !empty($description)): ?>
   <div class="carousel-caption">
     <?php if (!empty($title)): ?>
@@ -19,7 +18,6 @@ if (!empty($title) || !empty($description))
     <?php endif ?>
   </div>
 <?php endif ?>
-=======
 	if (!empty($description))
 	{
 		$slide .= $description;
@@ -27,4 +25,3 @@ if (!empty($title) || !empty($description))
 	$slide .= "</div>";
 }
 ?>
->>>>>>> artists
