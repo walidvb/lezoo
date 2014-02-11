@@ -1,5 +1,6 @@
 <?php 
-$image = $fields['field_big_image']->content;
+$image_url = trim($fields['field_big_image']->content);
+$image = "<figure class=\"field-big-image\"><img class=\"img-responsive\" src=\"" . $image_url . "\" width=\"1140\" height=\"360\" alt=\"\" />  </figure>";
 if(isset($fields['field_subtitle']))
 {
   $title = $fields['field_subtitle']->content;
@@ -29,7 +30,12 @@ if(!empty($title) || !empty($description))
     }
   $slide .= '</div>';
 }
-print l($slide, $link, array(
-	'html' => true,
-	));
 ?>
+
+
+<div class="carousel-wrapper" style="background-image: url('<?php print $image_url ?>')">
+  <?php print l($slide, $link, array(
+  	'html' => true,
+  	));
+  ?>
+</div>
