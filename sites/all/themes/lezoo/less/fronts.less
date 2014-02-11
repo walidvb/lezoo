@@ -12,11 +12,10 @@
 
 #views-bootstrap-carousel-1{
 	@media @mobile{
-		padding-left: 0px;
-		padding-right: 0px;
+
 	}
-	padding-left: 15px;
-	padding-right: 15px;
+	padding-left: 0px;
+	padding-right: 0px;
 	/*
 	.light {
 		.carousel-caption{
@@ -142,21 +141,25 @@
 				font-size: @font-size-h1;
 				padding-right: @padding-base-horizontal/2;
 			}
-			.artist-labels{
-				display: inline-block;
-				font-size: @font-size-base;
+
+			.artist-details{
 				font-size: @font-size-h4;
-				padding-right: @padding-base-horizontal/2;
-			}
-			.field-artist-details{
+				.artist-labels{
+					display: inline-block;
+					padding-right: @padding-base-horizontal/2;
+				}
+
+			/*.field-artist-details{
 				display: inline-block;
 			}
+			*/
 			.artist-origin{
 				.artist-labels;
 				padding-right: 2px;
 			}			
 		}
 	}
+}
 }
 
 

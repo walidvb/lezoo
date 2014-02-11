@@ -1,4 +1,7 @@
 // Insert your styling here.
+.footer{
+	z-index: 10;
+}
 footer{
 	z-index: 10;
 	@media @mobile{
@@ -11,7 +14,7 @@ footer{
 
 	}
 	.block{
-		.make-md-column(4);
+		.make-md-column(3);
 	}
 	.transition(all 0.4s);
 	margin-top: 5px;
@@ -34,6 +37,11 @@ footer{
 		background-color: @tertiary-color;
 		font-size: @font-size-h6;
 		margin-bottom:10px;
+	}
+
+	.btn-primary{
+		width:100%;
+		margin-bottom: @padding-base-vertical;
 	}
 
 	.social:before{
