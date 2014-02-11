@@ -96,7 +96,7 @@ if(isset($content['field_tags']))
   <?php print $user_picture; ?>
 
   <?php print render($title_prefix); ?>
-  <?php if(!empty($title) || !$is_page): ?>
+  <?php if(!empty($title) && !$is_page): ?>
     <h1 <?php print $title_attributes; ?>><?php print $title; ?></h1>
 <?php endif; ?>
 <?php print $share42; ?>
@@ -107,14 +107,6 @@ if(isset($content['field_tags']))
 <div class="content"<?php print $content_attributes; ?>>
   <?php if ($display_submitted): ?>
     <div class="blog-info">
-      <?php if(!$is_page): ?>
-        <?php if(!$teaser): ?>
-          <a href="#" class="expand-post"><?php print t('ouvrir') ?></a>
-        <?php else: ?>
-          <?php print l(t('+Lire l\'article'), 'node/' . $nid); ?>
-        <?php endif; ?>
-      <?php endif; ?>
-
       <div class="submitted">
         <?php print $submitted; ?>
       </div>
@@ -129,10 +121,9 @@ if(isset($content['field_tags']))
   <div class="<?php print $left_col_classes ?>">
     <?php print render($content['field_big_image']); ?>
     <?php print lezoo_header('Les Détails'); ?>
-    <div>
+    <div class="blog-details">
       <?php 
       if(!empty($content['field_links'])){ print render($content['field_links']); } 
-      if(!empty($content['field_soundcloud'])) { print render($content['field_soundcloud']); }
       if(!empty($content['field_event_ref'])) { print render($content['field_event_ref']); }
       if(!empty($related) && ($is_page)){print $related;}
       ?>
@@ -141,6 +132,7 @@ if(isset($content['field_tags']))
   <?php print lezoo_header('Le Post'); ?>
   <div class="<?php print $right_col_classes ?>">
     <?php
+    if(!empty($content['field_soundcloud'])) { print render($content['field_soundcloud']); }
 
         // We hide the comments and links now so that we can render them later.
     hide($content['comments']);

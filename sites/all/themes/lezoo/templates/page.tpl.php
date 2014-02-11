@@ -36,30 +36,7 @@
     <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
   </a>
 <?php endif; ?>
-<div class="main-container container">
-  <div class="grid">
-    <div class="col-md-1 col-sm-1 col-xs-1 col-lg-1"><div></div></div>
-    <div class="col-md-1 col-sm-1 col-xs-1 col-lg-1"><div></div></div>
-    <div class="col-md-1 col-sm-1 col-xs-1 col-lg-1"><div></div></div>
-    <div class="col-md-1 col-sm-1 col-xs-1 col-lg-1"><div></div></div>
-    <div class="col-md-1 col-sm-1 col-xs-1 col-lg-1"><div></div></div>
-    <div class="col-md-1 col-sm-1 col-xs-1 col-lg-1"><div></div></div>
-    <div class="col-md-1 col-sm-1 col-xs-1 col-lg-1"><div></div></div>
-    <div class="col-md-1 col-sm-1 col-xs-1 col-lg-1"><div></div></div>
-    <div class="col-md-1 col-sm-1 col-xs-1 col-lg-1"><div></div></div>
-    <div class="col-md-1 col-sm-1 col-xs-1 col-lg-1"><div></div></div>
-    <div class="col-md-1 col-sm-1 col-xs-1 col-lg-1"><div></div></div>
-    <div class="col-md-1 col-sm-1 col-xs-1 col-lg-1"><div></div></div>
-  </div>
-  
-  <header role="banner" id="page-header">
-    <?php if (!empty($site_slogan)): ?>
-      <p class="lead"><?php print $site_slogan; ?></p>
-    <?php endif; ?>
-
-    <?php print render($page['header']); ?>
-  </header> <!-- /#header -->
-
+<div class="main-container container">  
   <div class="row">
 
     <?php if (!empty($page['sidebar_first'])): ?>

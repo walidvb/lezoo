@@ -12,6 +12,16 @@
 		{
 			$('.no-touch .dropdown-toggle').dropdownHover();
 		}
+
+		$('.menu-1649 .form-control', context).once(function(){
+			var li = $('this').parents('.leaf')
+			$(this).focus(function(){
+				li.addClass('active');
+			});
+			$(this).blur(function(){
+				li.removeClass('active');
+			});
+		})
 		//-------------- stick menu
 		var threshold = $('header');
 		//-------------- stick months above list
@@ -102,18 +112,22 @@
 				}
 				else
 				{
-
 				}
 			});
 		});
 
 		var closeBlocks = function(){
-			if($(window).width <= 769)
-			{
+
 				$blockTitle.each(function(){
-					$(this).next().hide();
+					if($(window).width() <= 769)
+					{
+						$(this).next().hide();
+					}
+					else{
+						$(this).next().show();	
+					}
 				});
-			}
+			
 		};
 		//---------blog posts
 		/* 

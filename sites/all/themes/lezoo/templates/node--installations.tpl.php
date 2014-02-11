@@ -1,6 +1,5 @@
 <?php
 
-dpm($content);
 if(isset($content['field_tags']))
 {
 
