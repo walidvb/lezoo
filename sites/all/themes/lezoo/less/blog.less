@@ -11,16 +11,18 @@
 	}
 }
 
-.view-mode-full.node-blog-post{
-	.node-title{
-		font-size: @font-size-h1*2.2;
-		margin-top: 30px;
-		margin-bottom: 2px;
-		border-top: solid 1px @primary-color;
-		padding-left: @padding-base-horizontal;
-		padding-right: 15%;
-		@media (max-width: @screen-sm){
-			font-size: @font-size-h1*1.5;
+.view-mode-full{
+	&.node-blog-post{
+		.node-title{
+			font-size: @font-size-h1*2.2;
+			margin-top: 30px;
+			margin-bottom: 2px;
+			border-top: solid 1px @primary-color;
+			padding-left: @padding-base-horizontal;
+			padding-right: 15%;
+			@media (max-width: @screen-sm){
+				font-size: @font-size-h1*1.5;
+			}
 		}
 	}
 }
