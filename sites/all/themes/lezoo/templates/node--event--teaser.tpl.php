@@ -19,7 +19,11 @@
 						<div class='event-line-up event-line-up-djs line-up'> <?php print render($content['field_artist']); ?>
 						</div>
 						<?php if(!empty($content['field_vjs'])): ?>
-							<div class='event-line-up event-line-up-vjs line-up'> <?php print render($content['field_vjs']); ?>
+							<div class='event-line-up event-line-up-vjs line-up'>
+								<span class="vjs-label">
+									Visuels: 
+								</span>
+								<?php print render($content['field_vjs']); ?>
 							</div>
 						<?php endif; ?>
 					</div>

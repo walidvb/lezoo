@@ -9,6 +9,9 @@
 		},
 		{
 			"path": "sites/all/modules/custom"
+		},
+		{
+			"path": "sites/all/themes/bootstrap"
 		}
 	]
 }

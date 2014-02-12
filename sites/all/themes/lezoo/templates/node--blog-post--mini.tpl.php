@@ -1,4 +1,4 @@
-<?php
+  <?php
 
 /**
  * @file
@@ -79,51 +79,74 @@
  *
  * @ingroup themeable
  */
-$cols2 = false;
-if(!empty($content['field_image']) && !$teaser)
+if(isset($content['field_music_genre']))
 {
-  hide($content['field_image']);
-  $cols2 = true;
+  $genres = $content['field_music_genre'];
+  $genres['#access'] = true;
+  hide($content['field_music_genre']);
+}
+if(isset($content['field_tags']))
+{
+  $tags = $content['field_tags'];
+  hide($content['field_tags']);
 }
 ?>
-<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-
+<?php print render($content['flippy_pager']); ?>
+<div id="node-<?php print $node->nid; ?>" class="<?php print $classes ?> clearfix"<?php print $attributes; ?>>
   <?php print $user_picture; ?>
 
   <?php print render($title_prefix); ?>
-  <?php if (!$page): ?>
-    <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
-  <?php endif; ?>
-  <?php print render($title_suffix); ?>
+  <?php if(!empty($title)): ?>
+    <a href="<?php print drupal_get_path_alias($node_url); ?>">
+      <h1 <?php print $title_attributes; ?>><?php print $title; ?></h1>
+    </a>
+<?php endif; ?>
+<?php print $share42; ?>
+<?php print render($title_suffix); ?> 
 
+
+
+<div class="content"<?php print $content_attributes; ?>>
   <?php if ($display_submitted): ?>
-    <div class="submitted">
-      <?php print $submitted; ?>
+    <div class="blog-info">
+      <div class="submitted">
+        <?php print $submitted; ?>
+      </div>
+      <?php if(isset($tags) || isset($genres)): ?>
+        <div class="tags">
+          <?php print render($tags); ?>
+          <?php print render($genres); ?>
+        </div>
+      <?php endif; ?>
     </div>
   <?php endif; ?>
-
-  <div class="content"<?php print $content_attributes; ?>>
-    <?php if($cols2): ?>
-        <div class="<?php print $left_col_classes?>">
-          <?php print render($content['field_image']); ?>
-        </div>
-        <div class="<?php print $right_col_classes?>">
-
-    <?php endif; ?>
-    <?php
-      // We hide the comments and links now so that we can render them later.
-      hide($content['comments']);
-      hide($content['links']);
-      print render($content);
-    ?>
-    <?php if($cols2)
-      print '</div>';
-     ?>
-
-
+  <div class="<?php print $left_col_classes ?>">
+    <?php print render($content['field_big_image']); ?>
+    <?php print lezoo_header('Les Détails'); ?>
+    <div>
+      <?php 
+      if(!empty($content['field_links'])){ print render($content['field_links']); } 
+      if(!empty($content['field_event_ref'])) { print render($content['field_event_ref']); }
+      if(!empty($related) && ($is_page)){print $related;}
+      ?>
+    </div>
   </div>
+  <?php print lezoo_header('Le Post'); ?>
+  <div class="<?php print $right_col_classes ?>">
+    <?php
+      if(!empty($content['field_soundcloud'])) { print render($content['field_soundcloud']); }
+        // We hide the comments and links now so that we can render them later.
+    hide($content['comments']);
+    hide($content['links']);
+    print render($content);
+    ?>
+  </div>
+  
+</div>
+
 
   <?php print render($content['links']); ?>
+
 
   <?php print render($content['comments']); ?>
 

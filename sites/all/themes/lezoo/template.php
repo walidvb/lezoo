@@ -37,8 +37,8 @@ function lezoo_menu_link(array $variables) {
 	$element = $variables['element'];
 	$sub_menu = '';
 	$element['#attributes']['class'][] = strtolower($element['#title']);
-  //change behavior for visu
-	if($element['#original_link']['mlid'] == '1266')
+  	//change behavior for visu
+	if(0 && $element['#original_link']['mlid'] == '1266')
 	{
 
   	  // On primary navigation menu, class 'active' is not set on active menu item.
@@ -52,7 +52,7 @@ function lezoo_menu_link(array $variables) {
 		unset($element['#below']['#sorted']);
 		$sub_menu .= '<ul class="sub-menu">';
 		foreach($element['#below'] as $child)
-		{
+		{	
 			$sub_menu .= render($child);
 		}
 		$sub_menu .= '</ul>';
@@ -63,6 +63,33 @@ function lezoo_menu_link(array $variables) {
   	return bootstrap_menu_link($variables);
   }
 }
+
+/**
+ * @file
+ * bootstrap-search-form-wrapper.func.php
+ */
+
+/**
+ * Theme function implementation for bootstrap_search_form_wrapper.
+ */
+function lezoo_bootstrap_search_form_wrapper($variables) {
+  $output = '<div class="input-group">';
+  $output .= $variables['element']['#children'];
+  $output .= '<span class="input-group-btn">';
+  $output .= '<button type="submit" class="btn btn-default">';
+  // We can be sure that the font icons exist in CDN.
+  if (theme_get_setting('bootstrap_cdn')) {
+    $output .= _bootstrap_icon('search');
+  }
+  else {
+    $output .= _bootstrap_icon('search');;
+  }
+  $output .= '</button>';
+  $output .= '</span>';
+  $output .= '</div>';
+  return $output;
+}
+
 
 
 function lezoo_preprocess_page(&$variables) {
