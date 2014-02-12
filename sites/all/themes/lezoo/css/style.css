@@ -7720,9 +7720,12 @@ select.form-control#edit-field-music-genre-tid option:hover {
 @media (max-width: 767px) {
   
 }
+#views-bootstrap-carousel-1 .field-big-image {
+  height: 480px;
+}
 @media (max-width: 992px) {
-  #views-bootstrap-carousel-1 .img-responsive {
-    display: block;
+  #views-bootstrap-carousel-1 .field-big-image .img-responsive {
+    display: none;
     max-width: auto;
     margin-left: auto;
     margin-right: auto;
