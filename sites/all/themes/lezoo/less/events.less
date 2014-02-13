@@ -250,12 +250,20 @@
 	.header{
 		min-height: 50px;
 		width: 85%;
+		@media @mobile{
+			width: 100%;
+			height: auto;
+			border-bottom: solid 1px @primary-color;
+		}
 	}
 	.field-big-image{
 		display: none;
 	}
 	.event-titles{
 		display: block;
+		@media @mobile{
+			width: 80%;
+		}
 		.event-title{
 			padding-left: @padding-base-horizontal;
 			h2{
@@ -287,6 +295,16 @@
 		position: absolute;
 		right: 0px;
 		top: 0px;
+		@media @mobile{
+			text-align: center;
+			top: 10px;
+			.day{
+				font-size: @font-size-h3;
+			}
+			.date-number{
+				font-size: @font-size-h1*2;
+			}
+		}
 	}
 	.col-left, .col-right{
 		width: 100% !important;
@@ -294,6 +312,9 @@
 	}
 	.event-line-up-djs{
 		border-top: solid 1px @primary-color;
+		@media @mobile{
+			border-top: none;
+		}
 		.make-md-column(12);
 		float: none!important;
 		width: 100%;

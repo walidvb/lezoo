@@ -10,47 +10,90 @@
 // 	}
 // }
 
-#views-bootstrap-carousel-1{
-	@media @mobile{
-
-	}
+.carousel{
 	padding-left: 0px;
 	padding-right: 0px;
-	/*
-	.light {
-		.carousel-caption{
-			color: @black;
-			a{
-				color:@black;
+	// mobile layout
+	@media (max-width: @screen-md-min){
+		.carousel-inner{
+			height: 100%;
+			.carousel-wrapper{
+				height: 380px;
+				background-size: auto 430px;
+				background-position: center;
+				.field-big-image{
+					.img-responsive{
+						display: none;
+						max-width: auto;
+						margin-left: auto;
+						margin-right: auto;
+					}
+				}
 			}
-		}
-		.date{
-			color: @black !important;
-		}
-		.carousel-indicators li{
-			border: 1px solid @primary-color;
-		}
-	}
-	*/
-	.field-big-image{
-		height: 480px;
-		@media (max-width: @screen-md-min){
-			.img-responsive{
-				display: none;
-				max-width: auto;
-				margin-left: auto;
-				margin-right: auto;
-			}
+			.carousel-caption{
+				top: 0%;
+				padding-top: @padding-base-vertical*2;
+				text-align: left;
+				padding-left: 0px;
+				padding-right: 0px;
+				h6{
+					padding-left: 15px;
+				}
+				.banner-title{
+					height: auto;
+					padding-left: 15px;
+					h4{
+						display: block;
+						width: 100%;
+					}
+					.field-music-genre{
+						display: block;
+						line-height: 21px;
+					}
+				}
+				.date{
+					position: relative;
+					top: 0px;
+					right: 0px;
+					padding-left: 15px;
+					border-bottom: solid 6px white;
+					font-size: @font-size-h3;
+					.date-number, .day, .month{
+						display: inline-block;
+						text-align: left;
+						font-size: inherit;
+					}
+				}
+				.field-content{
+					padding-left: 15px!important;
+				}
+				.artists{
+					width: 100%;
+					padding-top: @padding-base-vertical;
+					.artist{
+						display: block;
+						width: 100%;
+						&:after{
+							content: none;
+						}
+						.artist-details{
+							display: none;
+						}
+					}
+				}
+			}	
 		}
 	}
 
+	// desktop layout
 	.carousel-control{
 		@media (max-width: @screen-md-min){
-			padding-top:80%;
+			padding-top:340px;
 		}
 		a{
 			padding-top: 310px;
 		}
+		padding-top: 160px;
 		z-index: 10;
 	}
 	.carousel-indicators{
@@ -59,9 +102,6 @@
 		max-height:12px;
 	}
 	.carousel-caption{
-		@media (max-width: @screen-md-min){
-			top:10%;
-		}
 		height: 100%;
 		left: 0px;
 		right: 0px;
@@ -112,9 +152,6 @@
 			top:15px;
 			right: 10%;
 			color: @primary-color;
-			@media (max-width: @screen-md-min){
-				right: 0px;
-			}
 		}
 
 		.artists{
@@ -122,11 +159,7 @@
 			left:0px;
 			padding-left: 0px!important;
 			width: 90%;
-			float: left;
-			@media (max-width: @screen-md-min){
-				width: width: 80%;
-				float: left;
-			}	
+			float: left;	
 
 			.artist{
 				display: inline-block;

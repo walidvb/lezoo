@@ -115,6 +115,9 @@
 /* Share */
 
 .share42init{
+	@media @mobile{
+		display: none;
+	}
 	.transition-duration (0.5s);
 	position: relative;
 	width: 3px;
@@ -155,16 +158,17 @@
 #event-filter-block{
 	padding-left: 0px;
 	padding-right: 0px;
+	/*
 	max-height: 24px;
 	overflow-y: hidden;
 	.transition-duration (0.5s);
 	.transition-delay (0.3s);
 	&:hover{
 		max-height: 70px;
-		overflow-y: visible;
 		.transition-duration (0.5s);
 		.transition-delay (0.3s);
 	}
+	*/
 }
 
 /*   Subscribe   */

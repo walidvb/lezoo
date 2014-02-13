@@ -36,13 +36,21 @@
 			width: 15% !important;
 			position: relative;
 			top: -115px;
-
+				@media @mobile{
+					margin-left: 60%;
+					width: 100% !important;
+					position: relative;
+					top: -115px;
+				}
 			.date{
 				width: 80px;
 				position: relative;
 				display: block;
 				border-bottom: none;
 				border-top: none;
+				@media @mobile{
+					display: inline-block;
+				}
 			}
 		}
 	}
