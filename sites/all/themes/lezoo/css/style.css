@@ -7129,6 +7129,14 @@ h1 a {
   -moz-column-count: 3;
   column-count: 3;
 }
+@media (max-width: 767px) {
+  #node-154 .field-body,
+  #node-153 .field-body {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+  }
+}
 .view-mode-teaser {
   border-top: solid 3px #ffffff;
   border-bottom: solid 3px #ffffff;
@@ -7399,6 +7407,14 @@ select.form-control#edit-field-music-genre-tid option:hover {
   min-height: 50px;
   width: 85%;
 }
+@media (max-width: 767px) {
+  .node-teaser .header,
+  .field-event-ref .node-teaser .header {
+    width: 100%;
+    height: auto;
+    border-bottom: solid 1px #ffffff;
+  }
+}
 .node-teaser .field-big-image,
 .field-event-ref .node-teaser .field-big-image {
   display: none;
@@ -7406,6 +7422,12 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .node-teaser .event-titles,
 .field-event-ref .node-teaser .event-titles {
   display: block;
+}
+@media (max-width: 767px) {
+  .node-teaser .event-titles,
+  .field-event-ref .node-teaser .event-titles {
+    width: 80%;
+  }
 }
 .node-teaser .event-titles .event-title,
 .field-event-ref .node-teaser .event-titles .event-title {
@@ -7448,6 +7470,21 @@ select.form-control#edit-field-music-genre-tid option:hover {
   right: 0px;
   top: 0px;
 }
+@media (max-width: 767px) {
+  .node-teaser .date,
+  .field-event-ref .node-teaser .date {
+    text-align: center;
+    top: 10px;
+  }
+  .node-teaser .date .day,
+  .field-event-ref .node-teaser .date .day {
+    font-size: 21px;
+  }
+  .node-teaser .date .date-number,
+  .field-event-ref .node-teaser .date .date-number {
+    font-size: 62px;
+  }
+}
 .node-teaser .col-left,
 .field-event-ref .node-teaser .col-left,
 .node-teaser .col-right,
@@ -7464,6 +7501,12 @@ select.form-control#edit-field-music-genre-tid option:hover {
   padding-right: 15px;
   float: none!important;
   width: 100%;
+}
+@media (max-width: 767px) {
+  .node-teaser .event-line-up-djs,
+  .field-event-ref .node-teaser .event-line-up-djs {
+    border-top: none;
+  }
 }
 @media (min-width: 992px) {
   .node-teaser .event-line-up-djs,
@@ -7696,58 +7739,98 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .node-promoted .pinned {
   padding-left: 0px;
 }
-#views-bootstrap-carousel-1 {
+.carousel {
   padding-left: 0px;
   padding-right: 0px;
-  /*
-	.light {
-		.carousel-caption{
-			color: @black;
-			a{
-				color:@black;
-			}
-		}
-		.date{
-			color: @black !important;
-		}
-		.carousel-indicators li{
-			border: 1px solid @primary-color;
-		}
-	}
-	*/
-
-}
-@media (max-width: 767px) {
-  
-}
-#views-bootstrap-carousel-1 .field-big-image {
-  height: 480px;
 }
 @media (max-width: 992px) {
-  #views-bootstrap-carousel-1 .field-big-image .img-responsive {
+  .carousel .carousel-inner {
+    height: 100%;
+  }
+  .carousel .carousel-inner .carousel-wrapper {
+    height: 380px;
+    background-size: auto 430px;
+    background-position: center;
+  }
+  .carousel .carousel-inner .carousel-wrapper .field-big-image .img-responsive {
     display: none;
     max-width: auto;
     margin-left: auto;
     margin-right: auto;
   }
+  .carousel .carousel-inner .carousel-caption {
+    top: 0%;
+    padding-top: 12px;
+    text-align: left;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .carousel .carousel-inner .carousel-caption h6 {
+    padding-left: 15px;
+  }
+  .carousel .carousel-inner .carousel-caption .banner-title {
+    height: auto;
+    padding-left: 15px;
+  }
+  .carousel .carousel-inner .carousel-caption .banner-title h4 {
+    display: block;
+    width: 100%;
+  }
+  .carousel .carousel-inner .carousel-caption .banner-title .field-music-genre {
+    display: block;
+    line-height: 21px;
+  }
+  .carousel .carousel-inner .carousel-caption .date {
+    position: relative;
+    top: 0px;
+    right: 0px;
+    padding-left: 15px;
+    border-bottom: solid 6px white;
+    font-size: 21px;
+  }
+  .carousel .carousel-inner .carousel-caption .date .date-number,
+  .carousel .carousel-inner .carousel-caption .date .day,
+  .carousel .carousel-inner .carousel-caption .date .month {
+    display: inline-block;
+    text-align: left;
+    font-size: inherit;
+  }
+  .carousel .carousel-inner .carousel-caption .field-content {
+    padding-left: 15px!important;
+  }
+  .carousel .carousel-inner .carousel-caption .artists {
+    width: 100%;
+    padding-top: 6px;
+  }
+  .carousel .carousel-inner .carousel-caption .artists .artist {
+    display: block;
+    width: 100%;
+  }
+  .carousel .carousel-inner .carousel-caption .artists .artist:after {
+    content: none;
+  }
+  .carousel .carousel-inner .carousel-caption .artists .artist .artist-details {
+    display: none;
+  }
 }
-#views-bootstrap-carousel-1 .carousel-control {
+.carousel .carousel-control {
+  padding-top: 160px;
   z-index: 10;
 }
 @media (max-width: 992px) {
-  #views-bootstrap-carousel-1 .carousel-control {
-    padding-top: 80%;
+  .carousel .carousel-control {
+    padding-top: 340px;
   }
 }
-#views-bootstrap-carousel-1 .carousel-control a {
+.carousel .carousel-control a {
   padding-top: 310px;
 }
-#views-bootstrap-carousel-1 .carousel-indicators {
+.carousel .carousel-indicators {
   width: 100%;
   left: 30%;
   max-height: 12px;
 }
-#views-bootstrap-carousel-1 .carousel-caption {
+.carousel .carousel-caption {
   height: 100%;
   left: 0px;
   right: 0px;
@@ -7759,48 +7842,43 @@ select.form-control#edit-field-music-genre-tid option:hover {
   position: absolute;
   text-shadow: 1px 1px 5px #494949;
 }
-@media (max-width: 992px) {
-  #views-bootstrap-carousel-1 .carousel-caption {
-    top: 10%;
-  }
-}
 @media (min-width: 992px) {
-  #views-bootstrap-carousel-1 .carousel-caption {
+  .carousel .carousel-caption {
     float: left;
     width: 91.66666666666666%;
   }
 }
 @media (min-width: 992px) {
-  #views-bootstrap-carousel-1 .carousel-caption {
+  .carousel .carousel-caption {
     margin-left: 8.333333333333332%;
   }
 }
-#views-bootstrap-carousel-1 .carousel-caption h4,
-#views-bootstrap-carousel-1 .carousel-caption h6,
-#views-bootstrap-carousel-1 .carousel-caption .artists {
+.carousel .carousel-caption h4,
+.carousel .carousel-caption h6,
+.carousel .carousel-caption .artists {
   font-family: "Oswald", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   text-align: left;
 }
-#views-bootstrap-carousel-1 .carousel-caption h4 {
+.carousel .carousel-caption h4 {
   font-size: 31px;
   display: inline-block;
 }
-#views-bootstrap-carousel-1 .carousel-caption h6 {
+.carousel .carousel-caption h6 {
   position: absolute;
   top: 0px;
 }
-#views-bootstrap-carousel-1 .carousel-caption .banner-title {
+.carousel .carousel-caption .banner-title {
   border-bottom: 2px solid;
   float: left;
   height: 45px;
   width: 100%;
 }
-#views-bootstrap-carousel-1 .carousel-caption .banner-title h4 {
+.carousel .carousel-caption .banner-title h4 {
   float: left;
   padding-right: 10px;
 }
-#views-bootstrap-carousel-1 .carousel-caption .banner-title .field-music-genre {
+.carousel .carousel-caption .banner-title .field-music-genre {
   display: inline-block;
   font-size: 21px;
   font-style: italic;
@@ -7809,45 +7887,34 @@ select.form-control#edit-field-music-genre-tid option:hover {
   float: left;
   margin-right: 10px;
 }
-#views-bootstrap-carousel-1 .carousel-caption .date {
+.carousel .carousel-caption .date {
   position: absolute;
   top: 15px;
   right: 10%;
   color: #ffffff;
 }
-@media (max-width: 992px) {
-  #views-bootstrap-carousel-1 .carousel-caption .date {
-    right: 0px;
-  }
-}
-#views-bootstrap-carousel-1 .carousel-caption .artists {
+.carousel .carousel-caption .artists {
   display: inline-block;
   left: 0px;
   padding-left: 0px!important;
   width: 90%;
   float: left;
 }
-@media (max-width: 992px) {
-  #views-bootstrap-carousel-1 .carousel-caption .artists {
-    width: width: 80%;
-    float: left;
-  }
-}
-#views-bootstrap-carousel-1 .carousel-caption .artists .artist {
+.carousel .carousel-caption .artists .artist {
   display: inline-block;
 }
-#views-bootstrap-carousel-1 .carousel-caption .artists .artist:after {
+.carousel .carousel-caption .artists .artist:after {
   font-size: 31px;
   content: ' / ';
   margin-left: 5px;
   margin-right: 5px;
 }
-#views-bootstrap-carousel-1 .carousel-caption .artists .artist-name {
+.carousel .carousel-caption .artists .artist-name {
   display: inline-block;
   font-size: 31px;
   padding-right: 6px;
 }
-#views-bootstrap-carousel-1 .carousel-caption .artists .artist-details {
+.carousel .carousel-caption .artists .artist-details {
   font-size: 15px;
   /*.field-artist-details{
 				display: inline-block;
@@ -7855,11 +7922,11 @@ select.form-control#edit-field-music-genre-tid option:hover {
 			*/
 
 }
-#views-bootstrap-carousel-1 .carousel-caption .artists .artist-details .artist-labels {
+.carousel .carousel-caption .artists .artist-details .artist-labels {
   display: inline-block;
   padding-right: 6px;
 }
-#views-bootstrap-carousel-1 .carousel-caption .artists .artist-details .artist-origin {
+.carousel .carousel-caption .artists .artist-details .artist-origin {
   display: inline-block;
   padding-right: 6px;
   padding-right: 2px;
@@ -7983,6 +8050,11 @@ select.form-control#edit-field-music-genre-tid option:hover {
   padding-top: 2px;
   text-align: right;
 }
+@media (max-width: 767px) {
+  .share42init {
+    display: none;
+  }
+}
 .share42init:before {
   content: 'k';
   font-family: 'fontello';
@@ -8014,20 +8086,18 @@ select.form-control#edit-field-music-genre-tid option:hover {
 #event-filter-block {
   padding-left: 0px;
   padding-right: 0px;
-  max-height: 24px;
-  overflow-y: hidden;
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-  -webkit-transition-delay: 0.3s;
-  transition-delay: 0.3s;
-}
-#event-filter-block:hover {
-  max-height: 70px;
-  overflow-y: visible;
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-  -webkit-transition-delay: 0.3s;
-  transition-delay: 0.3s;
+  /*
+	max-height: 24px;
+	overflow-y: hidden;
+	.transition-duration (0.5s);
+	.transition-delay (0.3s);
+	&:hover{
+		max-height: 70px;
+		.transition-duration (0.5s);
+		.transition-delay (0.3s);
+	}
+	*/
+
 }
 /*   Subscribe   */
 #myModal .modal-title {
@@ -8377,12 +8447,25 @@ select.form-control#edit-field-music-genre-tid option:hover {
   position: relative;
   top: -115px;
 }
+@media (max-width: 767px) {
+  .view-installations .view-mode-mini .content {
+    margin-left: 60%;
+    width: 100% !important;
+    position: relative;
+    top: -115px;
+  }
+}
 .view-installations .view-mode-mini .content .date {
   width: 80px;
   position: relative;
   display: block;
   border-bottom: none;
   border-top: none;
+}
+@media (max-width: 767px) {
+  .view-installations .view-mode-mini .content .date {
+    display: inline-block;
+  }
 }
 .video-filter-field {
   display: inline-block;
