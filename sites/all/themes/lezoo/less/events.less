@@ -131,22 +131,23 @@
 				width: 100%;
 			}
 		}
+		
 		.event-meta{
 			width: 100%;
-			overflow: hidden;
-			padding-top: 7px;
+			height: 18px;
 			position: relative;
+			margin-top: 16px;
 			.event-social{
-				margin-top: 7px;
-				height: 15px;
+				height: 18px;
 				overflow: hidden;
 				position: absolute;
-				right: 10%;
+				padding-left: 15px;
 			}
 			.ics-container {
 				float: right;
 			}
 		}
+		
 		.date{
 			position: absolute;
 			right: 0px;
@@ -199,12 +200,15 @@
 		padding-left: @padding-base-vertical;
 		padding-right: @padding-base-vertical;
 		.event-details{
+			background: @primary-color;
+			color: @fourth-color;
 			display: block;
-			border-bottom: solid 1px @primary-color;
+			padding-left: 2px;
 			margin-bottom: 20px;
-			pa
+			
 			a{
-				color: darken(@primary-color, 100%);
+				color: @tertiary-color;
+				font-style: italic;
 			}
 		}
 		.event-body{

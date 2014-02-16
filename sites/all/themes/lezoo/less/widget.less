@@ -49,14 +49,13 @@
 	}
 	.prev, .next{
 		position: fixed;
-		top: 50px;
+		top: 71px;
 		z-index:100;
 		width: 40px!important;
+		height: 275px;
 		overflow: hidden;
-		height: 110px;
 		padding: 0px;
 		.transition-duration(0.5s);
-		border-bottom: solid 1px @primary-color;
 		div{
 			height: 100%;
 			padding: 25px;
@@ -85,8 +84,32 @@
 		}
 	}
 
-	.prev{left: 0px;}
-	.next{right: 0px;}
+	.prev{
+		left: 0px;
+		.month, .date-number{
+			float: right;
+		}
+	}
+	.next{
+		right: 0px;
+		.month, .date-number{
+			float: left;
+		}
+	}
+	.month, .date-number {
+		display: block;
+		width: 100px;
+		height: 100px;
+		text-shadow: 1px 1px 1px black;
+	}
+
+	.month{
+		font-size: @font-size-h3;
+	}
+	.date-number{
+		font-size: @font-size-h2;
+	}
+
 }
 
 // Buttons
@@ -120,17 +143,17 @@
 	}
 	.transition-duration (0.5s);
 	position: relative;
-	width: 3px;
+	width: 1px;
 	height: 18px;
-	top: -10px;
 	float: right;
+	display: inline-block;
 	background-image: url('../background_imgs/bg_med.gif');
 	overflow: hidden;
 	padding-top: 2px;
-	padding-top: 2px;
+	padding-left: 2px;
 	text-align: right;
 	&:before{
-		content: 'k';
+		//content: 'k';
 		font-family: 'fontello';
 		font-size: medium!important;
 		margin-right: 0.6em;
@@ -142,7 +165,7 @@
 		cursor: pointer;
 	}
 	.node:not(.node-panel):hover &{
-		width:100%;
+		width:100px;
 		.transition-duration (0.5s);
 		.transition-delay (0.3s);
 	}
@@ -419,4 +442,8 @@
 	@media @mobile{
 		display: none;
 	}
+}
+
+#edit-body-value{
+	visibility: visible!important;
 }
