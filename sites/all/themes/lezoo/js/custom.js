@@ -48,10 +48,10 @@
 		
 		//---------------Pin left cols
 		$(".no-touch .pinned").once(function(){
-			$(this).wrapInner('<div class="pinned-content"/>');
+			//$(this).wrapInner('<div class="pinned-content"/>');
 		});
-		var pinit = function()
-		{
+		var pinit = function(){}
+		/* {
 			var container = '.content';
 			$('.pinned > .pinned-content').once(function(){
 				$(this).pin({
@@ -64,16 +64,16 @@
 			// 	display: 'inline-block',
 			// 	width: '100%'
 			// });
-		}
-
+		 }
+		*/
 
 		//--------------------Masonry the installs
 		var installsPics = function(){
 
 				//on not mobile, isotope
-				// $('.no-touch .node-installations .col-right').isotope({
-				// 	filter: 'img',
-				// });
+				$('.no-touch .node-installations #install-photos .swipe-wrap').isotope({
+					itemSelector: '.field-photos',
+				});
 
 				//on mobile, slidejs the whole
 				// $('.touch .node-installations .col-right').slidesjs({
