@@ -7783,8 +7783,10 @@ select.form-control#edit-field-music-genre-tid option:hover {
   position: absolute;
   top: 0;
 }
-.node-installations.node-teaser .content {
-  left: -50px;
+@media (max-width: 767px) {
+  .node-installations.node-teaser .content {
+    left: -50px;
+  }
 }
 .node-installations.view-mode-full .install-header {
   min-height: 120px;
