@@ -1,6 +1,4 @@
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
-
-@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
 /*@primary-color: rgb(99,162, 215);
 @secondary-color: rgb(190,61,68);
 @tertiary-color: hsb(0,0,10);
@@ -5255,12 +5253,6 @@ td.visible-print {
     display: none !important;
   }
 }
-/*@primary-color: rgb(99,162, 215);
-@secondary-color: rgb(190,61,68);
-@tertiary-color: hsb(0,0,10);
-@primary-color: @white;
-@secondary-color: @black;
-*/
 html.overlay-open .navbar-fixed-top {
   z-index: 400;
 }
@@ -7781,6 +7773,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .node-installations.node-teaser .content {
   position: absolute;
   top: 0;
+  width: 100%;
 }
 @media (max-width: 767px) {
   .node-installations.node-teaser .content {
@@ -7850,7 +7843,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .node-installations.view-mode-full .field-photos {
   display: inline-block;
-  width: 31%;
+  width: 32%;
   margin: 5px 0.5%;
   opacity: 0.7;
   filter: alpha(opacity=70);

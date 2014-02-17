@@ -1,0 +1,158 @@
+<?php
+
+/**
+ * Implementation of hook_menu().
+ */
+function menu_inject_block_menu() {
+  $menu_item = array(
+    'page callback' => '_menu_inject_block_menu',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['<block>'] = $menu_item;
+  $items['<block>/%'] = $menu_item;
+
+  return $items;
+}
+
+function _menu_inject_block_menu() {
+  return drupal_not_found();
+}
+
+/**
+ * Implementation of hook_menu_link_alter().
+ */
+function menu_inject_block_menu_link_alter(&$item, $menu) {
+  if ($item['module'] == 'menu') {
+    if (drupal_match_path($item['link_path'], "<block>\n<block>/*")) {
+      $item['options']['alter'] = TRUE;
+      $item['options']['unaltered_hidden'] = $item['hidden'];
+
+      if (isset($item['block']))
+      {
+        $item['options']['block'] = $item['block'];
+      }
+    }
+  }
+}
+
+/**
+ * Implementation of hook_translated_menu_link_alter
+ */
+function menu_inject_block_translated_menu_link_alter(&$item, $map) {
+  if (($item['module'] == 'menu') && drupal_match_path($item['link_path'], "<block>\n<block>/*")) {
+    if (isset($item['localized_options']) && isset($item['localized_options']['block'])) {
+      $moddelt = $item['localized_options']['block'];
+      $breakpoint = strpos($moddelt, '-');
+      $module = substr($moddelt, 0, $breakpoint);
+      $delta = substr($moddelt, $breakpoint + 1);
+    
+      $item['href'] = 'admin/structure/block/manage/' . $module . '/' . $delta . '/configure';
+    }
+  }
+}
+
+/**
+ * Implementation of hook_form_alter().
+ */
+function menu_inject_block_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'menu_overview_form') {
+    foreach ($form as $key => $value) {
+      if (isset($value['#item']['href']) && drupal_match_path($value['#item']['href'], "<block>\n<block>/*")) {
+        $item = $value['#item'];
+        $unaltered_hidden = $item['options']['unaltered_hidden'];
+        $form[$key]['#item']['hidden'] = $unaltered_hidden;
+        $form[$key]['hidden']['#default_value'] = !$unaltered_hidden;
+        $form[$key]['#attributes']['class'] = $unaltered_hidden ? 'menu-disabled' : 'menu-enabled';
+        $form[$key]['title']['#value'] = check_plain($item['title']) . ($unaltered_hidden ? ' ('. t('disabled') .')' : '');
+      }
+    }
+  }
+  elseif (($form_id == 'menu_edit_item') && isset($form['link_path'])) {
+	if (isset($form['link_path']['#description'])) {
+      $form['link_path']['#description'] .= t(' Enter %block to have a block displayed.  Don\'t forget to choose which block to display.', array('%block' => '<block>'));	
+	}
+
+    if (isset($form['options']['#value']['unaltered_hidden'])) {
+      $form['enabled']['#default_value'] = !$form['options']['#value']['unaltered_hidden'];
+    }
+  }
+}
+
+/**
+ * Implementation of hook_theme_registry_alter().
+ */
+function menu_inject_block_theme_registry_alter(&$theme_registry) {
+  $theme_registry['menu_link']['function'] = 'menu_inject_block_theme_menu_link';
+}
+
+/**
+ * Menu link theme function
+ */
+function menu_inject_block_theme_menu_link($variables) {
+  $element = $variables['element'];
+  $sub_menu = '';
+
+  if (isset($element['#original_link']))
+  {
+    $element['#attributes']['class'][] = 'menu-' . $element['#original_link']['mlid'];
+  }
+  
+  if ($element['#below']) {
+    $sub_menu = drupal_render($element['#below']);
+  }
+
+  $output = '<li' . drupal_attributes($element['#attributes']) . '>';
+
+  if (isset($element['#original_link']['link_path']) && isset($element['#original_link']['link_path']) && drupal_match_path($element['#original_link']['link_path'], "<block>\n<block>/*")) {
+    $moddelt = $element['#original_link']['options']['block'];
+    $breakpoint = strpos($moddelt, '-');
+    $module = substr($moddelt, 0, $breakpoint);
+    $delta = substr($moddelt, $breakpoint + 1);
+    $block = block_load($module, $delta);
+    $block_content = _block_render_blocks(array($block));
+    $build = _block_get_renderable_array($block_content);
+    $block_rendered = drupal_render($build);
+
+    $output .= $block_rendered;
+  }
+  else {
+    return lezoo_menu_link($variables);
+  }
+
+  $output .= "</li>\n";
+
+  return $output;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function menu_inject_block_form_menu_edit_item_alter(&$form, $form_state) {
+  if (isset($form['options']['#value']['block'])) {
+    $oldblock = $form['options']['#value']['block'];
+  }
+  else {
+    $oldblock = '';
+  }
+
+  $blocks = array('' => t('None'));
+
+  foreach (module_implements('block_info') as $module) {
+    $module_blocks = module_invoke($module, 'block_info');
+    if (!empty($module_blocks)) {
+      foreach ($module_blocks as $delta => $block) {
+        $moduledelta = $module . '-' . $delta;
+        $blocks[$moduledelta] = $block['info'];
+      }
+    }
+  }
+
+  $form['block'] = array(
+    '#title' => t('Block to inject'),
+    '#type' => 'select',
+    '#options' => $blocks, 
+    '#default_value' => $oldblock,
+  );  
+}

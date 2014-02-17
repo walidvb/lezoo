@@ -13,9 +13,10 @@
 
       // Prepare selector and add unwantend selectors.
       var selector = settings.chosen.selector;
+      selector = selector + ', .tabledrag-hide select'
 
       $(selector, context)
-         .not('#field-ui-field-overview-form select, #field-ui-display-overview-form select, .wysiwyg, .draggable select[name$="[weight]"], .draggable select[name$="[position]"]') //disable chosen on field ui
+        .not('#field-ui-field-overview-form select, #field-ui-display-overview-form select') //disable chosen on field ui
         .each(function() {
           var name = $(this).attr('name');
           options = {};
@@ -40,19 +41,15 @@
             options = $.extend(options, {
               width: (($(this).width() < minWidth) ? minWidth : $(this).width()) + 'px'
             });
-                            console.log(options);
-                            console.log($(this));
             $(this).chosen(options);
           }
       });
-      
-      // Enable chosen for widgets.
 
+      // Enable chosen for widgets.
       $('select.chosen-widget', context).each(function() {
         options = $.extend(options, {
           width: (($(this).width() < minWidth) ? minWidth : $(this).width()) + 'px'
         });
-
         $(this).chosen(options);
       });
     }
