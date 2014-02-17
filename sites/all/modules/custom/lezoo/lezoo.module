@@ -10,7 +10,7 @@ module_load_include('inc', 'lezoo', 'modal');
 function lezoo_permission() {
   return array(
     'unconditionally view unpublished content' => array(
-      'title' => t('Unconditionally View Unpublished Content'),
+      'title'           => t('Unconditionally View Unpublished Content'),
       'restrict access' => TRUE
       )
     );
@@ -31,22 +31,22 @@ function lezoo_node_access($node, $op, $account) {
 
 function lezoo_entity_info_alter(&$entity_info){
   $entity_info['node']['view modes']['mini'] = array(
-    'label' => t('Mini'),
+    'label'           => t('Mini'),
     'custom settings' => TRUE,
     );
   $entity_info['field_collection_item']['view modes']['teaser'] = array(
-    'label' => t('Teaser'),
+    'label'           => t('Teaser'),
     'custom settings' => TRUE,
     );
   $entity_info['field_collection_item']['view modes']['mini'] = array(
-    'label' => t('Mini'),
+    'label'           => t('Mini'),
     'custom settings' => TRUE,
     );
 }
 
 function lezoo_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == "event_node_form") {   
-    $form['#validate'][]='lezoo_taxonomy_length_check';
+    $form['#validate'][] = 'lezoo_taxonomy_length_check';
   }
   else if($form_id == 'views_exposed_form')
   {
@@ -90,17 +90,17 @@ function lezoo_taxonomy_length_check($form, &$form_state) {
  *  Ref-Comment: http://theoleschool.com/comment/496#comment-496
  *  Ref-Article: http://theoleschool.com/blog/using-hookviewsalter-add-group-statement
  */
-function lezoo_query_alter(QueryAlterableInterface $query) {
-  if ($query->hasTag('views')) {
-    static $count;
-    $view =& $query->getMetaData('view');
+// function lezoo_query_alter(QueryAlterableInterface $query) {
+//   if ($query->hasTag('views')) {
+//     static $count;
+//     $view =& $query->getMetaData('view');
 
-    if (strstr($groupby = $view->query->options['query_comment'], 'groupby')) {
-      list($action, $field) = explode(':', $groupby);
+//     if (strstr($groupby = $view->query->options['query_comment'], 'groupby')) {
+//       list($action, $field) = explode(':', $groupby);
 
-      if (strlen($field) > 0) {
-        $query->groupBy($field);
-      }
-    }
-  }
-}
+//       if (strlen($field) > 0) {
+//         $query->groupBy($field);
+//       }
+//     }
+//   }
+// }

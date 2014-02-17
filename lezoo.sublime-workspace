@@ -223,30 +223,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "sites/all/themes/lezoo/template.php",
-			"settings":
-			{
-				"buffer_size": 11421,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "sites/all/themes/lezoo/templates/node--blog-post--teaser.tpl.php",
-			"settings":
-			{
-				"buffer_size": 1548,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "sites/all/themes/lezoo/templates/node--blog-post.tpl.php",
-			"settings":
-			{
-				"buffer_size": 6446,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "Packages/LESS-build/LESS.sublime-build",
 	"command_palette":
@@ -254,6 +230,14 @@
 		"height": 400.0,
 		"selected_items":
 		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"modifi",
+				"Modific: Show diff"
+			],
 			[
 				"mo",
 				"Modific: Show diff"
@@ -277,10 +261,6 @@
 			[
 				"gitgutt",
 				"GitGutter: Compare Against HEAD"
-			],
-			[
-				"insta",
-				"Package Control: Install Package"
 			],
 			[
 				"ins",
@@ -491,7 +471,7 @@
 				"Snippet: h_preprocess"
 			]
 		],
-		"width": 601.0
+		"width": 584.0
 	},
 	"console":
 	{
@@ -508,7 +488,25 @@
 	},
 	"file_history":
 	[
+		"/Users/Gaston/Sites/zoo/sites/all/themes/ruche/specs.md",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/views-view-fields--carousel.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/views-bootstrap-carousel-plugin-rows--events-carousel.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/views_bootstrap/templates/carousel/views-bootstrap-carousel-plugin-rows.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/page.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/events.less",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--installations.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/js/custom.js",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/soundcloud_filter/soundcloud_filter.module",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--event--teaser.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--event.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--blog-post--mini.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--blog-post.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--blog-post--teaser.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/template.php",
+		"/Users/Gaston/Sites/zoo/.git/MERGE_MSG",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/soundcloud_filter/soundcloud_filter.info",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/soundcloud_filter/soundcloud_filter.module",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/panels/panels.module",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/menu_inject_block/menu_inject_block.module",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/menu_inject_block/menu_inject_block.info",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/variables.less",
@@ -526,7 +524,6 @@
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/js/myAngular.js",
 		"/Users/Gaston/Library/Application Support/Sublime Text 2/Packages/SublimeLinter/README.md",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--installations.tpl.php",
 		"/Users/Gaston/Library/Application Support/Sublime Text 2/Packages/SublimeLinter/SublimeLinter.sublime-settings",
 		"/Users/Gaston/Library/Application Support/Sublime Text 2/Packages/User/SublimeLinter.sublime-settings",
 		"/Users/Gaston/Library/Application Support/Sublime Text 2/Packages/GitGutter/GitGutter.sublime-settings",
@@ -534,23 +531,16 @@
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/blog.less",
 		"/Users/Gaston/Downloads/leZOO-2014-02-03T17-20-50.mysql",
 		"/Users/Gaston/Downloads/leZOO-2014-02-03T17-20-50.mysql.gz",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--event--teaser.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--installations--mini.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/layouts/lezoo_twocols/lezoo_twocols.inc",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/edit/includes/node.inc",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/layouts/lezoo_twocols/lezoo-twocols.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--blog-post.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--event.tpl.php",
-		"/Users/Gaston/Sites/zoo/.git/MERGE_MSG",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/libs/jquery.pin.js",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/libs/jquery.slides.min.js",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/chosen/chosen.js",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/shs/js/shs.js",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/shs/shs.module",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/views-bootstrap-carousel-plugin-rows--events-carousel.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/modules/views_bootstrap/templates/carousel/views-bootstrap-carousel-plugin-rows.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/field--artist-collection.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/template.php",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/lezoo.module",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/date_filter.inc",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/date_filter.js",
@@ -558,10 +548,8 @@
 		"/Users/Gaston/Sites/zoo/sites/all/modules/panels/js/display_editor.js",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/panels/panels_ipe/js/panels_ipe.js",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/panels/plugins/layouts/flexible/flexible-admin.js",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/page.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/libs/bootstrap-hover-dropdown.min.js",
 		"/Users/Gaston/Sites/cordesavides/sites/all/themes/cordesavides/myJS.js",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/views-view-fields--carousel.tpl.php",
 		"/Users/Gaston/Library/Application Support/Sublime Text 2/Packages/Package Control/Package Control.sublime-settings",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/panels_bootstrap_layouts/plugins/layouts/bootstrap_twocol_5_7_stacked/bootstrap_twocol_5_7_stacked.inc",
 		"/Users/Gaston/Library/Application Support/Sublime Text 2/Packages/User/Package Control.sublime-settings",
@@ -590,7 +578,6 @@
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/custom.js",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/page_emulator/page_emulator.module",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/lezoo.info",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--blog-post--mini.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/views_infinite_scroll/views_infinite_scroll.module",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/admin.js",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo_modules/modal.inc",
@@ -617,7 +604,6 @@
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/angular_filter/index.html",
 		"/Users/Gaston/Library/Caches/Cleanup At Startup/Transmit/59AF24F4-683B-49E7-BE7A-54D8281F6A7A/style.less",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/date_ical/date_ical.make",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/events.less",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/views-bootstrap-carousel-plugin-rows.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/field_coll.inc",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/bootstrap/less/mixins.less",
@@ -629,13 +615,7 @@
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--installation.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/bootstrap/theme/system/page.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/ctools/page_manager/help/custom-pages.html",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/field__artist_collection.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/bootstrap/less/bootstrap.less",
-		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/views_offset/views_offset.module",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/bluemasters/node.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/header.less",
-		"/Users/Gaston/Sites/zoo/sites/default/settings.php",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/bootstrap/less/variables.less"
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/field__artist_collection.tpl.php"
 	],
 	"find":
 	{
@@ -653,6 +633,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"\"",
+			"soundcloud_filter_html5",
+			"showartwork",
 			" short_artist_list",
 			"top",
 			"right",
@@ -777,10 +760,7 @@
 			"banheros",
 			"portada",
 			"micolehelp",
-			"../bootstrap",
-			".navbar-nav",
-			"font",
-			"link_favicon"
+			"../bootstrap"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -798,503 +778,8 @@
 	"groups":
 	[
 		{
-			"selected": 2,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "sites/all/themes/lezoo/template.php",
-					"settings":
-					{
-						"buffer_size": 11421,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2772,
-								2772
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME",
-								"WTF"
-							],
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110.0
-							],
-							"gjslint_options":
-							[
-							],
-							"incomplete_sync": null,
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": false,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"remote_loading": false,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2.0,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "hard",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": true,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"synced": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1827.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "sites/all/themes/lezoo/templates/node--blog-post--teaser.tpl.php",
-					"settings":
-					{
-						"buffer_size": 1548,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								681,
-								681
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME",
-								"WTF"
-							],
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110.0
-							],
-							"gjslint_options":
-							[
-							],
-							"incomplete_sync": null,
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": false,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"remote_loading": false,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2.0,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "hard",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": true,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"synced": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "sites/all/themes/lezoo/templates/node--blog-post.tpl.php",
-					"settings":
-					{
-						"buffer_size": 6446,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4357,
-								4357
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME",
-								"WTF"
-							],
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110.0
-							],
-							"gjslint_options":
-							[
-							],
-							"incomplete_sync": null,
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": false,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"remote_loading": false,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2.0,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "hard",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": true,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"synced": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 742.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1352,12 +837,64 @@
 		"selected_items":
 		[
 			[
+				"carouselviewsrow",
+				"modules/views_bootstrap/templates/carousel/views-bootstrap-carousel-plugin-rows.tpl.php"
+			],
+			[
+				"carous",
+				"lezoo/templates/views-bootstrap-carousel-plugin-rows--events-carousel.tpl.php"
+			],
+			[
+				"nodeblogmini",
+				"lezoo/templates/node--blog-post--mini.tpl.php"
+			],
+			[
+				"nodeblogtea",
+				"lezoo/templates/node--blog-post--teaser.tpl.php"
+			],
+			[
+				"page",
+				"lezoo/templates/page.tpl.php"
+			],
+			[
 				"nodeblog",
 				"lezoo/templates/node--blog-post.tpl.php"
 			],
 			[
+				"event",
+				"lezoo/less/events.less"
+			],
+			[
+				"nodeins",
+				"lezoo/templates/node--installations.tpl.php"
+			],
+			[
 				"custom",
 				"lezoo/js/custom.js"
+			],
+			[
+				"soundcloudfilterinfo",
+				"custom/soundcloud_filter/soundcloud_filter.info"
+			],
+			[
+				"sound",
+				"custom/soundcloud_filter/soundcloud_filter.module"
+			],
+			[
+				"nodeevent",
+				"lezoo/templates/node--event--teaser.tpl.php"
+			],
+			[
+				"panels",
+				"modules/panels/panels.module"
+			],
+			[
+				"blogmini",
+				"lezoo/templates/node--blog-post--mini.tpl.php"
+			],
+			[
+				"soundcloud",
+				"modules/soundcloud_filter/soundcloud_filter.module"
 			],
 			[
 				"injectmodu",
@@ -1436,10 +973,6 @@
 				"lezoo/templates/node--installations.tpl.php"
 			],
 			[
-				"nodeevent",
-				"lezoo/templates/node--event.tpl.php"
-			],
-			[
 				"angu",
 				"lezoo/js/myAngular.js"
 			],
@@ -1486,10 +1019,6 @@
 			[
 				"nodeeven",
 				"lezoo/templates/node--event.tpl.php"
-			],
-			[
-				"carous",
-				"lezoo/templates/views-bootstrap-carousel-plugin-rows--events-carousel.tpl.php"
 			],
 			[
 				"",
@@ -1544,16 +1073,8 @@
 				"custom/lezoo/date_filter.inc"
 			],
 			[
-				"nodeins",
-				"lezoo/templates/node--installations--mini.tpl.php"
-			],
-			[
 				"nodeinstalmini",
 				"lezoo/templates/node--installations--mini.tpl.php"
-			],
-			[
-				"page",
-				"lezoo/templates/page.tpl.php"
 			],
 			[
 				"var",
@@ -1638,10 +1159,6 @@
 			[
 				"date_fil",
 				"custom/lezoo/date_filter.inc"
-			],
-			[
-				"event",
-				"lezoo/templates/node--event.tpl.php"
 			],
 			[
 				"eventteas",
@@ -1830,38 +1347,6 @@
 			[
 				"temp",
 				"themes/lezoo/template.php"
-			],
-			[
-				"varialess",
-				"themes/lezoo/less/variables.less"
-			],
-			[
-				"pageem",
-				"modules/custom/page_emulator/page_emulator.module"
-			],
-			[
-				"variless",
-				"themes/lezoo/less/variables.less"
-			],
-			[
-				"vari",
-				"modules/variable/variable.inc"
-			],
-			[
-				"over",
-				"themes/lezoo/less/overrides.less"
-			],
-			[
-				"header",
-				"themes/lezoo/less/header.less"
-			],
-			[
-				"bookcoffe",
-				"app/assets/javascripts/books.js.coffee"
-			],
-			[
-				"route",
-				"config/routes.rb"
 			]
 		],
 		"width": 0.0

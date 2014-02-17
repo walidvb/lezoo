@@ -2,8 +2,8 @@
 
 
 /**
- * @file template.php
- */
+* @file template.php
+*/
 function lezoo_preprocess_html(&$variables) {
 	drupal_add_css('//cdnjs.cloudflare.com/ajax/libs/animate.css/2.0/animate.min.css', array('type' => 'external'));
 	drupal_add_js('//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js', array('type' => 'external'));
@@ -13,6 +13,14 @@ function lezoo_preprocess_html(&$variables) {
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', array('type' => 'external', 'scope' => 'footer'));
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js', array('type' => 'external', 'scope' => 'footer'));
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/1.5.25/jquery.isotope.min.js', array('type' => 'external', 'scope' => 'footer'));
+	//Add instant click only for anon users
+	if($variables['user']->uid == 0)
+	{
+		drupal_add_js("InstantClick.on('change', function(){
+			Drupal.attachBehaviors();
+		});
+		InstantClick.init();", array('type' => 'inline', 'scope' => 'footer'));
+	}
 	if(isset($variables['user']->roles['3']))
 	{
 		$variables['classes_array'][] = $variables['user']->roles['3'];
@@ -26,68 +34,45 @@ function lezoo_preprocess_html(&$variables) {
 }
 
 /**
- * @file
- * menu-link.func.php
- */
+* @file
+* menu-link.func.php
+*/
 
 /**
- * Overrides theme_menu_link().
- */
+* Overrides theme_menu_link().
+*/
 function lezoo_menu_link(array $variables) {
-	$element = $variables['element'];
-	$sub_menu = '';
+	$element                           = $variables['element'];
 	$element['#attributes']['class'][] = strtolower($element['#title']);
-  	//change behavior for visu
-	if(0 && $element['#original_link']['mlid'] == '1266')
-	{
 
-  	  // On primary navigation menu, class 'active' is not set on active menu item.
-	  // @see https://drupal.org/node/1896674
-		$current_page = explode('/', $_GET['q']);
-		if (($element['#href'] == $current_page[0] || ($element['#href'] == '<front>' && drupal_is_front_page())) && (empty($element['#localized_options']['language']))) {
-			$element['#attributes']['class'][] = 'active';
-		}
-		$output = l($element['#title'], $element['#href'], $element['#localized_options']);
-		unset($element['#below']['#theme_wrappers']);
-		unset($element['#below']['#sorted']);
-		$sub_menu .= '<ul class="sub-menu">';
-		foreach($element['#below'] as $child)
-		{	
-			$sub_menu .= render($child);
-		}
-		$sub_menu .= '</ul>';
-		return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";;
-	}
-  else //return bootstrap_menu_link().
-  {
-  	return bootstrap_menu_link($variables);
-  }
+	return bootstrap_menu_link($variables);
+
 }
 
 /**
- * @file
- * bootstrap-search-form-wrapper.func.php
- */
+* @file
+* bootstrap-search-form-wrapper.func.php
+*/
 
 /**
- * Theme function implementation for bootstrap_search_form_wrapper.
- */
+* Theme function implementation for bootstrap_search_form_wrapper.
+*/
 function lezoo_bootstrap_search_form_wrapper($variables) {
-  $output = '<div class="input-group">';
-  $output .= $variables['element']['#children'];
-  $output .= '<span class="input-group-btn">';
-  $output .= '<button type="submit" class="btn btn-default">';
-  // We can be sure that the font icons exist in CDN.
-  if (theme_get_setting('bootstrap_cdn')) {
-    $output .= _bootstrap_icon('search');
-  }
-  else {
-    $output .= _bootstrap_icon('search');;
-  }
-  $output .= '</button>';
-  $output .= '</span>';
-  $output .= '</div>';
-  return $output;
+	$output = '<div class="input-group">';
+	$output .= $variables['element']['#children'];
+	$output .= '<span class="input-group-btn">';
+	$output .= '<button type="submit" class="btn btn-default">';
+// We can be sure that the font icons exist in CDN.
+	if (theme_get_setting('bootstrap_cdn')) {
+		$output .= _bootstrap_icon('search');
+	}
+	else {
+		$output .= _bootstrap_icon('search');;
+	}
+	$output .= '</button>';
+	$output .= '</span>';
+	$output .= '</div>';
+	return $output;
 }
 
 
@@ -99,10 +84,10 @@ function lezoo_preprocess_page(&$variables) {
 		switch($variables['node']->type)
 		{
 			case 'event':
-				$menu_active_item ='agenda';
+			$menu_active_item ='agenda';
 			break;
 			case 'installations':
-				$menu_active_item ='visu';
+			$menu_active_item ='visu';
 			break;
 			case 'blog_post':
 			switch($variables['node']->field_section['und']['0']['tid'])
@@ -133,8 +118,8 @@ function lezoo_preprocess_page(&$variables) {
 }
 
 /**
- * Implements hook_preprocess().
- */
+* Implements hook_preprocess().
+*/
 function lezoo_preprocess_node(&$variables) {
 	$variables['title_attributes_array']['class'] = 'node-title';
 
@@ -154,7 +139,7 @@ function lezoo_preprocess_node(&$variables) {
 	{
 		if($variables['type'] == 'event')
 		{
-			$variables['ics'] = '<div class="ics-container">' . l('Ajouter au calendrier', base_path() . 'events/'. $variables['nid'] . '/' . $variables['title'] . '.ics', array('attributes' => array('class' => 'event-ics'))) . '</div>';
+			$variables['ics'] = '<div class="ics-container">' . l('Ajouter au calendrier', base_path() . 'feed/'. $variables['nid'] . '/event-feed.ics', array('attributes' => array('class' => 'event-ics'))) . '</div>';
 		}
 		else if($variables['type'] == 'installations')
 		{
@@ -165,7 +150,7 @@ function lezoo_preprocess_node(&$variables) {
 		{
 			if($variables['view_mode'] == 'full')
 			{
-				//add related items to the views
+//add related items to the views
 				$section = $variables['field_section']['und']['0']['tid'];
 				$genres = null;
 				$tags = null;
@@ -192,8 +177,8 @@ function lezoo_preprocess_node(&$variables) {
 					{
 						$tags .= $tag['tid'] . '+';
 					}
-					$genres = empty($genres) ? null : $genres;
-					$tags = empty($tags) ? null : $tags;
+					$genres  = empty($genres) ? null : $genres;
+					$tags    = empty($tags) ? null : $tags;
 					$related = views_embed_view('related', 'default', $variables['nid'], $section, $genres, $tags);
 					if($related)
 					{
@@ -216,25 +201,25 @@ function lezoo_preprocess_node(&$variables) {
 		}
 	}
 
-	//share42
+//share42
 	global $base_url;
 	$variables['share42'] = '<div class="share42init" data-url="' . $base_url .'/'. drupal_get_path_alias('node/' . $variables['nid']) . '" data-title="' . $variables['node']->title . '"></div>';
 }
 
 //set video frame width to 100%
 function lezoo_video_filter_iframe(&$variables) {
-	$video = $variables['video'];
-	$video['width'] = '100%';
+	$video           = $variables['video'];
+	$video['width']  = '100%';
 	$video['height'] = '350';
-	$classes = video_filter_get_classes($video);
-	$output = '<iframe src="' . $video['source'] . '" width="' . $video['width'] . '" height="' . $video['height'] . '" class="video-filter ' . implode(' ', $classes) . '" frameborder="0"></iframe>';
+	$classes         = video_filter_get_classes($video);
+	$output          = '<iframe src="' . $video['source'] . '" width="' . $video['width'] . '" height="' . $video['height'] . '" class="video-filter ' . implode(' ', $classes) . '" frameborder="0"></iframe>';
 	return $output;
 }
 
 
 /**
- * Bootstrap theme wrapper function for the primary menu links.
- */
+* Bootstrap theme wrapper function for the primary menu links.
+*/
 function lezoo_menu_tree__primary(&$variables) {
 	return '<ul class="menu nav navbar-nav primary">' . $variables['tree'] . '</ul>';
 }
@@ -248,32 +233,32 @@ function lezoo_image(&$variables){
 
 function get_img_url($style, $field_name, $node){
 	$field = $node->$field_name;
-	$file = file_load($field['und'][0]['fid']);
+	$file  = file_load($field['und'][0]['fid']);
 	return image_style_url($style, $file->uri);
 
 }
 //---------------------- Field Collection
 /**
- * Creates a simple text rows array from a field collections, to be used in a
- * field_preprocess function.
- *
- * @param $vars
- *   An array of variables to pass to the theme template.
- *
- * @param $field_name
- *   The name of the field being altered.
- *
- * @param $field_array
- *   Array of fields to be turned into rows in the field collection.
- */
+* Creates a simple text rows array from a field collections, to be used in a
+* field_preprocess function.
+*
+* @param $vars
+*   An array of variables to pass to the theme template.
+*
+* @param $field_name
+*   The name of the field being altered.
+*
+* @param $field_array
+*   Array of fields to be turned into rows in the field collection.
+*/
 
 function rows_from_field_collection(&$vars, $field_name, $field_array) {
 	$vars['rows'] = array();
 	foreach($vars['element']['#items'] as $key => $item) {
 		$entity_id = $item['value'];
-		$entity = field_collection_item_load($entity_id);
-		$wrapper = entity_metadata_wrapper('field_collection_item', $entity);
-		$row = array();
+		$entity    = field_collection_item_load($entity_id);
+		$wrapper   = entity_metadata_wrapper('field_collection_item', $entity);
+		$row       = array();
 		foreach($field_array as $field){
 			$row[$field] = $wrapper->$field->value();
 		}
@@ -285,9 +270,9 @@ function lezoo_preprocess_field(&$vars, $hook){
 	if ($vars['element']['#field_name'] == 'field_artist' || $vars['element']['#field_name'] =='field_vjs') {
 		$vars['theme_hook_suggestions'][] = 'field__artist_collection';
 		$vars['theme_hook_suggestions'][] = 'field__artist_collection__';
-		$vars['teaser'] = $vars['element']['#view_mode'] == 'teaser';
-		$vars['view_mode'] = $vars['element']['#view_mode'];
-		$field_array = array('field_artist_name', 'field_label','field_origin', 'field_link', 'field_artist_details');
+		$vars['teaser']                   = $vars['element']['#view_mode'] == 'teaser';
+		$vars['view_mode']                = $vars['element']['#view_mode'];
+		$field_array                      = array('field_artist_name', 'field_label','field_origin', 'field_link', 'field_artist_details');
 		rows_from_field_collection($vars, $vars['element']['#field_name'], $field_array);
 
 	}
@@ -316,35 +301,4 @@ function lezoo_block_view($delta = ''){
 function lezoo_header($title = 'group'){
 	$title = t($title);
 	return "<div class=\"clickable group-trigger visible-xs\">$title</div>";
-}
-
-function _modal(){
-	$output = '
-	<!-- Modal -->
-	<div class="modal fade" id="myModal" tabindex="-1" data-backdrop="true" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title" id="myModalLabel">Choisis ton style!</h4>
-					</div>
-					<div class="modal-body">
-						<div ng-app="leZooApp">
-							<div ng-controller="feedFilter">
-								<form>
-									<span ng-repeat="genre in genres" class="genre" ng-class="{\'selected\': genre.selected}" ng-click="genre.selected = !genre.selected"> 
-										{{genre.name}}
-									</span>
-								</form>
-								<a ng-href="webcal://lezoo.ch/{{params()}}feed.ics" class="btn btn-primary btn-lg">Synchronise ton agenda avec celui du ZOO!</a>
-							</div>
-						</div>
-					</div>
-					<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Fermerasd</button>
-				</div>
-			</div><!-- /.modal-content -->
-		</div><!-- /.modal-dialog -->
-	</div><!-- /.modal -->';
-	return $output;
 }

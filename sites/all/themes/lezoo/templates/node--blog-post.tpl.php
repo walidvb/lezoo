@@ -81,7 +81,7 @@
  */
 if(isset($content['field_music_genre']))
 {
-  $genres = $content['field_music_genre'];
+  $genres            = $content['field_music_genre'];
   $genres['#access'] = true;
   hide($content['field_music_genre']);
 }

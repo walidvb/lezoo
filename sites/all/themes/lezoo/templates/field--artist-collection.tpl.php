@@ -34,7 +34,7 @@
 
 	$infos = array($labels_markup, $origins_markup);
 	$infos = array_filter($infos, 'strlen');
-	$info = implode( ' / ',  $infos);
+	$info  = implode( ' / ',  $infos);
 ?>
 
 	<div class="artist artist-item">
