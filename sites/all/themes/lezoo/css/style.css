@@ -6522,6 +6522,7 @@ h1 a {
   color: #000000;
   line-height: 1.995;
   z-index: 3;
+  text-shadow: 1px 1px 5px #494949;
 }
 select.form-control#edit-field-music-genre-tid {
   background-color: transparent;
@@ -6941,6 +6942,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
   background-color: transparent;
+  text-shadow: 1px 1px 5px #494949;
 }
 .node-blog-post .node-title:hover {
   -webkit-transition-duration: 0.5s;
@@ -7751,6 +7753,38 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .video-filter-field {
   display: inline-block;
+}
+.node-installations.node-teaser {
+  position: relative;
+  min-height: 295px;
+}
+.node-installations.node-teaser .node-title {
+  z-index: 9;
+  padding-left: 12px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-bottom: solid 1px #ffffff;
+  font-family: Georgia, "Times New Roman", Times, serif !important;
+  text-transform: uppercase;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  background-color: transparent;
+  text-shadow: 1px 1px 5px #494949;
+}
+.node-installations.node-teaser .node-title:hover {
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  background-color: rgba(77, 77, 77, 0.5);
+}
+.node-installations.node-teaser .node-title,
+.node-installations.node-teaser .content {
+  position: absolute;
+  top: 0;
+}
+.node-installations.node-teaser .content {
+  left: -50px;
 }
 .node-installations.view-mode-full .install-header {
   min-height: 120px;

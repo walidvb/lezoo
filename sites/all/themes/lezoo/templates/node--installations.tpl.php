@@ -48,15 +48,20 @@ hide($content['links']);
         </div>
     <div class="row">
       <div class="<?php print $right_col_classes?> pull-right">
-        <?php lezoo_header('Les Photos') ?>
-        <div id="install-photos">
-          <div class="swipe-wrap">
-            <?php print render($content['field_photos']) ?>
+        <div class="closable">
+          <?php print lezoo_header('Les Images') ?>
+          <div id="install-photos">
+            <div class="swipe-wrap">
+              <?php print render($content['field_photos']) ?>
+            </div>
           </div>
         </div>
       </div>
       <div class="<?php print $left_col_classes?> pull-left">
-        <?php print render($content['field_video']); ?>
+        <?php if(!empty($content['field_video'])): ?>
+          <?php print lezoo_header('La video'); ?>
+          <?php print render($content['field_video']); ?>
+          <?php endif; ?>
         <?php print render($content) ?>
       </div>
     </div>

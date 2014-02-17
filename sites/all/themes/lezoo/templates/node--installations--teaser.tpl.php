@@ -109,7 +109,9 @@ else
 
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
             <?php print render($title_prefix); ?>
-                <<?php print $title_tag; print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></<?php print $title_tag?>>
+                <a href="<?php print $node_url; ?>">
+                  <<?php print $title_tag; print $title_attributes; ?>><?php print $title; ?></<?php print $title_tag?>>
+                </a>
             <?php print render($title_suffix); ?>
             <div class="content"<?php print $content_attributes; ?>>
                 <?php print render($content) ?>

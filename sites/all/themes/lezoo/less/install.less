@@ -36,12 +36,12 @@
 			width: 15% !important;
 			position: relative;
 			top: -115px;
-				@media @mobile{
-					margin-left: 60%;
-					width: 100% !important;
-					position: relative;
-					top: -115px;
-				}
+			@media @mobile{
+				margin-left: 60%;
+				width: 100% !important;
+				position: relative;
+				top: -115px;
+			}
 			.date{
 				width: 80px;
 				position: relative;
@@ -61,6 +61,40 @@
 .video-filter-field{
 	display: inline-block;
 }
+
+// Teaser install, home page and search results
+.node-installations.node-teaser{
+	position: relative;
+	min-height: 295px;
+	.node-title{
+		z-index: 9;
+		padding-left: @padding-base-horizontal;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		padding-top: 12px;
+		padding-bottom: 12px;
+		border-bottom: solid 1px @primary-color;
+		font-family: @font-family-serif !important;
+		text-transform: uppercase;
+		.transition-duration(0.5s);
+		background-color: transparent;
+		&:hover{
+			.transition-duration(0.5s);
+			@background-color: lighten(@fourth-color, 30%);
+			background-color: rgba(red(@background-color),green(@background-color),blue(@background-color), 0.5);
+		}
+		.text-shadow();
+	}
+	.node-title, .content{
+		position: absolute;
+		top: 0;
+	}
+	// center more or less
+	.content{
+		left: -50px;
+	}
+}
+
 // Full installation
 .node-installations.view-mode-full{
 	.install-header{
