@@ -46,16 +46,18 @@ hide($content['links']);
             <?php endif; ?>
           </div>
         </div>
-    <div class="<?php print $left_col_classes?>">
-      <?php print render($content['field_video']); ?>
-      <?php print render($content) ?>
-    </div>
-    <div class="<?php print $right_col_classes?>">
-      <?php lezoo_header('Les Photos') ?>
-      <div id="install-photos">
-        <div class="swipe-wrap">
-          <?php print render($content['field_photos']) ?>
+    <div class="row">
+      <div class="<?php print $right_col_classes?> pull-right">
+        <?php lezoo_header('Les Photos') ?>
+        <div id="install-photos">
+          <div class="swipe-wrap">
+            <?php print render($content['field_photos']) ?>
+          </div>
         </div>
+      </div>
+      <div class="<?php print $left_col_classes?> pull-left">
+        <?php print render($content['field_video']); ?>
+        <?php print render($content) ?>
       </div>
     </div>
   </div>

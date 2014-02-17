@@ -119,7 +119,7 @@
 		var closeBlocks = function(){
 
 				$blockTitle.each(function(){
-					if($(window).width() <= 769)
+					if($(window).width() < 767)
 					{
 						$(this).next().hide();
 					}

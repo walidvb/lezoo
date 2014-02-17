@@ -141,7 +141,7 @@ function lezoo_preprocess_node(&$variables) {
 		{
 			$variables['ics'] = '<div class="ics-container">' . l('Ajouter au calendrier', base_path() . 'feed/'. $variables['nid'] . '/event-feed.ics', array('attributes' => array('class' => 'event-ics'))) . '</div>';
 		}
-		else if($variables['type'] == 'installations')
+		else if($variables['type'] == 'installations' && !empty($variables['content']['field_event_ref']))
 		{
 			$event_ref_label = t("Vu à la soirée");
 			$variables['content']['field_event_ref']['#title'] = $event_ref_label;
@@ -180,6 +180,7 @@ function lezoo_preprocess_node(&$variables) {
 					$genres  = empty($genres) ? null : $genres;
 					$tags    = empty($tags) ? null : $tags;
 					$related = views_embed_view('related', 'default', $variables['nid'], $section, $genres, $tags);
+					dpm($related, 'related');
 					if($related)
 					{
 						$related_block = "<aside class=\"related-posts\"><h3 class=\"block-title related-title\">". t('Encore plus') ."</h3>" . $related . "</aside>";
@@ -188,16 +189,18 @@ function lezoo_preprocess_node(&$variables) {
 				}
 
 			}
-			if($variables['field_section']['und']['0']['tid'] == 28)
+			if(!empty($variables['content']['field_event_ref']))
 			{
-				$event_ref_label = t("Entendu à la soirée");
+				if($variables['field_section']['und']['0']['tid'] == 28)
+				{
+					$event_ref_label = t("Entendu à la soirée");
+				}
+				else
+				{
+					$event_ref_label = t("Vu à la soirée");
+				}
+				$variables['content']['field_event_ref']['#title'] = $event_ref_label;
 			}
-			else
-			{
-				$event_ref_label = t("Vu à la soirée");
-			}
-			$variables['content']['field_event_ref']['#title'] = $event_ref_label;
-
 		}
 	}
 
@@ -301,4 +304,10 @@ function lezoo_block_view($delta = ''){
 function lezoo_header($title = 'group'){
 	$title = t($title);
 	return "<div class=\"clickable group-trigger visible-xs\">$title</div>";
+}
+
+
+function lezoo_soundcloud_filter_embed_html5($variables) {
+	$variables['sound']['width'] = "99.5%";
+	return theme_soundcloud_filter_embed_html5($variables);
 }

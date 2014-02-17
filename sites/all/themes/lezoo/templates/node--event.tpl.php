@@ -28,34 +28,38 @@
 				<?php print render($content['field_date']) ?>
 				</div>
 				<?php print render($content['field_big_image']) ?>
-				<?php print lezoo_header('Le Line up'); ?>
-				<div class="event-line-up">
-					<div class='event-line-up event-line-up-djs line-up'> <?php print render($content['field_artist']); ?>
-					</div>
-					<?php if(!empty($content['field_vjs'])): ?>
-						<div class='event-line-up event-line-up-vjs line-up'>
-							<span class="vjs-label">
-								Visuels: 
-							</span>
-							<?php print render($content['field_vjs']); ?>
+				<div class="closable">
+					<?php print lezoo_header('Le Line up'); ?>
+					<div class="event-line-up">
+						<div class='event-line-up event-line-up-djs line-up'> <?php print render($content['field_artist']); ?>
 						</div>
-					<?php endif; ?>
+						<?php if(!empty($content['field_vjs'])): ?>
+							<div class='event-line-up event-line-up-vjs line-up'>
+								<span class="vjs-label">
+									Visuels: 
+								</span>
+								<?php print render($content['field_vjs']); ?>
+							</div>
+						<?php endif; ?>
+					</div>
 				</div>
 				<?php if(!$teaser): ?>
-					<?php print lezoo_header('Les Détails'); ?>
-					<div>
-					  	<div class="<?php print $left_col_classes ?>">
-					  		<fig class="event-flyer">
-									<?php print render($content['field_flyer']); ?>
-							</fig>
-					  	</div>
-					  	<div class="<?php print $right_col_classes ?>">
-					  		<div class="event-details">
-								<?php print render($content['field_details']); ?>
-							</div>
-								<div class="event-body">
-									<?php print render($content['body']); ?>
+					<div class="closable">
+						<?php print lezoo_header('Les Détails'); ?>
+						<div class="row">
+						  	<div class="<?php print $left_col_classes ?>">
+						  		<fig class="event-flyer">
+										<?php print render($content['field_flyer']); ?>
+								</fig>
+						  	</div>
+						  	<div class="<?php print $right_col_classes ?>">
+						  		<div class="event-details">
+									<?php print render($content['field_details']); ?>
 								</div>
+									<div class="event-body">
+										<?php print render($content['body']); ?>
+									</div>
+							</div>
 						</div>
 					</div>
 				<?php endif; ?>

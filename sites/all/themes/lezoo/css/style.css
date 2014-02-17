@@ -1,4 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
+
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
 /*@primary-color: rgb(99,162, 215);
 @secondary-color: rgb(190,61,68);
 @tertiary-color: hsb(0,0,10);
@@ -5253,6 +5255,12 @@ td.visible-print {
     display: none !important;
   }
 }
+/*@primary-color: rgb(99,162, 215);
+@secondary-color: rgb(190,61,68);
+@tertiary-color: hsb(0,0,10);
+@primary-color: @white;
+@secondary-color: @black;
+*/
 html.overlay-open .navbar-fixed-top {
   z-index: 400;
 }
@@ -6214,6 +6222,9 @@ td.radio {
     display: none;
   }
 }
+.closable {
+  border-bottom: solid 1px #bfbfbf;
+}
 .group-trigger {
   line-height: 2;
   background: #494949;
@@ -6933,10 +6944,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
   transition-duration: 0.5s;
   background-color: rgba(77, 77, 77, 0.5);
 }
-.node-blog-post .col-left {
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
 .node-blog-post .field-big-image {
   max-height: 330px;
   overflow: hidden;
@@ -6949,12 +6956,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .node-blog-post .field-body img {
   margin: 0px 4px;
-}
-.node-blog-post .contextual-links-region {
-  display: none;
-}
-.node-blog-post .artists {
-  display: none;
 }
 .node-blog-post .field-label {
   display: inline-block;
@@ -6986,7 +6987,8 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .blog-info {
   color: #bfbfbf;
   margin-top: 3px;
-  padding: 3px 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
   display: inline-block;
   width: 100%;
 }
@@ -7058,9 +7060,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .blog-info .submitted {
   margin-bottom: 0;
-}
-.node-promoted .pinned {
-  padding-left: 0px;
 }
 .carousel {
   padding-left: 0px;

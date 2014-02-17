@@ -48,10 +48,6 @@
 			background-color: rgba(red(@background-color),green(@background-color),blue(@background-color), 0.5);
 		}
 	}
-	.col-left{
-		padding-left: 0px !important;
-		padding-right: 0px !important;
-	}
 	.field-big-image{
 		max-height: 330px;
 		overflow: hidden;
@@ -64,12 +60,6 @@
 		img{
 			margin: 0px 4px;
 		}
-	}
-	.contextual-links-region{
-		display: none;
-	}
-	.artists{
-		display: none;
 	}
 	.field-label{
 		display: inline-block;
@@ -100,14 +90,12 @@
 		}
 	}
 }
-//needed for when the left column is pinned
-.pin-fixed{
-}
 
 .blog-info{
 	color: @tertiary-color;
 	margin-top: 3px;
-	padding: 3px 5px;
+	padding-top: 3px;
+	padding-bottom: 3px;
 	display: inline-block;
 	width: 100%;
 	>div, .tags > div{
@@ -148,11 +136,5 @@
 	}
 	.submitted{
 		margin-bottom: 0;
-	}
-}
-
-.node-promoted{
-	.pinned{
-		padding-left: 0px;
 	}
 }

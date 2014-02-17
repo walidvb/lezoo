@@ -90,6 +90,7 @@ if(isset($content['field_tags']))
   $tags = $content['field_tags'];
   hide($content['field_tags']);
 }
+hide($content['field_big_image']);
 ?>
 <?php print render($content['flippy_pager']); ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes ?> clearfix"<?php print $attributes; ?>>
@@ -106,9 +107,9 @@ if(isset($content['field_tags']))
 
 
 
-<div class="content"<?php print $content_attributes; ?>>
+<div class="content row"<?php print $content_attributes; ?>>
   <?php if ($display_submitted): ?>
-    <div class="blog-info">
+    <div class="blog-info col-xs-12">
       <div class="submitted">
         <?php print $submitted; ?>
       </div>
@@ -122,26 +123,32 @@ if(isset($content['field_tags']))
   <?php endif; ?>
   <div class="<?php print $left_col_classes ?>">
     <?php print render($content['field_big_image']); ?>
-    <?php print lezoo_header('Les Détails'); ?>
-    <div>
-      <?php 
-      if(!empty($content['field_links'])){ print render($content['field_links']); } 
-      if(!empty($content['field_event_ref'])) { print render($content['field_event_ref']); }
-      if(!empty($related) && ($is_page)){print $related;}
-      ?>
+    <?php if(!empty($content['field_links']) || !empty($content['field_event_ref']) ): ?>
+    <div class="closable hidden-xs">
+      <?php print lezoo_header('Plus'); ?>
+      <div>
+        <?php 
+        if(!empty($content['field_links'])){ print render($content['field_links']); } 
+        if(!empty($content['field_event_ref'])) { print render($content['field_event_ref']); }
+        ?>
+      </div>
+    </div>
+  <?php endif; ?>
+  </div>
+  <div class="<?php print $right_col_classes ?>">
+    <div class="closable">
+      <?php print lezoo_header('Le Post'); ?>
+      <div>
+        <?php
+          if(!empty($content['field_soundcloud'])) { print render($content['field_soundcloud']); }
+            // We hide the comments and links now so that we can render them later.
+        hide($content['comments']);
+        hide($content['links']);
+        print render($content);
+        ?>
+      </div>
     </div>
   </div>
-  <?php print lezoo_header('Le Post'); ?>
-  <div class="<?php print $right_col_classes ?>">
-    <?php
-      if(!empty($content['field_soundcloud'])) { print render($content['field_soundcloud']); }
-        // We hide the comments and links now so that we can render them later.
-    hide($content['comments']);
-    hide($content['links']);
-    print render($content);
-    ?>
-  </div>
-  
 </div>
 
 
