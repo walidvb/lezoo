@@ -6207,9 +6207,6 @@ td.radio {
     width: 8.333333333333332%;
   }
 }
-#navbar #block-search-form {
-  display: none;
-}
 @media (max-width: 767px) {
   .container {
     padding-left: 0px;
@@ -6222,15 +6219,62 @@ td.radio {
     display: none;
   }
 }
+.group-trigger {
+  line-height: 2!important;
+  background: #494949;
+  font-family: "Oswald", Helvetica, Arial, sans-serif;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 12px;
+  font-size: 15px;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+@media (max-width: 767px) {
+  .pane-title {
+    line-height: 2!important;
+    background: #494949;
+    font-family: "Oswald", Helvetica, Arial, sans-serif;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 12px;
+    font-size: 15px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
 .closable {
   border-bottom: solid 1px #bfbfbf;
 }
-.group-trigger {
-  line-height: 2;
-  background: #494949;
-  font-family: "Oswald", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-  padding: 0 5px;
+#node-38 {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+#node-38:before,
+#node-38:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+#node-38:after {
+  clear: both;
+}
+#node-38:before,
+#node-38:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+#node-38:after {
+  clear: both;
 }
 .footer {
   z-index: 10;
@@ -6306,6 +6350,7 @@ footer .social:before {
   text-decoration: inherit;
   width: 1em;
   margin-right: .2em;
+  margin-left: .2em;
   text-align: center;
   /* opacity: .8; */
 
@@ -6316,15 +6361,6 @@ footer .social:before {
   /* fix buttons height, for twitter bootstrap */
 
   line-height: 1em;
-  /* Animation center compensation - margins should be symmetric */
-
-  /* remove if not needed */
-
-  margin-left: .2em;
-  /* Uncomment for 3D effect */
-
-  /*text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
-
 }
 footer .facebook:before {
   content: 'f';
@@ -6638,14 +6674,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .node-event.view-mode-full .event-line-up-djs .artist {
   display: inline-block;
-  /*
-			&:after{
-				content:' / ';
-				margin-left: 5px;
-				margin-right: 5px;
-			}
-			*/
-
 }
 .node-event.view-mode-full .event-line-up-djs .artist .artist-info {
   color: #494949;
@@ -6655,27 +6683,12 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .node-event.view-mode-full .event-line-up-vjs .artists .artist {
   display: inline-block;
-  /*
-				&:after{
-					content:'/';
-					margin-left: 5px;
-					margin-right: 5px;
-				}
-				*/
-
 }
 .node-event.view-mode-full .col-left .event-flyer {
   display: block;
 }
 .node-event.view-mode-full .col-left .event-flyer .field-slideshow-wrapper {
   width: 100% !important;
-}
-.node-event.view-mode-full .col-left .event-flyer img {
-  width: 100%;
-}
-.node-event.view-mode-full .col-right {
-  padding-left: 6px;
-  padding-right: 6px;
 }
 .node-event.view-mode-full .col-right .event-details {
   background: #ffffff;
@@ -6888,16 +6901,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .field-event-ref .node-teaser .artist-additional-info {
   font-size: 15px;
 }
-@media (max-width: 767px) {
-  .event-node .group-trigger {
-    padding-top: 6px;
-    padding-bottom: 6px;
-    padding-left: 12px;
-    border-bottom: solid 1px #ffffff;
-    font-size: 15px;
-    text-transform: uppercase;
-  }
-}
 .field-event-ref ~ .field-label {
   float: left;
 }
@@ -6999,6 +7002,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .blog-info .tags {
   float: right;
   font-style: italic;
+  padding-right: 5px;
 }
 .blog-info .expand-post {
   color: #000000;
@@ -7017,6 +7021,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   text-decoration: inherit;
   width: 1em;
   margin-right: .2em;
+  margin-left: .2em;
   text-align: center;
   /* opacity: .8; */
 
@@ -7027,16 +7032,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   /* fix buttons height, for twitter bootstrap */
 
   line-height: 1em;
-  /* Animation center compensation - margins should be symmetric */
-
-  /* remove if not needed */
-
-  margin-left: .2em;
-  /* Uncomment for 3D effect */
-
-  /*text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
-
-  padding: 0px 15px;
+  padding: 0px 15px 0px 5px;
 }
 .blog-info .tags:before {
   content: 'T';
@@ -7382,7 +7378,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
   height: 18px;
   float: right;
   display: inline-block;
-  background-image: url('../background_imgs/bg_med.gif');
   overflow: hidden;
   padding-top: 2px;
   padding-left: 2px;
@@ -7681,6 +7676,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
     font-size: 21px;
     line-height: 2;
     cursor: pointer;
+    margin-top: 0px;
   }
 }
 .view-mode-mini {
@@ -7693,60 +7689,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
   display: none;
 }
 #node-154 .field-image img {
-  width: 100%;
-}
-.quicktabs-tabs {
-  text-transform: uppercase;
-  font-family: "Oswald", Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  padding-bottom: 5px;
-  padding-left: 0px;
-  height: 25px;
-  background-color: #494949;
-}
-.quicktabs-tabs > li {
-  position: relative;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-  width: 100%;
-  padding-left: 5px;
-  padding-top: 5px;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-}
-@media (min-width: 992px) {
-  .quicktabs-tabs > li {
-    float: left;
-    width: 16.666666666666664%;
-  }
-}
-.quicktabs-tabs > li:hover,
-.quicktabs-tabs > li.active {
-  background-color: #000000;
-  color: #ffffff;
-}
-.quicktabs-tabs > li a {
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-}
-.quicktabs-tabs > li:not(.last).active,
-.quicktabs-tabs > li:not(.last):hover {
-  position: relative;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-@media (min-width: 992px) {
-  .quicktabs-tabs > li:not(.last).active,
-  .quicktabs-tabs > li:not(.last):hover {
-    float: left;
-    width: 25%;
-  }
-}
-.quicktabs-tabs > li:not(.last).active a,
-.quicktabs-tabs > li:not(.last):hover a {
   width: 100%;
 }
 .view-installations .view-mode-mini {

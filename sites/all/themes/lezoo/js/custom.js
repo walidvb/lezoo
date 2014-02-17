@@ -91,12 +91,14 @@
 		//---------region for mobile
 		//Add Comments title as trigger for the box
 		var $blockTitle = $('.group-trigger, .pane-title, .field-label', context);
+		$blockTitle.parents('.panel-pane').addClass('closable');
 		$blockTitle.once('lezoo', function(){
 			$(this).addClass('clickable').bind('click', function()
 			{
 				if($(window).width() <= 767)
 				{
 					var title = $(this);
+
 					var block = title.next();
 
 					block.slideToggle( function()
@@ -109,9 +111,6 @@
 							// });
 						}
 					});
-				}
-				else
-				{
 				}
 			});
 		});

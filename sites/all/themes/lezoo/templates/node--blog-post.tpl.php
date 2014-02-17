@@ -90,7 +90,6 @@ if(isset($content['field_tags']))
   $tags = $content['field_tags'];
   hide($content['field_tags']);
 }
-dpm($content);
 ?>
 <?php print render($content['flippy_pager']); ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes ?> clearfix"<?php print $attributes; ?>>
@@ -134,17 +133,20 @@ dpm($content);
       </div>
     <?php endif; ?>
   </div>
-  <div class="closable">
-    <?php print lezoo_header('Le Post'); ?>
-    <div class="<?php print $right_col_classes ?>">
-      <?php
-      if(!empty($content['field_soundcloud'])) { print render($content['field_soundcloud']); }
+  <div class="<?php print $right_col_classes ?>">
 
-          // We hide the comments and links now so that we can render them later.
-      hide($content['comments']);
-      hide($content['links']);
-      print render($content);
-      ?>
+    <div class="closable">
+      <?php print lezoo_header('Le Post'); ?>
+      <div>
+        <?php
+        if(!empty($content['field_soundcloud'])) { print render($content['field_soundcloud']); }
+
+            // We hide the comments and links now so that we can render them later.
+        hide($content['comments']);
+        hide($content['links']);
+        print render($content);
+        ?>
+      </div>
     </div>
   </div>
 </div>
