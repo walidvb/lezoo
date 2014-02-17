@@ -6522,7 +6522,6 @@ h1 a {
   color: #000000;
   line-height: 1.995;
   z-index: 3;
-  text-shadow: 1px 1px 5px #494949;
 }
 select.form-control#edit-field-music-genre-tid {
   background-color: transparent;
@@ -7783,8 +7782,10 @@ select.form-control#edit-field-music-genre-tid option:hover {
   position: absolute;
   top: 0;
 }
-.node-installations.node-teaser .content {
-  left: -50px;
+@media (max-width: 767px) {
+  .node-installations.node-teaser .content {
+    left: -50px;
+  }
 }
 .node-installations.view-mode-full .install-header {
   min-height: 120px;
