@@ -171,6 +171,19 @@
 			});
 		});
 
+		//--------------------Artist list hover behavior
+		var $artistList = $('#node-238');
+		var timer;
+		$('.artist-list', $artistList).each(function(){
+			console.log($(this));
+			$(this).hover(function(){
+				clearTimeout(timer);
+				$artistList.css('backgroundImage', 'url("' + $(this).attr('data-img') + '")');
+			}, function(){
+				timer = setTimeout($artistList.css('background-image', ''), 300);
+			})
+		});
+
 		//--------------------Overall
 		var timer;
 		function resize() 

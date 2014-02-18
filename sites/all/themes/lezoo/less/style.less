@@ -31,6 +31,19 @@ body{
 	padding-top: 40px;
 	padding-bottom: 125px;
 }
+
+@media (max-width: 767px) {
+  body {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .navbar-fixed-top,
+  .navbar-fixed-bottom,
+  .navbar-static-top {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
 body.administrator{
 		padding-top: 70px!important;
 }
@@ -65,10 +78,5 @@ a{
 				background-color: white;
 			}
 		}
-	}
-}
-.bureau{
-	.panels-categories-box{
-		display: none;
 	}
 }

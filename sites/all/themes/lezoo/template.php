@@ -265,6 +265,7 @@ function rows_from_field_collection(&$vars, $field_name, $field_array) {
 		$wrapper   = entity_metadata_wrapper('field_collection_item', $entity);
 		$row       = array();
 		foreach($field_array as $field){
+			$row['node'] = $entity;
 			$row[$field] = $wrapper->$field->value();
 		}
 		$vars['rows'][] = $row;
@@ -279,7 +280,15 @@ function lezoo_preprocess_field(&$vars, $hook){
 		$vars['view_mode']                = $vars['element']['#view_mode'];
 		$field_array                      = array('field_artist_name', 'field_label','field_origin', 'field_link', 'field_artist_details');
 		rows_from_field_collection($vars, $vars['element']['#field_name'], $field_array);
-
+	}
+	else if($vars['element']['#field_name'] == 'field_artist_photo')
+	{
+		$vars['theme_hook_suggestions'][] = 'field__artist_photo_collection';
+		$vars['theme_hook_suggestions'][] = 'field__artist_photo_collection__';
+		$vars['teaser']                   = $vars['element']['#view_mode'] == 'teaser';
+		$vars['view_mode']                = $vars['element']['#view_mode'];
+		$field_array                      = array('field_artist_name', 'field_artist_img', 'field_event_ref');
+		rows_from_field_collection($vars, $vars['element']['#field_name'], $field_array);
 	}
 }
 
@@ -311,5 +320,6 @@ function lezoo_header($title = 'group'){
 
 function lezoo_soundcloud_filter_embed_html5($variables) {
 	$variables['sound']['width'] = "99.5%";
+	$variables['sound']['autoplay'] = false;
 	return theme_soundcloud_filter_embed_html5($variables);
 }
