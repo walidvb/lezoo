@@ -8216,3 +8216,6 @@ a {
   filter: alpha(opacity=5);
   background-color: white;
 }
+.bureau .panels-categories-box {
+  display: none;
+}
