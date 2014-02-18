@@ -114,12 +114,14 @@
 .btn-primary{
 	font-family: @font-family-serif;
 	font-size: @font-size-h5;
-	color: @primary-color;
+	color: @fourth-color;
 	text-align: left;
-	background-color: @tertiary-color;
+	background-color: @primary-color;
 	border-radius: 0px;
-	border-color: @tertiary-color;
+	border: none !important;
 	padding: @padding-base-horizontal;
+	height: 24px;
+	padding: 0px 12px 0px 12px;
 	.transition-duration(0.5s);
 	&:hover{
 		.transition-duration(0.5s);
@@ -175,22 +177,182 @@
 	}
 }
 
-#event-filter-block{
-	padding-left: 0px;
-	padding-right: 0px;
-	/*
-	max-height: 24px;
-	overflow-y: hidden;
-	.transition-duration (0.5s);
-	.transition-delay (0.3s);
-	&:hover{
-		max-height: 70px;
-		.transition-duration (0.5s);
-		.transition-delay (0.3s);
+.top {
+	@media @mobile{
+		display: none;
 	}
-	*/
-}
+	text-align: right;
+	text-transform: lowercase;
+	height: 24px;
+	#event-filter-block, .sync-calendar{
+		background: darken(@tertiary-color, 20%);
+		max-height: 24px;
+	}
+	#event-filter-block{
+		padding-left: 0px !important;
+		padding-right: 0px;
+		text-align: left;
+		height: 24px;
+		.make-md-column(10);
+		border-bottom: none;
+		.pane-title {
+			margin-bottom: 0px;
+			margin-top: 0px;
+			display: inline-block;
+			.make-md-column(1);
+			margin-bottom: 0px;
+			margin-top: 0px;
+			@media @mobile{
+				.make-md-column(12);
+			}
+		}
+		.pane-content{
+			display: inline-block;
+			text-align: left;
+			.make-md-column(11);
+		}
+		#edit-year-wrapper, #edit-month-wrapper, #edit-genre-wrapper{
+			width: 30%;
+			padding-left: 0px !important;
+		}
+		.form-item input {
+			width: 100%;
+		}
+		display: inline-block;
+		width: 100%;
 
+		label{
+			display: none;
+		}
+
+		.form-item-month-value-year{
+			display: none;
+		}
+
+		/* FORM */
+
+		.views-exposed-form .views-exposed-widget {
+			float: left;
+			padding-right: 5px;
+			padding-top: 0px;
+		}
+
+		.form-control:-moz-placeholder {
+			color: @fourth-color;
+		}
+
+		.form-control:-ms-input-placeholder {
+			color: @fourth-color;
+		}
+		.form-control::-webkit-input-placeholder {
+			color: @fourth-color;
+		}
+		.form-control {
+			display: block;
+			height: 31px;
+			padding: 0px;
+			font-size: @font-size-h4;
+			font-family: @font-family-serif;
+			line-height: 1.428571429;
+			vertical-align: middle;
+			background-color: @fourth-color; 
+			border: none;
+			-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+			-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+			-webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+			transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+		}
+		.form-control:focus {
+			border-color: #66afe9;
+			outline: 0;
+			-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+			-moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+			box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+		}
+		.form-submit{
+			margin-top: 0px;
+		}
+
+
+		/* CHOSEN */
+		/* dark color overrides */
+		.chosen-container {
+			@media @mobile{
+				width: 441px !important;
+			}
+			width: 100% !important;
+			height: 24px;
+			border: none;
+			.chosen-results li {
+				color: @primary-color;   
+			}
+			.chosen-drop, .chosen-single {
+				background-color: @secondary-color;
+				color: @primary-color;
+			}
+			.chosen-single {
+				background-color: @secondary-color;
+				background-image: none;
+				filter: none;
+				border: none;
+				border-radius: 0px;
+				display: block;
+				height: 24px;
+				min-width: 160px;
+				padding-top: 0px;
+				box-shadow: none !important;
+				.chosen-drop{
+					border-radius: 0px !important;
+				}
+
+			}
+			.chosen-results {
+				.highlighted {
+					background: @tertiary-color;
+					color: #eeeeee;
+				}
+				.no-results {
+					background: @tertiary-color;
+				}
+				li em {
+					background: none;
+				}
+			}
+		}
+		.chosen-container-single 
+		.chosen-container .chosen-drop {
+			border: none;    
+		}
+		.chosen-container-active .chosen-single-with-drop {
+			box-shadow: none; 
+		}
+		.chosen-container 
+		.chosen-container-single .chosen-search input,
+		.chosen-rtl .chosen-search input {
+			color: @primary-color;
+			border: none;
+		}
+
+	}
+
+	.sync-calendar{
+		.make-md-column(2);
+		display: inline-block;
+		padding-left: 0px;
+	}
+	/* BUTTON */
+	.btn{
+		padding: 0px 12px 0px 12px;
+		min-height: 24px;
+	}
+	.btn-info, .btn-primary {
+		.btn-primary;
+		@media @mobile{
+			width: 441px !important;
+		}
+	}
+}
 /*   Subscribe   */
 #myModal
 {
@@ -292,149 +454,9 @@
 
 /* chosen */
 #event-filter-block{
-	display: inline-block;
-	width: 100%;
-
-	label{
-		display: none;
-	}
-
-	.pane-title{
-		margin-bottom: 0px;
-		margin-top: 0px;
-	}
-
-	.form-item-month-value-year{
-		display: none;
-	}
-
-	/* FORM */
-
-	.views-exposed-form .views-exposed-widget {
-		float: left;
-		padding-right: 5px;
-	}
-
-	.form-control:-moz-placeholder {
-		color: #999999;
-	}
-	.form-control::-moz-placeholder {
-		color: #999999;
-	}
-	.form-control:-ms-input-placeholder {
-		color: #999999;
-	}
-	.form-control::-webkit-input-placeholder {
-		color: #999999;
-	}
-	.form-control {
-		display: block;
-		height: 31px;
-		padding: 0px;
-		font-size: @font-size-h4;
-		font-family: @font-family-serif;
-		line-height: 1.428571429;
-		vertical-align: middle;
-		background-color: @fourth-color; 
-		border: none;
-		-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-		-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-		box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-		-webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-		transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-	}
-	.form-control:focus {
-		border-color: #66afe9;
-		outline: 0;
-		-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
-		-moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
-		box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
-	}
-	.form-submit{
-		margin-top: 0px;
-	}
-
-	/* BUTTON */
-	.btn-info {
-		color: black;
-		background-color: white;
-		border-color: white;
-		@media @mobile{
-			width: 441px !important;
-		}
-		width : 120px !important;
-	}
-	/* CHOSEN */
-	/* dark color overrides */
-	.chosen-container {
-		@media @mobile{
-			width: 441px !important;
-		}
-		width: 200px !important;
-	}
-	.chosen-container .chosen-results li {
-		color: @primary-color;   
-	}
-	.chosen-container .chosen-drop, .chosen-container-single .chosen-single {
-		background-color: @fourth-color;
-		color: @primary-color;
-		
-	}
-	/* Some IE 7-9 fun with this next one - filter likes to override background */
-	.chosen-container-single .chosen-single {
-		background-color: #000000;
-		background-image: none;
-		background: #000000 none top left no-repeat;
-		filter: none;
-		border: none;
-		border-radius: 0px;
-		display: block;
-		height: 30px;
-		padding-top: 0px;
-	}
-	.chosen-container .chosen-drop {
-		border: 1px solid #121212;    
-	}
-	.chosen-container-single .chosen-single div {
-	}
-	.chosen-container-active .chosen-single-with-drop {
-		box-shadow: none; 
-	}
-	.chosen-container .chosen-results .highlighted {
-		background: #333333;
-		color: #eeeeee;
-	}
-	.chosen-container .chosen-results .no-results {
-		background: #333;
-	}
-	.chosen-container .chosen-results li em {
-		background: none;
-	}
-
-	/* dark sprite overrides */
-
-	.chosen-container-single .chosen-single abbr {
-		background: url('https://www.exratione.com/assets/chosen-sprite-dark.png') right top no-repeat;
-	}
-	.chosen-container-single .chosen-single div b {
-		background: url('https://www.exratione.com/assets/chosen-sprite-dark.png') no-repeat 0 1px;
-	}
-	.chosen-container-single .chosen-search input,
-	.chosen-rtl .chosen-search input {
-		background: #333 url('https://www.exratione.com/assets/chosen-sprite-dark.png') no-repeat 100% -22px;
-		color: @primary-color;
-		border: 1px solid #555555;
-	}
-	.chosen-container-multi .chosen-choices .search-choice .search-choice-close {
-		background: url('https://www.exratione.com/assets/chosen-sprite-dark.png') right top no-repeat;
-	}
-
 
 }
 
-.sync-calendar{
-	display: inline-block;
-}
 .panel-separator{
 	display: none;
 }
