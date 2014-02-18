@@ -27,18 +27,22 @@
 .youtube:before{
 	content: 'y';	
 }
-.map:before{
-	content: 'p';
-}
-.tel:before{
-	content: 'P';
-}
+
 .footer-mobile{
 	float: left;
 	.social:before{
-		font-size: x-large;
-		line-height: 2.1em;
+		font-size: @font-size-h2;
+		line-height: 1.9em;
 	}
+}
+
+.social.map:before{
+	content: 'p';
+	font-size: @font-size-h2*1.09;
+}
+.social.tel:before{
+	content: 'P';
+	font-size: @font-size-h2*1.09;
 }
 
 footer{

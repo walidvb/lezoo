@@ -6306,9 +6306,10 @@ td.radio {
   width: 1em;
   margin-right: .2em;
   margin-left: .2em;
-  text-align: center;
   /* opacity: .8; */
 
+  text-align: center;
+  width: 30px;
   /* For safety - reset parent styles, that can break glyph codes*/
 
   font-variant: normal;
@@ -6335,18 +6336,20 @@ td.radio {
 .youtube:before {
   content: 'y';
 }
-.map:before {
-  content: 'p';
-}
-.tel:before {
-  content: 'P';
-}
 .footer-mobile {
   float: left;
 }
 .footer-mobile .social:before {
-  font-size: x-large;
-  line-height: 2.1em;
+  font-size: 25px;
+  line-height: 1.9em;
+}
+.social.map:before {
+  content: 'p';
+  font-size: 27.250000000000004px;
+}
+.social.tel:before {
+  content: 'P';
+  font-size: 27.250000000000004px;
 }
 footer {
   z-index: 10;
@@ -7058,9 +7061,10 @@ select.form-control#edit-field-music-genre-tid option:hover {
   width: 1em;
   margin-right: .2em;
   margin-left: .2em;
-  text-align: center;
   /* opacity: .8; */
 
+  text-align: center;
+  width: 30px;
   /* For safety - reset parent styles, that can break glyph codes*/
 
   font-variant: normal;
