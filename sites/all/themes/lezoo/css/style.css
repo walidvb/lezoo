@@ -6281,9 +6281,6 @@ td.radio {
 .footer {
   z-index: 10;
 }
-.footer-mobile .social {
-  background: blue;
-}
 .footer-mobile .social:before {
   transition: opacity 0.2s 0.1s;
   font-family: "fontello";
@@ -7774,10 +7771,12 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 @media (max-width: 767px) {
   .pane-title {
-    font-size: 21px;
-    line-height: 2;
+    font-size: 15px !important;
+    line-height: 3!important;
+    color: #e6e6e6;
     cursor: pointer;
     margin-top: 0px;
+    padding-left: 12px !important;
   }
 }
 .view-mode-mini {
@@ -7833,7 +7832,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
 @media (max-width: 767px) {
   .view-installations .view-mode-mini .content {
     margin-left: 60%;
-    width: 100% !important;
+    width: 40% !important;
     position: relative;
     top: -115px;
   }
@@ -7884,8 +7883,12 @@ select.form-control#edit-field-music-genre-tid option:hover {
   width: 100%;
 }
 @media (max-width: 767px) {
+  .node-installations.node-teaser {
+    min-height: 215px !important;
+  }
   .node-installations.node-teaser .content {
-    left: -50px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 .node-installations.view-mode-full .install-header {
