@@ -2,9 +2,38 @@
 .footer{
 	z-index: 10;
 }
+
+.footer-mobile{
+	.social{
+		background: blue;
+	}
+	.social:before{
+		.icon(@font-size-h4);
+	}
+	.facebook:before{
+		content: 'f';	
+	}
+	.twitter:before{
+		content: 't';	
+	}
+	.vimeo:before{
+		content: 'v';	
+	}
+	.soundcloud:before{
+		content: 's';	
+	}
+	.tumblr:before{
+		content: 'r';	
+	}
+	.youtube:before{
+		content: 'y';	
+	}
+}
+
 footer{
 	z-index: 10;
 	@media @mobile{
+		display: none;
 		position: relative;
 		height: 100%;
 
