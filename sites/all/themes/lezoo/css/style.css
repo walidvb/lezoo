@@ -7483,6 +7483,10 @@ select.form-control#edit-field-music-genre-tid option:hover {
 #event-filter-block {
   padding-left: 0px;
   padding-right: 0px;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
   /*
 	max-height: 24px;
 	overflow-y: hidden;
@@ -7495,6 +7499,42 @@ select.form-control#edit-field-music-genre-tid option:hover {
 	}
 	*/
 
+}
+@media (min-width: 992px) {
+  #event-filter-block {
+    float: left;
+    width: 66.66666666666666%;
+  }
+}
+#event-filter-block .pane-title {
+  margin-bottom: 0px;
+  margin-top: 0px;
+  display: inline-block;
+  display: none;
+}
+@media (max-width: 767px) {
+  #event-filter-block .pane-title {
+    display: visible;
+  }
+}
+#event-filter-block .pane-content {
+  display: inline-block;
+}
+#event-filter-block #edit-year-wrapper,
+#event-filter-block #edit-month-wrapper,
+#event-filter-block #edit-genre-wrapper {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 992px) {
+  #event-filter-block #edit-year-wrapper,
+  #event-filter-block #edit-month-wrapper,
+  #event-filter-block #edit-genre-wrapper {
+    float: left;
+    width: 25%;
+  }
 }
 /*   Subscribe   */
 #myModal .modal-title {

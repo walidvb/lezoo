@@ -178,6 +178,22 @@
 #event-filter-block{
 	padding-left: 0px;
 	padding-right: 0px;
+	.make-md-column(8);
+	.pane-title {
+		margin-bottom: 0px;
+		margin-top: 0px;
+		display: inline-block;
+		display: none;
+		@media @mobile{
+			display: visible;
+		}
+	}
+	.pane-content{
+		display: inline-block;
+	}
+	#edit-year-wrapper, #edit-month-wrapper, #edit-genre-wrapper {
+		.make-md-column(3);
+	}
 	/*
 	max-height: 24px;
 	overflow-y: hidden;
