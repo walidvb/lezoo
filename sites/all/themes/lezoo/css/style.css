@@ -7067,6 +7067,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   display: inline-block;
   border: 2px solid #494949;
   padding: 5px;
+  margin: 5px;
   text-shadow: 1px 1px 1px #494949;
 }
 #node-238 .artist-list-item:hover {

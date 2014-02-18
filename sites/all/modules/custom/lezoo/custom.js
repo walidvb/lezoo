@@ -13,9 +13,12 @@
 					var empty = value == "";
 					if(!empty)
 					{
-						year.val(this_year.getFullYear()).trigger("chosen:updated");
+						if(year.val() == '')
+						{
+							var this_year = new Date();
+							year.val(this_year.getFullYear()).trigger("chosen:updated");
+						}
 						yearm.val(year.val()).trigger("chosen:updated");
-						var this_year = new Date()
 					}
 					else
 					{
