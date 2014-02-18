@@ -223,13 +223,45 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "sites/all/themes/lezoo/less/install.less",
+			"settings":
+			{
+				"buffer_size": 3680,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "Packages/LESS-build/LESS.sublime-build",
 	"command_palette":
 	{
-		"height": 400.0,
+		"height": 67.0,
 		"selected_items":
 		[
+			[
+				"git quic",
+				"Git: Quick Commit"
+			],
+			[
+				"git com",
+				"Git: Commit"
+			],
+			[
+				"inden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"git ",
+				"Git: Gui"
+			],
+			[
+				"git diff",
+				"Git: Diff All"
+			],
+			[
+				"indn",
+				"Snippet: node_field_display_node_alter"
+			],
 			[
 				"insta",
 				"Package Control: Install Package"
@@ -269,10 +301,6 @@
 			[
 				"inst",
 				"Package Control: Install Package"
-			],
-			[
-				"inden",
-				"Indentation: Reindent Lines"
 			],
 			[
 				"pack",
@@ -488,60 +516,77 @@
 	},
 	"file_history":
 	[
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/fronts.less",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/content.less",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/google_analytics/googleanalytics.js",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/google_analytics/googleanalytics.module",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/js/custom.js",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/blog.less",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/lezoo-views.less",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--installations--teaser.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/install.less",
+		"/Users/Gaston/Sites/zoo/.git/MERGE_MSG",
+		"/Users/Gaston/Sites/zoo/.git/COMMIT_EDITMSG",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/panels_bootstrap_layouts/plugins/layouts/bootstrap_twocol_stacked/bootstrap-twocol-stacked.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/lezoo.module",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/js/myAngular.js",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/template.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/field--artist-collection.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--blog-post.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--installations.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/variables.less",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/header.less",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/home.less",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/widget.less",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/events.less",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--blog-post--mini.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/pro.less",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/css/style.css",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/soundcloud_filter/soundcloud_filter.module",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--event.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/page.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/lezoo.info",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/layouts/lezoo_twocols/lezoo-twocols.tpl.php",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/bootstrap.less",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/bootstrap/less/scaffolding.less",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/bootstrap/LICENSE.txt",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/date_ical/date_ical.module",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/date_ical/includes/date_ical.views.inc",
+		"/Users/Gaston/Sites/zoo/sites/all/modules/date_ical/includes/date_ical_plugin_row_ical_fields.inc",
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/ical_feed.php",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/ruche/specs.md",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/views-view-fields--carousel.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/views-bootstrap-carousel-plugin-rows--events-carousel.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/views_bootstrap/templates/carousel/views-bootstrap-carousel-plugin-rows.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/page.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/events.less",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--installations.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/js/custom.js",
-		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/soundcloud_filter/soundcloud_filter.module",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--event--teaser.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--event.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--blog-post--mini.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--blog-post.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--blog-post--teaser.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/template.php",
-		"/Users/Gaston/Sites/zoo/.git/MERGE_MSG",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/soundcloud_filter/soundcloud_filter.info",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/soundcloud_filter/soundcloud_filter.module",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/panels/panels.module",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/menu_inject_block/menu_inject_block.module",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/menu_inject_block/menu_inject_block.info",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/variables.less",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/pro.less",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/libs/stickyHeaders/jquery.stickyHeaders.js",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/html.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/fronts.less",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/home.less",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/style.less",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/footer.less",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--installations--teaser.tpl.php",
 		"/Users/Gaston/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/widget.less",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--article.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/js/myAngular.js",
 		"/Users/Gaston/Library/Application Support/Sublime Text 2/Packages/SublimeLinter/README.md",
 		"/Users/Gaston/Library/Application Support/Sublime Text 2/Packages/SublimeLinter/SublimeLinter.sublime-settings",
 		"/Users/Gaston/Library/Application Support/Sublime Text 2/Packages/User/SublimeLinter.sublime-settings",
 		"/Users/Gaston/Library/Application Support/Sublime Text 2/Packages/GitGutter/GitGutter.sublime-settings",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/libs/flexslider/jquery.flexslider-min.js",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/blog.less",
 		"/Users/Gaston/Downloads/leZOO-2014-02-03T17-20-50.mysql",
 		"/Users/Gaston/Downloads/leZOO-2014-02-03T17-20-50.mysql.gz",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--installations--mini.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/layouts/lezoo_twocols/lezoo_twocols.inc",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/edit/includes/node.inc",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/layouts/lezoo_twocols/lezoo-twocols.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/libs/jquery.pin.js",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/libs/jquery.slides.min.js",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/chosen/chosen.js",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/shs/js/shs.js",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/shs/shs.module",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/field--artist-collection.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/lezoo.module",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/date_filter.inc",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/date_filter.js",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/date.inc",
@@ -564,17 +609,14 @@
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo_feed/lezoo_feed.module",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo_feed/lezoo_feed.info",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/modal.inc",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/lezoo.info",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/imagecache_token/imagecache_token.module",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/date/date.tokens.inc",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/imagecache_actions/utility-form.inc",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/imagecache_actions/canvasactions/imagecache_canvasactions.module",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/imagecache_actions/canvasactions/canvasactions.inc",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/install.less",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/views-view-fields--carousel--events-carousel.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/_node--event--teaser.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/views_infinite_scroll/js/views_infinite_scroll.js",
-		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/panels_bootstrap_layouts/plugins/layouts/bootstrap_twocol_stacked/bootstrap-twocol-stacked.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/custom.js",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/page_emulator/page_emulator.module",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/lezoo.info",
@@ -584,7 +626,6 @@
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo_modules/lezoo.module",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo_modules/date_filter.inc",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo_modules/date.inc",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/css/style.css",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/carousel/carousel.info",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/links_to_social/links_to_social.info",
 		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/load_more/load_more.info",
@@ -602,20 +643,7 @@
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/js/#*merge*#62198T5l#",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/views-view--mini-blocks.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/angular_filter/index.html",
-		"/Users/Gaston/Library/Caches/Cleanup At Startup/Transmit/59AF24F4-683B-49E7-BE7A-54D8281F6A7A/style.less",
-		"/Users/Gaston/Sites/zoo/sites/all/modules/date_ical/date_ical.make",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/views-bootstrap-carousel-plugin-rows.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/lezoo/field_coll.inc",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/bootstrap/less/mixins.less",
-		"/Users/Gaston/Sites/zoo/sites/all/modules/date/date_views/date_views.module",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/lezoo-views.less",
-		"/Users/Gaston/Desktop/calendar",
-		"/Users/Gaston/Sites/zoo/sites/all/modules/custom/links_to_social/links_to_social.css",
-		"/Users/Gaston/Sites/zoo/sites/all/modules/dat",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/node--installation.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/bootstrap/theme/system/page.tpl.php",
-		"/Users/Gaston/Sites/zoo/sites/all/modules/ctools/page_manager/help/custom-pages.html",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/field__artist_collection.tpl.php"
+		"/Users/Gaston/Library/Caches/Cleanup At Startup/Transmit/59AF24F4-683B-49E7-BE7A-54D8281F6A7A/style.less"
 	],
 	"find":
 	{
@@ -623,7 +651,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 106.0,
 		"where_history":
 		[
 		]
@@ -778,8 +806,174 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "sites/all/themes/lezoo/less/install.less",
+					"settings":
+					{
+						"buffer_size": 3680,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2057,
+								2057
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME",
+								"WTF"
+							],
+							"auto_indent": true,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"incomplete_sync": null,
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": false,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"remote_loading": false,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "hard",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": true,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"synced": false,
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1127.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -837,6 +1031,98 @@
 		"selected_items":
 		[
 			[
+				"install",
+				"lezoo/less/install.less"
+			],
+			[
+				"fronts",
+				"lezoo/less/fronts.less"
+			],
+			[
+				"content",
+				"lezoo/less/content.less"
+			],
+			[
+				"google",
+				"modules/google_analytics/googleanalytics.js"
+			],
+			[
+				"goog",
+				"modules/google_analytics/googleanalytics.module"
+			],
+			[
+				"custom",
+				"lezoo/js/custom.js"
+			],
+			[
+				"nodeinstall",
+				"lezoo/templates/node--installations--teaser.tpl.php"
+			],
+			[
+				"nodeinstal",
+				"lezoo/templates/node--installations.tpl.php"
+			],
+			[
+				"nodeblog",
+				"lezoo/templates/node--blog-post.tpl.php"
+			],
+			[
+				"style",
+				"lezoo/css/style.css"
+			],
+			[
+				"event",
+				"lezoo/less/events.less"
+			],
+			[
+				"nodeblogt",
+				"lezoo/templates/node--blog-post--mini.tpl.php"
+			],
+			[
+				"variabl",
+				"lezoo/less/variables.less"
+			],
+			[
+				"page",
+				"lezoo/templates/page.tpl.php"
+			],
+			[
+				"nodeevent",
+				"lezoo/templates/node--event.tpl.php"
+			],
+			[
+				"scaffo",
+				"lezoo/bootstrap/less/scaffolding.less"
+			],
+			[
+				"nodeinsta",
+				"lezoo/templates/node--installations.tpl.php"
+			],
+			[
+				"angula",
+				"lezoo/js/myAngular.js"
+			],
+			[
+				"dateicalview",
+				"modules/date_ical/includes/date_ical.views.inc"
+			],
+			[
+				"dateical",
+				"modules/date_ical/date_ical.module"
+			],
+			[
+				"lezoomodul",
+				"custom/lezoo/lezoo.module"
+			],
+			[
+				"ang",
+				"lezoo/js/myAngular.js"
+			],
+			[
+				"templa",
+				"lezoo/template.php"
+			],
+			[
 				"carouselviewsrow",
 				"modules/views_bootstrap/templates/carousel/views-bootstrap-carousel-plugin-rows.tpl.php"
 			],
@@ -853,24 +1139,8 @@
 				"lezoo/templates/node--blog-post--teaser.tpl.php"
 			],
 			[
-				"page",
-				"lezoo/templates/page.tpl.php"
-			],
-			[
-				"nodeblog",
-				"lezoo/templates/node--blog-post.tpl.php"
-			],
-			[
-				"event",
-				"lezoo/less/events.less"
-			],
-			[
 				"nodeins",
 				"lezoo/templates/node--installations.tpl.php"
-			],
-			[
-				"custom",
-				"lezoo/js/custom.js"
 			],
 			[
 				"soundcloudfilterinfo",
@@ -879,10 +1149,6 @@
 			[
 				"sound",
 				"custom/soundcloud_filter/soundcloud_filter.module"
-			],
-			[
-				"nodeevent",
-				"lezoo/templates/node--event--teaser.tpl.php"
 			],
 			[
 				"panels",
@@ -919,10 +1185,6 @@
 			[
 				"varia",
 				"lezoo/less/variables.less"
-			],
-			[
-				"style",
-				"lezoo/less/style.less"
 			],
 			[
 				"min.js",
@@ -965,14 +1227,6 @@
 				"modules/edit/includes/node.inc"
 			],
 			[
-				"nodeinsta",
-				"lezoo/templates/node--installations.tpl.php"
-			],
-			[
-				"nodeinstal",
-				"lezoo/templates/node--installations.tpl.php"
-			],
-			[
 				"angu",
 				"lezoo/js/myAngular.js"
 			],
@@ -983,10 +1237,6 @@
 			[
 				"angul",
 				"lezoo/js/myAngular.js"
-			],
-			[
-				"nodeinstall",
-				"lezoo/templates/node--installations.tpl.php"
 			],
 			[
 				"nodear",
@@ -1105,10 +1355,6 @@
 				"lezoo/libs/stickyHeaders/jquery.stickyHeaders.js"
 			],
 			[
-				"templa",
-				"lezoo/template.php"
-			],
-			[
 				"js",
 				"/Users/Gaston/Sites/cordesavides/sites/all/themes/cordesavides/myJS.js"
 			],
@@ -1151,10 +1397,6 @@
 			[
 				"info",
 				"lezoo/lezoo.info"
-			],
-			[
-				"angula",
-				"lezoo/js/myAngular.js"
 			],
 			[
 				"date_fil",
@@ -1299,54 +1541,6 @@
 			[
 				"styl",
 				"lezoo/less/style.less"
-			],
-			[
-				"mixin",
-				"lezoo/bootstrap/less/mixins.less"
-			],
-			[
-				"varial",
-				"lezoo/less/variables.less"
-			],
-			[
-				"front",
-				"lezoo/less/fronts.less"
-			],
-			[
-				"lezooviews",
-				"lezoo/less/lezoo-views.less"
-			],
-			[
-				"overr",
-				"lezoo/less/overrides.less"
-			],
-			[
-				"links",
-				"custom/links_to_social/links_to_social.css"
-			],
-			[
-				"nodeteaser",
-				"themes/lezoo/templates/node--event--teaser.tpl.php"
-			],
-			[
-				"field__",
-				"themes/lezoo/templates/field__artist_collection.tpl.php"
-			],
-			[
-				"mixins",
-				"themes/lezoo/bootstrap/less/mixins.less"
-			],
-			[
-				"node.tpl.",
-				"themes/lezoo/templates/node.tpl.php"
-			],
-			[
-				"viewsoffse",
-				"modules/custom/views_offset/views_offset.module"
-			],
-			[
-				"temp",
-				"themes/lezoo/template.php"
 			]
 		],
 		"width": 0.0
