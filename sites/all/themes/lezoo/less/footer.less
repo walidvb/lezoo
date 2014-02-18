@@ -2,31 +2,42 @@
 .footer{
 	z-index: 10;
 }
-
+.social span{
+	text-indent: -999px;
+	display: inline-block;
+}
+.social:before{
+	.icon(@font-size-h4);
+}
+.facebook:before{
+	content: 'f';	
+}
+.twitter:before{
+	content: 't';	
+}
+.vimeo:before{
+	content: 'v';	
+}
+.soundcloud:before{
+	content: 's';	
+}
+.tumblr:before{
+	content: 'r';	
+}
+.youtube:before{
+	content: 'y';	
+}
+.map:before{
+	content: 'p';
+}
+.tel:before{
+	content: 'P';
+}
 .footer-mobile{
-	.social{
-		background: blue;
-	}
+	float: left;
 	.social:before{
-		.icon(@font-size-h4);
-	}
-	.facebook:before{
-		content: 'f';	
-	}
-	.twitter:before{
-		content: 't';	
-	}
-	.vimeo:before{
-		content: 'v';	
-	}
-	.soundcloud:before{
-		content: 's';	
-	}
-	.tumblr:before{
-		content: 'r';	
-	}
-	.youtube:before{
-		content: 'y';	
+		font-size: x-large;
+		line-height: 2.1em;
 	}
 }
 
@@ -71,30 +82,6 @@ footer{
 	.btn-primary{
 		width:100%;
 		margin-bottom: @padding-base-vertical;
-	}
-	.social .span{
-		text-indent: -9999px;
-	}
-	.social:before{
-		.icon(@font-size-h4);
-	}
-	.facebook:before{
-		content: 'f';	
-	}
-	.twitter:before{
-		content: 't';	
-	}
-	.vimeo:before{
-		content: 'v';	
-	}
-	.soundcloud:before{
-		content: 's';	
-	}
-	.tumblr:before{
-		content: 'r';	
-	}
-	.youtube:before{
-		content: 'y';	
 	}
 
 	.block{

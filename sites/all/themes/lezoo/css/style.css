@@ -6100,8 +6100,10 @@ td.radio {
   height: 40px;
 }
 @media (max-width: 767px) {
-  #navbar .navbar-nav {
-    padding-left: 12px;
+  #navbar .navbar-header,
+  #navbar .navbar-collapse {
+    margin-right: 0px!important;
+    margin-left: 0;
   }
   #navbar .navbar-collapse {
     background-color: #494949;
@@ -6281,15 +6283,17 @@ td.radio {
 .footer {
   z-index: 10;
 }
-.footer-mobile .social {
-  background: blue;
+.social span {
+  text-indent: -999px;
+  display: inline-block;
 }
-.footer-mobile .social:before {
+.social:before {
   transition: opacity 0.2s 0.1s;
   font-family: "fontello";
   font-size: 15px;
   font-style: normal;
   font-weight: normal;
+  text-decoration: none!important;
   speak: none;
   color: #a6a6a6;
   display: inline-block;
@@ -6308,23 +6312,36 @@ td.radio {
 
   line-height: 1em;
 }
-.footer-mobile .facebook:before {
+.facebook:before {
   content: 'f';
 }
-.footer-mobile .twitter:before {
+.twitter:before {
   content: 't';
 }
-.footer-mobile .vimeo:before {
+.vimeo:before {
   content: 'v';
 }
-.footer-mobile .soundcloud:before {
+.soundcloud:before {
   content: 's';
 }
-.footer-mobile .tumblr:before {
+.tumblr:before {
   content: 'r';
 }
-.footer-mobile .youtube:before {
+.youtube:before {
   content: 'y';
+}
+.map:before {
+  content: 'p';
+}
+.tel:before {
+  content: 'P';
+}
+.footer-mobile {
+  float: left;
+}
+.footer-mobile .social:before {
+  font-size: x-large;
+  line-height: 2.1em;
 }
 footer {
   z-index: 10;
@@ -6385,51 +6402,6 @@ footer .block-title {
 footer .btn-primary {
   width: 100%;
   margin-bottom: 6px;
-}
-footer .social .span {
-  text-indent: -9999px;
-}
-footer .social:before {
-  transition: opacity 0.2s 0.1s;
-  font-family: "fontello";
-  font-size: 15px;
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  color: #a6a6a6;
-  display: inline-block;
-  text-decoration: inherit;
-  width: 1em;
-  margin-right: .2em;
-  margin-left: .2em;
-  text-align: center;
-  /* opacity: .8; */
-
-  /* For safety - reset parent styles, that can break glyph codes*/
-
-  font-variant: normal;
-  text-transform: none;
-  /* fix buttons height, for twitter bootstrap */
-
-  line-height: 1em;
-}
-footer .facebook:before {
-  content: 'f';
-}
-footer .twitter:before {
-  content: 't';
-}
-footer .vimeo:before {
-  content: 'v';
-}
-footer .soundcloud:before {
-  content: 's';
-}
-footer .tumblr:before {
-  content: 'r';
-}
-footer .youtube:before {
-  content: 'y';
 }
 footer .block p {
   margin: 0px;
@@ -7073,6 +7045,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   font-size: 'x-large';
   font-style: normal;
   font-weight: normal;
+  text-decoration: none!important;
   speak: none;
   color: #a6a6a6;
   display: inline-block;

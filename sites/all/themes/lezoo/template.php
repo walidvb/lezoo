@@ -80,7 +80,6 @@ function lezoo_bootstrap_search_form_wrapper($variables) {
 function lezoo_preprocess_page(&$variables) {
 	$footer_mobile = module_invoke('block', 'block_view', '7');
 	$variables['footer_mobile'] = $footer_mobile['content'];
-
 	if(!empty($variables['node']))
 	{
 		$menu_active_item = null;
