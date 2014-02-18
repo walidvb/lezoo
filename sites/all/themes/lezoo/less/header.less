@@ -9,6 +9,9 @@
 	z-index: 1000;
 	height: 40px;
 	@media @mobile{
+		.navbar-nav{
+			padding-left: @padding-base-horizontal;
+		}
 		.navbar-collapse{
 			background-color: @secondary-color;
 		}
@@ -23,7 +26,7 @@
 			width:100%;
 			> li{
 				.make-md-column(2);
-				padding-left: 0px;
+				//padding-left: 0px;
 				margin-right: 15px;
 				background-color: @navbar-default-link-bg;
 				.transition(0.5s);

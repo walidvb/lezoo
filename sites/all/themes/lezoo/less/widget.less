@@ -1,3 +1,9 @@
+@media @mobile{
+	#admin-menu-wrapper{
+		display: none;
+	}
+}
+
 .ics-container{
 	.event-ics{
 		font-size: @font-size-base !important;
@@ -280,6 +286,10 @@
 	padding-top: 0px;
 }
 
+.sticky-helper{
+	padding-left: @padding-base-horizontal;
+}
+
 /* chosen */
 #event-filter-block{
 	display: inline-block;
@@ -437,4 +447,41 @@
 
 #edit-body-value{
 	visibility: visible!important;
+}
+
+/// group-trigger ///
+// Keep all groups closed on mobile
+.group-trigger + div, .pane-title + div{
+	@media @mobile{
+		display: none;
+	}
+}
+
+// Button to open the group
+.group-trigger(){
+	line-height: 2!important;
+	background: @secondary-color;
+	font-family: @font-family-sans-serif;
+	text-transform: uppercase;
+	padding-top: @padding-base-vertical;
+	padding-bottom: @padding-base-vertical;
+	padding-left: @padding-base-horizontal;
+	font-size: @font-size-h4;
+	text-transform: uppercase;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.group-trigger{
+	.group-trigger();
+}
+
+@media @mobile{
+	.pane-title{
+		.group-trigger();
+	}
+}
+// Wrapper
+.closable{
+	border-bottom: solid 1px @tertiary-color;
 }

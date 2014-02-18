@@ -1,4 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
+
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
 /*@primary-color: rgb(99,162, 215);
 @secondary-color: rgb(190,61,68);
 @tertiary-color: hsb(0,0,10);
@@ -5253,6 +5255,12 @@ td.visible-print {
     display: none !important;
   }
 }
+/*@primary-color: rgb(99,162, 215);
+@secondary-color: rgb(190,61,68);
+@tertiary-color: hsb(0,0,10);
+@primary-color: @white;
+@secondary-color: @black;
+*/
 html.overlay-open .navbar-fixed-top {
   z-index: 400;
 }
@@ -6092,6 +6100,9 @@ td.radio {
   height: 40px;
 }
 @media (max-width: 767px) {
+  #navbar .navbar-nav {
+    padding-left: 12px;
+  }
   #navbar .navbar-collapse {
     background-color: #494949;
   }
@@ -6112,7 +6123,6 @@ td.radio {
     min-height: 1px;
     padding-left: 15px;
     padding-right: 15px;
-    padding-left: 0px;
     margin-right: 15px;
     background-color: #404040;
     -webkit-transition: 0.5s;
@@ -6271,6 +6281,51 @@ td.radio {
 .footer {
   z-index: 10;
 }
+.footer-mobile .social {
+  background: blue;
+}
+.footer-mobile .social:before {
+  transition: opacity 0.2s 0.1s;
+  font-family: "fontello";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  color: #a6a6a6;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  margin-left: .2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+
+  line-height: 1em;
+}
+.footer-mobile .facebook:before {
+  content: 'f';
+}
+.footer-mobile .twitter:before {
+  content: 't';
+}
+.footer-mobile .vimeo:before {
+  content: 'v';
+}
+.footer-mobile .soundcloud:before {
+  content: 's';
+}
+.footer-mobile .tumblr:before {
+  content: 'r';
+}
+.footer-mobile .youtube:before {
+  content: 'y';
+}
 footer {
   z-index: 10;
   -webkit-transition: all 0.4s;
@@ -6293,6 +6348,7 @@ footer {
 }
 @media (max-width: 767px) {
   footer {
+    display: none;
     position: relative;
     height: 100%;
   }
@@ -6497,6 +6553,12 @@ h1 a {
 .view-mode-teaser {
   border-top: solid 3px #ffffff;
   border-bottom: solid 3px #ffffff;
+}
+@media (max-width: 767px) {
+  .view-mode-teaser {
+    border-bottom: solid 6px #ffffff !important;
+    border-top: none !important;
+  }
 }
 .view-mode-teaser .node-title {
   background-color: none !important;
@@ -6933,7 +6995,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
   background-color: transparent;
-  text-shadow: 1px 1px 5px #494949;
+  text-shadow: 1px 1px 1px #494949;
 }
 .node-blog-post .node-title:hover {
   -webkit-transition-duration: 0.5s;
@@ -7151,7 +7213,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   padding-right: 15px;
   top: 25%;
   position: absolute;
-  text-shadow: 1px 1px 5px #494949;
+  text-shadow: 1px 1px 1px #494949;
 }
 @media (min-width: 992px) {
   .carousel .carousel-caption {
@@ -7236,6 +7298,11 @@ select.form-control#edit-field-music-genre-tid option:hover {
   display: inline-block;
   padding-right: 6px;
   padding-right: 2px;
+}
+@media (max-width: 767px) {
+  #admin-menu-wrapper {
+    display: none;
+  }
 }
 .ics-container .event-ics {
   font-size: 12px !important;
@@ -7505,6 +7572,9 @@ select.form-control#edit-field-music-genre-tid option:hover {
   padding-left: 12px;
   padding-top: 0px;
 }
+.sticky-helper {
+  padding-left: 12px;
+}
 /* chosen */
 #event-filter-block {
   display: inline-block;
@@ -7657,6 +7727,41 @@ select.form-control#edit-field-music-genre-tid option:hover {
 #edit-body-value {
   visibility: visible!important;
 }
+@media (max-width: 767px) {
+  .group-trigger + div,
+  .pane-title + div {
+    display: none;
+  }
+}
+.group-trigger {
+  line-height: 2!important;
+  background: #494949;
+  font-family: "Oswald", Helvetica, Arial, sans-serif;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 12px;
+  font-size: 15px;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+@media (max-width: 767px) {
+  .pane-title {
+    line-height: 2!important;
+    background: #494949;
+    font-family: "Oswald", Helvetica, Arial, sans-serif;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 12px;
+    font-size: 15px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+.closable {
+  border-bottom: solid 1px #bfbfbf;
+}
 .pagination {
   display: none;
 }
@@ -7762,7 +7867,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
   background-color: transparent;
-  text-shadow: 1px 1px 5px #494949;
+  text-shadow: 1px 1px 1px #494949;
 }
 .node-installations.node-teaser .node-title:hover {
   -webkit-transition-duration: 0.5s;
