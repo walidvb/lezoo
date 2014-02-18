@@ -6,6 +6,13 @@
 @normal:  ~"screen and (min-width: @{screen-md-min})";
 @wide:    ~"screen and (min-width: @{screen-lg-min})";
 
+
+// fixes 15px margin on right in mobile
+.container{
+  @media @mobile{
+    overflow-x: hidden;
+  }
+}
 // Drop shadows.
 .box-shadow(@shadow) {
   -webkit-box-shadow: @shadow;

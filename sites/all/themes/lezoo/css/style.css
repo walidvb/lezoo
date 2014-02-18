@@ -5261,6 +5261,11 @@ td.visible-print {
 @primary-color: @white;
 @secondary-color: @black;
 */
+@media (max-width: 767px) {
+  .container {
+    overflow-x: hidden;
+  }
+}
 html.overlay-open .navbar-fixed-top {
   z-index: 400;
 }
