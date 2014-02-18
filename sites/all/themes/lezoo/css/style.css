@@ -6338,6 +6338,9 @@ footer .btn-primary {
   width: 100%;
   margin-bottom: 6px;
 }
+footer .social .span {
+  text-indent: -9999px;
+}
 footer .social:before {
   transition: opacity 0.2s 0.1s;
   font-family: "fontello";
