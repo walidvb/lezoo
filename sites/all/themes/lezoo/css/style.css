@@ -7057,6 +7057,23 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .blog-info .submitted {
   margin-bottom: 0;
 }
+#node-238 {
+  min-height: 200px;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+}
+#node-238 .artist-list-item {
+  display: inline-block;
+  border: 2px solid #494949;
+  padding: 5px;
+  text-shadow: 1px 1px 1px #494949;
+}
+#node-238 .artist-list-item:hover {
+  background: #494949;
+  color: #ffffff;
+  border-color: #ffffff;
+}
 .carousel {
   padding-left: 0px;
   padding-right: 0px;

@@ -174,13 +174,22 @@
 		//--------------------Artist list hover behavior
 		var $artistList = $('#node-238');
 		var timer;
-		$('.artist-list', $artistList).each(function(){
-			console.log($(this));
+		$('.artist-list-item', $artistList).each(function(){
+			
+
+
 			$(this).hover(function(){
 				clearTimeout(timer);
-				$artistList.css('backgroundImage', 'url("' + $(this).attr('data-img') + '")');
+				var url = $(this).attr('data-img');
+				var img = new Image();
+				img.src = url;
+				img.onload = function(){
+					$artistList.css('backgroundImage', 'url("' + url + '")');
+				};
 			}, function(){
-				timer = setTimeout($artistList.css('background-image', ''), 300);
+				timer = setTimeout(function(){
+					$artistList.css('backgroundImage', 'none')
+				}, 300);
 			})
 		});
 
