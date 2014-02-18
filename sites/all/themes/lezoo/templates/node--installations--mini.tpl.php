@@ -107,7 +107,7 @@ else
   $title_tag = 'h1';
 }
 ?>
-  <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?> style="background-image: url('<?php print get_img_url('node_install_background_img','field_big_image', $node)?>')"2>
+  <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?> style="background-image: url('<?php print get_img_url('node_install_background_img','field_big_image', $node)?>')">
      <a href="<?php print $node_url; ?>">
           <?php print render($title_prefix); ?>
              <<?php print $title_tag; print $title_attributes; ?>><?php print $title; ?></<?php print $title_tag?>>

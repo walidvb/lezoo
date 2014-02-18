@@ -141,7 +141,7 @@ function lezoo_preprocess_node(&$variables) {
 	{
 		if($variables['type'] == 'event')
 		{
-			$variables['ics'] = '<div class="ics-container">' . l('Ajouter au calendrier', base_path() . 'feed/'. $variables['nid'] . '/event-feed.ics', array('attributes' => array('class' => 'event-ics'))) . '</div>';
+			$variables['ics'] = '<div class="ics-container">' . l('Ajouter au calendrier', base_path() . '/feed/'. $variables['nid'] . '/event-feed.ics', array('attributes' => array('class' => 'event-ics'))) . '</div>';
 		}
 		else if($variables['type'] == 'installations' && !empty($variables['content']['field_event_ref']))
 		{

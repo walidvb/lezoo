@@ -6695,7 +6695,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   margin-bottom: 20px;
 }
 .node-event.view-mode-full .col-right .event-details a {
-  color: #bfbfbf;
+  color: #494949;
   font-style: italic;
 }
 .node-event.view-mode-full .col-right .event-body {
@@ -6727,8 +6727,8 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .node-teaser .dated-node:hover,
 .field-event-ref .node-teaser .dated-node:hover {
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
   background-color: #4d4d4d;
 }
 .node-teaser .dated-node:hover a,
@@ -6941,8 +6941,8 @@ select.form-control#edit-field-music-genre-tid option:hover {
   text-shadow: 1px 1px 1px #494949;
 }
 .node-blog-post .node-title:hover {
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
   background-color: rgba(77, 77, 77, 0.5);
 }
 .node-blog-post .field-big-image {
@@ -7059,8 +7059,8 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 #node-238 {
   min-height: 200px;
-  background-position: center;
   background-size: cover;
+  -webkit-animation: in 2s ease-out 1;
   text-align: center;
 }
 #node-238 .artist-list-item {
@@ -7074,6 +7074,14 @@ select.form-control#edit-field-music-genre-tid option:hover {
   background: #494949;
   color: #ffffff;
   border-color: #ffffff;
+}
+@-webkit-keyframes in {
+  0% {
+    background-position: 45% 50%;
+  }
+  100% {
+    background-position: 55% 50%;
+  }
 }
 .carousel {
   padding-left: 0px;
@@ -8072,8 +8080,8 @@ fieldset[disabled] .top .btn-primary.active {
   transition-duration: 0.5s;
 }
 .node-installations.view-mode-full .field-photos:hover {
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
   opacity: 1;
   filter: alpha(opacity=100);
 }
