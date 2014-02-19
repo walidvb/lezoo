@@ -8106,9 +8106,6 @@ fieldset[disabled] .top .btn-primary.active {
 .node-installations.view-mode-full .col-left .field-event-ref {
   padding-left: 0px;
 }
-.node-installations.view-mode-full .col-right {
-  padding-right: 0px;
-}
 .node-installations.view-mode-full .field-photos {
   display: inline-block;
   width: 32%;
