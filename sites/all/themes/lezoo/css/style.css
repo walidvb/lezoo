@@ -7294,6 +7294,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
 }
 .pager a {
   color: #494949;
@@ -7604,7 +7605,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   margin-top: 0px;
 }
 .top #event-filter-block .chosen-container {
-  width: 100% !important;
+  width: 240px !important;
   height: 24px;
   border: none;
 }
