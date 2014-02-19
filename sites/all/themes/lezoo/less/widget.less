@@ -20,11 +20,24 @@
 .pager{
 	color: @secondary-color;
 	background-color: @tertiary-color;
-	width: 60px;
+	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
 	a{
 		color: @secondary-color;
+	}
+	.pager-previous, .pager-next{
+		display: inline-block;
+		min-width: 24px;
+		padding-left: 6px;
+		padding-right: 6px;
+	}
+	.pager-current{
+		width: 36px;
+		display: inline-block;
+	}
+	.pager-previous{
+
 	}
 	.pager-next{
 		a{

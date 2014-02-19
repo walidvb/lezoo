@@ -12,6 +12,8 @@
 		}
 		a{
 			height: 180px;
+			width: 100%;
+			position: absolute;
 			display: block;
 			margin-top: 0px;
 			margin-bottom: 0px;
@@ -22,28 +24,35 @@
 				background: rgba(250,250,250, 0.3);
 				.transition-duration(0.5s);
 			}
+			@media @mobile{
+				padding-top: 0px;
+			}
 		}
 
 		.node-title{
 			border-bottom: solid 1px white;
 			padding-right: 27%;
+			padding-top: 60px;
+			@media @mobile{
+				padding-right: 0px;
+				padding-top: 0px;
+			}
 			padding-left: @padding-base-horizontal;
 			text-shadow: 1px 1px 5px @secondary-color;
 		}
 
 		.content{
-			margin-left: 85%;
 			width: 15% !important;
-			position: relative;
-			top: -115px;
+			position: absolute;
+			right: 0px;
+			bottom: 0px;
 			@media @mobile{
 				margin-left: 60%;
 				width: 40% !important;
-				position: relative;
-				top: -115px;
+
 			}
 			.date{
-				width: 80px;
+				width: 70px;
 				position: relative;
 				display: block;
 				border-bottom: none;
