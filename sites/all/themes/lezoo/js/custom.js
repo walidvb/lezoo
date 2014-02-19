@@ -183,8 +183,9 @@
 				var url = $(this).attr('data-img');
 				var img = new Image();
 				img.src = url;
+				$artistList.css('backgroundImage', 'url("/sites/all/themes/lezoo/loader.gif")');
 				img.onload = function(){
-					$artistList.css('backgroundImage', 'url("' + url + '")');
+					$artistList.css('backgroundImage', 'url("' + img.src + '")');
 				};
 			}, function(){
 				timer = setTimeout(function(){

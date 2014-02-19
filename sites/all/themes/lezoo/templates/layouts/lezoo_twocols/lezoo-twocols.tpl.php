@@ -5,10 +5,10 @@
     </div>
   </div>
   <div class="row">
-    <div class="top-left col-md-6 col-sm-6 col-xs-12">
+    <div class="top-left col-sm-6 col-xs-12">
       <?php print $content['top_left']; ?>
     </div>
-    <div class="top-right col-md-6 col-sm-6 col-xs-12">
+    <div class="top-right col-sm-6 col-xs-12">
       <?php print $content['top_right']; ?>
     </div>
   </div>
@@ -18,10 +18,10 @@
     </div>
   </div>
   <div class="row">
-    <div class="bottom-left col-md-6 col-sm-6 col-xs-12">
+    <div class="bottom-left col-sm-6 col-xs-12">
       <?php print $content['bottom_left']; ?>
     </div>
-    <div class="bottom-right col-md-6 col-sm-6 col-xs-12">
+    <div class="bottom-right col-sm-6 col-xs-12">
       <?php print $content['bottom_right']; ?>
     </div>
   </div>

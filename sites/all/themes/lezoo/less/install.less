@@ -70,28 +70,28 @@
 
 .video-filter-field{
 	width: 100%;
-	iframe{
+	iframe, object{
 		width:100% !important;
 		height: 265px;
 	}
 	@media @tablet{
 		min-height: 195px;
 
-		iframe{
+		iframe, object{
 			height: 195px;
 		}
 	}
 	@media @normal{
 		min-height: 255px;	
 
-		iframe{
+		iframe, object{
 			height: 255px;
 		}	
 	}
 	@media @wide{
 		min-height: 310px;
 
-		iframe{
+		iframe, object{
 			height: 310px;
 		}
 	}
@@ -198,9 +198,6 @@
 		}
 	}
 
-	.col-right{
-		// padding-right: 0px;
-	}
 	.field-photos{
 		display: inline-block;
 		width: 32%;
