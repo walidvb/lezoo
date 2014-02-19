@@ -183,9 +183,15 @@
 				var url = $(this).attr('data-img');
 				var img = new Image();
 				img.src = url;
-				$artistList.css('backgroundImage', 'url("/sites/all/themes/lezoo/loader.gif")');
+				$artistList.css({
+					'backgroundImage' : 'url("/sites/all/themes/lezoo/loader.gif")',
+					'backgroundSize' : 'contain',
+					});
 				img.onload = function(){
-					$artistList.css('backgroundImage', 'url("' + img.src + '")');
+					$artistList.css({
+						'backgroundImage': 'url("' + img.src + '")',
+						'backgroundSize': 'cover',
+					});
 				};
 			}, function(){
 				timer = setTimeout(function(){

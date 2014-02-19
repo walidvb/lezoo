@@ -6313,8 +6313,8 @@ td.radio {
 }
 footer {
   z-index: 10;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
+  -webkit-transition: all 0.8s 0.5s;
+  transition: all 0.8s 0.5s;
   margin-top: 5px;
   bottom: 0;
   left: 0;
@@ -6380,6 +6380,8 @@ footer #footer-sitemap {
 footer:hover,
 footer.open {
   height: 120px;
+  -webkit-transition: all 0.3s 0;
+  transition: all 0.3s 0;
 }
 .node {
   position: relative;
@@ -7059,8 +7061,9 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 #node-238 {
   min-height: 200px;
+  background-position: center;
   background-size: cover;
-  -webkit-animation: in 2s ease-out 1;
+  background-repeat: no-repeat;
   text-align: center;
 }
 #node-238 .artist-list-item {
@@ -7074,14 +7077,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
   background: #494949;
   color: #ffffff;
   border-color: #ffffff;
-}
-@-webkit-keyframes in {
-  0% {
-    background-position: 45% 50%;
-  }
-  100% {
-    background-position: 55% 50%;
-  }
 }
 .carousel {
   padding-left: 0px;
@@ -7293,8 +7288,13 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .front .pane-views-panes .pager {
   position: absolute;
-  top: 5px;
+  top: 10px;
   right: 5px;
+}
+@media screen and (min-width: 768px) {
+  .front .pane-views-panes .pager {
+    top: 5px;
+  }
 }
 .front .pane-views-panes .pager .pager-current {
   display: none;
@@ -7303,8 +7303,8 @@ select.form-control#edit-field-music-genre-tid option:hover {
   display: inline-block;
 }
 .front .pane-views-panes .pager li a {
-  width: 15px;
-  height: 15px;
+  width: 25px;
+  height: 25px;
   margin: 0px 5px;
   text-indent: -9999px;
   background-image: url('../img/pager_arrow.png');
@@ -7320,6 +7320,12 @@ select.form-control#edit-field-music-genre-tid option:hover {
   -ms-transition: all 0.1s ease-out;
   -o-transition: all 0.1s ease-out;
   transition: all 0.1s ease-out;
+}
+@media screen and (min-width: 768px) {
+  .front .pane-views-panes .pager li a {
+    width: 15px;
+    height: 15px;
+  }
 }
 .front .pane-views-panes .pager li a:hover {
   left: -3px;
@@ -7380,8 +7386,8 @@ select.form-control#edit-field-music-genre-tid option:hover {
   height: 275px;
   overflow: hidden;
   padding: 0px;
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 .flippy .prev div,
 .flippy .next div {
@@ -7409,8 +7415,8 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .flippy .prev:hover,
 .flippy .next:hover {
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
   width: 110px!important;
 }
 .flippy .prev {
@@ -7440,7 +7446,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .flippy .date-number {
   font-size: 25px;
 }
-.btn-primary {
+div:not(.footer) .btn {
   font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 12px;
   color: #000000;
@@ -7454,9 +7460,9 @@ select.form-control#edit-field-music-genre-tid option:hover {
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-.btn-primary:hover {
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
+div:not(.footer) .btn:hover {
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
   background-color: #494949;
 }
 .panels-modal-add-config a {
@@ -7519,6 +7525,9 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 @media (max-width: 767px) {
   .top {
+    display: inline-block;
+  }
+  .top .pane-carousel-events-carousel {
     display: none;
   }
 }
@@ -7650,14 +7659,24 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .top #event-filter-block .form-submit {
   margin-top: 0px;
 }
+.top #event-filter-block select {
+  display: inline-block !important;
+}
+@media screen and (min-width: 768px) {
+  .top #event-filter-block select {
+    display: none;
+  }
+}
 .top #event-filter-block .chosen-container {
+  display: none;
   width: 240px !important;
   height: 24px;
   border: none;
 }
-@media (max-width: 767px) {
+@media screen and (min-width: 768px) {
   .top #event-filter-block .chosen-container {
     width: 441px !important;
+    display: inline-block;
   }
 }
 .top #event-filter-block .chosen-container .chosen-results li {
@@ -7684,8 +7703,8 @@ select.form-control#edit-field-music-genre-tid option:hover {
   transition-duration: 0.5s;
 }
 .top #event-filter-block .chosen-container .chosen-single :hover {
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
   background-color: #ffffff;
   color: #000000;
 }
@@ -7729,86 +7748,13 @@ select.form-control#edit-field-music-genre-tid option:hover {
   min-height: 24px;
 }
 .top .btn-info,
-.top .btn-primary {
-  color: #ffffff;
-  border-color: #f2f2f2;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 12px;
-  color: #000000;
-  text-align: left;
-  background-color: #ffffff;
-  border-radius: 0px;
-  border: solid 1px #bfbfbf;
-  padding: 12px;
-  height: 24px;
+.top .btn {
   padding: 0px 12px 0px 12px;
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-}
-.top .btn-info:hover,
-.top .btn-primary:hover,
-.top .btn-info:focus,
-.top .btn-primary:focus,
-.top .btn-info:active,
-.top .btn-primary:active,
-.top .btn-info.active,
-.top .btn-primary.active,
-.open .dropdown-toggle.top .btn-info,
-.open .dropdown-toggle.top .btn-primary {
-  color: #ffffff;
-  background-color: #ebebeb;
-  border-color: #d4d4d4;
-}
-.top .btn-info:active,
-.top .btn-primary:active,
-.top .btn-info.active,
-.top .btn-primary.active,
-.open .dropdown-toggle.top .btn-info,
-.open .dropdown-toggle.top .btn-primary {
-  background-image: none;
-}
-.top .btn-info.disabled,
-.top .btn-primary.disabled,
-.top .btn-info[disabled],
-.top .btn-primary[disabled],
-fieldset[disabled] .top .btn-info,
-fieldset[disabled] .top .btn-primary,
-.top .btn-info.disabled:hover,
-.top .btn-primary.disabled:hover,
-.top .btn-info[disabled]:hover,
-.top .btn-primary[disabled]:hover,
-fieldset[disabled] .top .btn-info:hover,
-fieldset[disabled] .top .btn-primary:hover,
-.top .btn-info.disabled:focus,
-.top .btn-primary.disabled:focus,
-.top .btn-info[disabled]:focus,
-.top .btn-primary[disabled]:focus,
-fieldset[disabled] .top .btn-info:focus,
-fieldset[disabled] .top .btn-primary:focus,
-.top .btn-info.disabled:active,
-.top .btn-primary.disabled:active,
-.top .btn-info[disabled]:active,
-.top .btn-primary[disabled]:active,
-fieldset[disabled] .top .btn-info:active,
-fieldset[disabled] .top .btn-primary:active,
-.top .btn-info.disabled.active,
-.top .btn-primary.disabled.active,
-.top .btn-info[disabled].active,
-.top .btn-primary[disabled].active,
-fieldset[disabled] .top .btn-info.active,
-fieldset[disabled] .top .btn-primary.active {
-  background-color: #ffffff;
-  border-color: #f2f2f2;
-}
-.top .btn-info:hover,
-.top .btn-primary:hover {
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-  background-color: #494949;
+  min-height: 24px;
 }
 @media (max-width: 767px) {
   .top .btn-info,
-  .top .btn-primary {
+  .top .btn {
     width: 441px !important;
   }
 }
@@ -8429,8 +8375,13 @@ fieldset[disabled] .top .btn-primary.active {
 body {
   background-color: #000000;
   color: #ffffff;
-  padding-top: 40px;
+  padding-top: 50px;
   padding-bottom: 125px;
+}
+@media screen and (min-width: 768px) {
+  body {
+    padding-top: 40px;
+  }
 }
 @media (max-width: 767px) {
   body {
@@ -8441,7 +8392,8 @@ body {
     margin-right: 0;
     margin-left: 0;
   }
-  section.col-sm-12 {
+  .col-sm-12,
+  .col-xs-12 {
     padding-left: 0;
     padding-right: 0;
   }

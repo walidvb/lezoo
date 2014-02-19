@@ -28,7 +28,10 @@
 body{
 	background-color: @fourth-color;
 	color: @primary-color;
-	padding-top: 40px;
+	padding-top: 50px;
+	@media @tablet{
+		padding-top: 40px;
+	}
 	padding-bottom: 125px;
 }
 
@@ -43,7 +46,7 @@ body{
   	margin-right: 0;
   	margin-left: 0;
   }
-  section.col-sm-12{
+  .col-sm-12, .col-xs-12{
   	padding-left: 0;
   	padding-right: 0;
   }
