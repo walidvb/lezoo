@@ -58,14 +58,49 @@
 
 
 //Home page video field
+
 .video-filter-field{
-	display: inline-block;
+	width: 100%;
+	iframe{
+		width:100% !important;
+		height: 265px;
+	}
+	@media @tablet{
+		min-height: 195px;
+
+		iframe{
+			height: 195px;
+		}
+	}
+	@media @normal{
+		min-height: 255px;	
+
+		iframe{
+			height: 255px;
+		}	
+	}
+	@media @wide{
+		min-height: 310px;
+
+		iframe{
+			height: 310px;
+		}
+	}
 }
 
 // Teaser install, home page and search results
 .node-installations.node-teaser{
 	position: relative;
-	min-height: 295px;
+	min-height: 315px;
+	@media @tablet{
+		min-height: 195px;
+	}
+	@media @normal{
+		min-height: 255px;	
+	}
+	@media @wide{
+		min-height: 310px;
+	}
 	.node-title{
 		z-index: 9;
 		padding-left: @padding-base-horizontal;
@@ -92,7 +127,6 @@
 	}
 	// center on mobile
 	@media @mobile{
-		min-height: 215px !important;
 		.content{
 			margin-left: auto;
 			margin-right: auto;
