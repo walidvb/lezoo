@@ -7293,7 +7293,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .front .pane-views-panes .pager {
   position: absolute;
-  top: 3px;
+  top: 5px;
   right: 5px;
 }
 .front .pane-views-panes .pager .pager-current {
@@ -7305,18 +7305,35 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .front .pane-views-panes .pager li a {
   width: 15px;
   height: 15px;
+  margin: 0px 5px;
   text-indent: -9999px;
-  background-image: url('../imgs/pager_arrow.png');
+  background-image: url('../img/pager_arrow.png');
   background-size: contain;
   background-repeat: no-repeat;
   display: inline-block;
+  opacity: 0.5;
+  position: relative;
+  left: 0;
+  right: 0;
+  -webkit-transition: all 0.1s ease-out;
+  -moz-transition: all 0.1s ease-out;
+  -ms-transition: all 0.1s ease-out;
+  -o-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
 }
-.front .pane-views-panes .pager li.pager-previous a {
+.front .pane-views-panes .pager li a:hover {
+  left: -3px;
+  opacity: 0.8;
+}
+.front .pane-views-panes .pager li.pager-next a {
   -webkit-transform: rotateZ(180deg);
   -moz-transform: rotateZ(180deg);
   -ms-transform: rotateZ(180deg);
   -o-transform: rotateZ(180deg);
   transform: rotateZ(180deg);
+}
+.front .pane-views-panes .pager li.pager-next a:hover {
+  left: 3px;
 }
 .not-front .pager {
   color: #494949;
@@ -7324,7 +7341,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
 }
 .not-front .pager a {
   color: #494949;

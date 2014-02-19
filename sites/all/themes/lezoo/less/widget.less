@@ -16,40 +16,13 @@
 	max-width: 1170px;
 }
 
-<<<<<<< HEAD
-=======
-// Pager
-.pager{
-	color: @secondary-color;
-	background-color: @tertiary-color;
-	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-	a{
-		color: @secondary-color;
-	}
-	.pager-previous, .pager-next{
-		display: inline-block;
-		min-width: 24px;
-		padding-left: 6px;
-		padding-right: 6px;
-	}
-	.pager-current{
-		width: 36px;
-		display: inline-block;
-	}
-	.pager-previous{
->>>>>>> b2fff178bb5a2f63cacca020c6ff02dddba4360c
-
-
 // Pager
 .front{
 	.pane-views-panes{
 		position: relative;
 		.pager{
 			position: absolute;
-			top: 3px;
+			top: 5px;
 			right: 5px;
 			
 			.pager-current{
@@ -61,18 +34,35 @@
 				a{			
 					width: 15px;
 					height: 15px;
+					margin: 0px 5px;
 					text-indent: -9999px;
-					background-image: url('../imgs/pager_arrow.png');
+					background-image: url('../img/pager_arrow.png');
 					background-size: contain;
 					background-repeat: no-repeat;
 					display: inline-block;
+					opacity: 0.5;
+					position: relative;
+					left: 0;
+					right: 0;
+					-webkit-transition: all 0.1s ease-out;
+					   -moz-transition: all 0.1s ease-out;
+					    -ms-transition: all 0.1s ease-out;
+					     -o-transition: all 0.1s ease-out;
+					        transition: all 0.1s ease-out;
+					&:hover{
+						left: -3px;
+						opacity: 0.8;
+					}
 				}
-				&.pager-previous a{
+				&.pager-next a{
 					-webkit-transform: rotateZ(180deg);
 					   -moz-transform: rotateZ(180deg);
 					    -ms-transform: rotateZ(180deg);
 					     -o-transform: rotateZ(180deg);
 					        transform: rotateZ(180deg);
+				   	&:hover{
+				   		left: 3px;
+				   	}
 				}
 			}
 		}
