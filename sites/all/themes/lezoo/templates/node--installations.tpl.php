@@ -59,10 +59,17 @@ hide($content['links']);
       </div>
       <div class="<?php print $left_col_classes?> pull-left">
         <?php if(!empty($content['field_video'])): ?>
-          <?php print lezoo_header('La video'); ?>
-          <?php print render($content['field_video']); ?>
-          <?php endif; ?>
-        <?php print render($content) ?>
+          <div class="closable">
+            <?php print lezoo_header('La video'); ?>
+            <?php print render($content['field_video']); ?>
+            <?php endif; ?>
+          </div>
+          <div class="closable">
+            <?php print lezoo_header('Le Blabla'); ?>
+            <div>
+              <?php print render($content) ?>
+            </div>
+          </div>
       </div>
     </div>
   </div>

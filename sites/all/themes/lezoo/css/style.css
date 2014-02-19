@@ -7414,7 +7414,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
   position: relative;
   width: 1px;
   height: 18px;
-  float: right;
   display: inline-block;
   overflow: hidden;
   padding-top: 2px;
@@ -7876,9 +7875,9 @@ fieldset[disabled] .top .btn-primary.active {
     margin-top: 0;
     margin-bottom: 0;
   }
-}
-.closable {
-  border-bottom: solid 1px #bfbfbf;
+  .closable {
+    border-bottom: solid 1px #bfbfbf;
+  }
 }
 .pagination {
   display: none;
@@ -7968,11 +7967,54 @@ fieldset[disabled] .top .btn-primary.active {
   }
 }
 .video-filter-field {
-  display: inline-block;
+  width: 100%;
+}
+.video-filter-field iframe {
+  width: 100% !important;
+  height: 265px;
+}
+@media screen and (min-width: 768px) {
+  .video-filter-field {
+    min-height: 195px;
+  }
+  .video-filter-field iframe {
+    height: 195px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .video-filter-field {
+    min-height: 255px;
+  }
+  .video-filter-field iframe {
+    height: 255px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .video-filter-field {
+    min-height: 310px;
+  }
+  .video-filter-field iframe {
+    height: 310px;
+  }
 }
 .node-installations.node-teaser {
   position: relative;
-  min-height: 295px;
+  min-height: 315px;
+}
+@media screen and (min-width: 768px) {
+  .node-installations.node-teaser {
+    min-height: 195px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .node-installations.node-teaser {
+    min-height: 255px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .node-installations.node-teaser {
+    min-height: 310px;
+  }
 }
 .node-installations.node-teaser .node-title {
   z-index: 9;
@@ -8001,9 +8043,6 @@ fieldset[disabled] .top .btn-primary.active {
   width: 100%;
 }
 @media (max-width: 767px) {
-  .node-installations.node-teaser {
-    min-height: 215px !important;
-  }
   .node-installations.node-teaser .content {
     margin-left: auto;
     margin-right: auto;
