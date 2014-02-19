@@ -7291,12 +7291,23 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .pager {
   color: #494949;
   background-color: #bfbfbf;
-  width: 60px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
 .pager a {
   color: #494949;
+}
+.pager .pager-previous,
+.pager .pager-next {
+  display: inline-block;
+  min-width: 24px;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+.pager .pager-current {
+  width: 36px;
+  display: inline-block;
 }
 .pager .pager-next a {
   border: none;
@@ -7921,6 +7932,8 @@ fieldset[disabled] .top .btn-primary.active {
 }
 .view-installations .view-mode-mini a {
   height: 180px;
+  width: 100%;
+  position: absolute;
   display: block;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -7934,28 +7947,38 @@ fieldset[disabled] .top .btn-primary.active {
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
+@media (max-width: 767px) {
+  .view-installations .view-mode-mini a {
+    padding-top: 0px;
+  }
+}
 .view-installations .view-mode-mini .node-title {
   border-bottom: solid 1px white;
   padding-right: 27%;
+  padding-top: 60px;
   padding-left: 12px;
   text-shadow: 1px 1px 5px #494949;
 }
+@media (max-width: 767px) {
+  .view-installations .view-mode-mini .node-title {
+    padding-right: 0px;
+    padding-top: 0px;
+  }
+}
 .view-installations .view-mode-mini .content {
-  margin-left: 85%;
   width: 15% !important;
-  position: relative;
-  top: -115px;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
 }
 @media (max-width: 767px) {
   .view-installations .view-mode-mini .content {
     margin-left: 60%;
     width: 40% !important;
-    position: relative;
-    top: -115px;
   }
 }
 .view-installations .view-mode-mini .content .date {
-  width: 80px;
+  width: 70px;
   position: relative;
   display: block;
   border-bottom: none;
