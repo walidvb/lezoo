@@ -16,6 +16,31 @@
 	max-width: 1170px;
 }
 
+<<<<<<< HEAD
+=======
+// Pager
+.pager{
+	color: @secondary-color;
+	background-color: @tertiary-color;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	a{
+		color: @secondary-color;
+	}
+	.pager-previous, .pager-next{
+		display: inline-block;
+		min-width: 24px;
+		padding-left: 6px;
+		padding-right: 6px;
+	}
+	.pager-current{
+		width: 36px;
+		display: inline-block;
+	}
+	.pager-previous{
+>>>>>>> b2fff178bb5a2f63cacca020c6ff02dddba4360c
 
 
 // Pager
@@ -168,7 +193,7 @@
 	text-align: left;
 	background-color: @primary-color;
 	border-radius: 0px;
-	border: none !important;
+	border: solid 1px @tertiary-color;
 	padding: @padding-base-horizontal;
 	height: 24px;
 	padding: 0px 12px 0px 12px;
@@ -330,7 +355,7 @@
 			@media @mobile{
 				width: 441px !important;
 			}
-			width: 100% !important;
+			width: 240px !important;
 			height: 24px;
 			border: none;
 			.chosen-results li {
@@ -339,6 +364,7 @@
 			.chosen-drop, .chosen-single {
 				background-color: @secondary-color;
 				color: @primary-color;
+				border-radius: 0px !important;
 			}
 			.chosen-single {
 				background-color: @secondary-color;
@@ -351,10 +377,12 @@
 				min-width: 160px;
 				padding-top: 0px;
 				box-shadow: none !important;
-				.chosen-drop{
-					border-radius: 0px !important;
+				.transition-duration(0.5s);
+				:hover{
+					.transition-duration(0.5s);
+					background-color: @primary-color;
+					color: @fourth-color;
 				}
-
 			}
 			.chosen-results {
 				.highlighted {
