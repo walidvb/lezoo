@@ -5,6 +5,35 @@
 * @file template.php
 */
 function lezoo_preprocess_html(&$variables) {
+	$meta['mobile'] = array(
+		'name' => "apple-mobile-web-app-capable", 
+		'content' => "yes");
+	$meta['startup_image'] = array(
+		'rel' => "apple-touch-startup-image", 
+		'href' => "/sites/all/themes/lezoo/img/logo.png");
+	$meta['ios_icon'] = array(
+		'rel' => "apple-touch-icon-precomposed", 
+		'href' => "/sites/all/themes/lezoo/img/logo.png");
+
+	foreach($meta as $key => $tag)
+	{
+		drupal_add_html_head(array(
+		'#tag' => 'meta',
+		'#attributes' => $tag)
+	, $key);
+	}
+	drupal_add_js("var addToHomeConfig = {
+		animationIn: 'bubble',
+		animationOut: 'drop',
+		lifespan:15000,
+		expire:0,
+		touchIcon:true,
+		returningVisitor:false
+		message:'This is a custom message. Your device is an <strong>%device</strong>. The action icon is `%icon`.'
+	};",  array('type' => 'inline', 'scope' => 'footer'));
+	drupal_add_js(drupal_get_path('theme', 'lezoo'). '/libs/addToHome/src/add2home.js', array('scope' => 'footer'));
+	drupal_add_css(drupal_get_path('theme', 'lezoo'). '/libs/addToHome/style/add2home.js');
+
 	drupal_add_css('//cdnjs.cloudflare.com/ajax/libs/animate.css/2.0/animate.min.css', array('type' => 'external'));
 	drupal_add_js('//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js', array('type' => 'external'));
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.1/angular.min.js', array('type' => 'external', 'scope' => 'footer'));
