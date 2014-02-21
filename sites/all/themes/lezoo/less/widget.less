@@ -592,3 +592,37 @@ div:not(.footer) .btn{
 		border-bottom: solid 1px @tertiary-color;
 	}
 }
+
+.loading{
+	-webkit-animation: hover 1.5s infinite ease-in-out alternate;
+	   -moz-animation: hover 1.5s infinite ease-in-out alternate;
+	    -ms-animation: hover 1.5s infinite ease-in-out alternate;
+	     -o-animation: hover 1.5s infinite ease-in-out alternate;
+	        animation: hover 1.5s infinite ease-in-out alternate;
+}
+
+@-webkit-keyframes hover {
+  50% {
+    background-position: 50% 47%;
+    
+  }
+
+  100% {
+    background-position: 50% 53%;
+    
+  }
+}
+
+@keyframes hover {
+  50% {
+    background-position: 50% 47%;
+    
+
+  }
+
+  100% {
+    background-position: 50% 53%;
+    
+
+  }
+}

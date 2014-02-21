@@ -184,19 +184,23 @@
 				var img = new Image();
 				img.src = url;
 				$artistList.css({
-					'backgroundImage' : 'url("/sites/all/themes/lezoo/loader.gif")',
-					'backgroundSize' : 'contain',
-					});
+						'backgroundImage': 'url("/sites/all/themes/lezoo/img/logo.png")',
+						'backgroundSize': '15%',
+					}).addClass('loading');
 				img.onload = function(){
 					$artistList.css({
 						'backgroundImage': 'url("' + img.src + '")',
 						'backgroundSize': 'cover',
-					});
+					}).removeClass('loading');
 				};
 			}, function(){
 				timer = setTimeout(function(){
-					$artistList.css('backgroundImage', 'none')
-				}, 300);
+					console.log('hovered out');
+					$artistList.css({
+						'backgroundImage': 'url("/sites/all/themes/lezoo/img/logo.png")',
+						'backgroundSize': '15%',
+					}).removeClass('loading');
+				}, 150);
 			})
 		});
 

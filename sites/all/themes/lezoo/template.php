@@ -32,7 +32,7 @@ function lezoo_preprocess_html(&$variables) {
 		message:'This is a custom message. Your device is an <strong>%device</strong>. The action icon is `%icon`.'
 	};",  array('type' => 'inline', 'scope' => 'footer'));
 	drupal_add_js(drupal_get_path('theme', 'lezoo'). '/libs/addToHome/src/add2home.js', array('scope' => 'footer'));
-	drupal_add_css(drupal_get_path('theme', 'lezoo'). '/libs/addToHome/style/add2home.js');
+	drupal_add_css(drupal_get_path('theme', 'lezoo') . '/libs/addToHome/style/add2home.css');
 
 	drupal_add_css('//cdnjs.cloudflare.com/ajax/libs/animate.css/2.0/animate.min.css', array('type' => 'external'));
 	drupal_add_js('//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js', array('type' => 'external'));
