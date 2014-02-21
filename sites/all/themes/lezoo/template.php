@@ -28,7 +28,7 @@ function lezoo_preprocess_html(&$variables) {
 		lifespan:15000,
 		expire:0,
 		touchIcon:true,
-		returningVisitor:false
+		returningVisitor:false,
 		message:'This is a custom message. Your device is an <strong>%device</strong>. The action icon is `%icon`.'
 	};",  array('type' => 'inline', 'scope' => 'footer'));
 	drupal_add_js(drupal_get_path('theme', 'lezoo'). '/libs/addToHome/src/add2home.js', array('scope' => 'footer'));

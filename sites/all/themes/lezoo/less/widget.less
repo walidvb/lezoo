@@ -286,8 +286,10 @@ div:not(.footer) .btn{
 			.make-md-column(11);
 		}
 		#edit-year-wrapper, #edit-month-wrapper, #edit-genre-wrapper{
-			width: 30%;
-			padding-left: 0px !important;
+			@media @tablet{
+				width: 30%;
+				padding-left: 0px !important;
+			}
 		}
 		.form-item input {
 			width: 100%;
@@ -298,19 +300,33 @@ div:not(.footer) .btn{
 		label{
 			display: none;
 		}
-
+		
 		.form-item-month-value-year{
 			display: none;
 		}
 
+		.container-inline-date .date-padding{
+			float: none;
+			@media @tablet{
+				float: left;
+			}
+		}
 		/* FORM */
 
 		.views-exposed-form .views-exposed-widget {
-			float: left;
-			padding-right: 5px;
-			padding-top: 0px;
+			float: none;
+			@media @tablet{
+				float: left;
+				padding-right: 5px;
+				padding-top: 0px;
+			}
 		}
-
+		.container-inline-date .form-item, .container-inline-date .form-item input{
+			width: 100%;
+			@media @tablet{
+				width: auto;
+			}
+		}
 		.form-control:-moz-placeholder {
 			color: @fourth-color;
 		}
@@ -353,16 +369,19 @@ div:not(.footer) .btn{
 		/* dark color overrides */
 		select{
 			display: inline-block!important;
+			width: 100%;
 			@media @tablet{
-				display: none;
+				margin: 0;
+				width: 0;
+				height: 0;
 			}
 		}
 		.chosen-container {
+			display: none;
 			@media @tablet{
 				width: 441px !important;
 				display: inline-block;
 			}
-			display: none;
 			width: 240px !important;
 			height: 24px;
 			border: none;
@@ -433,7 +452,7 @@ div:not(.footer) .btn{
 	}
 	.btn-info, .btn{
 		.btn;
-		@media @mobile{
+		@media @tablet{
 			width: 441px !important;
 		}
 	}
@@ -547,8 +566,9 @@ div:not(.footer) .btn{
 }
 
 #panels-ipe-paneid-69{
-	@media @mobile{
-		display: none;
+	display: none;
+	@media @tablet{
+		display: inline-block;
 	}
 }
 
@@ -559,8 +579,9 @@ div:not(.footer) .btn{
 /// group-trigger ///
 // Keep all groups closed on mobile
 .group-trigger + div, .pane-title + div{
-	@media @mobile{
-		display: none;
+	display: none;
+	@media @tablet{
+		display: inline-block;
 	}
 }
 
