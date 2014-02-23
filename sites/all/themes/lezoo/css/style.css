@@ -1,4 +1,12 @@
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
+
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
+/*@primary-color: rgb(99,162, 215);
+@secondary-color: rgb(190,61,68);
+@tertiary-color: hsb(0,0,10);
+@primary-color: @white;
+@secondary-color: @black;
+*/
 /*! normalize.css v2.1.0 | MIT License | git.io/normalize */
 article,
 aside,
@@ -7082,6 +7090,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   text-shadow: 1px 1px 1px #494949;
 }
 #node-238 .artist-list-item:hover {
+  text-decoration: none;
   background: #494949;
   color: #ffffff;
   border-color: #ffffff;
@@ -7956,6 +7965,14 @@ div:not(.footer) .btn:hover {
   }
 }
 .loading {
+  position: relative;
+  background-image: url("/sites/all/themes/lezoo/img/logo.png");
+  background-size: 15%;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  left: 0;
+  top: 0;
+  background-color: black;
   -webkit-animation: hover 1.5s infinite ease-in-out alternate;
   -moz-animation: hover 1.5s infinite ease-in-out alternate;
   -ms-animation: hover 1.5s infinite ease-in-out alternate;

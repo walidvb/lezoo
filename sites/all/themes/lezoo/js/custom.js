@@ -185,13 +185,14 @@
 
 		//--------------------Artist list hover behavior
 		var $artistList = $('#node-238');
-		var timer;
+		var timer, forceLoading;
 		$('.artist-list-item', $artistList).each(function(){
 			
 
 
 			$(this).hover(function(){
 				clearTimeout(timer);
+				timer = 1;
 				var url = $(this).attr('data-img');
 				var img = new Image();
 				img.src = url;
@@ -200,18 +201,22 @@
 						'backgroundSize': '15%',
 					}).addClass('loading');
 				img.onload = function(){
-					$artistList.css({
-						'backgroundImage': 'url("' + img.src + '")',
-						'backgroundSize': 'cover',
-					}).removeClass('loading');
+					if(timer)
+					{
+						$artistList.css({
+							'backgroundImage': 'url("' + img.src + '")',
+							'backgroundSize': 'cover',
+						}).removeClass('loading');
+					}
 				};
 			}, function(){
+				clearTimeout(timer);
 				timer = setTimeout(function(){
-					console.log('hovered out');
 					$artistList.css({
 						'backgroundImage': 'url("/sites/all/themes/lezoo/img/logo.png")',
 						'backgroundSize': '15%',
 					}).removeClass('loading');
+					timer = null;
 				}, 150);
 			})
 		});

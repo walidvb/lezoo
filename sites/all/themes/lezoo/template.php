@@ -31,7 +31,7 @@ function lezoo_preprocess_html(&$variables) {
 		expire:0,
 		touchIcon:true,
 		returningVisitor:false,
-		message:'This is a custom message. Your device is an <strong>%device</strong>. The action icon is `%icon`.'
+		message:'Ajoute le site du zoo comme webapp en appuyant sur `%icon`!.'
 	};",  array('type' => 'inline', 'scope' => 'footer'));
 	drupal_add_js(drupal_get_path('theme', 'lezoo'). '/libs/addToHome/src/add2home.js', array('scope' => 'footer'));
 	drupal_add_css(drupal_get_path('theme', 'lezoo') . '/libs/addToHome/style/add2home.css');
