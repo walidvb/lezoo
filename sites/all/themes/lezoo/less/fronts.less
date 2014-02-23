@@ -28,13 +28,14 @@
 	}
 }
 
-.carousel{
+.swiper{
 	padding-left: 0px;
 	padding-right: 0px;
+	overflow: hidden;
+	height: 360px;
 	// mobile layout
 	@media (max-width: @screen-md-min){
 		.carousel-inner{
-			height: 100%;
 			.carousel-wrapper{
 				height: 380px;
 				background-size: auto 430px;
@@ -102,7 +103,13 @@
 			}	
 		}
 	}
-
+	.item{
+		display: inline-block;
+		float: left;
+		position: relative;
+		cursor: -webkit-grab;
+		cursor: grab;
+	}
 	// desktop layout
 	.carousel-control{
 		@media (max-width: @screen-md-min){
@@ -118,9 +125,26 @@
 		width: 100%;
 		left: 30%;
 		max-height:12px;
+		li{
+			width: 5px;
+			height: 5px;
+			background-color: white;
+			position: relative;
+			-webkit-transition: all 0.3s ease-out;
+			   -moz-transition: all 0.3s ease-out;
+			    -ms-transition: all 0.3s ease-out;
+			     -o-transition: all 0.3s ease-out;
+			        transition: all 0.3s ease-out;
+			margin: 0px 10px;
+			&.active{
+				width: 10px;
+				height: 10px;
+				top: 2px;
+			}
+		}
 	}
 	.carousel-caption{
-		height: 100%;
+		cursor: pointer;
 		left: 0px;
 		right: 0px;
 		.make-md-column(11);
@@ -202,13 +226,13 @@
 					display: inline-block;
 					padding-right: @padding-base-horizontal/2;
 				}
-			.artist-origin{
-				.artist-labels;
-				padding-right: 2px;
-			}			
+				.artist-origin{
+					.artist-labels;
+					padding-right: 2px;
+				}			
+			}
 		}
 	}
-}
 }
 
 

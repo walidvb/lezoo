@@ -149,13 +149,25 @@
 		*/
 
 		//--------------------carousel work
-		$('a.carousel-control').click(function(e){
-			e.stopPropagation();
-			e.preventDefault();
-			var trg = $(this).attr('href');
-
-			var dir = $(this).attr('data-slide');
-			$(trg).carousel(dir);
+		$('.swiper').swiper({
+			slideClass             : 'item',
+			mode                   : 'horizontal',
+			autoplay				: 5000,
+			autoplayDisableOnInteraction: false,
+			pagination             : '.carousel-indicators',
+			paginationElement      : 'li',
+			paginationElementClass : 'vert-pager',
+			paginationActiveClass  : 'active',
+			paginationVisibleClass : 'visible',
+			paginationClickable    : true,
+			initialSlide	: 0,
+			loop: true,
+			mousewheelControl: true,
+			mousewheelControlForceToAxis: true,
+			keyboardControl: true,
+			resizeReInit: true,
+			grabCursor: true,
+			cssWidthAndHeight: false,
 		});
 		//--------------------carousel light or dark
 		$('.view-carousel .item').once('lezoo', function(){
