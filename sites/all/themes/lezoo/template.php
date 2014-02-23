@@ -14,7 +14,9 @@ function lezoo_preprocess_html(&$variables) {
 	$meta['ios_icon'] = array(
 		'rel' => "apple-touch-icon-precomposed", 
 		'href' => "/sites/all/themes/lezoo/img/logo.png");
-
+	$meta['ios_icon'] = array(
+		'name' => "apple-mobile-web-app-title", 
+		'content' => "ZOO");
 	foreach($meta as $key => $tag)
 	{
 		drupal_add_html_head(array(
