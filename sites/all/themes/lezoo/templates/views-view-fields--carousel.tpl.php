@@ -34,6 +34,8 @@ if(!empty($title) || !empty($description))
 
 
 <div class="carousel-wrapper" style="background-image: url('<?php print $image_url ?>')">
+
+  
   <?php print l($slide, $link, array(
   	'html' => true,
   	));
