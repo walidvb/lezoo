@@ -90,7 +90,7 @@ if(isset($content['field_tags']))
   $tags = $content['field_tags'];
   hide($content['field_tags']);
 }
-$background_image = get_img_url('banner', 'field_big_image', $node);
+$background_image = get_img_url('banner_mobile', 'field_big_image', $node);
 
 ?>
 <?php print render($content['flippy_pager']); ?>

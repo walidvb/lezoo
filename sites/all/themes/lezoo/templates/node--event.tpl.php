@@ -1,6 +1,6 @@
 <?php print render($content['flippy_pager']); ?>
 <?php 
-	$background_image = get_img_url('banner', 'field_big_image', $node);
+	$background_image = get_img_url('banner_mobile', 'field_big_image', $node);
 ?>
 <div class='node-event <?php print $classes ?>' <?php print $attributes; ?> >
 	<div>
