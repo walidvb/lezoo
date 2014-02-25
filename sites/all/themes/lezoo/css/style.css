@@ -7170,6 +7170,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   padding-right: 0px;
   overflow: hidden;
   height: 360px;
+  border-bottom: solid 6px #ffffff;
 }
 @media (max-width: 992px) {
   .swiper .carousel-inner .carousel-wrapper {
@@ -7189,6 +7190,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
     text-align: left;
     padding-left: 0px;
     padding-right: 0px;
+    background-color: rgba(0, 0, 0, 0);
   }
   .swiper .carousel-inner .carousel-caption h6 {
     padding-left: 15px;
@@ -7230,6 +7232,9 @@ select.form-control#edit-field-music-genre-tid option:hover {
   .swiper .carousel-inner .carousel-caption .artists .artist {
     width: 100%;
   }
+  .swiper .carousel-inner .carousel-caption .artists .artist :first-child {
+    margin-left: 0px !important;
+  }
   .swiper .carousel-inner .carousel-caption .artists .artist:after {
     content: none;
   }
@@ -7241,10 +7246,14 @@ select.form-control#edit-field-music-genre-tid option:hover {
   cursor: -webkit-grab !important;
   cursor: grab!important;
 }
+.swiper .field-big-image {
+  cursor: grab;
+}
 .swiper .carousel-control {
   padding-top: 310px;
   font-size: 25px;
   z-index: 10;
+  height: 100%;
 }
 @media (max-width: 767px) {
   .swiper .carousel-control {
@@ -7274,37 +7283,15 @@ select.form-control#edit-field-music-genre-tid option:hover {
   top: 2px;
 }
 .swiper .carousel-caption {
-  cursor: pointer;
-  left: 0px;
-  right: 0px;
-  position: relative;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-  top: 5%;
+  display: block;
+  height: 160px;
+  background: rgba(0, 0, 0, 0.8);
+  bottom: 0px;
+  padding-top: 0px;
   position: absolute;
+  left: 0%;
+  right: 0%;
   text-shadow: 1px 1px 1px #494949;
-}
-@media (min-width: 992px) {
-  .swiper .carousel-caption {
-    float: left;
-    width: 91.66666666666666%;
-  }
-}
-@media (min-width: 992px) {
-  .swiper .carousel-caption {
-    margin-left: 8.333333333333332%;
-  }
-}
-@media screen and (min-width: 768px) {
-  .swiper .carousel-caption {
-    top: 15%;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .swiper .carousel-caption {
-    top: 25%;
-  }
 }
 .swiper .carousel-caption h4,
 .swiper .carousel-caption h6,
@@ -7320,12 +7307,15 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .swiper .carousel-caption h6 {
   position: absolute;
   top: 0px;
+  padding-left: 12px;
 }
 .swiper .carousel-caption .banner-title {
   border-bottom: 2px solid;
   float: left;
-  height: 45px;
+  height: 50px;
   width: 100%;
+  margin-top: 12px;
+  padding-left: 12px;
 }
 .swiper .carousel-caption .banner-title h4 {
   float: left;
@@ -7342,19 +7332,23 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .swiper .carousel-caption .date {
   position: absolute;
-  top: 15px;
-  right: 10%;
+  top: 12px;
+  right: 0px;
   color: #ffffff;
+}
+.swiper .carousel-caption .date .month {
+  display: none;
 }
 .swiper .carousel-caption .artists {
   display: inline-block;
   left: 0px;
-  padding-left: 0px!important;
-  width: 90%;
   float: left;
 }
 .swiper .carousel-caption .artists .artist {
   display: none;
+}
+.swiper .carousel-caption .artists .artist :first-child {
+  margin-left: 12px;
 }
 .swiper .carousel-caption .artists .artist:after {
   font-size: 31px;
@@ -7381,6 +7375,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   padding-right: 6px;
 }
 .swiper .carousel-caption .artists .artist-details {
+  display: none;
   font-size: 15px;
 }
 .swiper .carousel-caption .artists .artist-details .artist-labels {
@@ -8481,12 +8476,12 @@ div:not(.footer) .btn:hover {
 body {
   background-color: #000000;
   color: #ffffff;
-  padding-top: 50px;
+  padding-top: 40px;
   padding-bottom: 125px;
 }
 @media screen and (min-width: 768px) {
   body {
-    padding-top: 40px;
+    padding-top: 50px;
   }
 }
 @media (max-width: 767px) {
