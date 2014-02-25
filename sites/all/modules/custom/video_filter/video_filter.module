@@ -315,7 +315,7 @@ function theme_video_filter_iframe($variables) {
 
   $classes = video_filter_get_classes($video);
 
-  $output = '<iframe src="' . $video['source'] . '&showinfo=0&controls=2&modestbranding=1&color=white&autohide=1&vq=hd720" width="' . $video['width'] . '" height="' . $video['height'] . '" class="' . implode(' ', $classes) . '" frameborder="0"></iframe>';
+  $output = '<iframe src="' . $video['source'] . '&playsinline=1&showinfo=0&controls=2&modestbranding=1&color=white&autohide=1&vq=hd720" width="' . $video['width'] . '" height="' . $video['height'] . '" class="' . implode(' ', $classes) . '" frameborder="0"></iframe>';
 
   return $output;
 }

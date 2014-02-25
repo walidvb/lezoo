@@ -45,48 +45,6 @@
 			$('.primary .last .dropdown-toggle').html(activeText + '<span class="caret"></span>');
 		}
 
-		
-		//---------------Pin left cols
-		$(".no-touch .pinned").once(function(){
-			//$(this).wrapInner('<div class="pinned-content"/>');
-		});
-		var pinit = function(){}
-		/* {
-			var container = '.content';
-			$('.pinned > .pinned-content').once(function(){
-				$(this).pin({
-					containerSelector: container,
-					fixedHeaderSelector: 'header',
-					minWidth: 770,
-				});
-			});
-			// $(container).css({
-			// 	display: 'inline-block',
-			// 	width: '100%'
-			// });
-		 }
-		*/
-
-		//--------------------Masonry the installs
-		var installsPics = function(){
-
-				//on not mobile, isotope
-				$('.no-touch .node-installations #install-photos .swipe-wrap').isotope({
-					itemSelector: '.field-photos',
-				});
-
-				//on mobile, slidejs the whole
-				// $('.touch .node-installations .col-right').slidesjs({
-				// 	width: $(window).width(),
-				// 	pagination: {
-				// 		active: false,
-				// 	},
-				// 	navigation: {
-				// 		active: false,
-				// 	}
-				// });
-		}
-
 		//--------------------open/close 
 		//---------region for mobile
 		//Add Comments title as trigger for the box
@@ -128,26 +86,7 @@
 				});
 			
 		};
-		//---------blog posts
-		/* 
-		if(typeof Drupal.settings.lezoo_theme !== 'undefined')
-		{
-			var nodeStatusClasses = Drupal.settings.lezoo_theme.node_status;
-
-			$('.node-blog-post .expand-post').once('lezoo', function(){
-				$(this).bind('click', function(e){
-					e.preventDefault();
-					$this = $(this);
-					var newText = ($this.text() == 'ouvrir') ? 'fermer' : 'ouvrir';
-					$this.text(newText);
-					var post = $this.parents('.node-blog-post');
-					var isOpen = post.hasClass(nodeStatusClasses.open);
-					post.toggleClass(nodeStatusClasses.closed + ' ' + nodeStatusClasses.open);
-				});
-			});
-		} 
-		*/
-
+		
 		//--------------------carousel work
 		$('.swiper').swiper({
 			slideClass             : 'item',
@@ -192,6 +131,7 @@
 
 			$(this).hover(function(){
 				clearTimeout(timer);
+				//needed so that onload test passes
 				timer = 1;
 				var url = $(this).attr('data-img');
 				var img = new Image();
@@ -206,7 +146,7 @@
 						$artistList.css({
 							'backgroundImage': 'url("' + img.src + '")',
 							'backgroundSize': 'cover',
-						}).removeClass('loading');
+						}).removeClass('loading').addClass('showing');
 					}
 				};
 			}, function(){
@@ -215,7 +155,7 @@
 					$artistList.css({
 						'backgroundImage': 'url("/sites/all/themes/lezoo/img/logo.png")',
 						'backgroundSize': '15%',
-					}).removeClass('loading');
+					}).removeClass('loading showing');
 					timer = null;
 				}, 150);
 			})
@@ -229,7 +169,6 @@
 			timer = setTimeout(function(){
 			pinit();
 			stickEm();
-			installsPics();
 			closeBlocks();
 			}, 300);
 		}
