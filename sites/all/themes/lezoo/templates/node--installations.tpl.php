@@ -11,6 +11,8 @@ else
   $tags = '';
 }
 
+$background_image = get_img_url('banner', 'field_big_image', $node);
+
 hide($content['field_photos']);
 hide($content['field_video']);
 if(!$page)
@@ -30,7 +32,7 @@ hide($content['links']);
 
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <div class="content"<?php print $content_attributes; ?>>
-    <div class='header install-header'>
+    <div class='header install-header' style="background-image: url('<?php print $background_image ?>')">
           <div class="install-titles">
             <div class='install-title title'> 
               <?php print render($title_prefix); ?>

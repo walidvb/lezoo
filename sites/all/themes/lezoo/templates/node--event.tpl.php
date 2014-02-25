@@ -1,10 +1,12 @@
 <?php print render($content['flippy_pager']); ?>
-
+<?php 
+	$background_image = get_img_url('banner', 'field_big_image', $node);
+?>
 <div class='node-event <?php print $classes ?>' <?php print $attributes; ?> >
 	<div>
 		<div class='event-node dated-node'>
 			<div class="node-content">
-				<div class='header'>
+				<div class='header' style="background-image: url('<?php print $background_image ?>')">
 					<div class="event-titles">
 						<?php if(!$teaser): ?>
 							<div class='event-genre genre'><?php print render($content['field_music_genre']); ?></div>

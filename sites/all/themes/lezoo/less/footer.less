@@ -1,6 +1,7 @@
 // Insert your styling here.
 .footer{
 	z-index: 10;
+	border-top: none;
 }
 .social span{
 	text-indent: -999px;
@@ -46,7 +47,13 @@
 }
 
 footer{
+	.make-row;
 	z-index: 10;
+	.region-footer{
+		.make-row;
+		height: 100%;
+		background-color: @primary-color;
+	}
 	@media @mobile{
 		display: none;
 		position: relative;
@@ -60,7 +67,7 @@ footer{
 	.block{
 		.make-md-column(3);
 	}
-	.transition(all 0.8s 0.5s);
+	.transition(all 0.2s 0);
 	margin-top: 5px;
 	bottom: 0;
 	left: 0;
@@ -70,7 +77,6 @@ footer{
 	position: fixed;
 	right: 0;
 	z-index: 3;
-	background-color: @white;
 	color: @fourth-color;
 	font-size: @font-size-small;
 
@@ -99,7 +105,7 @@ footer{
 	}
 	&:hover, &.open{
 		height: 120px;
-	.transition(all 0.3s 0);
+	.transition(all 0.2s 0);
 
 	}
 }

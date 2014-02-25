@@ -9,7 +9,7 @@
  */
 function lezoo_field_formatter_info() {
   $info['date_format'] = array(
-    'label' => t('date as <fri> <23>'),
+    'label' => t('leZOO custom date formats'),
     'field types' => array('date', 'datestamp', 'datetime'),
     'settings' => array(
       'format' => 'day_date',
@@ -45,6 +45,7 @@ function _lezoo_get_date_formats(){
     'day_date'  => 'ven 15',
     'day_date_month' => 'ven 15 oct',
     'date_month' => '15 oct',
+    'day_month_year'  => 'october 2012',
     'date_year' => '15 oct 2012',
     );
 }
@@ -78,79 +79,87 @@ function lezoo_field_formatter_view($entity_type, $entity, $field, $instance, $l
   }
 
 
-function lezoo_token_info(){
-  $types['lezoo'] = array(
-    'name' => t('leZoo custom tokens'),
-    'description' => t('Custom tokens for leZoo'),
-    );
-
-  $tokens['lezoo']['day_date'] = array(
+  function lezoo_token_info(){
+    $types['lezoo'] = array(
+      'name' => t('leZoo custom tokens'),
+      'description' => t('Custom tokens for leZoo'),
+      );
+    $tokens['lezoo']['day_date'] = array(
       'name' => t('Date with day_date'),
       'description' => t('The node\'s date with day_date')
-    );
-  $tokens['lezoo']['day_date_month'] = array(
+      );
+    $tokens['lezoo']['day_date_month'] = array(
       'name' => t('Date with day_date_month'),
       'description' => t('The node\'s date with day_date_month')
-    );
-  $tokens['lezoo']['date_month'] = array(
+      );
+    $tokens['lezoo']['date_month'] = array(
       'name' => t('Date with date month'),
       'description' => t('The node\'s date with date month')
-    );
-  $tokens['lezoo']['day_year'] = array(
+      );
+    $tokens['lezoo']['day_year'] = array(
       'name' => t('Date with day_year'),
       'description' => t('The node\'s date with 23 jan 2012')
-    );
-  return array(
-    'types' => $types,
-    'tokens' => $tokens
-    );
-}
-
-function lezoo_tokens($type, $tokens, array $data = array(), array $options = array()) {
-  $replacements = array();
-
-  if($type == 'lezoo')
-  {
-    foreach($tokens as $name => $original)
-    {
-      $format = $name;
-      $date = $data['node']->field_date['und'][0]['value'];
-      $render = lezoo_render_date($date, $format);
-      $replacements[$original] = $render;
-    }
+      );
+    $tokens['lezoo']['day_month_year'] = array(
+      'name' => t('Date with day_month_year'),
+      'description' => t('The node\'s date as january 2012')
+      );
+    return array(
+      'types' => $types,
+      'tokens' => $tokens
+      );
   }
-  return $replacements;
-}
+
+  function lezoo_tokens($type, $tokens, array $data = array(), array $options = array()) {
+    $replacements = array();
+
+    if($type == 'lezoo')
+    {
+      foreach($tokens as $name => $original)
+      {
+        $format = $name;
+        $date = $data['node']->field_date['und'][0]['value'];
+        $render = lezoo_render_date($date, $format);
+        $replacements[$original] = $render;
+      }
+    }
+    return $replacements;
+  }
 
 //the function rendering a link as an icon.
-function lezoo_render_date($date_original, $format)
-{
-  setlocale(LC_ALL, 'fr_FR.UTF-8');
-
-  $output = '';
-  $date_original = strtotime($date_original);  
-  $day = strftime('%a', $date_original);
-  $date = strftime('%d', $date_original);
-  $month = strftime('%b', $date_original);
-  $year = strftime('%Y', $date_original);
-  switch($format)
+  function lezoo_render_date($date_original, $format)
   {
-    case 'day_date_month':
+    setlocale(LC_ALL, 'fr_FR.UTF-8');
 
-    return "<span class=\"day\">$day</span>\n<span class=\"date-number\">$date</span>\n<span class=\"month\">$month</span>";
-    break;
-    case 'day_date':
-    return "<span class=\"day\">$day</span>\n<span class=\"date-number\">$date</span>\n";
-    break;
-    case 'date_month':
-    return "<span class=\"date-number\">$date</span>\n<span class=\"month\">$month</span>";
-    break;
-    case 'day_year':
-    return "<span class=\"date-number\">$date</span>\n<span class=\"month\">$month</span><span class=\"date-year\">year</span>";
-    break;
+    $output = '';
+    $date_original = strtotime($date_original);  
+    $day = strftime('%a', $date_original);
+    $date = strftime('%d', $date_original);
+    $month = strftime('%b', $date_original);
+    $month_full = strftime('%B', $date_original);
+    $year = strftime('%Y', $date_original);
+    switch($format)
+    {
+      case 'day_date_month':
+
+      $output =  "<span class=\"day\">$day</span>\n<span class=\"date-number\">$date</span>\n<span class=\"month\">$month</span>";
+      break;
+      case 'day_date':
+      $output =  "<span class=\"day\">$day</span>\n<span class=\"date-number\">$date</span>\n";
+      break;
+      case 'date_month':
+      $output =  "<span class=\"date-number\">$date</span>\n<span class=\"month\">$month</span>";
+      break;
+      case 'day_year':
+      $output =  "<span class=\"day\">$day</span>\n<span class=\"date-number\">$date</span>\n<span class=\"month\">$month</span><span class=\"date-year\">$year</span>";
+      break;
+      case 'day_month_year':
+      $output =  "<span class=\"month\">$month_full</span><span class=\"date-year\">$year</span>";
+      default: 
+      $output =  "<span class=\"day\">$day</span>\n<span class=\"date-number\">$date</span>\n<span class=\"month\">$month</span><span class=\"date-year\">$year</span>";
+    }
+    return $output;
   }
-  return $output;
-}
 
 
 

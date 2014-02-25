@@ -90,6 +90,8 @@ if(isset($content['field_tags']))
   $tags = $content['field_tags'];
   hide($content['field_tags']);
 }
+$background_image = get_img_url('banner', 'field_big_image', $node);
+
 ?>
 <?php print render($content['flippy_pager']); ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes ?> clearfix"<?php print $attributes; ?>>
@@ -97,7 +99,7 @@ if(isset($content['field_tags']))
 
   <?php print render($title_prefix); ?>
   <?php if(!empty($title) && !$is_page): ?>
-    <h1 <?php print $title_attributes; ?>><?php print $title; ?></h1>
+    <h1 <?php print $title_attributes; ?>  style="background-image: url('<?php print $background_image ?>')"><?php print $title; ?></h1>
 <?php endif; ?>
 <?php print $share42; ?>
 <?php print render($title_suffix); ?> 
@@ -150,11 +152,5 @@ if(isset($content['field_tags']))
     </div>
   </div>
 </div>
-
-
   <?php print render($content['links']); ?>
-
-
-  <?php print render($content['comments']); ?>
-
 </div>

@@ -13,6 +13,7 @@
 
 .view-mode-full{
 	&.node-blog-post{
+		border-bottom: none;
 		.node-title{
 			font-size: @font-size-h1*2.2;
 			margin-top: 30px;
@@ -20,8 +21,9 @@
 			border-top: solid 1px @primary-color;
 			padding-left: @padding-base-horizontal;
 			padding-right: 15%;
-			@media (max-width: @screen-sm){
+			@media @tablet{
 				font-size: @font-size-h1*1.5;
+				background-image: none !important;
 			}
 		}
 	}
@@ -79,6 +81,7 @@
 		padding-top: @padding-base-vertical;
 		border-top: 1px solid @fourth-color;
 	}
+
 }
 
 .node-blog-post-single{

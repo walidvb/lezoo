@@ -7,7 +7,7 @@ h1, h2, h3{
 	font-family: @font-family-sans-serif;
 	a{
 		color: @primary-color;
-		}
+	}
 }
 
 h2 ,h1{
@@ -26,12 +26,11 @@ h2 ,h1{
 }
 
 .date{
-	.make-md-column(2);
 	font-weight: bolder;
 	color: fade(@primary-color,90%);
 	font-family: @font-family-sans-serif;
 	z-index: 0;
-	.date-number, .day, .month{
+	.date-number, .day, .month, .date-year{
 		display: block;
 		position: relative;
 		top:0px;
@@ -78,12 +77,24 @@ h2 ,h1{
 	.field-body{
 		-webkit-column-count: 3;
 		-moz-column-count: 3;
-		 column-count: 3;
-		 @media @mobile{
-		 	-webkit-column-count: 1;
-		 	-moz-column-count: 1;
-		 	column-count: 1;
-		 }
+		column-count: 3;
+		@media @mobile{
+			-webkit-column-count: 1;
+			-moz-column-count: 1;
+			column-count: 1;
+		}
+	}
+}
+
+.field-body{
+	img{
+		margin:  @padding-base-vertical @padding-base-horizontal @padding-base-vertical @padding-base-horizontal;
+	}
+}
+.field-big-image{
+	display: none;
+	@media @tablet{
+		display: inline-block;
 	}
 }
 

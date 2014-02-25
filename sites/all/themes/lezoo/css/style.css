@@ -6247,6 +6247,7 @@ td.radio {
 }
 .footer {
   z-index: 10;
+  border-top: none;
 }
 .social span {
   text-indent: -999px;
@@ -6312,9 +6313,11 @@ td.radio {
   font-size: 27.250000000000004px;
 }
 footer {
+  margin-left: -15px;
+  margin-right: -15px;
   z-index: 10;
-  -webkit-transition: all 0.8s 0.5s;
-  transition: all 0.8s 0.5s;
+  -webkit-transition: all 0.2s 0;
+  transition: all 0.2s 0;
   margin-top: 5px;
   bottom: 0;
   left: 0;
@@ -6327,9 +6330,62 @@ footer {
   position: fixed;
   right: 0;
   z-index: 3;
-  background-color: #ffffff;
   color: #000000;
   font-size: 11px;
+}
+footer:before,
+footer:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+footer:after {
+  clear: both;
+}
+footer:before,
+footer:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+footer:after {
+  clear: both;
+}
+footer .region-footer {
+  margin-left: -15px;
+  margin-right: -15px;
+  height: 100%;
+  background-color: #ffffff;
+}
+footer .region-footer:before,
+footer .region-footer:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+footer .region-footer:after {
+  clear: both;
+}
+footer .region-footer:before,
+footer .region-footer:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+footer .region-footer:after {
+  clear: both;
 }
 @media (max-width: 767px) {
   footer {
@@ -6380,8 +6436,8 @@ footer #footer-sitemap {
 footer:hover,
 footer.open {
   height: 120px;
-  -webkit-transition: all 0.3s 0;
-  transition: all 0.3s 0;
+  -webkit-transition: all 0.2s 0;
+  transition: all 0.2s 0;
 }
 .node {
   position: relative;
@@ -6412,24 +6468,15 @@ h1 a {
   text-transform: uppercase;
 }
 .date {
-  position: relative;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
   font-weight: bolder;
   color: rgba(255, 255, 255, 0.9);
   font-family: "Oswald", Helvetica, Arial, sans-serif;
   z-index: 0;
 }
-@media (min-width: 992px) {
-  .date {
-    float: left;
-    width: 16.666666666666664%;
-  }
-}
 .date .date-number,
 .date .day,
-.date .month {
+.date .month,
+.date .date-year {
   display: block;
   position: relative;
   top: 0px;
@@ -6493,6 +6540,17 @@ h1 a {
     -webkit-column-count: 1;
     -moz-column-count: 1;
     column-count: 1;
+  }
+}
+.field-body img {
+  margin: 6px 12px 6px 12px;
+}
+.field-big-image {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .field-big-image {
+    display: inline-block;
   }
 }
 .view-mode-teaser {
@@ -6605,8 +6663,15 @@ select.form-control#edit-field-music-genre-tid option:hover {
   display: inline-block;
 }
 .node-event.view-mode-full .header {
-  min-height: 170px;
+  min-height: 190px;
   border-bottom: solid 6px #ffffff;
+  background-position: center;
+  background-size: 200%;
+}
+@media screen and (min-width: 768px) {
+  .node-event.view-mode-full .header {
+    background-image: none !important;
+  }
 }
 .node-event.view-mode-full .header .event-titles,
 .node-event.view-mode-full .header .install-titles {
@@ -6655,7 +6720,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   width: 100%;
   height: 18px;
   position: relative;
-  margin-top: 16px;
+  margin-top: 38px;
 }
 .node-event.view-mode-full .header .event-meta .event-social {
   height: 18px;
@@ -6909,6 +6974,9 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .page-podcasts .views-row:not(.views-row-first) {
   border-top: solid 6px white;
 }
+.view-mode-full.node-blog-post {
+  border-bottom: none;
+}
 .view-mode-full.node-blog-post .node-title {
   font-size: 68.2px;
   margin-top: 30px;
@@ -6917,9 +6985,10 @@ select.form-control#edit-field-music-genre-tid option:hover {
   padding-left: 12px;
   padding-right: 15%;
 }
-@media (max-width: 768px) {
+@media screen and (min-width: 768px) {
   .view-mode-full.node-blog-post .node-title {
     font-size: 46.5px;
+    background-image: none !important;
   }
 }
 .node-blog-post {
@@ -7162,14 +7231,10 @@ select.form-control#edit-field-music-genre-tid option:hover {
     padding-top: 6px;
   }
   .swiper .carousel-inner .carousel-caption .artists .artist {
-    display: block;
     width: 100%;
   }
   .swiper .carousel-inner .carousel-caption .artists .artist:after {
     content: none;
-  }
-  .swiper .carousel-inner .carousel-caption .artists .artist .artist-details {
-    display: none;
   }
 }
 .swiper .item {
@@ -7180,16 +7245,14 @@ select.form-control#edit-field-music-genre-tid option:hover {
   cursor: grab!important;
 }
 .swiper .carousel-control {
-  padding-top: 160px;
+  padding-top: 310px;
+  font-size: 25px;
   z-index: 10;
 }
-@media (max-width: 992px) {
+@media (max-width: 767px) {
   .swiper .carousel-control {
-    padding-top: 340px;
+    display: none;
   }
-}
-.swiper .carousel-control a {
-  padding-top: 310px;
 }
 .swiper .carousel-indicators {
   width: 100%;
@@ -7236,7 +7299,12 @@ select.form-control#edit-field-music-genre-tid option:hover {
     margin-left: 8.333333333333332%;
   }
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 768px) {
+  .swiper .carousel-caption {
+    top: 15%;
+  }
+}
+@media screen and (min-width: 1200px) {
   .swiper .carousel-caption {
     top: 25%;
   }
@@ -7289,13 +7357,26 @@ select.form-control#edit-field-music-genre-tid option:hover {
   float: left;
 }
 .swiper .carousel-caption .artists .artist {
-  display: inline-block;
+  display: none;
 }
 .swiper .carousel-caption .artists .artist:after {
   font-size: 31px;
   content: ' / ';
   margin-left: 5px;
   margin-right: 5px;
+}
+@media screen and (min-width: 768px) {
+  .swiper .carousel-caption .artists .artist {
+    display: inline-block;
+  }
+}
+.swiper .carousel-caption .artists .artist:nth-child(1),
+.swiper .carousel-caption .artists .artist:nth-child(2) {
+  display: inline-block !important;
+}
+.swiper .carousel-caption .artists .artist:nth-child(1) .artist-details,
+.swiper .carousel-caption .artists .artist:nth-child(2) .artist-details {
+  font-size: 12px !important;
 }
 .swiper .carousel-caption .artists .artist-name {
   display: inline-block;
@@ -7314,6 +7395,12 @@ select.form-control#edit-field-music-genre-tid option:hover {
   padding-right: 6px;
   padding-right: 2px;
 }
+.front .month {
+  display: none;
+}
+.front .date-year {
+  display: none;
+}
 @media (max-width: 767px) {
   #admin-menu-wrapper {
     display: none;
@@ -7326,6 +7413,9 @@ select.form-control#edit-field-music-genre-tid option:hover {
   margin-left: auto;
   margin-right: auto;
   max-width: 1170px;
+}
+.carousel-indicators li {
+  border-radius: 0px;
 }
 .front .pane-views-panes {
   position: relative;
@@ -7563,7 +7653,6 @@ div:not(.footer) .btn:hover {
 .top {
   text-align: right;
   text-transform: lowercase;
-  height: 24px;
   /* BUTTON */
 
 }
@@ -7731,6 +7820,13 @@ div:not(.footer) .btn:hover {
 .top #event-filter-block select {
   display: inline-block !important;
   width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: white 1px solid;
+  background: black;
+  color: white;
+  border-radius: 0px;
+  padding: 3px 5px;
 }
 @media screen and (min-width: 768px) {
   .top #event-filter-block select {
@@ -7970,8 +8066,8 @@ div:not(.footer) .btn:hover {
 }
 .loading {
   position: relative;
-  background-image: url("/sites/all/themes/lezoo/img/logo.png");
-  background-size: 15%;
+  background-image: url("/zoo/sites/all/themes/lezoo/img/logo.png");
+  background-size: 70px;
   background-position: 50%;
   background-repeat: no-repeat;
   left: 0;
@@ -7982,6 +8078,24 @@ div:not(.footer) .btn:hover {
   -ms-animation: hover 1.5s infinite ease-in-out alternate;
   -o-animation: hover 1.5s infinite ease-in-out alternate;
   animation: hover 1.5s infinite ease-in-out alternate;
+}
+.loading.loading-full:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/zoo/sites/all/themes/lezoo/img/logo.png");
+  background-size: 70px;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-color: black;
+  -webkit-animation: hover 1.5s infinite ease-in-out alternate;
+  -moz-animation: hover 1.5s infinite ease-in-out alternate;
+  -ms-animation: hover 1.5s infinite ease-in-out alternate;
+  -o-animation: hover 1.5s infinite ease-in-out alternate;
+  animation: hover 1.5s infinite ease-in-out alternate;
+  z-index: 15;
 }
 @-webkit-keyframes hover {
   50% {
@@ -7998,6 +8112,9 @@ div:not(.footer) .btn:hover {
   100% {
     background-position: 50% 53%;
   }
+}
+.page-search .node-blog-post.node-teaser {
+  background-image: none !important;
 }
 .pagination {
   display: none;
@@ -8027,6 +8144,23 @@ div:not(.footer) .btn:hover {
 }
 #node-154 .field-image img {
   width: 100%;
+}
+#node-170 .panel-node-title,
+#node-153 .panel-node-title,
+#node-38 .panel-node-title {
+  font-size: 68.2px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  padding-left: 12px;
+  padding-right: 15%;
+  border-bottom: solid 6px #ffffff;
+  text-align: left;
+}
+@media (max-width: 768px) {
+  #node-170 .panel-node-title,
+  #node-153 .panel-node-title,
+  #node-38 .panel-node-title {
+    font-size: 46.5px;
+  }
 }
 .view-installations .view-mode-mini {
   height: 180px;
@@ -8187,6 +8321,13 @@ div:not(.footer) .btn:hover {
 .node-installations.view-mode-full .install-header {
   min-height: 120px;
   border-bottom: solid 6px #ffffff;
+  background-position: center;
+  background-size: 120%;
+}
+@media screen and (min-width: 768px) {
+  .node-installations.view-mode-full .install-header {
+    background-image: none !important;
+  }
 }
 .node-installations.view-mode-full .install-header .event-titles,
 .node-installations.view-mode-full .install-header .install-titles {

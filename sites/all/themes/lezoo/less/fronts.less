@@ -94,14 +94,10 @@
 				.artists{
 					width: 100%;
 					padding-top: @padding-base-vertical;
-					.artist{
-						display: block;
+					.artist {
 						width: 100%;
 						&:after{
 							content: none;
-						}
-						.artist-details{
-							display: none;
 						}
 					}
 				}
@@ -117,13 +113,12 @@
 	}
 	// desktop layout
 	.carousel-control{
-		@media (max-width: @screen-md-min){
-			padding-top:340px;
+		
+		@media @mobile{
+			display: none;
 		}
-		a{
-			padding-top: 310px;
-		}
-		padding-top: 160px;
+		padding-top: 310px;
+		font-size: @font-size-h2;
 		z-index: 10;
 	}
 	.carousel-indicators{
@@ -136,10 +131,10 @@
 			background-color: white;
 			position: relative;
 			-webkit-transition: all 0.3s ease-out;
-			   -moz-transition: all 0.3s ease-out;
-			    -ms-transition: all 0.3s ease-out;
-			     -o-transition: all 0.3s ease-out;
-			        transition: all 0.3s ease-out;
+			-moz-transition: all 0.3s ease-out;
+			-ms-transition: all 0.3s ease-out;
+			-o-transition: all 0.3s ease-out;
+			transition: all 0.3s ease-out;
 			margin: 0px 10px;
 			&.active{
 				width: 10px;
@@ -155,7 +150,10 @@
 		.make-md-column(11);
 		.make-md-column-offset(1);
 		top: 5%;
-		@media @normal{
+		@media @tablet{
+			top: 15%;
+		}
+		@media @wide{
 			top: 25%;
 		}
 		position: absolute;
@@ -211,12 +209,21 @@
 			float: left;	
 
 			.artist{
-				display: inline-block;
+				display: none;
 				&:after{
 					font-size: @font-size-h1;
 					content:' / ';
 					margin-left: 5px;
 					margin-right: 5px;
+				}
+				@media @tablet{
+					display: inline-block;
+				}
+				&:nth-child(1), &:nth-child(2){
+					display: inline-block !important;
+					.artist-details{
+						font-size: @font-size-base !important;
+					}
 				}
 			}
 			.artist-name{
@@ -240,4 +247,12 @@
 	}
 }
 
+.front{
+	.month{
+		display: none;
+	}
+	.date-year{
+		display: none;
+	}
+}
 

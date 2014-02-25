@@ -10,13 +10,13 @@ function lezoo_preprocess_html(&$variables) {
 		'content' => "yes");
 	$meta['startup_image'] = array(
 		'rel' => "apple-touch-startup-image", 
-		'href' => "/sites/all/themes/lezoo/img/logo.png");
+		'href' => "/sites/all/themes/lezoo/img/startup_image.png");
 	$meta['ios_icon'] = array(
 		'rel' => "apple-touch-icon-precomposed", 
-		'href' => "/sites/all/themes/lezoo/img/logo.png");
+		'href' => "/sites/all/themes/lezoo/img/webApp_logo.png");
 	$meta['ios_icon'] = array(
 		'name' => "apple-mobile-web-app-title", 
-		'content' => "ZOO");
+		'content' => "le ZOO");
 	foreach($meta as $key => $tag)
 	{
 		drupal_add_html_head(array(
@@ -28,7 +28,7 @@ function lezoo_preprocess_html(&$variables) {
 		animationIn: 'bubble',
 		animationOut: 'drop',
 		lifespan:15000,
-		expire:0,
+		expire:20,
 		touchIcon:true,
 		returningVisitor:false,
 		message:'Ajoute le site du zoo comme webapp en appuyant sur `%icon`!.'
@@ -169,7 +169,7 @@ function lezoo_preprocess_node(&$variables) {
 	$variables['left_col_classes'] = "col-left col-lg-5 col-md-4 col-sm-3 col-xs-12 pinned";
 	$variables['right_col_classes'] = "col-right col-lg-7 col-md-8 col-sm-9 col-xs-12";
 	$variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__' . $variables['view_mode'];
-	$variables['submitted'] = '<span class="user">'. $variables['node']->name . '</span><span class="timestamp">' . strftime('%d/%m/%Y', $variables['created']) . '</span>';
+	$variables['submitted'] = '<span class="timestamp">' . strftime('%d/%m/%Y', $variables['created']) . '</span>';
 	if(!$variables['is_front'])
 	{
 		if($variables['type'] == 'event')
@@ -215,7 +215,7 @@ function lezoo_preprocess_node(&$variables) {
 					$genres  = empty($genres) ? null : $genres;
 					$tags    = empty($tags) ? null : $tags;
 					$related = views_embed_view('related', 'default', $variables['nid'], $section, $genres, $tags);
-					dpm($related, 'related');
+					
 					if($related)
 					{
 						$related_block = "<aside class=\"related-posts\"><h3 class=\"block-title related-title\">". t('Encore plus') ."</h3>" . $related . "</aside>";

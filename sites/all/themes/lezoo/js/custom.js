@@ -25,7 +25,7 @@
 		//-------------- stick menu
 		var threshold = $('header');
 		//-------------- stick months above list
-		$('.page-agenda .view-display-id-panel_pane_1 .view-content').once('lezoo_theme', function(){
+		$('.page-agenda .view-display-id-panel_pane_1 .view-content,  .view-display-id-events_teaser_all_date .view-content').once('lezoo_theme', function(){
 			$(this).css('position', 'relative')
 			.stickyHeaders({
 				headlineSelector: 'h3:not(.node-title)',
@@ -42,7 +42,7 @@
 		var normalText = $('.primary .last .dropdown-toggle').text();
 		if(activeText != '')
 		{
-			$('.primary .last .dropdown-toggle').html(activeText + '<span class="caret"></span>');
+			$('.primary .last .dropdown-toggle').addClass('active').html(activeText + '<span class="caret"></span>');
 		}
 
 		//--------------------open/close 
@@ -56,58 +56,66 @@
 				if($(window).width() <= 767)
 				{
 					var title = $(this);
-
 					var block = title.next();
-
-					block.slideToggle( function()
-					{
-						if(title.toggleClass('closed').hasClass('closed'))
-						{
-							// $('html, body').animate(
-							// {
-							//	scrollTop: title.offset().top,
-							// });
-						}
-					});
+					block.slideToggle();
 				}
 			});
 		});
 
 		var closeBlocks = function(){
 
-				$blockTitle.each(function(){
-					if($(window).width() < 767)
-					{
-						$(this).next().hide();
-					}
-					else{
-						$(this).next().show();	
-					}
-				});
+			$blockTitle.each(function(){
+				if($(window).width() < 767)
+				{
+					$(this).next().hide();
+				}
+				else{
+					$(this).next().show();	
+				}
+			});
 			
 		};
 		
 		//--------------------carousel work
-		$('.swiper').swiper({
-			slideClass             : 'item',
-			mode                   : 'horizontal',
-			autoplay				: 5000,
-			autoplayDisableOnInteraction: false,
-			pagination             : '.carousel-indicators',
-			paginationElement      : 'li',
-			paginationElementClass : 'vert-pager',
-			paginationActiveClass  : 'active',
-			paginationVisibleClass : 'visible',
-			paginationClickable    : true,
-			initialSlide	: 0,
-			loop: true,
-			mousewheelControl: true,
-			mousewheelControlForceToAxis: true,
-			keyboardControl: true,
-			resizeReInit: true,
-			grabCursor: true,
-			cssWidthAndHeight: false,
-		});
+		try{
+			var swiper = $('.swiper').swiper({
+				slideClass             : 'item',
+				mode                   : 'horizontal',
+				autoplay				: 5000,
+				autoplayDisableOnInteraction: false,
+				pagination             : '.carousel-indicators',
+				paginationElement      : 'li',
+				paginationElementClass : 'vert-pager',
+				paginationActiveClass  : 'active',
+				paginationVisibleClass : 'visible',
+				paginationClickable    : true,
+				initialSlide	: 0,
+				loop: true,
+				mousewheelControl: true,
+				mousewheelControlForceToAxis: true,
+				keyboardControl: true,
+				resizeReInit: true,
+				grabCursor: true,
+				cssWidthAndHeight: false,
+				onSwiperCreated: function(){
+					$('.swiper').removeClass('loading loading-full');
+					//attach behaviors to arrows
+					$('.carousel-control').once(function(){
+						$(this).bind('click', function(e){
+							e.preventDefault();
+							var dir = $(this).attr('data-slide') === 'prev' ? false : true;
+							if(dir)
+							{
+								swiper.swipeNext();
+							}
+							else{
+								swiper.swipePrev();
+							}
+						})
+					});
+				}
+			});
+} catch(e){}
 		//--------------------carousel light or dark
 		$('.view-carousel .item').once('lezoo', function(){
 			$(this).each(function(){
@@ -123,12 +131,9 @@
 		});
 
 		//--------------------Artist list hover behavior
-		var $artistList = $('#node-238');
+		var $artistList = $('.front  #node-238');
 		var timer, forceLoading;
 		$('.artist-list-item', $artistList).each(function(){
-			
-
-
 			$(this).hover(function(){
 				clearTimeout(timer);
 				//needed so that onload test passes
@@ -137,9 +142,9 @@
 				var img = new Image();
 				img.src = url;
 				$artistList.css({
-						'backgroundImage': 'url("/sites/all/themes/lezoo/img/logo.png")',
-						'backgroundSize': '15%',
-					}).addClass('loading');
+					'backgroundImage': 'url("/sites/all/themes/lezoo/img/logo.png")',
+					'backgroundSize': '15%',
+				}).addClass('loading');
 				img.onload = function(){
 					if(timer)
 					{
@@ -154,7 +159,7 @@
 				timer = setTimeout(function(){
 					$artistList.css({
 						'backgroundImage': 'url("/sites/all/themes/lezoo/img/logo.png")',
-						'backgroundSize': '15%',
+						'backgroundSize': '70px',
 					}).removeClass('loading showing');
 					timer = null;
 				}, 150);
@@ -167,9 +172,8 @@
 		{
 			clearTimeout(timer);
 			timer = setTimeout(function(){
-			pinit();
-			stickEm();
-			closeBlocks();
+				stickEm();
+				closeBlocks();
 			}, 300);
 		}
 		resize();
@@ -185,11 +189,5 @@
 			}
 
 		});
-
-		//--------------UUUUUGLY hack
-		//$('.bootstrap-twocol-stacked .panel-panel.right').addClass('col-md-6 col-sm-6 col-xs-12');
-
-
-};
-
+	};
 })(jQuery);
