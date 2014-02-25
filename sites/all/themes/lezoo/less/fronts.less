@@ -38,6 +38,7 @@
 	padding-right: 0px;
 	overflow: hidden;
 	height: 360px;
+	border-bottom: solid 6px @primary-color;
 	// mobile layout
 	@media (max-width: @screen-md-min){
 		.carousel-inner{
@@ -60,6 +61,7 @@
 				text-align: left;
 				padding-left: 0px;
 				padding-right: 0px;
+				background-color: rgba(0,0,0,0);
 				h6{
 					padding-left: 15px;
 				}
@@ -95,6 +97,9 @@
 					width: 100%;
 					padding-top: @padding-base-vertical;
 					.artist {
+						:first-child{
+							margin-left: 0px !important;
+						}
 						width: 100%;
 						&:after{
 							content: none;
@@ -112,6 +117,9 @@
 		cursor: grab!important;
 	}
 	// desktop layout
+	.field-big-image{
+		cursor: grab;
+	}
 	.carousel-control{
 		
 		@media @mobile{
@@ -120,6 +128,7 @@
 		padding-top: 310px;
 		font-size: @font-size-h2;
 		z-index: 10;
+		height: 100%;
 	}
 	.carousel-indicators{
 		width: 100%;
@@ -144,19 +153,14 @@
 		}
 	}
 	.carousel-caption{
-		cursor: pointer;
-		left: 0px;
-		right: 0px;
-		.make-md-column(11);
-		.make-md-column-offset(1);
-		top: 5%;
-		@media @tablet{
-			top: 15%;
-		}
-		@media @wide{
-			top: 25%;
-		}
+		display: block;
+		height: 160px;
+		background: rgba(0,0,0,0.8);
+		bottom: 0px;
+		padding-top: 0px;
 		position: absolute;
+		left: 0%;
+		right: 0%;
 		.text-shadow();
 		h4, h6, .artists{
 			font-family: @font-family-sans-serif;
@@ -172,13 +176,16 @@
 		h6{
 			position: absolute;
 			top: 0px;
+			padding-left: @padding-base-horizontal;
 		}
 
 		.banner-title{
 			border-bottom: 2px solid;
 			float: left;
-			height: 45px;
+			height: 50px;
 			width: 100%;
+			margin-top: 12px;
+			padding-left: 12px;
 			h4{
 				float: left;
 				padding-right: 10px;
@@ -196,19 +203,23 @@
 
 		.date{
 			position: absolute;
-			top:15px;
-			right: 10%;
+			top:12px;
+			right: 0px;
 			color: @primary-color;
+			.month{
+				display: none;
+			}
 		}
 
 		.artists{
 			display:inline-block;
 			left:0px;
-			padding-left: 0px!important;
-			width: 90%;
+			//padding-left: @padding-base-horizontal;
 			float: left;	
-
 			.artist{
+				:first-child{
+					margin-left: 12px;
+				}
 				display: none;
 				&:after{
 					font-size: @font-size-h1;
@@ -233,6 +244,7 @@
 			}
 
 			.artist-details{
+				display: none;
 				font-size: @font-size-h4;
 				.artist-labels{
 					display: inline-block;
