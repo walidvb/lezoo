@@ -7580,9 +7580,6 @@ div:not(.footer) .btn {
   background-color: #ffffff;
   border-radius: 0px;
   border: solid 1px #bfbfbf;
-  padding: 12px;
-  height: 24px;
-  padding: 0px 12px 0px 12px;
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
@@ -7705,23 +7702,31 @@ div:not(.footer) .btn:hover {
 }
 @media screen and (min-width: 992px) {
   .page-agenda .views-exposed-form .views-exposed-widget {
-    width: 29.5%;
+    width: 29%;
   }
 }
 .page-agenda .views-exposed-form .views-exposed-widget.views-reset-button {
   width: auto;
+  max-width: 10%;
   margin-top: 0;
+  margin-left: 5px;
 }
 .page-agenda .views-exposed-form .views-exposed-widget.views-reset-button .btn {
   margin-top: 0;
 }
+.page-agenda .btn {
+  padding: 6px 10px;
+}
 .page-agenda .sync-calendar {
   float: right;
+  margin-top: 5px;
+}
+.page-agenda #event-filter-block {
+  margin-top: 6px;
 }
 @media screen and (min-width: 768px) {
   .page-agenda #event-filter-block {
     width: 80%;
-    background: #bfbfbf;
     float: left;
     display: block;
   }
@@ -7733,7 +7738,7 @@ div:not(.footer) .btn:hover {
   }
   .page-agenda #event-filter-block h2 {
     width: 14%;
-    padding: 0;
+    padding: 3px 5px 4px 5px;
     margin-right: 1%;
     margin-top: 0;
     height: 100%;
@@ -7751,22 +7756,25 @@ div:not(.footer) .btn:hover {
     width: 90%;
   }
 }
+.page-agenda #event-filter-block .views-widget-filter-shs_term_node_tid_depth .chosen-single {
+  padding: 2px 10px 3px;
+}
 .page-agenda #event-filter-block .chosen-container {
-  width: 100%!important;
+  width: 98%!important;
   padding: 0;
-  -webkit-border-radius: 0;
-  border-radius: 0;
+  border: none;
+  margin: 0 auto;
   background-color: #000000;
   color: #ffffff;
 }
 .page-agenda #event-filter-block .chosen-container .chosen-single {
   border-radius: 0;
+  box-shadow: none;
   height: 100%;
   background: #000000;
   color: inherit;
-}
-.shs-select .page-agenda #event-filter-block .chosen-container .chosen-single {
-  padding: 2px 0;
+  font-size: 1.1em;
+  padding: 2px 10px 3px;
 }
 .page-agenda #event-filter-block .chosen-container .chosen-drop {
   border-radius: 0;

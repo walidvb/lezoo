@@ -115,7 +115,9 @@
 					});
 				}
 			});
-} catch(e){}
+} catch(e){
+	console.log('swiper', e);
+}
 		//--------------------carousel light or dark
 		$('.view-carousel .item').once('lezoo', function(){
 			$(this).each(function(){
