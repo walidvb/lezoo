@@ -148,7 +148,7 @@ function lezoo_field_formatter_view($entity_type, $entity, $field, $instance, $l
       $output =  "<span class=\"day\">$day</span>\n<span class=\"date-number\">$date</span>\n";
       break;
       case 'date_month':
-      $output =  "<span class=\"date-number\">$date</span>\n<span class=\"month\">$month</span>";
+      $output =  "<span class=\"month\">$month</span>\n<span class=\"date-number\">$date</span>";
       break;
       case 'day_year':
       $output =  "<span class=\"day\">$day</span>\n<span class=\"date-number\">$date</span>\n<span class=\"month\">$month</span><span class=\"date-year\">$year</span>";
