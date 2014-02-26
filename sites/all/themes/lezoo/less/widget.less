@@ -349,7 +349,7 @@ div:not(.footer) .btn{
 			}
 			h2{
 				width: 14%;
-				padding: 3px 5px 4px 5px;
+				padding: 3px 10px 4px 5px;
 				margin-right: 1%;
 				margin-top: 0;
 				height: 100%;
@@ -364,10 +364,20 @@ div:not(.footer) .btn{
 			}
 		}
 
-		//somehow genres has smaller height...
-		.views-widget-filter-shs_term_node_tid_depth .chosen-single{
+
+		.views-widget-filter-shs_term_node_tid_depth{
+			//somehow genres has smaller height...
+			.chosen-single{
 				padding: 2px 10px 3px;
 			}
+			//remove deeper terms
+			.chosen-container, select{
+				display: none;
+			}
+			select.shs-select-level-1, select.shs-select-level-1 + .chosen-container{
+				display: inline-block;
+			}
+		}
 		.chosen-container{
 			width: 98%!important;
 			padding: 0;
@@ -410,6 +420,7 @@ div:not(.footer) .btn{
 	.genre-select{
 		display: inline-block;
 		width: 100%;
+		border-bottom: 1px solid lighten(black, 20);
 		.genre-select-all{
 			display: inline-block;
 			width: 49.5%;
@@ -429,14 +440,26 @@ div:not(.footer) .btn{
 		cursor : pointer;
 		color: white;
 		background: rgba(0,0,0,0.8);
-		padding: 0px 5px;
+		padding: 5px 10px;
 		margin: 5px 0px;
+		@media @tablet{
+			padding: 0px 5px;
+			margin: 5px 0px;
+		}
 		font-family: 'Oswald';
 		font-size: larger;
 	}
+	text-align: center;
+	@media @tablet{
+		text-align: left;
+	}
 	.genre{
 		text-transform: uppercase;
-		width: 100%;
+		display: inline-block;
+		margin: 5px 5px;
+		@media @tablet{
+			width: 100%;
+		}
 		.glyphicon{
 			margin-right: 5px;
 		}
@@ -617,15 +640,5 @@ div:not(.footer) .btn{
 		background-position: 50% 53%;
 
 
-	}
-}
-
-
-///// SEARCH /////
-.page-search{
-	.node-blog-post{
-		&.node-teaser{
-			background-image: none !important;
-		}
 	}
 }

@@ -78,27 +78,28 @@
 		
 		//--------------------carousel work
 		try{
-			var swiper = $('.swiper').swiper({
-				slideClass             : 'item',
-				mode                   : 'horizontal',
-				autoplay				: 5000,
-				autoplayDisableOnInteraction: false,
-				pagination             : '.carousel-indicators',
-				paginationElement      : 'li',
-				paginationElementClass : 'vert-pager',
-				paginationActiveClass  : 'active',
-				paginationVisibleClass : 'visible',
-				paginationClickable    : true,
-				initialSlide	: 0,
-				loop: true,
-				mousewheelControl: true,
-				mousewheelControlForceToAxis: true,
-				keyboardControl: true,
-				resizeReInit: true,
-				grabCursor: true,
-				cssWidthAndHeight: false,
-				onSwiperCreated: function(){
-					$('.swiper').removeClass('loading loading-full');
+			var swiper = $('.swiper').once(function(){
+				$(this).swiper({
+					slideClass             : 'item',
+					mode                   : 'horizontal',
+					autoplay				: 5000,
+					autoplayDisableOnInteraction: false,
+					pagination             : '.carousel-indicators',
+					paginationElement      : 'li',
+					paginationElementClass : 'vert-pager',
+					paginationActiveClass  : 'active',
+					paginationVisibleClass : 'visible',
+					paginationClickable    : true,
+					initialSlide	: 0,
+					loop: true,
+					mousewheelControl: true,
+					mousewheelControlForceToAxis: true,
+					keyboardControl: true,
+					resizeReInit: true,
+					grabCursor: true,
+					cssWidthAndHeight: false,
+					onSwiperCreated: function(){
+						$('.swiper').removeClass('loading loading-full');
 					//attach behaviors to arrows
 					$('.carousel-control').once(function(){
 						$(this).bind('click', function(e){
@@ -115,6 +116,7 @@
 					});
 				}
 			});
+	});
 } catch(e){
 	console.log('swiper', e);
 }
