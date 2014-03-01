@@ -75,7 +75,7 @@
 			});
 			
 		};
-		
+
 		//--------------------carousel work
 		try{
 			var swiper = $('.swiper').once(function(){
@@ -92,6 +92,7 @@
 					paginationClickable    : true,
 					initialSlide	: 0,
 					loop: true,
+					longSwipesRatio: 0.3,
 					mousewheelControl: true,
 					mousewheelControlForceToAxis: true,
 					keyboardControl: true,
@@ -117,9 +118,10 @@
 				}
 			});
 	});
-} catch(e){
-	console.log('swiper', e);
-}
+	} 
+	catch(e){
+		console.log('swiper', e);
+	}
 		//--------------------carousel light or dark
 		$('.view-carousel .item').once('lezoo', function(){
 			$(this).each(function(){

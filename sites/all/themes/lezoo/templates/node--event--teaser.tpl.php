@@ -12,6 +12,9 @@
 							<div class='event-title title'> 
 								<h2 <?php print $title_attributes; ?>><?php print $title ?></h2>
 							</div>
+							<div class="event-subtitle">
+								<?php print render($content['field_subtitle']) ?>
+							</div>
 						</div>
 					<?php print render($content['field_date']) ?>
 					</div>
