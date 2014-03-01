@@ -5,6 +5,9 @@
 }	
 
 #node-170, #node-153, #node-38{
+	a {
+		font-style: italic !important;
+	}
 	.panel-node-title{
 		font-size: @font-size-h1*2.2;
 		font-family: @font-family-serif;
@@ -14,6 +17,19 @@
 		text-align: left;
 		@media (max-width: @screen-sm){
 			font-size: @font-size-h1*1.5;
+		}
+	}
+}
+
+#node-154, #node-153, #node-170{
+	.field-body{
+		-webkit-column-count: 3;
+		-moz-column-count: 3;
+		column-count: 3;
+		@media @mobile{
+			-webkit-column-count: 1;
+			-moz-column-count: 1;
+			column-count: 1;
 		}
 	}
 }

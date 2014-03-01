@@ -6601,6 +6601,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   display: block;
   padding-left: 0px;
   color: #bfbfbf;
+  font-style: italic;
 }
 .event-node .header .event-title {
   margin-top: 0px;
@@ -6644,6 +6645,10 @@ select.form-control#edit-field-music-genre-tid option:hover {
   display: inline-block;
   font-size: 15px;
   padding-right: 6px;
+}
+.event-node .line-up .artist-additional-info {
+  font-size: 15px;
+  color: #bfbfbf;
 }
 .event-node .event-line-up-djs .artist {
   z-index: 1;
@@ -6692,6 +6697,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   .node-event.view-mode-full .header .event-titles .node-title,
   .node-event.view-mode-full .header .install-titles .node-title {
     font-size: 46.5px;
+    text-shadow: 1px 1px 1px #494949;
   }
 }
 .node-event.view-mode-full .header .event-titles .event-subtitle,
@@ -6740,7 +6746,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   display: inline-block;
 }
 .node-event.view-mode-full .event-line-up-djs .artist .artist-info {
-  color: #494949;
+  color: #bfbfbf;
 }
 .node-event.view-mode-full .event-line-up-vjs .artists {
   display: inline-block;
@@ -6797,6 +6803,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
   background-color: #4d4d4d;
+  color: #000000;
 }
 .node-teaser .dated-node:hover a,
 .field-event-ref .node-teaser .dated-node:hover a {
@@ -6848,7 +6855,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .node-teaser .event-titles .event-subtitle,
 .field-event-ref .node-teaser .event-titles .event-subtitle {
-  display: none;
+  padding-left: 12px;
 }
 .node-teaser .event-meta,
 .field-event-ref .node-teaser .event-meta {
@@ -6867,6 +6874,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .field-event-ref .node-teaser .event-meta .field-music-genre {
   display: inline-block;
   font-style: italic;
+  color: #bfbfbf;
 }
 .node-teaser .event-meta .field-music-genre a,
 .field-event-ref .node-teaser .event-meta .field-music-genre a {
@@ -6960,10 +6968,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .node-teaser .artist-info,
 .field-event-ref .node-teaser .artist-info {
   display: none;
-}
-.node-teaser .artist-additional-info,
-.field-event-ref .node-teaser .artist-additional-info {
-  font-size: 15px;
 }
 .field-event-ref ~ .field-label {
   float: left;
@@ -7253,17 +7257,25 @@ select.form-control#edit-field-music-genre-tid option:hover {
   cursor: grab;
 }
 .swiper .carousel-control {
-  padding-top: 310px;
+  width: 0%;
+  padding-top: 10px;
   font-size: 25px;
-  z-index: 10;
-  height: 100%;
+  z-index: 100;
+  height: 200px;
 }
 @media (max-width: 767px) {
   .swiper .carousel-control {
     display: none;
   }
 }
+.swiper .carousel-control.right {
+  right: 10px;
+}
+.swiper .carousel-control.left {
+  left: 10px;
+}
 .swiper .carousel-indicators {
+  display: none;
   width: 100%;
   left: 30%;
   max-height: 12px;
@@ -7288,13 +7300,22 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .swiper .carousel-caption {
   display: block;
   height: 160px;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.4);
   bottom: 0px;
   padding-top: 0px;
   position: absolute;
   left: 0%;
   right: 0%;
   text-shadow: 1px 1px 1px #494949;
+  -webkit-transition: all 0.2s 0;
+  transition: all 0.2s 0;
+  color: #ffffff;
+}
+.swiper .carousel-caption:hover {
+  -webkit-transition: all 0.6s 0;
+  transition: all 0.6s 0;
+  background: rgba(255, 255, 255, 0.8);
+  color: #000000;
 }
 .swiper .carousel-caption h4,
 .swiper .carousel-caption h6,
@@ -7321,6 +7342,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   padding-left: 12px;
 }
 .swiper .carousel-caption .banner-title h4 {
+  font-family: Georgia, "Times New Roman", Times, serif !important;
   float: left;
   padding-right: 10px;
 }
@@ -7329,7 +7351,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   font-size: 21px;
   font-style: italic;
   text-transform: lowercase;
-  line-height: 66px;
+  line-height: 59px;
   float: left;
   margin-right: 10px;
 }
@@ -7352,6 +7374,9 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .swiper .carousel-caption .artists .artist :first-child {
   margin-left: 12px;
+}
+.swiper .carousel-caption .artists .artist :last-child:after {
+  content: none;
 }
 .swiper .carousel-caption .artists .artist:after {
   font-size: 31px;
@@ -7501,22 +7526,33 @@ select.form-control#edit-field-music-genre-tid option:hover {
   color: #ffffff;
   background-color: #000000;
 }
-@media (max-width: 992px) {
+.flippy {
+  display: none;
+}
+@media screen and (min-width: 768px) {
   .flippy {
-    display: none;
+    display: block;
   }
 }
 .flippy .prev,
 .flippy .next {
   position: fixed;
-  top: 71px;
+  top: 100px;
   z-index: 100;
-  width: 40px!important;
-  height: 275px;
+  width: 80px!important;
+  height: 140px;
   overflow: hidden;
-  padding: 0px;
+  padding: 0px 0px 0px 0px;
+  background-color: rgba(255, 255, 255, 0);
+  opacity: 0.5;
+  filter: alpha(opacity=50);
   -webkit-transition-duration: 0.2s;
   transition-duration: 0.2s;
+}
+.flippy .prev:hover,
+.flippy .next:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
 }
 .flippy .prev div,
 .flippy .next div {
@@ -7542,21 +7578,33 @@ select.form-control#edit-field-music-genre-tid option:hover {
   top: 0px;
   z-index: -10;
 }
-.flippy .prev:hover,
-.flippy .next:hover {
+.flippy .prev {
+  left: 50%;
+  margin-left: -640px;
+}
+.flippy .prev:after {
+  content: url("/sites/all/themes/lezoo/img/flippy_prev.png");
+}
+.flippy .prev:hover {
+  padding-right: 5px;
   -webkit-transition-duration: 0.2s;
   transition-duration: 0.2s;
-  width: 110px!important;
-}
-.flippy .prev {
-  left: 0px;
 }
 .flippy .prev .month,
 .flippy .prev .date-number {
   float: right;
 }
 .flippy .next {
-  right: 0px;
+  right: 50%;
+  margin-right: -640px;
+}
+.flippy .next:after {
+  content: url("/sites/all/themes/lezoo/img/flippy_next.png");
+}
+.flippy .next:hover {
+  padding-left: 5px;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 .flippy .next .month,
 .flippy .next .date-number {
@@ -7564,10 +7612,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .flippy .month,
 .flippy .date-number {
-  display: block;
-  width: 100px;
-  height: 100px;
-  text-shadow: 1px 1px 1px black;
+  display: none;
 }
 .flippy .month {
   font-size: 21px;
@@ -7894,6 +7939,9 @@ div:not(.footer) .btn:hover {
   overflow: auto;
 }
 /* sticky */
+.date-display-single {
+  text-transform: lowercase;
+}
 .is-sticky {
   padding-left: 12px;
   padding-top: 0px;
@@ -8033,6 +8081,11 @@ div:not(.footer) .btn:hover {
 #node-154 .field-image img {
   width: 100%;
 }
+#node-170 a,
+#node-153 a,
+#node-38 a {
+  font-style: italic !important;
+}
 #node-170 .panel-node-title,
 #node-153 .panel-node-title,
 #node-38 .panel-node-title {
@@ -8048,6 +8101,22 @@ div:not(.footer) .btn:hover {
   #node-153 .panel-node-title,
   #node-38 .panel-node-title {
     font-size: 46.5px;
+  }
+}
+#node-154 .field-body,
+#node-153 .field-body,
+#node-170 .field-body {
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  column-count: 3;
+}
+@media (max-width: 767px) {
+  #node-154 .field-body,
+  #node-153 .field-body,
+  #node-170 .field-body {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
   }
 }
 .view-installations .view-mode-mini {
@@ -8236,6 +8305,7 @@ div:not(.footer) .btn:hover {
   .node-installations.view-mode-full .install-header .event-titles .node-title,
   .node-installations.view-mode-full .install-header .install-titles .node-title {
     font-size: 46.5px;
+    text-shadow: 1px 1px 1px #494949;
   }
 }
 .node-installations.view-mode-full .install-header .event-titles .event-subtitle,

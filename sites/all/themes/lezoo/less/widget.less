@@ -118,24 +118,29 @@
 }
 // Flippy
 .flippy{
-	@media(max-width : @screen-md){
-		display: none;
+	display: none;
+	@media @tablet{
+		display: block;
 	}
 	.prev, .next{
 		position: fixed;
-		top: 71px;
-		z-index:100;
-		width: 40px!important;
-		height: 275px;
+		top: 100px;
+		z-index: 100;
+		width: 80px!important;
+		height: 140px;
 		overflow: hidden;
-		padding: 0px;
+		padding: 0px 0px 0px 0px;
+		background-color: rgba(255,255,255,0.0);
+		.opacity(0.5);
+		&:hover{
+			.opacity(1);
+		}
 		.transition-duration(0.2s);
 		div{
 			height: 100%;
 			padding: 25px;
 			background: center no-repeat;
 			background-size: cover;
-
 		}
 		a{
 			position: absolute;
@@ -152,29 +157,41 @@
 			top: 0px;
 			z-index: -10;
 		}
-		&:hover{
-			.transition-duration(0.2s);
-			width: 110px!important;
-		}
 	}
 
 	.prev{
-		left: 0px;
+		left: 50%;
+		margin-left: -640px;
+		&:after{
+			content : url("/sites/all/themes/lezoo/img/flippy_prev.png");
+		}
+		&:hover{
+			padding-right: 5px;
+			.transition-duration(0.2s);
+		}
 		.month, .date-number{
 			float: right;
 		}
 	}
 	.next{
-		right: 0px;
+		right: 50%;
+		margin-right: -640px;
+		&:after{
+			content : url("/sites/all/themes/lezoo/img/flippy_next.png");
+		}
+		&:hover{
+			padding-left: 5px;
+			.transition-duration(0.2s);
+		}
 		.month, .date-number{
 			float: left;
 		}
 	}
 	.month, .date-number {
-		display: block;
-		width: 100px;
-		height: 100px;
-		text-shadow: 1px 1px 1px black;
+		display: none;
+		//width: 100px;
+		//height: 100px;
+		//text-shadow: 1px 1px 1px black;
 	}
 
 	.month{
@@ -513,6 +530,10 @@ div:not(.footer) .btn{
 	overflow: auto;
 }
 /* sticky */
+
+.date-display-single{
+	text-transform: lowercase;
+}
 
 .is-sticky{
 	padding-left: @padding-base-horizontal;

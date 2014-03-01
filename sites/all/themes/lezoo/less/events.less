@@ -11,6 +11,7 @@
 		display: block;
 		padding-left: 0px;
 		color: @tertiary-color;
+		font-style: italic;
 	}
 	.event-title{
 		margin-top: 0px;
@@ -58,6 +59,10 @@
 		font-size: @font-size-h4;
 		//content:'with ';
 		padding-right: @padding-base-horizontal/2;
+	}
+	.artist-additional-info{
+		font-size: @font-size-h4;
+		color: @tertiary-color;
 	}
 }
 
@@ -112,6 +117,7 @@
 				padding-right: 15%;
 				@media (max-width: @screen-sm){
 					font-size: @font-size-h1*1.5;
+					.text-shadow();
 				}
 			}
 			.event-subtitle{
@@ -164,7 +170,7 @@
 		.artist {
 			display: inline-block;
 			.artist-info{
-				color: @secondary-color;
+				color: @tertiary-color;
 			}
 		}
 	}
@@ -224,6 +230,7 @@
 		&:hover{
 			.transition-duration(0.3s);
 			background-color: lighten(@fourth-color, 30%);
+			color: @fourth-color;
 			a {
 				text-decoration: none;
 			}
@@ -261,7 +268,7 @@
 			}
 		}
 		.event-subtitle{
-			display: none;
+			padding-left: @padding-base-horizontal;
 		}
 	}
 	.event-meta{
@@ -275,6 +282,7 @@
 		.field-music-genre{
 			display: inline-block;
 			font-style: italic;
+			color: @tertiary-color;
 			a{
 				color: darken(@primary-color, 50%);
 			}
@@ -327,9 +335,5 @@
 	}
 	.artist-info{
 		display: none;
-	}
-
-	.artist-additional-info{
-		font-size: @font-size-h4;
 	}
 }
