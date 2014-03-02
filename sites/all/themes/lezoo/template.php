@@ -326,6 +326,9 @@ function lezoo_preprocess_field(&$vars, $hook){
 	}
 }
 
+function lezoo_preprocess_media_soundcloud_audio(&$variables) {
+	dpm($variabels);
+}
 function lezoo_block_info(){
 	$blocks = array();
 	$blocks['webcal_lezoo'] = array(
