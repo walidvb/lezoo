@@ -3,7 +3,7 @@
 	Drupal.behaviors.lezoo.attach = function(context) {
 		//trigger chosen all the time
 		//-------------- change menu item
-		var active_trail = $('.primary > .dropdown').find('ul .active-trail a').text();
+		var active_trail = $('.primary > .dropdown', context).find('ul .active-trail a').text();
 		if(active_trail)
 		{
 			$('.primary .dropdown-toggle').html(active_trail + '<span class="caret"></span>');
@@ -13,19 +13,8 @@
 			$('.no-touch .dropdown-toggle').dropdownHover();
 		}
 
-		$('.menu-1649 .form-control', context).once(function(){
-			var li = $('this').parents('.leaf')
-			$(this).focus(function(){
-				li.addClass('active');
-			});
-			$(this).blur(function(){
-				li.removeClass('active');
-			});
-		})
-		//-------------- stick menu
-		var threshold = $('header');
 		//-------------- stick months above list
-		$('.page-agenda .view-display-id-panel_pane_1 .view-content,  .view-display-id-events_teaser_all_date .view-content').once('lezoo_theme', function(){
+		$('.page-agenda .view-display-id-panel_pane_1 .view-content,  .view-display-id-events_teaser_all_date .view-content', context).once('lezoo_theme', function(){
 			$(this).css('position', 'relative')
 			.stickyHeaders({
 				headlineSelector: 'h3:not(.node-title)',
@@ -37,7 +26,7 @@
 				width: $('.view-id-teaser_list .view-content').width(),
 			});
 		};
-
+		//-------------- 'More' menu item
 		var activeText = $('.primary .last .dropdown-menu .active-trail a').text();
 		var normalText = $('.primary .last .dropdown-toggle').text();
 		if(activeText != '')
@@ -78,8 +67,8 @@
 
 		//--------------------carousel work
 		try{
-			var swiper = $('.swiper').once(function(){
-				$(this).swiper({
+			 $('.swiper', context).once(function(){
+				var swiper = $(this).swiper({
 					slideClass             : 'item',
 					mode                   : 'horizontal',
 					autoplay				: 5000,
@@ -102,28 +91,28 @@
 					onSwiperCreated: function(){
 						$('.swiper').removeClass('loading loading-full');
 					//attach behaviors to arrows
-					$('.carousel-control').once(function(){
-						$(this).bind('click', function(e){
-							e.preventDefault();
-							var dir = $(this).attr('data-slide') === 'prev' ? false : true;
-							if(dir)
-							{
-								swiper.swipeNext();
-							}
-							else{
-								swiper.swipePrev();
-							}
-						})
-					});
+						$('.carousel-control').once(function(){
+							$(this).bind('click', function(e){
+								e.preventDefault();
+								var dir = $(this).attr('data-slide') === 'prev' ? false : true;
+								if(dir)
+								{
+									swiper.swipeNext();
+								}
+								else{
+									swiper.swipePrev();
+								}
+							})
+						});
 				}
 			});
-	});
+		});
 	} 
 	catch(e){
 		console.log('swiper', e);
 	}
 		//--------------------carousel light or dark
-		$('.view-carousel .item').once('lezoo', function(){
+		$('.view-carousel .item', context).once('lezoo', function(){
 			$(this).each(function(){
 				var $this = $(this);
 				var src = $(this).find('img').attr('src');
@@ -171,7 +160,20 @@
 				}, 150);
 			})
 		});
-
+		//--------------------Attach to ajax loading of views:
+		$('.view-teaser-list:not(.view-carousel)').once(function(){
+			$(this).each(function(){
+				var $this = $(this);
+				 $this.ajaxStart(function(e){
+				 	console.log(e);
+				 	var view = $(e.currentTarget);
+					view.addClass('loading loading-full');
+				});
+				$this.ajaxSuccess(function(e){
+				 	var view = $(e.currentTarget);
+				});
+			});
+		})
 		//--------------------Overall
 		var timer;
 		function resize() 
