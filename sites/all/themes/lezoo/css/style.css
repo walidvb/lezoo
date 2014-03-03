@@ -7837,11 +7837,14 @@ div:not(.footer) .btn:hover {
 #myModal .modal-content {
   border-radius: 3px;
 }
+#myModal .instructions {
+  border-left: 1px solid grey;
+}
 #myModal .genre-select {
   display: inline-block;
   width: 100%;
   border-top: 1px solid #333333;
-  margin: 5px;
+  margin: 5px 0px;
 }
 #myModal .genre-select .genre-select-all {
   display: inline-block;
@@ -7899,7 +7902,7 @@ div:not(.footer) .btn:hover {
 #myModal .genre {
   text-transform: uppercase;
   display: inline-block;
-  margin: 5px 5px;
+  margin: 5px 0px;
 }
 @media screen and (min-width: 768px) {
   #myModal .genre {
@@ -8232,6 +8235,7 @@ div:not(.footer) .btn:hover {
   background: rgba(250, 250, 250, 0.3);
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
+  cursor: pointer;
 }
 @media (max-width: 767px) {
   .view-installations .view-mode-mini a {
