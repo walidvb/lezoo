@@ -327,7 +327,7 @@ function lezoo_preprocess_field(&$vars, $hook){
 }
 
 function lezoo_preprocess_media_soundcloud_audio(&$variables) {
-	dpm($variables);
+	$variables['output'] = preg_replace('/visual=true/', '', $variables['output']);
 }
 
 

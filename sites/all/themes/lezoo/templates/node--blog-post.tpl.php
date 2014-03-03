@@ -141,7 +141,7 @@ $background_image = get_img_url('banner_mobile', 'field_big_image', $node);
       <?php print lezoo_header('Le Post'); ?>
       <div>
         <?php
-        if(!empty($content['field_soundcloud'])) { print render($content['field_soundcloud']); }
+        if(!empty($content['field_media'])) { print render($content['field_media']); }
 
             // We hide the comments and links now so that we can render them later.
         hide($content['comments']);

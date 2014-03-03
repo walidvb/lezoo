@@ -127,13 +127,13 @@
 
 		//--------------------Artist list hover behavior
 		var $artistList = $('.front  #node-238');
-		var timer, forceLoading;
+		var timer, forceLoading, url;
 		$('.artist-list-item', $artistList).each(function(){
 			$(this).hover(function(){
 				clearTimeout(timer);
 				//needed so that onload test passes
 				timer = 1;
-				var url = $(this).attr('data-img');
+				url = $(this).attr('data-img');
 				var img = new Image();
 				img.src = url;
 				$artistList.css({
@@ -144,14 +144,14 @@
 					if(timer)
 					{
 						$artistList.css({
-							'backgroundImage': 'url("' + img.src + '")',
+							'backgroundImage': 'url("' + url + '")',
 							'backgroundSize': 'cover',
 						}).removeClass('loading').addClass('showing');
 					}
 				};
 			}, function(){
 				clearTimeout(timer);
-				timer = setTimeout(function(){
+				setTimeout(function(){
 					$artistList.css({
 						'backgroundImage': 'url("/sites/all/themes/lezoo/img/logo.png")',
 						'backgroundSize': '70px',

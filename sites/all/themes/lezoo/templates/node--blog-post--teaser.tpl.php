@@ -31,7 +31,6 @@ else
   <?php print render($title_prefix); ?>
   <?php if(!empty($title) && !$is_page): ?>
   <a href="<?php print $node_url; ?>"><h3<?php print $title_attributes; ?>><?php print $title; ?></h3></a>
-  <?php print $share42; ?>
   <?php if ($display_submitted): ?>
     <div class="blog-info">
       <div class="submitted">

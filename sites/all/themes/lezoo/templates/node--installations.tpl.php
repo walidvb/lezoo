@@ -14,7 +14,7 @@ else
 $background_image = get_img_url('banner_mobile', 'field_big_image', $node);
 
 hide($content['field_photos']);
-hide($content['field_video']);
+hide($content['field_media']);
 if(!$page)
 {
   $title_tag = 'h3';
@@ -46,6 +46,13 @@ hide($content['links']);
               <?php print $share42 ?>
               </div>
             <?php endif; ?>
+            <?php if(!empty($content['field_tags'])): ?>
+                <div class="tags">
+                  <div class="field-tags">
+                     <?php print render($content['field_tags']); ?>
+                  </div>
+                </div>
+               <?php endif; ?>
           </div>
         </div>
     <div class="row">
@@ -60,10 +67,10 @@ hide($content['links']);
         </div>
       </div>
       <div class="<?php print $left_col_classes?> pull-left">
-        <?php if(!empty($content['field_video'])): ?>
+        <?php if(!empty($content['field_media'])): ?>
           <div class="closable">
             <?php print lezoo_header('La video'); ?>
-            <?php print render($content['field_video']); ?>
+            <?php print render($content['field_media']); ?>
             <?php endif; ?>
           </div>
           <div class="closable">

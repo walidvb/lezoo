@@ -88,9 +88,9 @@ else
 {
   $tags = '';
 }
-if(empty($content['field_video']))
+if(empty($content['field_media']))
 {
-  hide($content['field_video']);
+  hide($content['field_media']);
 }
 else
 {
@@ -114,6 +114,13 @@ else
                 </a>
             <?php print render($title_suffix); ?>
             <div class="content"<?php print $content_attributes; ?>>
+              <?php if(!empty($content['field_tags'])): ?>
+                <div class="tags">
+                  <div class="field-tags">
+                     <?php print render($content['field_tags']); ?>
+                  </div>
+                </div>
+               <?php endif; ?>
                 <?php print render($content) ?>
               </div>
 </div>

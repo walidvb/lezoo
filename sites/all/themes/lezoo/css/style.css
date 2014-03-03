@@ -6683,7 +6683,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
   .node-event.view-mode-full .header .event-titles .node-title,
   .node-event.view-mode-full .header .install-titles .node-title {
     font-size: 46.5px;
-    text-shadow: 1px 1px 1px #494949;
   }
 }
 .node-event.view-mode-full .header .event-titles .event-subtitle,
@@ -7148,7 +7147,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
   border: 2px solid #494949;
   padding: 5px;
   margin: 5px;
-  text-shadow: 1px 1px 1px #494949;
 }
 .showing #node-238 .artist-list-item {
   opacity: 0.7;
@@ -7292,7 +7290,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
   position: absolute;
   left: 0%;
   right: 0%;
-  text-shadow: 1px 1px 1px #494949;
   -webkit-transition: all 0.2s 0;
   transition: all 0.2s 0;
   color: #ffffff;
@@ -7840,11 +7837,14 @@ div:not(.footer) .btn:hover {
 #myModal .modal-content {
   border-radius: 3px;
 }
+#myModal .instructions {
+  border-left: 1px solid grey;
+}
 #myModal .genre-select {
   display: inline-block;
   width: 100%;
   border-top: 1px solid #333333;
-  margin: 5px;
+  margin: 5px 0px;
 }
 #myModal .genre-select .genre-select-all {
   display: inline-block;
@@ -7902,7 +7902,7 @@ div:not(.footer) .btn:hover {
 #myModal .genre {
   text-transform: uppercase;
   display: inline-block;
-  margin: 5px 5px;
+  margin: 5px 0px;
 }
 @media screen and (min-width: 768px) {
   #myModal .genre {
@@ -7956,6 +7956,7 @@ div:not(.footer) .btn:hover {
 .is-sticky {
   padding-left: 12px;
   padding-top: 0px;
+  text-transform: lowercase;
 }
 .sticky-helper {
   padding-left: 12px;
@@ -8103,6 +8104,32 @@ div:not(.footer) .btn:hover {
     background-position: 50% 8%;
   }
 }
+.page-search .top .node-title {
+  font-size: 68.2px;
+  margin-bottom: 2px;
+  border-top: solid 1px #ffffff;
+  padding-left: 12px;
+  padding-right: 15%;
+}
+@media (max-width: 768px) {
+  .page-search .top .node-title {
+    font-size: 46.5px;
+  }
+}
+.page-search .event-subtitle {
+  float: left;
+  padding-left: 12px;
+  padding-top: 6px;
+  font-size: 21px;
+  text-transform: uppercase;
+}
+.page-search .event-genre {
+  color: #bfbfbf;
+  font-style: italic;
+}
+.page-search .pane-search-form {
+  margin-bottom: 14px;
+}
 .pagination {
   display: none;
 }
@@ -8126,8 +8153,18 @@ div:not(.footer) .btn:hover {
 .view-mode-mini .node-title {
   background-color: none !important;
 }
+.view-mini-blocks .share42init {
+  display: none !important;
+}
 .view-mini-blocks .blog-info {
+  position: absolute;
+  bottom: 0px;
+}
+.view-mini-blocks .node-installations .date {
   display: none;
+}
+.view-mini-blocks .node-installations .field-slideshow {
+  z-index: 0;
 }
 #node-154 .field-image img {
   width: 100%;
@@ -8185,6 +8222,7 @@ div:not(.footer) .btn:hover {
   height: 180px;
   width: 100%;
   position: absolute;
+  top: 0px;
   display: block;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -8197,11 +8235,17 @@ div:not(.footer) .btn:hover {
   background: rgba(250, 250, 250, 0.3);
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
+  cursor: pointer;
 }
 @media (max-width: 767px) {
   .view-installations .view-mode-mini a {
     padding-top: 0px;
   }
+}
+.view-installations .view-mode-mini .background-image-install {
+  z-index: 0;
+  max-height: 174px;
+  overflow: hidden;
 }
 .view-installations .view-mode-mini .node-title {
   border-bottom: solid 1px white;
@@ -8396,21 +8440,36 @@ div:not(.footer) .btn:hover {
   display: inline-block;
   width: 32%;
   margin: 5px 0.5%;
-  opacity: 0.7;
-  filter: alpha(opacity=70);
+  opacity: 1;
+  filter: alpha(opacity=100);
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
 .node-installations.view-mode-full .field-photos:hover {
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
-  opacity: 1;
-  filter: alpha(opacity=100);
+  opacity: 0.7;
+  filter: alpha(opacity=70);
 }
 .node-installations.view-mode-full .date {
   position: absolute;
   right: 0px;
   top: 0px;
+}
+.view-search-results .node-installations .node-title {
+  width: 100%;
+  border-bottom: solid 1px white;
+  background: rgba(250, 250, 250, 0);
+  margin: 0px;
+  padding-top: 6px;
+  min-height: 45px;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.view-search-results .node-installations .node-title:hover {
+  background: rgba(250, 250, 250, 0.5);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
 }
 .ui-tabs {
   position: relative;
@@ -8486,8 +8545,9 @@ div:not(.footer) .btn:hover {
 .ui-widget-header {
   border: 0px solid #999;
   color: none;
-  background: #bfbfbf !important;
   font-weight: bold;
+  background: #494949 !important;
+  font-weight: normal;
   padding: 0px !important;
 }
 .ui-widget-header a {
@@ -8509,7 +8569,7 @@ div:not(.footer) .btn:hover {
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
   border: 0px solid #999;
-  background: #000000 !important;
+  background: #494949 !important;
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
   font-weight: inherit;
@@ -8544,7 +8604,7 @@ div:not(.footer) .btn:hover {
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
   border: 0px solid #999;
-  background: #494949;
+  background: #000000;
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
   font-weight: inherit;
@@ -8553,8 +8613,7 @@ div:not(.footer) .btn:hover {
 .ui-state-active a,
 .ui-state-active a:link,
 .ui-state-active a:visited {
-  color: #494949;
-  background: #bfbfbf;
+  background: #000000;
   text-decoration: none;
 }
 .ui-widget :active {
@@ -8675,6 +8734,29 @@ a {
   background-color: #404040;
   line-height: 1.6;
   padding: 0 5px;
+  font-weight: normal;
+}
+.field-body h3,
+.field-body h2 {
+  margin-top: 15px;
+  font-size: 15px;
+  background-color: #404040;
+  line-height: 1.6;
+  padding: 0 5px;
+  font-weight: normal;
+  background-color: #1a1a1a;
+  border-bottom: solid 1px #ffffff;
+}
+@media (max-width: 767px) {
+  .field-body h3,
+  .field-body h2 {
+    font-size: 15px !important;
+    line-height: 3!important;
+    color: #e6e6e6;
+    cursor: pointer;
+    margin-top: 0px;
+    padding-left: 12px !important;
+  }
 }
 .administrator #navbar {
   margin-top: 20px;
