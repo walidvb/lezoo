@@ -14,6 +14,7 @@
 			height: 180px;
 			width: 100%;
 			position: absolute;
+			top: 0px;
 			display: block;
 			margin-top: 0px;
 			margin-bottom: 0px;
@@ -28,7 +29,11 @@
 				padding-top: 0px;
 			}
 		}
-
+		.background-image-install{
+			z-index: 0;
+			max-height: 174px;
+			overflow: hidden;
+		}
 		.node-title{
 			border-bottom: solid 1px white;
 			padding-right: 27%;
@@ -208,16 +213,35 @@
 		display: inline-block;
 		width: 32%;
 		margin: 5px 0.5%;
-		.opacity(0.7);
+		.opacity(1);
 		.transition-duration(0.5s);
 		&:hover{
 			.transition-duration(0.3s);
-			.opacity(1);
+			.opacity(0.7);
 		}
 	}
 	.date{
 		position: absolute;
 		right: 0px;
 		top: 0px;
+	}
+}
+
+// install in search
+.view-search-results{
+	.node-installations{
+		.node-title{
+			width: 100%;
+			border-bottom: solid 1px white;
+			background: rgba(250,250,250,0);
+			margin: 0px;
+			padding-top: @padding-base-vertical;
+			min-height: 45px;
+			.transition-duration(0.5s);
+			&:hover{
+				background: rgba(250,250,250,0.5);
+				.transition-duration(0.3s);
+			}	
+		}
 	}
 }
