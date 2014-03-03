@@ -6542,9 +6542,8 @@ h1 a {
     display: inline-block;
   }
 }
-.view-mode-teaser {
-  border-top: solid 3px #ffffff;
-  border-bottom: solid 3px #ffffff;
+.view-mode-teaser:not(first-child) {
+  border-bottom: solid 6px #ffffff;
 }
 @media (max-width: 767px) {
   .view-mode-teaser {
@@ -6765,10 +6764,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .node-teaser,
 .field-event-ref .node-teaser {
-  border-top: solid 3px #ffffff;
-  border-bottom: solid 3px #ffffff;
-  padding-bottom: 3px !important;
-  min-height: 110px;
+  min-height: 126px;
   text-decoration: none !important;
 }
 .node-teaser a,
@@ -6778,7 +6774,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .node-teaser .dated-node,
 .field-event-ref .node-teaser .dated-node {
   min-height: 110px;
-  margin-bottom: 6px;
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
   background-color: #050505;
@@ -8135,6 +8130,10 @@ div:not(.footer) .btn:hover {
 }
 .page-search .pane-search-form {
   margin-bottom: 14px;
+}
+.view-teaser-list h3 {
+  margin-bottom: 0px;
+  margin-top: 6px;
 }
 .pagination {
   display: none;

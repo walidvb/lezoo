@@ -88,8 +88,9 @@ h2 ,h1{
 }
 
 .view-mode-teaser{
-	border-top: solid 3px @primary-color;
-	border-bottom: solid 3px @primary-color;
+	&:not(first-child){
+		border-bottom: solid 6px @primary-color;
+	}
 	@media @mobile{
 		border-bottom: solid 6px @primary-color !important;
 		border-top: none !important;
