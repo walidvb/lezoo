@@ -85,8 +85,8 @@
 	border: 0px solid #999;;
 	color: none;
 	font-weight:bold;
-	background: @tertiary-color !important;
-	font-weight: bold;
+	background: @secondary-color !important;
+	font-weight: normal;
 	padding: 0px !important;
 }
 
@@ -100,7 +100,7 @@
 
 .ui-state-default,.ui-widget-content .ui-state-default,.ui-widget-header .ui-state-default{
 	border:0px solid #999;;
-	background: @fourth-color !important;
+	background: @secondary-color !important;
 	.transition-duration(0.5s);
 	font-weight:inherit;
 	color:@primary-color;
@@ -112,7 +112,7 @@
 }
 .ui-state-hover,.ui-widget-content .ui-state-hover,.ui-widget-header .ui-state-hover,.ui-state-focus,.ui-widget-content .ui-state-focus,.ui-widget-header .ui-state-focus{
 	border:0px solid #999;
-	background:@tertiary-color !important;
+	background: @tertiary-color !important;
 	.transition-duration(0.5s);
 	font-weight:inherit;
 	color:@primary-color;
@@ -123,14 +123,13 @@
 }
 .ui-state-active,.ui-widget-content .ui-state-active,.ui-widget-header .ui-state-active{
 	border: 0px solid #999;;
-	background:@secondary-color;
+	background:@fourth-color;
 	.transition-duration(0.5s);
 	font-weight:inherit;
 	color:@primary-color;
 }
 .ui-state-active a,.ui-state-active a:link,.ui-state-active a:visited{
-	color:@secondary-color;
-	background: @tertiary-color;
+	background: @fourth-color;
 	text-decoration:none;
 }
 .ui-widget :active{
