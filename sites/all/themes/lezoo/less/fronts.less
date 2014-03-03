@@ -16,10 +16,13 @@
 	text-align: center;
 	.artist-list-item{
 		display: inline-block;
-		border: 2px solid @secondary-color;
+		border: 1px solid @primary-color;
 		padding: 5px;
 		margin: 5px;
-		//.text-shadow();
+		text-transform: lowercase;
+		font-size: @font-size-h4;
+		font-family: @font-family-sans-serif;
+		color: @secondary-color;
 		.showing &{
 			opacity: 0.7;
 		}
@@ -120,7 +123,7 @@
 		cursor: grab;
 	}
 	.carousel-control{
-		width: 0%;
+		width: 40px;
 
 		@media @mobile{
 			display: none;
@@ -131,10 +134,12 @@
 		height: 200px;
 
 		&.right{
-			right: 10px;
+			right: 0px;
+			text-align: right;
 		}
 		&.left{
-			left: 10px;
+			left: 0px;
+			text-align: left;
 		}
 	}
 	.carousel-indicators{
@@ -169,7 +174,6 @@
 		position: absolute;
 		left: 0%;
 		right: 0%;
-		//.text-shadow();
 		.transition(all 0.2s 0);
 		color: @primary-color;
 		
@@ -223,7 +227,7 @@
 			position: absolute;
 			top:12px;
 			right: 0px;
-			color: @primary-color;
+			color: inherit;
 			.month{
 				display: none;
 			}

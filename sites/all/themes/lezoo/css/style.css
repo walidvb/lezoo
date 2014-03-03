@@ -7144,9 +7144,13 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 #node-238 .artist-list-item {
   display: inline-block;
-  border: 2px solid #494949;
+  border: 1px solid #ffffff;
   padding: 5px;
   margin: 5px;
+  text-transform: lowercase;
+  font-size: 15px;
+  font-family: "Oswald", Helvetica, Arial, sans-serif;
+  color: #494949;
 }
 .showing #node-238 .artist-list-item {
   opacity: 0.7;
@@ -7241,7 +7245,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   cursor: grab;
 }
 .swiper .carousel-control {
-  width: 0%;
+  width: 40px;
   padding-top: 10px;
   font-size: 25px;
   z-index: 100;
@@ -7253,10 +7257,12 @@ select.form-control#edit-field-music-genre-tid option:hover {
   }
 }
 .swiper .carousel-control.right {
-  right: 10px;
+  right: 0px;
+  text-align: right;
 }
 .swiper .carousel-control.left {
-  left: 10px;
+  left: 0px;
+  text-align: left;
 }
 .swiper .carousel-indicators {
   display: none;
@@ -7342,7 +7348,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   position: absolute;
   top: 12px;
   right: 0px;
-  color: #ffffff;
+  color: inherit;
 }
 .swiper .carousel-caption .date .month {
   display: none;
