@@ -6983,6 +6983,12 @@ select.form-control#edit-field-music-genre-tid option:hover {
   border-bottom: solid 6px #ffffff;
   padding-bottom: 6px !important;
 }
+.node-blog-post a {
+  text-decoration: none;
+}
+.node-blog-post a:hover {
+  font-weight: bold;
+}
 .node-blog-post .node-title {
   padding-left: 12px;
   margin-top: 0px;
@@ -6994,13 +7000,14 @@ select.form-control#edit-field-music-genre-tid option:hover {
   text-transform: uppercase;
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
-  background-color: transparent;
+  background: rgba(250, 250, 250, 0);
   text-shadow: 1px 1px 1px #494949;
 }
 .node-blog-post .node-title:hover {
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
-  background-color: rgba(77, 77, 77, 0.5);
+  color: #000000;
+  background: rgba(250, 250, 250, 0.8);
 }
 .node-blog-post .field-big-image {
   max-height: 330px;
@@ -8135,6 +8142,9 @@ div:not(.footer) .btn:hover {
   margin-bottom: 0px;
   margin-top: 6px;
 }
+.media-vimeo-outer-wrapper {
+  width: 100%;
+}
 .pagination {
   display: none;
 }
@@ -8218,10 +8228,25 @@ div:not(.footer) .btn:hover {
   background-position: center;
   border-bottom: solid 6px #ffffff;
   padding-bottom: 3px !important;
+  color: #ffffff;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
 }
 .view-installations .view-mode-mini .date-display-single {
   font-size: 25px;
   font-family: Georgia, "Times New Roman", Times, serif !important;
+}
+.view-installations .view-mode-mini:hover {
+  color: #000000;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.view-installations .view-mode-mini:hover a {
+  background: rgba(250, 250, 250, 0.8);
+  cursor: pointer;
+}
+.view-installations .view-mode-mini:hover .node-title {
+  border-bottom: solid 1px #000000;
 }
 .view-installations .view-mode-mini a {
   height: 180px;
@@ -8233,14 +8258,8 @@ div:not(.footer) .btn:hover {
   margin-bottom: 0px;
   padding-top: 20px;
   background: rgba(250, 250, 250, 0);
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-}
-.view-installations .view-mode-mini a:hover {
-  background: rgba(250, 250, 250, 0.3);
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 @media (max-width: 767px) {
   .view-installations .view-mode-mini a {
@@ -8253,7 +8272,7 @@ div:not(.footer) .btn:hover {
   overflow: hidden;
 }
 .view-installations .view-mode-mini .node-title {
-  border-bottom: solid 1px white;
+  border-bottom: solid 1px #ffffff;
   padding-right: 27%;
   padding-top: 60px;
   padding-left: 12px;
@@ -8283,6 +8302,7 @@ div:not(.footer) .btn:hover {
   display: block;
   border-bottom: none;
   border-top: none;
+  color: inherit;
 }
 @media (max-width: 767px) {
   .view-installations .view-mode-mini .content .date {
