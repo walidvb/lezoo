@@ -6534,6 +6534,12 @@ h1 a {
 .field-body img {
   margin: 6px 12px 6px 12px;
 }
+.field-body p {
+  text-align: left !important;
+}
+.field-body a {
+  font-style: italic !important;
+}
 .field-big-image {
   display: none;
 }
@@ -8145,6 +8151,20 @@ div:not(.footer) .btn:hover {
 .media-vimeo-outer-wrapper {
   width: 100%;
 }
+#cboxOverlay {
+  background: #000000;
+}
+#cboxSlideshow,
+#cboxPrevious,
+#cboxNext,
+#cboxClose {
+  text-indent: -9999px;
+  width: 20px;
+  height: 22px;
+  position: absolute;
+  top: -22px;
+  border: solid 1px white;
+}
 .pagination {
   display: none;
 }
@@ -8257,7 +8277,7 @@ div:not(.footer) .btn:hover {
   margin-top: 0px;
   margin-bottom: 0px;
   padding-top: 20px;
-  background: rgba(250, 250, 250, 0);
+  background: transparent;
   text-decoration: none;
   color: inherit;
 }
