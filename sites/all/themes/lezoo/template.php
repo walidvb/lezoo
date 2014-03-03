@@ -327,16 +327,9 @@ function lezoo_preprocess_field(&$vars, $hook){
 }
 
 function lezoo_preprocess_media_soundcloud_audio(&$variables) {
-	dpm($variabels);
+	dpm($variables);
 }
-function lezoo_block_info(){
-	$blocks = array();
-	$blocks['webcal_lezoo'] = array(
-		'info' => t('Webcal: The modal dialog to subsribe to the agenda'),
-		'cache' => DRUPAL_NO_CACHE,
-		);
-	return $blocks;
-}
+
 
 function lezoo_block_view($delta = ''){
 	$block = array();
