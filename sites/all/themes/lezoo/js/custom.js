@@ -161,7 +161,11 @@
 			})
 		});
 		//--------------------Attach to ajax loading of views:
+<<<<<<< HEAD
 		$('.view-teaser-list').once(function(){
+=======
+		$('.view-teaser-list:not(.view-carousel)').once(function(){
+>>>>>>> 06dd1c851ea95f726cafe1885de235df50c92c20
 			$(this).each(function(){
 				var $this = $(this);
 				 $this.ajaxStart(function(e){
