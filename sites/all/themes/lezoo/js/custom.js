@@ -3,7 +3,12 @@
 	Drupal.behaviors.lezoo.attach = function(context) {
 		//trigger chosen all the time
 		//-------------- change menu item
-		var active_trail = $('.primary > .dropdown', context).find('ul .active-trail a').text();
+		var dropdown = $('.primary > .dropdown', context);
+		dropdown.bind('click touch', function(e){
+			e.preventDefault();
+			$(this).find('.dropdown-menu').toggleClass('open');
+		})
+		var active_trail = dropdown.find('ul .active-trail a').text();
 		if(active_trail)
 		{
 			$('.primary .dropdown-toggle').html(active_trail + '<span class="caret"></span>');

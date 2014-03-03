@@ -1,4 +1,9 @@
 // Insert your styling here.
+@media (max-width:480px) {
+	header{
+		margin: 0;
+	}
+}
 #navbar{
 	text-transform: uppercase;
 	font-family: @font-family-sans-serif;
@@ -9,15 +14,35 @@
 	z-index: 1000;
 	height: 40px;
 	@media @mobile{
-		 .navbar-header,
-		 .navbar-collapse {
-			  margin-right: 0px!important;
-			  margin-left: 0;
-		  }
-		.navbar-collapse{
-			background-color: @secondary-color;
+		margin: 0;
+		min-height: 0;
+		height: auto; 
+		border: none;
+		nav > .navbar-nav
+		{
+			margin: 0;
 		}
+		 .primary{
+			margin-top: 0;
+			margin-bottom: 0;
+		 	> li{
+		 		display: inline-block;
+		 		float: left;
+		 		&.active{
+		 			.make-xs-column(3);
+		 		}
+		 		.make-xs-column(2);
+		 		.dropdown-menu{
+		 			top: 0;
+		 			left: 100%;
+		 			li{
+		 				
+		 			}
+		 		}
+		 	}
+		 }
 	}
+
 	@media @tablet{
 		padding: 0 0 0.3em;
 		.navbar-collapse{

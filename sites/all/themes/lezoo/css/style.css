@@ -6089,6 +6089,11 @@ td.radio {
   padding: 0;
   margin: 4px 0 0 0;
 }
+@media (max-width: 480px) {
+  header {
+    margin: 0;
+  }
+}
 #navbar {
   text-transform: uppercase;
   font-family: "Oswald", Helvetica, Arial, sans-serif;
@@ -6100,13 +6105,39 @@ td.radio {
   height: 40px;
 }
 @media (max-width: 767px) {
-  #navbar .navbar-header,
-  #navbar .navbar-collapse {
-    margin-right: 0px!important;
-    margin-left: 0;
+  #navbar {
+    margin: 0;
+    min-height: 0;
+    height: auto;
+    border: none;
   }
-  #navbar .navbar-collapse {
-    background-color: #494949;
+  #navbar nav > .navbar-nav {
+    margin: 0;
+  }
+  #navbar .primary {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  #navbar .primary > li {
+    display: inline-block;
+    position: relative;
+    float: left;
+    width: 16.666666666666664%;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  #navbar .primary > li.active {
+    position: relative;
+    float: left;
+    width: 25%;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  #navbar .primary > li .dropdown-menu {
+    top: 0;
+    left: 100%;
   }
 }
 @media screen and (min-width: 768px) {
