@@ -3,9 +3,7 @@
       <?php if (!empty($site_name)): ?>
       <a class="name navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
       <?php endif; ?>
-    <div class="footer-mobile visible-xs">
-      <?php print $footer_mobile; ?>
-    </div>
+   
       <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
@@ -14,9 +12,11 @@
         <span class="icon-bar"></span>
       </button>
     </div>
-
+     <div class="footer-mobile visible-xs navbar-collapse collapse">
+      <?php print $footer_mobile; ?>
+    </div>
     <?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
-      <div class="navbar-collapse collapse">
+      <div class="">
         <nav role="navigation">
           <?php if (!empty($primary_nav)): ?>
             <?php print render($primary_nav); ?>
@@ -31,11 +31,7 @@
       </div>
     <?php endif; ?>
 </header>
-<?php if ($logo): ?>
-  <a class="logo navbar-btn pull-left" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
-    <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-  </a>
-<?php endif; ?>
+
 <div class="main-container container">  
   <div class="row">
 

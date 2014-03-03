@@ -27,11 +27,11 @@ function lezoo_preprocess_html(&$variables) {
 	drupal_add_js("var addToHomeConfig = {
 		animationIn: 'bubble',
 		animationOut: 'drop',
-		lifespan:15000,
-		expire:20,
+		lifespan:5000,
+		expire:50,
 		touchIcon:true,
 		returningVisitor:false,
-		message:'Ajoute le site du zoo comme webapp en appuyant sur `%icon`!.'
+		message: 'Ajoute le site du zoo comme webapp en appuyant sur %icon!'
 
 	};",  array('type' => 'inline', 'scope' => 'footer'));
 	drupal_add_js(drupal_get_path('theme', 'lezoo'). '/libs/addToHome/src/add2home.js', array('scope' => 'footer'));
@@ -78,7 +78,6 @@ function lezoo_preprocess_html(&$variables) {
 function lezoo_menu_link(array $variables) {
 	$element                           = $variables['element'];
 	$element['#attributes']['class'][] = strtolower($element['#title']);
-
 	return bootstrap_menu_link($variables);
 
 }
@@ -129,7 +128,7 @@ function lezoo_preprocess_page(&$variables) {
 			switch($variables['node']->field_section['und']['0']['tid'])
 			{
 				case 28:
-				$menu_active_item ='podcasts';
+				$menu_active_item ='news';
 				break;
 				case 27:
 				$menu_active_item ='visu';

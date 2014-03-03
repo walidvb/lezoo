@@ -151,7 +151,7 @@
 				};
 			}, function(){
 				clearTimeout(timer);
-				setTimeout(function(){
+				timer = setTimeout(function(){
 					$artistList.css({
 						'backgroundImage': 'url("/sites/all/themes/lezoo/img/logo.png")',
 						'backgroundSize': '70px',
