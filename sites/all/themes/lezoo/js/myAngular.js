@@ -32,7 +32,7 @@
               result.push(item.tid);
             }
           });
-          return (result !== "undefined" && (result.length === $scope.genres.length || result.length === 0) ) ? '' : (result.join('+') + '/');
+          return (result !== "undefined" && (result.length === $scope.genres.length || result.length === 0) ) ? 'all/' : (result.join('+') + '/');
         };
       });
     });

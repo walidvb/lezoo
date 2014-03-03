@@ -14,7 +14,7 @@
 		}
 
 		//-------------- stick months above list
-		$('.page-agenda .view-display-id-panel_pane_1 .view-content,  .view-display-id-events_teaser_all_date .view-content', context).once('lezoo_theme', function(){
+		$('.view-content,  .view-display-id-events_teaser_all_date .view-content', context).once('lezoo_theme', function(){
 			$(this).css('position', 'relative')
 			.stickyHeaders({
 				headlineSelector: 'h3:not(.node-title)',
@@ -161,7 +161,7 @@
 			})
 		});
 		//--------------------Attach to ajax loading of views:
-		$('.view-teaser-list:not(.view-carousel)').once(function(){
+		$('.view-teaser-list').once(function(){
 			$(this).each(function(){
 				var $this = $(this);
 				 $this.ajaxStart(function(e){
@@ -185,6 +185,7 @@
 			}, 300);
 		}
 		resize();
+		stickEm();
 		$(window).resize(resize);
 		$(window).scroll(function(){
 			if($(this).scrollTop() + $(this).outerHeight(true)  >= $(document).height())

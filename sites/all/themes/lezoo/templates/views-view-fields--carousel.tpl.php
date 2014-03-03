@@ -15,31 +15,30 @@ $description .= $fields['field_artist']->content;
 
 $link = 'node/' . $fields['nid']->content;
 
-
-$slide = $image;
-
+$caption = null;
 if(!empty($title) || !empty($description))
 {
-  $slide .= '<div class="carousel-caption">';
+  $caption .= '<div class="carousel-caption">';
     if (!empty($title))
     {
-		$slide .= $title;
+		$caption .= $title;
     }
 
 	if (!empty($description))
 	{
-       $slide .= $description;
+       $caption .= $description;
     }
-  $slide .= '</div>';
+  $caption .= '</div>';
 }
+$slide = $image . l($caption, $link, array(
+    'html' => true,
+    ));
 ?>
 
 
 <div class="carousel-wrapper" style="background-image: url('<?php print $mobile_banner ?>')">
 
   
-  <?php print l($slide, $link, array(
-  	'html' => true,
-  	));
+  <?php print $slide
   ?>
 </div>

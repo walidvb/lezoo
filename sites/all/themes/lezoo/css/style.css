@@ -6996,6 +6996,8 @@ select.form-control#edit-field-music-genre-tid option:hover {
   }
 }
 .node-blog-post {
+  background-size: cover;
+  background-position: center;
   margin-bottom: 6px;
   height: auto !important;
   border-bottom: solid 6px #ffffff;
@@ -7250,8 +7252,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
   display: inline-block;
   float: left;
   position: relative;
-  cursor: -webkit-grab !important;
-  cursor: grab!important;
 }
 .swiper .field-big-image {
   cursor: grab;
@@ -7843,15 +7843,22 @@ div:not(.footer) .btn:hover {
 }
 /*   Subscribe   */
 #myModal {
+  color: #000000;
   text-align: center;
 }
-#myModal .modal-title {
-  color: #000000;
+@media screen and (min-width: 768px) {
+  #myModal .modal-lg {
+    width: 900px;
+  }
+}
+#myModal .modal-content {
+  border-radius: 3px;
 }
 #myModal .genre-select {
   display: inline-block;
   width: 100%;
-  border-bottom: 1px solid #333333;
+  border-top: 1px solid #333333;
+  margin: 5px;
 }
 #myModal .genre-select .genre-select-all {
   display: inline-block;
@@ -7866,6 +7873,23 @@ div:not(.footer) .btn:hover {
 }
 #myModal .genre-select .genre-select-all:last-child {
   float: right;
+}
+#myModal img {
+  border: 1px solid black;
+  padding: 1px;
+  border-radius: 2px;
+  margin-bottom: 5px;
+  margin: auto;
+  display: inline-block;
+  vertical-align: top;
+}
+#myModal img.img-1 {
+  width: 29%;
+  max-width: 120px;
+}
+#myModal img.img-2 {
+  width: 69%;
+  max-width: 300px;
 }
 #myModal .genre,
 #myModal .genre-select-all {
