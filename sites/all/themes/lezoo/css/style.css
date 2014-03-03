@@ -7004,16 +7004,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   border-bottom: solid 1px #ffffff;
   font-family: Georgia, "Times New Roman", Times, serif !important;
   text-transform: uppercase;
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-  background: rgba(250, 250, 250, 0);
   text-shadow: 1px 1px 1px #494949;
-}
-.node-blog-post .node-title:hover {
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  color: #000000;
-  background: rgba(250, 250, 250, 0.8);
 }
 .node-blog-post .field-big-image {
   max-height: 330px;
@@ -7044,6 +7035,17 @@ select.form-control#edit-field-music-genre-tid option:hover {
   float: right;
   padding-top: 6px;
   border-top: 1px solid #000000;
+}
+.node-blog-post.view-mode-mini .node-title {
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  background: rgba(250, 250, 250, 0);
+}
+.node-blog-post.view-mode-mini .node-title:not(.view-mode-full):hover {
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  color: #000000;
+  background: rgba(250, 250, 250, 0.8);
 }
 .node-blog-post-single .node-title {
   font-size: 68.2px;

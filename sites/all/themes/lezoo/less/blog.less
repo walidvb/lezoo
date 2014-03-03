@@ -50,13 +50,6 @@
 		border-bottom: solid 1px @primary-color;
 		font-family: @font-family-serif !important;
 		text-transform: uppercase;
-		.transition-duration(0.5s);
-		background: rgba(250,250,250,0);
-		&:hover{
-			.transition-duration(0.3s);
-			color: @fourth-color;
-			background: rgba(250,250,250,0.8);
-		}
 		.text-shadow();
 	}
 	.field-big-image{
@@ -88,6 +81,18 @@
 		float: right;
 		padding-top: @padding-base-vertical;
 		border-top: 1px solid @fourth-color;
+	}
+
+	&.view-mode-mini{
+		.node-title{
+			.transition-duration(0.5s);
+			background: rgba(250,250,250,0);
+			&:not(.view-mode-full):hover{
+				.transition-duration(0.3s);
+				color: @fourth-color;
+				background: rgba(250,250,250,0.8);
+			}
+		}
 	}
 
 }
