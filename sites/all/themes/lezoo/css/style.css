@@ -6528,20 +6528,6 @@ h1 a {
 .breadcrumb a {
   color: #191919;
 }
-#node-154 .field-body,
-#node-153 .field-body {
-  -webkit-column-count: 3;
-  -moz-column-count: 3;
-  column-count: 3;
-}
-@media (max-width: 767px) {
-  #node-154 .field-body,
-  #node-153 .field-body {
-    -webkit-column-count: 1;
-    -moz-column-count: 1;
-    column-count: 1;
-  }
-}
 .field-body {
   padding: 0 5px;
 }
