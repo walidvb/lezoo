@@ -114,21 +114,16 @@
 }
 // Flippy
 .flippy{
-	display: none;
+	background-color: @secondary-color;
+	height: 40px;
+	border-bottom: solid 1px @primary-color;
+	padding: 0px 5px !important;
 	span{
 		display: none;
 	}
-	@media @tablet{
-		display: block;
-	}
 	.prev, .next{
-		position: fixed;
-		top: 100px;
-		z-index: 100;
-		width: 80px!important;
-		height: 140px;
-		overflow: hidden;
 		padding: 0px 0px 0px 0px;
+<<<<<<< HEAD
 		background-color: rgba(255,255,255,0.0);
 		.opacity(0.5);
 		&:hover, &.active{
@@ -141,63 +136,87 @@
 			background: center no-repeat;
 			background-size: cover;
 		}
+=======
+		height: 40px;
+		top: -8px;
+		position: relative;
+>>>>>>> 8588347c34026ef9d163f37995e98a89b3976a5d
 		a{
-			position: absolute;
-			left: 0px;
-			height: 100%;
-			width: 100%;
-			font-size: @font-size-h4;
-			font-family:@font-family-sans-serif;
-		}
-		img{
-			height: 100%;
-			max-width: none;
-			position: absolute;
-			top: 0px;
-			z-index: -10;
+			display: inline-block;
+			.scale(0.5);
 		}
 	}
 
 	.prev{
-		left: 50%;
-		margin-left: -640px;
-		&:after{
+		float: left;
+		a{
 			content : url("../img/flippy_prev.png");
 		}
+<<<<<<< HEAD
 		&:hover, &.active{
 			padding-right: 5px;
 			.transition-duration(0.2s);
 		}
 		.month, .date-number{
 			float: right;
+=======
+		@media @tablet{
+			float: none;
+			left: 50%;
+			margin-left: -640px;
+			&:hover{
+				padding-right: 5px;
+				.transition-duration(0.2s);
+			}
+>>>>>>> 8588347c34026ef9d163f37995e98a89b3976a5d
 		}
 	}
 	.next{
-		right: 50%;
-		margin-right: -640px;
-		&:after{
+		float: right;
+		a{
 			content : url("../img/flippy_next.png");
 		}
+<<<<<<< HEAD
 		&:hover, &.active{
 			padding-left: 5px;
 			.transition-duration(0.2s);
 		}
 		.month, .date-number{
 			float: left;
+=======
+		@media @tablet{
+			float: none;
+			right: 50%;
+			margin-right: -640px;
+			&:hover{
+				padding-left: 5px;
+				.transition-duration(0.2s);
+			}
+>>>>>>> 8588347c34026ef9d163f37995e98a89b3976a5d
 		}
 	}
-	.month, .date-number {
-		display: none;
-		//width: 100px;
-		//height: 100px;
-		//text-shadow: 1px 1px 1px black;
-	}
 
-	.month{
-		font-size: @font-size-h3;
-	}
-	.date-number{
-		font-size: @font-size-h2;
+	@media @tablet{
+		display: block;
+		border-bottom: none;
+		background-color: transparent;
+		.prev, .next{
+			position: fixed !important;
+			top: 100px !important;
+			z-index: 100;
+			width: 80px!important;
+			height: 140px;
+			background-color: transparent;
+			.opacity(0.5);
+			&:hover{
+				.opacity(1);
+				cursor: pointer;
+			}
+			.transition-duration(0.2s);
+			a{
+				.scale(1);
+			}
+		}
 	}
 
 }

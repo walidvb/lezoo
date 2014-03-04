@@ -19,7 +19,7 @@
 		}
 
 		//-------------- stick months above list
-		$('.view-display-id-events_teaser_all_date .view-content', context).once('lezoo_theme', function(){
+		$('.view-id-teaser_list .view-content', context).once('lezoo_theme', function(){
 			$(this).css('position', 'relative')
 			.stickyHeaders({
 				headlineSelector: 'h3:not(.node-title)',
