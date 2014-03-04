@@ -100,28 +100,28 @@
 
 //Home page video field
 
-.media-vimeo-outer-wrapper{
-	width: 100%!important;
+.media-vimeo-outer-wrapper, .media-vimeo-preview-wrapper{
+	width: 100% !important;
 	iframe, object{
 		width:100% !important;
 		height: 265px!important;
 	}
 	@media @tablet{
-		min-height: 195px!important;
+		height: 195px!important;
 
 		iframe, object{
 			height: 195px!important;
 		}
 	}
 	@media @normal{
-		min-height: 255px!important;	
+		height: 255px!important;	
 
 		iframe, object{
 			height: 255px!important;
 		}	
 	}
 	@media @wide{
-		min-height: 310px!important;
+		height: 310px!important;
 
 		iframe, object{
 			height: 310px!important;
@@ -161,7 +161,7 @@
 		}
 		.text-shadow();
 	}
-	.node-title, .content{
+	.node-title{
 		position: absolute;
 		top: 0;
 		width: 100%;

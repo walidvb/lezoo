@@ -64,8 +64,7 @@
 				text-align: left;
 				padding-left: 0px;
 				padding-right: 0px;
-				background-color: rgba(0,0,0,0.2);
-				height: 100%;
+				background-color: rgba(0,0,0,0);
 				h6{
 					padding-left: 15px;
 				}
@@ -84,11 +83,10 @@
 				.date{
 					position: relative;
 					top: 0px;
-					right: @padding-base-horizontal;
-					padding-left: 25px;
-					border-bottom: solid 6px;
+					right: 0px;
+					padding-left: 15px;
+					border-bottom: solid 6px white;
 					font-size: @font-size-h3;
-
 					.date-number, .day, .month{
 						display: inline-block;
 						text-align: left;
@@ -170,14 +168,15 @@
 	.carousel-caption{
 		display: block;
 		height: 160px;
-		background: rgba(50,50,50,0.4);
+		background: rgba(0,0,0,0.4);
 		bottom: 0px;
 		padding-top: 0px;
 		position: absolute;
 		left: 0%;
 		right: 0%;
 		.transition(all 0.2s 0);
-		color: @primary-color;		
+		color: @primary-color;
+		
 		&:hover{
 			.transition(all 0.6s 0);
 			background: rgba(255,255,255,0.8);
@@ -198,7 +197,6 @@
 			position: absolute;
 			top: 0px;
 			padding-left: @padding-base-horizontal;
-			color: @secondary-color;
 		}
 
 		.banner-title{
@@ -216,7 +214,6 @@
 			}
 			.field-music-genre{
 				display: inline-block;
-				color: @secondary-color;
 				font-size: @font-size-h3;
 				font-style: italic;
 				text-transform: lowercase;
@@ -229,7 +226,7 @@
 		.date{
 			position: absolute;
 			top:12px;
-			right: @padding-base-horizontal;
+			right: 0px;
 			color: inherit;
 			.month{
 				display: none;
