@@ -79,15 +79,8 @@
  *
  * @ingroup themeable
  */
-if(isset($content['field_tags']))
-{
-  $tags = $content['field_tags'];
-  hide($content['field_tags']);
-}
-else
-{
-  $tags = '';
-}
+
+hide($content['field_tags']);
 if(empty($content['field_media']))
 {
   hide($content['field_media']);
@@ -108,19 +101,19 @@ else
 ?>
 
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-            <?php print render($title_prefix); ?>
-                <a href="<?php print $node_url; ?>">
-                  <<?php print $title_tag; print $title_attributes; ?>><?php print $title; ?></<?php print $title_tag?>>
-                </a>
-            <?php print render($title_suffix); ?>
-            <div class="content"<?php print $content_attributes; ?>>
-              <?php if(!empty($content['field_tags'])): ?>
-                <div class="tags">
-                  <div class="field-tags">
-                     <?php print render($content['field_tags']); ?>
-                  </div>
-                </div>
-               <?php endif; ?>
-                <?php print render($content) ?>
-              </div>
+  <?php print render($title_prefix); ?>
+      <a href="<?php print $node_url; ?>">
+        <<?php print $title_tag; print $title_attributes; ?>><?php print $title; ?></<?php print $title_tag?>>
+      </a>
+  <?php print render($title_suffix); ?>
+  <div class="content"<?php print $content_attributes; ?>>
+      <?php print render($content) ?>
+  </div>
+  <?php if(0 && !empty($content['field_tags'])): ?>
+    <div class="tags">
+      <div class="field-tags">
+         <?php print render($content['field_tags']); ?>
+      </div>
+    </div>
+   <?php endif; ?>
 </div>

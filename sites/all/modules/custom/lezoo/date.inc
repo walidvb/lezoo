@@ -133,11 +133,26 @@ function lezoo_field_formatter_view($entity_type, $entity, $field, $instance, $l
 
     $output = '';
     $date_original = strtotime($date_original);  
+
     $day = strftime('%a', $date_original);
     $date = strftime('%d', $date_original);
     $month = strftime('%b', $date_original);
     $month_full = strftime('%B', $date_original);
     $year = strftime('%Y', $date_original);
+    
+    $day = mb_substr($day, 0, 3);
+    $date = mb_substr($date, 0, 3);
+    $month = mb_substr($month, 0, 3);
+    $month_full = mb_substr($month_full, 0, 3);
+
+   
+
+    // $day = date('D', $date_original);
+    // $date = date('d', $date_original);
+    // $month = date('M', $date_original);
+    // $month_full = date('F', $date_original);
+    // $year = date('Y', $date_original);
+    
     switch($format)
     {
       case 'day_date_month':

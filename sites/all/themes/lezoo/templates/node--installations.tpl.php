@@ -29,7 +29,6 @@ hide($content['comments']);
 hide($content['links']);
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-  <?php print render($content['flippy_pager']); ?>
   <div class="content"<?php print $content_attributes; ?>>
     <div class='header install-header' style="background-image: url('<?php print $background_image ?>')">
           <div class="install-titles">
@@ -82,4 +81,5 @@ hide($content['links']);
     </div>
   </div>
   <?php print render($content['links']); ?>
+  <?php print render($content['flippy_pager']); ?>
 </div>

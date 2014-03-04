@@ -2,8 +2,6 @@
 	$background_image = get_img_url('banner_mobile', 'field_big_image', $node);
 ?>
 <div class='node-event <?php print $classes ?>' <?php print $attributes; ?> >
-	<?php print render($content['flippy_pager']); ?>
-
 		<div class='event-node dated-node'>
 			<div class="node-content">
 				<div class='header' style="background-image: url('<?php print $background_image ?>')">
@@ -66,6 +64,6 @@
 					</div>
 				<?php endif; ?>
 			</div>
-
 		</div>
+	<?php print render($content['flippy_pager']); ?>
 </div>

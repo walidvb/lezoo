@@ -6105,39 +6105,26 @@ td.radio {
   height: 40px;
 }
 @media (max-width: 767px) {
-  #navbar {
-    margin: 0;
-    min-height: 0;
-    height: auto;
-    border: none;
-  }
-  #navbar nav > .navbar-nav {
-    margin: 0;
-  }
-  #navbar .primary {
+  #navbar .navbar-nav {
     margin-top: 0;
     margin-bottom: 0;
   }
-  #navbar .primary > li {
-    display: inline-block;
-    position: relative;
-    float: left;
-    width: 16.666666666666664%;
-    min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
+  #navbar li {
+    background-color: black;
+    padding-left: 5px;
   }
-  #navbar .primary > li.active {
-    position: relative;
-    float: left;
-    width: 25%;
-    min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
+  #navbar li:not(.last).active > a {
+    background-color: #bfbfbf;
   }
-  #navbar .primary > li .dropdown-menu {
-    top: 0;
-    left: 100%;
+  #navbar li .dropdown-menu {
+    display: block;
+    position: static;
+    float: none;
+    width: auto;
+    margin-top: 0;
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
   }
 }
 @media screen and (min-width: 768px) {
@@ -6693,7 +6680,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
   min-height: 190px;
   border-bottom: solid 6px #ffffff;
   background-position: center;
-  background-size: 200%;
 }
 @media screen and (min-width: 768px) {
   .node-event.view-mode-full .header {
@@ -6846,10 +6832,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
     height: auto;
     border-bottom: solid 1px #ffffff;
   }
-}
-.node-teaser .field-big-image,
-.field-event-ref .node-teaser .field-big-image {
-  display: none;
 }
 .node-teaser .event-titles,
 .field-event-ref .node-teaser .event-titles {
@@ -7578,7 +7560,9 @@ select.form-control#edit-field-music-genre-tid option:hover {
   transition-duration: 0.2s;
 }
 .flippy .prev:hover,
-.flippy .next:hover {
+.flippy .next:hover,
+.flippy .prev.active,
+.flippy .next.active {
   opacity: 1;
   filter: alpha(opacity=100);
 }
@@ -7613,7 +7597,8 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .flippy .prev:after {
   content: url("../img/flippy_prev.png");
 }
-.flippy .prev:hover {
+.flippy .prev:hover,
+.flippy .prev.active {
   padding-right: 5px;
   -webkit-transition-duration: 0.2s;
   transition-duration: 0.2s;
@@ -7629,7 +7614,8 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .flippy .next:after {
   content: url("../img/flippy_next.png");
 }
-.flippy .next:hover {
+.flippy .next:hover,
+.flippy .next.active {
   padding-left: 5px;
   -webkit-transition-duration: 0.2s;
   transition-duration: 0.2s;
@@ -7887,7 +7873,7 @@ div:not(.footer) .btn:hover {
 #myModal .modal-content {
   border-radius: 3px;
 }
-#myModal .instructions {
+#myModal .selection {
   border-left: 1px solid grey;
 }
 #myModal .genre-select {
@@ -8377,38 +8363,38 @@ div:not(.footer) .btn:hover {
   }
 }
 .media-vimeo-outer-wrapper {
-  width: 100%;
+  width: 100%!important;
 }
 .media-vimeo-outer-wrapper iframe,
 .media-vimeo-outer-wrapper object {
   width: 100% !important;
-  height: 265px;
+  height: 265px!important;
 }
 @media screen and (min-width: 768px) {
   .media-vimeo-outer-wrapper {
-    min-height: 195px;
+    min-height: 195px!important;
   }
   .media-vimeo-outer-wrapper iframe,
   .media-vimeo-outer-wrapper object {
-    height: 195px;
+    height: 195px!important;
   }
 }
 @media screen and (min-width: 992px) {
   .media-vimeo-outer-wrapper {
-    min-height: 255px;
+    min-height: 255px!important;
   }
   .media-vimeo-outer-wrapper iframe,
   .media-vimeo-outer-wrapper object {
-    height: 255px;
+    height: 255px!important;
   }
 }
 @media screen and (min-width: 1200px) {
   .media-vimeo-outer-wrapper {
-    min-height: 310px;
+    min-height: 310px!important;
   }
   .media-vimeo-outer-wrapper iframe,
   .media-vimeo-outer-wrapper object {
-    height: 310px;
+    height: 310px!important;
   }
 }
 .node-installations.node-teaser {
@@ -8466,7 +8452,6 @@ div:not(.footer) .btn:hover {
   min-height: 120px;
   border-bottom: solid 6px #ffffff;
   background-position: center;
-  background-size: 120%;
 }
 @media screen and (min-width: 768px) {
   .node-installations.view-mode-full .install-header {

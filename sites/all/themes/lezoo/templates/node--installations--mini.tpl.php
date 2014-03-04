@@ -79,15 +79,7 @@
  *
  * @ingroup themeable
  */
-if(isset($content['field_tags']))
-{
-  $tags = $content['field_tags'];
-  
-}
-else
-{
-  $tags = '';
-}
+hide($content['field_tags']);
 
 if(!$page)
 {
@@ -108,13 +100,14 @@ else
     <?php print render($title_suffix); ?>
   </a>
   <div class="content"<?php print $content_attributes; ?>>
-    <?php if(!empty($content['field_tags'])): ?>
+    
+    <?php print render($content) ?>
+  </div>
+  <?php if(!empty($content['field_tags'])): ?>
                 <div class="tags">
                   <div class="field-tags">
                      <?php print render($content['field_tags']); ?>
                   </div>
                 </div>
                <?php endif; ?>
-    <?php print render($content) ?>
-  </div>
 </div>

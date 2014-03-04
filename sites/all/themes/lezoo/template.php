@@ -48,13 +48,13 @@ function lezoo_preprocess_html(&$variables) {
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js', array('type' => 'external', 'scope' => 'footer'));
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/1.5.25/jquery.isotope.min.js', array('type' => 'external', 'scope' => 'footer'));
 	//Add instant click only for anon users
-	if($variables['user']->uid == 0)
-	{
-		drupal_add_js("InstantClick.on('change', function(){
-			Drupal.attachBehaviors();
-		});
-		InstantClick.init();", array('type' => 'inline', 'scope' => 'footer'));
-	}
+	// if($variables['user']->uid == 0)
+	// {
+	// 	drupal_add_js("InstantClick.on('change', function(){
+	// 		Drupal.attachBehaviors();
+	// 	});
+	// 	InstantClick.init();", array('type' => 'inline', 'scope' => 'footer'));
+	// }
 	if(isset($variables['user']->roles['3']))
 	{
 		$variables['classes_array'][] = $variables['user']->roles['3'];

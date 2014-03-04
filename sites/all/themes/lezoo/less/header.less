@@ -14,33 +14,27 @@
 	z-index: 1000;
 	height: 40px;
 	@media @mobile{
-		margin: 0;
-		min-height: 0;
-		height: auto; 
-		border: none;
-		nav > .navbar-nav
-		{
-			margin: 0;
-		}
-		 .primary{
+		.navbar-nav{
 			margin-top: 0;
 			margin-bottom: 0;
-		 	> li{
-		 		display: inline-block;
-		 		float: left;
-		 		&.active{
-		 			.make-xs-column(3);
-		 		}
-		 		.make-xs-column(2);
-		 		.dropdown-menu{
-		 			top: 0;
-		 			left: 100%;
-		 			li{
-		 				
-		 			}
-		 		}
-		 	}
-		 }
+		}
+		li{
+			background-color: black;
+			&:not(.last).active > a{
+				background-color: @tertiary-color;
+			}
+			padding-left: 5px;
+			.dropdown-menu{
+				display: block;
+				position: static;
+				float: none;
+				width: auto;
+				margin-top: 0;
+				background-color: transparent;
+				border: 0;
+				box-shadow: none;
+			}
+		}
 	}
 
 	@media @tablet{

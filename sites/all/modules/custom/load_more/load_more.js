@@ -9,7 +9,6 @@ var first = true;
 			var $targetContainerSelector = '.node.view-mode-full';
 		//---------------------ajax calls
 		var loadFrom = function (nid, triggerIndex){
-			console.log('loadFrom run from ' + nid);
 			
 			if(current != nid)
 			{
@@ -22,10 +21,7 @@ var first = true;
 					{
 						console.log(response);
 						var content = $(response.node_content);
-						console.log(targetContainer);
-
 						targetContainer.replaceWith(content);
-						
 						var script = content.script;
 						$('head').append(script);
 						$('body').trigger('item-loaded', triggerIndex, response);
@@ -86,7 +82,12 @@ var first = true;
 			loadFrom(nid);
 		});
 	});
-
+	Mousetrap.bind('left', function(){
+		$('.flippy .prev').addClass('active').find('a').click();
+	});
+	Mousetrap.bind('right', function(){
+		$('.flippy .next').addClass('active').find('a').click();
+	});
 	$('body').once('load-more', function(){
 		$(this).bind('load-from', function(e, data){
 			loadFrom(data.nid, data.index);

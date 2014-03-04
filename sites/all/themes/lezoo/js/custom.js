@@ -179,7 +179,7 @@
 				 	var view = $(e.currentTarget);
 				});
 			});
-		})
+		});
 		//--------------------Overall
 		var timer;
 		function resize() 

@@ -91,10 +91,9 @@ if(isset($content['field_tags']))
   hide($content['field_tags']);
 }
 $background_image = get_img_url('banner_mobile', 'field_big_image', $node);
-
+hide($content['flippy_pager']);
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes ?> clearfix"<?php print $attributes; ?>>
-  <?php print render($content['flippy_pager']); ?>
   <?php print $user_picture; ?>
 
   <?php print render($title_prefix); ?>
@@ -103,9 +102,6 @@ $background_image = get_img_url('banner_mobile', 'field_big_image', $node);
 <?php endif; ?>
 <?php print $share42; ?>
 <?php print render($title_suffix); ?> 
-
-
-
 <div class="content row"<?php print $content_attributes; ?>>
   <?php if ($display_submitted): ?>
     <div class="blog-info col-xs-12">
@@ -122,21 +118,19 @@ $background_image = get_img_url('banner_mobile', 'field_big_image', $node);
   <?php endif; ?>
   <div class="<?php print $left_col_classes ?>">
     <?php print render($content['field_big_image']); ?>
-    <?php if(!empty($content['field_links']) || !empty($content['field_event_ref']) || !empty($related)): ?>
+    <?php if(!empty($content['field_links']) || !empty($content['field_event_ref'])): ?>
       <div class="closable">
         <?php print lezoo_header('Les Détails'); ?>
         <div class="blog-details">
           <?php 
           if(!empty($content['field_links'])){ print render($content['field_links']); } 
           if(!empty($content['field_event_ref'])) { print render($content['field_event_ref']); }
-          if(!empty($related) && ($is_page)){print $related;}
           ?>
         </div>
       </div>
     <?php endif; ?>
   </div>
   <div class="<?php print $right_col_classes ?>">
-
     <div class="closable">
       <?php print lezoo_header('Le Post'); ?>
       <div>
@@ -152,5 +146,7 @@ $background_image = get_img_url('banner_mobile', 'field_big_image', $node);
     </div>
   </div>
 </div>
-  <?php print render($content['links']); ?>
+<div>
+<?php print render($content['flippy_pager']); ?>
+</div>
 </div>
