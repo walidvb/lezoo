@@ -44,7 +44,7 @@ function _lezoo_get_date_formats(){
   return array(
     'day_date'  => 'ven 15',
     'day_date_month' => 'ven 15 oct',
-    'date_month' => '15 oct',
+    'date_month' => 'oct 15',
     'day_month_year'  => 'october 2012',
     'date_year' => '15 oct 2012',
     );

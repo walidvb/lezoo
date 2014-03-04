@@ -117,7 +117,10 @@ InsertMedia.prototype = {
         });
     // Get the markup and register it for the macro / placeholder handling.
     var markup = Drupal.media.filter.getWysiwygHTML(element);
-
+    console.log('this', this);
+    console.log('formatted_media', formatted_media);
+    console.log('markup: ',markup);
+    console.log('wysiwyg instance: ',Drupal.wysiwyg.instances[this.instanceId]);
     // Insert placeholder markup into wysiwyg.
     Drupal.wysiwyg.instances[this.instanceId].insert(markup);
   }
