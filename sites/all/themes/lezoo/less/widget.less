@@ -115,6 +115,9 @@
 // Flippy
 .flippy{
 	display: none;
+	span{
+		display: none;
+	}
 	@media @tablet{
 		display: block;
 	}
@@ -657,12 +660,14 @@ div:not(.footer) .btn{
 		content: '';
 		position: absolute;
 		top: 0;
+		display: block;
 		width: 100%;
 		height: 100%;
 		background-image: url("/sites/all/themes/lezoo/img/logo.png");
 		background-size: 70px;
 		background-repeat: no-repeat;
-		background-color: black;
+		background-color: rgba(0,0,0,0.9);
+		visibility: visible!important;
 		background-position: 50% 50%;
 		-webkit-animation: hover 1.5s infinite ease-in-out alternate;
 		-moz-animation: hover 1.5s infinite ease-in-out alternate;
@@ -671,7 +676,7 @@ div:not(.footer) .btn{
 		animation: hover 1.5s infinite ease-in-out alternate;
 		z-index: 15;
 	}
-	&.view-teaser-list.loading-full:after{
+	&.view-mode-full.loading-full:after{
 		background-position: 50% 25px;
 		-webkit-animation: hover-top 1.5s infinite ease-in-out alternate;
 		-moz-animation: hover-top 1.5s infinite ease-in-out alternate;
@@ -721,40 +726,50 @@ div:not(.footer) .btn{
 
 @-moz-keyframes hover-top {
 	0% {
-		background-position: 50% 25px;
+		background-position: 50% 35px;
 
 	}
 
+	50% {
+		background-position: 50% 95px;
+	}
 	100% {
-		background-position: 50% 75px;
-
+		background-position: 50% 35px;
 	}
+
+
 }
 
 @-webkit-keyframes hover-top {
 	0% {
-		background-position: 50% 25px;
+		background-position: 50% 35px;
 
 	}
 
+	50% {
+		background-position: 50% 95px;
+	}
 	100% {
-		background-position: 50% 75px;
-
+		background-position: 50% 35px;
 	}
+
+
 }
 
 @keyframes hover-top {
 	0% {
-		background-position: 50% 25px;
+		background-position: 50% 35px;
 
 
 	}
 
+	50% {
+		background-position: 50% 95px;
+	}
 	100% {
-		background-position: 50% 8%;
-
-
+		background-position: 50% 35px;
 	}
+
 }
 
 .page-search{

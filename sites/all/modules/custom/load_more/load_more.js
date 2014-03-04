@@ -5,31 +5,32 @@ var first = true;
 	Drupal.behaviors.load_more = {
 		attach: function(context, settings){
 			var $settings = settings.load_more;
-			var $mapping = $settings.mapping;
-			var $view = $('.'+$settings.view_name);
-			var $trigger = $('.'+$settings.item_name);
-			var $targetContainerSelector = '.pane-node-content';
-			var $facebookCommentsBoxSelector = '.pane-facebook-comments-box';
+			var $trigger = $('.flippy a');
+			var $targetContainerSelector = '.node.view-mode-full';
 		//---------------------ajax calls
 		var loadFrom = function (nid, triggerIndex){
 			console.log('loadFrom run from ' + nid);
 			
 			if(current != nid)
 			{
-				var targetContainer = $($targetContainerSelector).addClass('load-more-loading');
+				var targetContainer = $($targetContainerSelector).addClass('loading loading-full');
+				console.log('target: ' , targetContainer);
 				var ajaxSettings = 
 				{
 					url: settings.basePath + 'load_more/' + nid,
 					success: function(response)
 					{
-
+						console.log(response);
 						var content = $(response.node_content);
-						$('.node', targetContainer).replaceWith(content);
+						console.log(targetContainer);
+
+						targetContainer.replaceWith(content);
+						
 						var script = content.script;
 						$('head').append(script);
 						$('body').trigger('item-loaded', triggerIndex, response);
+						
 						var title = window.document.title = response.node_title + ' | ' + settings.load_more.site_name;
-						$('h1').html(response.node_title);
 					//Attach included scripts
 					Drupal.attachBehaviors(content);
 					current = nid;
@@ -59,14 +60,14 @@ var first = true;
 						}, title, '/' + settings.basePath + response.node_path);
 						pushState = false;
 					}
-					targetContainer.removeClass('load-more-loading');
+					targetContainer.removeClass('loading loading-full');
 				},
 				error: function(xhr,status,error)
 				{
 					console.log(xhr);
 					console.log(status);
 					console.log(error);
-					targetContainer.removeClass('load-more-loading');
+					targetContainer.removeClass('loading loading-full');
 				}
 			}
 
@@ -78,13 +79,11 @@ var first = true;
 	$trigger.once('load_more', function(){
 		var $this = $(this);
 		$this.addClass('clickable')
-		.bind('click', function(){
-			var nid = $mapping[$this.index()];
-			pushState = true;
-			loadFrom(nid, $this.index());
-		});
-		$this.find('a').bind('click', function(e){
+		.bind('click', function(e){
 			e.preventDefault();
+			var nid = parseInt($('span', $(this)).text());
+			pushState = true;
+			loadFrom(nid);
 		});
 	});
 
@@ -107,7 +106,7 @@ var first = true;
 
 		});
 		//console.log(settings.load_more.nid)
-		History.replaceState({'nid': settings.load_more.nid, 'triggerIndex': settings.load_more.mapping.indexOf(settings.load_more.nid)}, document.title, window.location.href);
+		History.replaceState({'nid': settings.load_more.nid}, document.title, window.location.href);
 	});
 }
 }

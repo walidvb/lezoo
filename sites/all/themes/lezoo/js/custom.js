@@ -4,7 +4,7 @@
 		//trigger chosen all the time
 		//-------------- change menu item
 		var dropdown = $('.primary > .dropdown', context);
-		dropdown.bind('click touch', function(e){
+		dropdown.click('click touch', function(e){
 			e.preventDefault();
 			$(this).find('.dropdown-menu').toggleClass('open');
 		})

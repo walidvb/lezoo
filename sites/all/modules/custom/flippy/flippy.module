@@ -663,7 +663,7 @@ function _flippy_use_pager($node) {
   if (!is_object($node)) {
     return FALSE;
   }
-  return node_is_page($node) && variable_get('flippy_'. $node->type, NULL);
+  return variable_get('flippy_'. $node->type, NULL);
 }
 
 /**

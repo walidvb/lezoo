@@ -21,7 +21,7 @@ function load_more_menu() {
  * Implements hook_init().
  */
 function load_more_preprocess_node(&$vars) {
-  if($vars['type'] == 'event')
+  if($vars['view_mode'] == 'full')
   {
     drupal_add_css(drupal_get_path('module', 'load_more') . '/load_more.css');
     drupal_add_js(drupal_get_path('module', 'load_more') . '/load_more.js');
@@ -30,7 +30,7 @@ function load_more_preprocess_node(&$vars) {
     $site_name = variable_get('site_name');
     $settings = array(
       'view_name' => $view_name,
-      'item_name' => 'owl-item',
+      'item_name' => '.flippy a',
       'site_name' => $site_name,
       'nid' => $vars['nid'],
       );
@@ -42,11 +42,8 @@ function _load_more($nid){
   $node = node_load($nid); 
   $path =  drupal_get_path_alias('node/'.$nid);
   $view = node_view($node);
-  //$title = $node->title;
-  $artist  = field_get_items('node',$node, 'field_artiste');
-  $title = $artist[0]['safe_value'];
+  $title = $node->title;
   $result = drupal_render($view);
-
   return drupal_json_output(array(
     'node_id' => $nid,
     'node_title'=> $title,
@@ -54,21 +51,3 @@ function _load_more($nid){
     'node_content'=>$result,
     ));
 }
-
-
-
-function load_more_preprocess_views_view_fields(&$vars){
-  $view_name = variable_get('load_more_view');
-  if($vars['view']->name == $view_name)
-  {
-    array_push($vars['classes_array'], $view_name.'-trigger');
-    $index = $vars['view']->row_index;
-    $nid = $vars['view']->result[$index]->nid;
-    $mapping = array($index => $nid);
-    $settings = array(
-      'mapping' => $mapping
-      );
-    drupal_add_js(array('load_more' => $settings), 'setting');
-  }
-}
-
