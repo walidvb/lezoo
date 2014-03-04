@@ -47,34 +47,50 @@
 		.node-title{
 			border-bottom: solid 1px @primary-color;
 			padding-right: 27%;
-			padding-top: 60px;
 			@media @mobile{
-				padding-right: 0px;
 				padding-top: 0px;
 			}
 			padding-left: @padding-base-horizontal;
-			text-shadow: 1px 1px 5px @secondary-color;
 		}
 
 		.content{
-			width: 15% !important;
 			position: absolute;
 			right: 0px;
-			bottom: 0px;
+			top: 16px;
+			padding-right: @padding-base-horizontal;
 			@media @mobile{
 				margin-left: 60%;
-				width: 40% !important;
-
 			}
 			.date{
 				width: 70px;
 				position: relative;
-				display: block;
+				display: inline-block;
 				border-bottom: none;
 				border-top: none;
 				color: inherit;
 				@media @mobile{
 					display: inline-block;
+				}
+			}
+		}
+
+		.tags{
+			display: none;
+			&:before{
+				.icon();
+				content: 'T';
+				padding: 0px 15px 0px 5px;
+			}
+			@media @tablet{
+				display: block;
+				position: absolute;
+				bottom: 0px;
+				right: 0px;
+				.field-tags{
+					color: @secondary-color;
+					display: inline-block;
+					padding-right: 5px;
+					font-style: italic;
 				}
 			}
 		}

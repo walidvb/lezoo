@@ -51,6 +51,7 @@
 		font-family: @font-family-serif !important;
 		text-transform: uppercase;
 		.text-shadow();
+		background-color: rgba(250,250,250,0);
 	}
 	.field-big-image{
 		max-height: 330px;
@@ -83,14 +84,13 @@
 		border-top: 1px solid @fourth-color;
 	}
 
-	&.view-mode-mini{
-		.node-title{
-			.transition-duration(0.5s);
-			background: rgba(250,250,250,0);
-			&:not(.view-mode-full):hover{
+	&.view-mode-teaser{
+		.transition-duration(0.5s);
+		&:hover{
+			.node-title{				
 				.transition-duration(0.3s);
 				color: @fourth-color;
-				background: rgba(250,250,250,0.8);
+				background-color: lighten(@fourth-color, 30%);
 			}
 		}
 	}

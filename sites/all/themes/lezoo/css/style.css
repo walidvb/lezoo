@@ -6571,14 +6571,14 @@ h1 a {
 .field-body a {
   font-style: italic !important;
 }
-.field-big-image {
-  display: none;
+/*
+.field-big-image{
+	display: none;
+	@media @tablet{
+		display: inline-block;
+	}
 }
-@media screen and (min-width: 768px) {
-  .field-big-image {
-    display: inline-block;
-  }
-}
+*/
 .view-mode-teaser:not(first-child) {
   border-bottom: solid 6px #ffffff;
 }
@@ -6737,7 +6737,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .node-event.view-mode-full .header .install-titles .genre {
   padding-left: 12px;
   font-size: 15px;
-  text-transform: uppercase;
+  text-transform: lowercase;
   float: left;
   display: block;
   height: 15px;
@@ -6760,7 +6760,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .node-event.view-mode-full .header .date {
   position: absolute;
-  right: 0px;
+  right: 12px;
   top: 0px;
 }
 .node-event.view-mode-full .event-line-up-djs .artist {
@@ -6777,6 +6777,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
 }
 .node-event.view-mode-full .col-left .event-flyer {
   display: block;
+  height: 520px;
 }
 .node-event.view-mode-full .col-left .event-flyer .field-slideshow-wrapper {
   width: 100% !important;
@@ -6847,10 +6848,6 @@ select.form-control#edit-field-music-genre-tid option:hover {
     border-bottom: solid 1px #ffffff;
   }
 }
-.node-teaser .field-big-image,
-.field-event-ref .node-teaser .field-big-image {
-  display: none;
-}
 .node-teaser .event-titles,
 .field-event-ref .node-teaser .event-titles {
   display: block;
@@ -6900,7 +6897,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .node-teaser .date,
 .field-event-ref .node-teaser .date {
   position: absolute;
-  right: 0px;
+  right: 12px;
   top: 0px;
 }
 @media (max-width: 767px) {
@@ -7036,6 +7033,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
   font-family: Georgia, "Times New Roman", Times, serif !important;
   text-transform: uppercase;
   text-shadow: 1px 1px 1px #494949;
+  background-color: rgba(250, 250, 250, 0);
 }
 .node-blog-post .field-big-image {
   max-height: 330px;
@@ -7067,16 +7065,15 @@ select.form-control#edit-field-music-genre-tid option:hover {
   padding-top: 6px;
   border-top: 1px solid #000000;
 }
-.node-blog-post.view-mode-mini .node-title {
+.node-blog-post.view-mode-teaser {
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
-  background: rgba(250, 250, 250, 0);
 }
-.node-blog-post.view-mode-mini .node-title:not(.view-mode-full):hover {
+.node-blog-post.view-mode-teaser:hover .node-title {
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
   color: #000000;
-  background: rgba(250, 250, 250, 0.8);
+  background-color: #4d4d4d;
 }
 .node-blog-post-single .node-title {
   font-size: 68.2px;
@@ -7228,7 +7225,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
     text-align: left;
     padding-left: 0px;
     padding-right: 0px;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.2);
     height: 100%;
   }
   .swiper .carousel-inner .carousel-caption h6 {
@@ -7249,8 +7246,8 @@ select.form-control#edit-field-music-genre-tid option:hover {
   .swiper .carousel-inner .carousel-caption .date {
     position: relative;
     top: 0px;
-    right: 0px;
-    padding-left: 15px;
+    right: 12px;
+    padding-left: 25px;
     border-bottom: solid 6px;
     font-size: 21px;
   }
@@ -7332,7 +7329,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .swiper .carousel-caption {
   display: block;
   height: 160px;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(50, 50, 50, 0.4);
   bottom: 0px;
   padding-top: 0px;
   position: absolute;
@@ -7391,7 +7388,7 @@ select.form-control#edit-field-music-genre-tid option:hover {
 .swiper .carousel-caption .date {
   position: absolute;
   top: 12px;
-  right: 0px;
+  right: 12px;
   color: inherit;
 }
 .swiper .carousel-caption .date .month {
@@ -8338,32 +8335,28 @@ div:not(.footer) .btn:hover {
 .view-installations .view-mode-mini .node-title {
   border-bottom: solid 1px #ffffff;
   padding-right: 27%;
-  padding-top: 60px;
   padding-left: 12px;
-  text-shadow: 1px 1px 5px #494949;
 }
 @media (max-width: 767px) {
   .view-installations .view-mode-mini .node-title {
-    padding-right: 0px;
     padding-top: 0px;
   }
 }
 .view-installations .view-mode-mini .content {
-  width: 15% !important;
   position: absolute;
   right: 0px;
-  bottom: 0px;
+  top: 16px;
+  padding-right: 12px;
 }
 @media (max-width: 767px) {
   .view-installations .view-mode-mini .content {
     margin-left: 60%;
-    width: 40% !important;
   }
 }
 .view-installations .view-mode-mini .content .date {
   width: 70px;
   position: relative;
-  display: block;
+  display: inline-block;
   border-bottom: none;
   border-top: none;
   color: inherit;
@@ -8371,6 +8364,51 @@ div:not(.footer) .btn:hover {
 @media (max-width: 767px) {
   .view-installations .view-mode-mini .content .date {
     display: inline-block;
+  }
+}
+.view-installations .view-mode-mini .tags {
+  display: none;
+}
+.view-installations .view-mode-mini .tags:before {
+  transition: opacity 0.2s 0.1s;
+  font-family: "fontello";
+  font-size: 'x-large';
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none!important;
+  speak: none;
+  color: #a6a6a6;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  margin-left: .2em;
+  /* opacity: .8; */
+
+  text-align: center;
+  width: 30px;
+  /* For safety - reset parent styles, that can break glyph codes*/
+
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+
+  line-height: 1em;
+  content: 'T';
+  padding: 0px 15px 0px 5px;
+}
+@media screen and (min-width: 768px) {
+  .view-installations .view-mode-mini .tags {
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+  }
+  .view-installations .view-mode-mini .tags .field-tags {
+    color: #494949;
+    display: inline-block;
+    padding-right: 5px;
+    font-style: italic;
   }
 }
 .media-vimeo-outer-wrapper {
