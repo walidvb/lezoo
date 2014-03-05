@@ -271,7 +271,8 @@ function lezoo_image(&$variables){
 
 function get_img_url($style, $field_name, $node){
 	$field = $node->$field_name;
-	$file  = file_load($field['und'][0]['fid']);
+	$fid = $field['und'] ? $field['und'][0]['fid'] : $node->field_flyer['und'][0]['fid'];
+	$file  = file_load($fid);
 	return image_style_url($style, $file->uri);
 
 }
