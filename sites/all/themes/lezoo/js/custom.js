@@ -5,7 +5,6 @@
 		//-------------- change menu item
 		var dropdown = $('.primary > .dropdown', context);
 		dropdown.click('click touch', function(e){
-			e.preventDefault();
 			$(this).find('.dropdown-menu').toggleClass('open');
 		})
 		var active_trail = dropdown.find('ul .active-trail a').text();
