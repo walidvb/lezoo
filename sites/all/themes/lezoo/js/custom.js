@@ -1,6 +1,21 @@
 (function($) {
 	Drupal.behaviors.lezoo = {};
 	Drupal.behaviors.lezoo.attach = function(context) {
+
+		//Add protocols to the videos
+		var iframes = $('iframe.media-youtube-player, iframe.media-vimeo-player');
+		var src = iframes.attr('src');
+		var regexp = new RegExp(/^(http)/);
+		if(!regexp.test(src))
+		{
+			console.log('custom.js says ', src, ' should better have a protocol, as it don\'t, we cheat. it sucks');
+			setTimeout(function(){
+				iframes.attr('src', 'http:'+src);
+				setTimeout(function(){
+					iframes.attr('src', 'http:'+src);
+				}, 500);
+			}, 500);
+		}
 		//trigger chosen all the time
 		//-------------- change menu item
 		var dropdown = $('.primary > .dropdown', context);

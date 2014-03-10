@@ -142,8 +142,10 @@ function lezoo_field_formatter_view($entity_type, $entity, $field, $instance, $l
     
     $day = mb_substr($day, 0, 3);
     $date = mb_substr($date, 0, 3);
-    $month = mb_substr($month, 0, 3);
-    $month_full = mb_substr($month_full, 0, 3);
+    if($month != 'mars' && $month != 'juin')
+    {
+      $month = mb_substr($month, 0, 3);
+    }
 
    
 

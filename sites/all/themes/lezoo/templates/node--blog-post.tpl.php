@@ -100,8 +100,8 @@ hide($content['flippy_pager']);
   <?php if(!empty($title) && !$is_page): ?>
     <h1 <?php print $title_attributes; ?>  style="background-image: url('<?php print $background_image ?>')"><?php print $title; ?></h1>
 <?php endif; ?>
-<?php print $share42; ?>
 <?php print render($title_suffix); ?> 
+<?php print $share42; ?>
 <div class="content row"<?php print $content_attributes; ?>>
   <?php if ($display_submitted): ?>
     <div class="blog-info col-xs-12">

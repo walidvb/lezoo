@@ -51,7 +51,7 @@
 				margin-right: 15px;
 				background-color: @navbar-default-link-bg;
 				.transition(0.5s);
-				&:not(.last).active, &:not(.last):hover{
+				&:not(.last).active, .no-touch &:not(.last):hover{
 					.make-md-column(3);
 					background-color: @navbar-default-link-hover-bg;
 					margin: 0px;
@@ -83,7 +83,7 @@
 					padding-left: 5px;
 					background-color: @primary-color;
 					color: @secondary-color;
-					&:hover{
+					.no-touch &:hover{
 						.transition(0.5s);
 						background-color: darken(@primary-color,30%);
 						color: @fourth-color;

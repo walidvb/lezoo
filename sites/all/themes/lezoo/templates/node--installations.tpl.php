@@ -13,8 +13,13 @@ else
 
 $background_image = get_img_url('banner_mobile', 'field_big_image', $node);
 
+
 hide($content['field_photos']);
-hide($content['field_media']);
+
+if(!empty($content['field_media']))
+{
+  hide($content['field_media']);
+}
 if(!$page)
 {
   $title_tag = 'h3';
@@ -23,10 +28,10 @@ else
 {
   $title_tag = 'h1';
 }
-
 // We hide the comments and links now so that we can render them later.
 hide($content['comments']);
 hide($content['links']);
+hide($content['flippy_pager'])
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <div class="content"<?php print $content_attributes; ?>>
@@ -38,21 +43,19 @@ hide($content['links']);
               <?php print render($title_suffix); ?>
             </div>
           </div>
-          <div class="install-meta">
-            <?php if($view_mode == 'full'): ?>
-              <div class="install-social">
-              <?php print $share42 ?>
-              </div>
-            <?php endif; ?>
-            <?php if(!empty($content['field_tags'])): ?>
-                <div class="tags">
-                  <div class="field-tags">
-                     <?php print render($content['field_tags']); ?>
-                  </div>
-                </div>
-               <?php endif; ?>
-          </div>
         </div>
+        <?php if($view_mode == 'full'): ?>
+            <div class="install-social">
+              <?php print $share42 ?>
+            </div>
+        <?php endif; ?>
+        <?php if(!empty($content['field_tags'])): ?>
+            <div class="tags">
+              <div class="field-tags">
+                 <?php print render($content['field_tags']); ?>
+              </div>
+            </div>
+         <?php endif; ?>
     <div class="row">
       <div class="<?php print $right_col_classes?> pull-right">
         <div class="closable">
@@ -69,14 +72,14 @@ hide($content['links']);
           <div class="closable">
             <?php print lezoo_header('La video'); ?>
             <?php print render($content['field_media']); ?>
-            <?php endif; ?>
           </div>
-          <div class="closable">
-            <?php print lezoo_header('Le Blabla'); ?>
-            <div>
-              <?php print render($content) ?>
-            </div>
+        <?php endif; ?>
+        <div class="closable">
+          <?php print lezoo_header('Le Blabla'); ?>
+          <div>
+            <?php print render($content) ?>
           </div>
+        </div>
       </div>
     </div>
   </div>

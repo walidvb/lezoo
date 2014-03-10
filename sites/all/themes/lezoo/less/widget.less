@@ -59,7 +59,7 @@
 					-ms-transition: all 0.1s ease-out;
 					-o-transition: all 0.1s ease-out;
 					transition: all 0.1s ease-out;
-					&:hover{
+					.no-touch &:hover{
 						left: -3px;
 						opacity: 0.8;
 					}
@@ -67,7 +67,7 @@
 				&.pager-next a{
 					content : url("../img/flippy_next.png");
 
-					&:hover{
+					.no-touch &:hover{
 						left: 3px;
 					}
 				}
@@ -104,7 +104,7 @@
 				padding:2px;
 				border-radius: 0px!important;
 				font-weight: bold;
-				&:hover{
+				.no-touch &:hover{
 					color: @primary-color;
 					background-color: @fourth-color;
 				}
@@ -114,24 +114,36 @@
 }
 // Flippy
 .flippy{
-	display: none;
+	
 	span{
 		display: none;
 	}
+	background: @secondary-color;
+	border-bottom: 1px solid white;
+	height: 42px;
 	@media @tablet{
+		background: none;
+		border-bottom: none;
 		display: block;
 	}
+
 	.prev, .next{
-		position: fixed;
-		top: 100px;
-		z-index: 100;
-		width: 80px!important;
-		height: 140px;
+		width: 50%;
+		height: 42px;
+		display: inline-block;
+		float: left;
+		@media @tablet{
+			position: fixed;
+			top: 100px;
+			z-index: 100;
+			width: 80px!important;
+			height: 140px;
+		}
 		overflow: hidden;
 		padding: 0px 0px 0px 0px;
 		background-color: rgba(255,255,255,0.0);
 		.opacity(0.5);
-		&:hover, &.active{
+		.no-touch &:hover, &.active{
 			.opacity(1);
 		}
 		.transition-duration(0.2s);
@@ -142,64 +154,73 @@
 			background-size: cover;
 		}
 		a{
-			position: absolute;
-			left: 0px;
-			height: 100%;
 			width: 100%;
-			font-size: @font-size-h4;
-			font-family:@font-family-sans-serif;
+			height: 42px;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
+			display: inline-block;
+			@media @tablet{
+				background-image: none!important;
+				position: absolute;
+				left: 0px;
+				height: 100%;
+				font-size: @font-size-h4;
+				font-family:@font-family-sans-serif;
+			}
 		}
-		img{
-			height: 100%;
-			max-width: none;
-			position: absolute;
-			top: 0px;
-			z-index: -10;
-		}
+
 	}
 
 	.prev{
-		left: 50%;
-		margin-left: -640px;
-		&:after{
-			content : url("../img/flippy_prev.png");
+		
+		@media @tablet{
+			left: 15px;
+			
+			@media @wide{
+				left: 50%;
+				margin-left: -640px;
+			}
+			&:after{
+				content : url("../img/flippy_prev.png");
+			}
 		}
-		&:hover, &.active{
+		.no-touch &:hover, &.active, &:active{
 			padding-right: 5px;
 			.transition-duration(0.2s);
 		}
-		.month, .date-number{
-			float: right;
+		a{
+			background-position-x: left;
+			background-image: url("../img/flippy_prev.png");
+			@media @tablet{
+				content: initial;
+			}
 		}
 	}
 	.next{
-		right: 50%;
-		margin-right: -640px;
-		&:after{
-			content : url("../img/flippy_next.png");
+		
+		@media @tablet{
+			right: 15px;
+			@media @wide{
+				right: 50%;
+				margin-right: -640px;
+			}
+			&:after{
+				content : url("../img/flippy_next.png");
+			}
 		}
-		&:hover, &.active{
+		.no-touch &:hover, &.active, &:active{
 			padding-left: 5px;
 			.transition-duration(0.2s);
 		}
-		.month, .date-number{
-			float: left;
+		a{
+			background-position-x: right;
+			background-image: url("../img/flippy_next.png");
+			@media @tablet{
+				content: initial;
+			}
 		}
 	}
-	.month, .date-number {
-		display: none;
-		//width: 100px;
-		//height: 100px;
-		//text-shadow: 1px 1px 1px black;
-	}
-
-	.month{
-		font-size: @font-size-h3;
-	}
-	.date-number{
-		font-size: @font-size-h2;
-	}
-
 }
 
 // Buttons
@@ -213,7 +234,7 @@ div:not(.footer) .btn{
 	border: solid 1px @tertiary-color;
 
 	.transition-duration(0.5s);
-	&:hover{
+	.no-touch &:hover{
 		.transition-duration(0.2s);
 		background-color: @secondary-color;
 	}
@@ -221,11 +242,33 @@ div:not(.footer) .btn{
 
 .panels-modal-add-config a{
 	color: red;
-	&:hover{
+	.no-touch &:hover{
 		color: darken(red, 50%);
 	} 
 }
 /* Share */
+
+.install-meta{
+	display: inline-block;
+	padding-top: 8px;
+	.install-social{
+		display: inline-block;
+		float: left;
+	}
+}
+
+.node-event{
+	.share42init{
+		float: left;
+				top: -3px;
+	}
+	.ics-container{
+		display: inline-block;
+		float: left;
+		position: relative;
+
+	}
+}
 .share42init{
 	position: relative;
 	overflow: hidden;
@@ -234,21 +277,20 @@ div:not(.footer) .btn{
 			display: none;
 		}
 		.transition-duration (0.5s);
-		position: absolute;
+		position: relative;
 		left: -100%;
-		height: 18px;
+		height: 14px;
 		display: inline-block;
-		overflow: hidden;
 		padding-top: 2px;
 		padding-left: 2px;
 		text-align: right;
 		a{
 			background-image: url(../img/sprites.png)!important;
-			opacity: 0.8;
+			opacity: 1;
 			border: solid 0px white;
 			.transition(all 0.3s);
 			border-radius: 2px;
-			&:hover{
+			.no-touch &:hover{
 				opacity: 1;
 				.transition(all 0.2s);
 				border: solid 8px white;
@@ -361,8 +403,22 @@ div:not(.footer) .btn{
 		padding: 6px 10px;
 	}
 	.sync-calendar{
+		width: 100%;
+		text-align: center;
+		@media @tablet{
+			width: auto;
+		}
 		float: right;
 		margin-top: 5px;
+		.btn{
+			padding: 7px 10px;
+			width: 100%;
+			display: inline-block;
+			text-align: center;
+			@media @tablet{
+				
+			}
+		}
 	}
 	#event-filter-block{
 		margin-top: @padding-base-vertical;
@@ -462,7 +518,11 @@ div:not(.footer) .btn{
 		border-radius: 3px;
 	}
 	.selection{
-		border-right: 1px solid grey;
+		border-bottom: 1px solid grey;
+		@media @tablet{
+			border-right: 1px solid grey;
+			border-bottom: none;
+		}
 	}
 	.genre-select{
 		display: inline-block;
@@ -473,7 +533,7 @@ div:not(.footer) .btn{
 			display: inline-block;
 			width: 49.5%;
 			text-align: center;
-			&:hover{
+			.no-touch &:hover{
 				text-transform: uppercase;
 			}
 			&:first-child{
@@ -522,24 +582,23 @@ div:not(.footer) .btn{
 	.genre{
 		text-transform: uppercase;
 		display: inline-block;
-		margin: 5px 0px;
+		margin: 5px 5px;
 		@media @tablet{
 			width: 100%;
+			margin: 5px 0px;
 		}
 		.glyphicon{
 			margin-right: 5px;
 		}
 
 		&.selected{
-
-			
 			.glyphicon-ok{
 				display: inline;
 			}
 			.glyphicon-remove{
 				display: none;
 			}
-			&:hover{ 
+			.no-touch &:hover{ 
 				.glyphicon-ok{
 					display: none;
 				}
@@ -557,7 +616,7 @@ div:not(.footer) .btn{
 			.glyphicon-remove{
 				display: inline;
 			}
-			&:hover{
+			.no-touch &:hover{
 				.glyphicon-ok{
 					display: inline;
 				}

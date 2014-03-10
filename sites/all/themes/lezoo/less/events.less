@@ -37,7 +37,7 @@
 				content:' / ';
 				margin-left: 5px;
 				margin-right: 5px;
-				color: @secondary-color;
+				color: @primary-color;
 			}
 	}
 	.artist-info{
@@ -98,10 +98,11 @@
 /////// FULL EVENT NODE
 .node-event.view-mode-full{
 	.header{
-		min-height: 190px;
+		min-height: 240px;
 		border-bottom: solid 6px @primary-color;
 		background-position: center;
 		@media @tablet{
+			min-height: 190px;
 			background-image: none !important;
 		}
 		.event-titles, .install-titles{
@@ -185,7 +186,6 @@
 	.col-left{
 		.event-flyer{
 			display: block;
-			height: 520px;
 			.field-slideshow-wrapper{
 				width: 100% !important;
 			}
@@ -215,16 +215,15 @@
 
 /////// TEASER EVENT NODE
 .node-teaser, .field-event-ref .node-teaser{
-	min-height: 126px;
 	text-decoration: none !important;
 	a{
 		text-decoration: none !important;
 	}
 	.dated-node{
-		min-height: 110px;
+		min-height: 126px;
 		.transition-duration(0.5s);
 		background-color: lighten(@fourth-color, 2%);
-		&:hover{
+		.no-touch &:hover{
 			.transition-duration(0.3s);
 			background-color: lighten(@fourth-color, 30%);
 			color: @fourth-color;
@@ -260,9 +259,11 @@
 				margin-top: 0px;
 				margin-bottom: 0px;
 			}
+			display: inline-block;
 		}
 		.event-subtitle{
 			padding-left: @padding-base-horizontal;
+			display: inline-block;
 		}
 	}
 	.event-meta{
@@ -286,9 +287,9 @@
 		position: absolute;
 		right: @padding-base-horizontal;
 		top: 0px;
-		@media @mobile{
+		@media @tablet{
 			text-align: center;
-			top: 10px;
+			top: 20px;
 			.day{
 				font-size: @font-size-h3;
 			}

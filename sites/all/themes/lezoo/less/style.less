@@ -28,10 +28,7 @@
 body{
 	background-color: @fourth-color;
 	color: @primary-color;
-	padding-top: 40px;
-	@media @tablet{
-		padding-top: 50px;
-	}
+	padding-top: 50px;
 	padding-bottom: 125px;
 }
 
@@ -77,28 +74,12 @@ a{
 		border-bottom: solid 1px @primary-color;
 	}
 }
-
+.page-agenda .top{
+	padding-bottom: 5px;
+}
 //---------------------------------- Admin stuff
 .logged-in{
 	#navbar{
 		margin-top: 20px;
-	}
-
-	.grid{
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		div{
-			height:100%;
-			> div{
-				border-left: gray 1px solid;
-				border-right: gray 1px solid;
-				height: 100%;
-				.opacity(0.05);
-				background-color: white;
-			}
-		}
 	}
 }

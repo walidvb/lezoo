@@ -65,5 +65,13 @@
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
+  <script type="text/javascript">
+   var _mfq = _mfq || [];
+   (function() {
+       var mf = document.createElement("script"); mf.type = "text/javascript"; mf.async = true;
+       mf.src = "//cdn.mouseflow.com/projects/407f8281-bd64-458a-b89d-55e7b36801cc.js";
+       document.getElementsByTagName("head")[0].appendChild(mf);
+   })();
+</script>
 </body>
 </html>

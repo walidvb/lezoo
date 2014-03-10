@@ -3,12 +3,21 @@
 	z-index: 10;
 	border-top: none;
 }
-.social span{
-	text-indent: -999px;
+.social {
+	width: 24%;
 	display: inline-block;
+		span{
+		text-indent: -999px;
+		display: inline-block;
+	}
 }
-.social:before{
-	.icon(@font-size-h4);
+.social{
+	&:before{
+		.icon(@font-size-h4);
+	}
+	&:hover:before{
+		color: darken(@primary-color, 55%);
+	}
 }
 .facebook:before{
 	content: 'f';	
@@ -29,11 +38,15 @@
 	content: 'y';	
 }
 
-.footer-mobile{
-	float: left;
-	.social:before{
-		font-size: @font-size-h2;
-		line-height: 1.9em;
+.pane-block-7{
+	.social{
+		width: 49%;
+		display: inline-block;
+		text-align: center;
+		&:before{
+			font-size: @font-size-h2;
+			line-height: 1.9em;
+		}
 	}
 }
 
@@ -65,9 +78,9 @@ footer{
 
 	}
 	.block{
-		.make-md-column(3);
+		.make-sm-column(3);
 	}
-	.transition(all 0.2s 0);
+	.transition(all 0.2s);
 	margin-top: 5px;
 	bottom: 0;
 	left: 0;
@@ -105,8 +118,6 @@ footer{
 	}
 	&:hover, &.open{
 		height: 120px;
-	.transition(all 0.2s 0);
-
 	}
 }
 

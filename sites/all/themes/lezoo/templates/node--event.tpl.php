@@ -47,12 +47,7 @@
 					<div class="closable">
 						<?php print lezoo_header('Les Détails'); ?>
 						<div class="row">
-						  	<div class="<?php print $left_col_classes ?>">
-						  		<fig class="event-flyer">
-										<?php print render($content['field_flyer']); ?>
-								</fig>
-						  	</div>
-						  	<div class="<?php print $right_col_classes ?>">
+						  	<div class="<?php print $right_col_classes ?> pull-right">
 						  		<div class="event-details">
 									<?php print render($content['field_details']); ?>
 								</div>
@@ -60,6 +55,11 @@
 										<?php print render($content['body']); ?>
 									</div>
 							</div>
+							<div class="<?php print $left_col_classes ?> pull-left">
+						  		<fig class="event-flyer">
+										<?php print render($content['field_flyer']); ?>
+								</fig>
+						  	</div>
 						</div>
 					</div>
 				<?php endif; ?>

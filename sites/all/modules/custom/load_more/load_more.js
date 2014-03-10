@@ -13,14 +13,13 @@ var first = true;
 			if(current != nid)
 			{
 				var targetContainer = $($targetContainerSelector).addClass('loading loading-full');
-				console.log('target: ' , targetContainer);
 				var ajaxSettings = 
 				{
 					url: settings.basePath + 'load_more/' + nid,
 					success: function(response)
 					{
-						console.log(response);
 						var content = $(response.node_content);
+						$('.flippy').remove();
 						targetContainer.replaceWith(content);
 						var script = content.script;
 						$('head').append(script);
@@ -66,7 +65,9 @@ var first = true;
 					targetContainer.removeClass('loading loading-full');
 				}
 			}
-
+			$('body, html').animate({
+				scrollTop: 0,
+			}, 600);
 			$.ajax(ajaxSettings);
 		}
 	}
@@ -82,11 +83,19 @@ var first = true;
 			loadFrom(nid);
 		});
 	});
-	Mousetrap.bind('left', function(){
-		$('.flippy .prev').addClass('active').find('a').click();
-	});
-	Mousetrap.bind('right', function(){
+	var next = function(){
 		$('.flippy .next').addClass('active').find('a').click();
+
+	}
+	var prev = function(){
+				$('.flippy .prev').addClass('active').find('a').click();
+
+			};
+	Mousetrap.bind('left', prev);
+	Mousetrap.bind('right', next);
+	$('.header').swipe({
+		swipeLeft: next,
+		swipeRight: prev
 	});
 	$('body').once('load-more', function(){
 		$(this).bind('load-from', function(e, data){

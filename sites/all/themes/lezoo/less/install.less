@@ -1,5 +1,5 @@
 // Teaser install
-.view-installations{
+.view-installations, .view-search-results{
 	.view-mode-mini{
 		height: 180px;
 		background-repeat:	no-repeat;
@@ -11,16 +11,16 @@
 			font-family: @font-family-serif !important;
 		}
 		color: @primary-color;
-		.transition-duration(0.5s);
-		&:hover{
+		.transition(all 0.5s);
+		.no-touch &:hover{
 			color: @fourth-color;
-			.transition-duration(0.3s);
+			.transition(all 0.2s);
 			a{
 				background: rgba(250,250,250, 0.8);
 				cursor: pointer;
 			}
 			.node-title{
-				border-bottom: solid 1px @fourth-color;
+				border-bottom: solid 1px @tertiary-color;
 			}
 		}
 		a{
@@ -154,10 +154,11 @@
 		text-transform: uppercase;
 		.transition-duration(0.5s);
 		background-color: transparent;
-		&:hover{
-			.transition-duration(0.5s);
-			@background-color: lighten(@fourth-color, 30%);
-			background-color: rgba(red(@background-color),green(@background-color),blue(@background-color), 0.5);
+		.no-touch &:hover{
+			.transition-duration(0.3s);
+			@background-color: @secondary-color;
+			background-color: @background-color;
+			color: @fourth-color;
 		}
 		.text-shadow();
 	}
@@ -181,10 +182,11 @@
 // Full installation
 .node-installations.view-mode-full{
 	.install-header{
-		min-height: 120px;
+		min-height: 240px;
 		border-bottom: solid 6px @primary-color;
 		background-position: center;
 		@media @tablet{
+			min-height: 120px;
 			background-image: none !important;
 		}
 		.event-titles, .install-titles{
@@ -240,11 +242,14 @@
 
 	.field-photos{
 		display: inline-block;
-		width: 32%;
-		margin: 5px 0.5%;
+		width: 49%;
+		@media @tablet{
+			width: 32%;
+			margin: 5px 0.5%;
+		}
 		.opacity(1);
 		.transition-duration(0.5s);
-		&:hover{
+		.no-touch &:hover{
 			.transition-duration(0.3s);
 			.opacity(0.7);
 		}
@@ -266,10 +271,10 @@
 			margin: 0px;
 			padding-top: @padding-base-vertical;
 			min-height: 45px;
-			.transition-duration(0.5s);
-			&:hover{
+			.transition(all 0.5s);
+			.no-touch &:hover{
 				background: rgba(250,250,250,0.5);
-				.transition-duration(0.3s);
+				.transition(all 0.3s);
 			}	
 		}
 	}

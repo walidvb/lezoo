@@ -14,7 +14,7 @@ function lezoo_preprocess_html(&$variables) {
 	$meta['ios_icon'] = array(
 		'rel' => "apple-touch-icon-precomposed", 
 		'href' => "/sites/all/themes/lezoo/img/webApp_logo.png");
-	$meta['ios_icon'] = array(
+	$meta['ios_app_name'] = array(
 		'name' => "apple-mobile-web-app-title", 
 		'content' => "le ZOO");
 	foreach($meta as $key => $tag)
@@ -38,13 +38,15 @@ function lezoo_preprocess_html(&$variables) {
 	drupal_add_css(drupal_get_path('theme', 'lezoo') . '/libs/addToHome/style/add2home.css');
 	drupal_add_css(drupal_get_path('theme', 'lezoo') . '/libs/swiper/swiper.css');
 	drupal_add_js(drupal_get_path('theme', 'lezoo'). '/libs/swiper/idangerous.swiper.js', array('scope' => 'footer'));
+	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js', array('type' => 'external'));
+
 
 	drupal_add_css('//cdnjs.cloudflare.com/ajax/libs/animate.css/2.0/animate.min.css', array('type' => 'external'));
 	drupal_add_js('//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js', array('type' => 'external'));
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.1/angular.min.js', array('type' => 'external', 'scope' => 'footer'));
 	drupal_add_js(drupal_get_path('theme', 'lezoo'). '/js/myAngular.js', array('scope' => 'footer'));
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/chosen/1.0/chosen.jquery.min.js', array('type' => 'external'));
-	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', array('type' => 'external', 'scope' => 'footer'));
+	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', array('type' => 'external'));
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js', array('type' => 'external', 'scope' => 'footer'));
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/1.5.25/jquery.isotope.min.js', array('type' => 'external', 'scope' => 'footer'));
 	//Add instant click only for anon users
@@ -119,22 +121,24 @@ function lezoo_preprocess_page(&$variables) {
 		switch($variables['node']->type)
 		{
 			case 'event':
-			$menu_active_item ='agenda';
-			break;
-			case 'installations':
-			$menu_active_item ='visu';
-			break;
-			case 'blog_post':
-			switch($variables['node']->field_section['und']['0']['tid'])
-			{
-				case 28:
-				$menu_active_item ='news';
+				$menu_active_item ='agenda';
 				break;
-				case 27:
+			case 'installations':
 				$menu_active_item ='visu';
 				break;
-			}
-			break;
+			case 'blog_post':
+				$menu_active_item ='news';
+				break;
+			// switch($variables['node']->field_section['und']['0']['tid'])
+			// {
+			// 	case 28:
+			// 	$menu_active_item ='news';
+			// 	break;
+			// 	case 27:
+			// 	$menu_active_item ='visu';
+			// 	break;
+			// }
+			// break;
 		}
 		if(!empty($menu_active_item))
 		{
@@ -174,7 +178,8 @@ function lezoo_preprocess_node(&$variables) {
 	{
 		if($variables['type'] == 'event')
 		{
-			$variables['ics'] = '<div class="ics-container">' . l('Ajouter au calendrier', base_path() . '/feed/'. $variables['nid'] . '/event-feed.ics', array('attributes' => array('class' => 'event-ics'))) . '</div>';
+			$link = 'http://lezoo.ch/feed/'. $variables['nid'] . '/event-feed.ics';
+			$variables['ics'] = '<div class="ics-container">' . l('Ajouter à mon calendrier', $link, array('attributes' => array('class' => 'event-ics'))) . '</div>';
 		}
 		else if($variables['type'] == 'installations' && !empty($variables['content']['field_event_ref']))
 		{
@@ -274,7 +279,6 @@ function get_img_url($style, $field_name, $node){
 	$fid = $field['und'] ? $field['und'][0]['fid'] : $node->field_flyer['und'][0]['fid'];
 	$file  = file_load($fid);
 	return image_style_url($style, $file->uri);
-
 }
 //---------------------- Field Collection
 /**
