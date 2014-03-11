@@ -93,7 +93,7 @@ var first = true;
 			};
 	Mousetrap.bind('left', prev);
 	Mousetrap.bind('right', next);
-	$('.header').swipe({
+	$('.touch .header').swipe({
 		swipeLeft: next,
 		swipeRight: prev
 	});

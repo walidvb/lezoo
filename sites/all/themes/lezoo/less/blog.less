@@ -53,8 +53,13 @@
 		.text-shadow();
 		background-color: rgba(250,250,250,0);
 	}
-	.field-big-image{
+	&.view-mode-full .field-big-image{
 		display: none;
+		@media @tablet{
+			display: block;
+		}
+	}
+	.field-big-image{
 		@media @tablet{
 			display: block; 
 			max-height: 330px;
