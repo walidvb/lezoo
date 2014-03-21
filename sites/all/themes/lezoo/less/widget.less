@@ -173,17 +173,17 @@
 	}
 
 	.prev{
-		
+		/* yoyoyo */
 		@media @tablet{
-			left: 15px;
-			
-			@media @wide{
-				left: 50%;
-				margin-left: -640px;
-			}
+			left: 50%;
+			margin-left: -(40px + @container-desktop/2);
 			&:after{
 				content : url("../img/flippy_prev.png");
 			}
+		}
+		@media @wide{
+			left: 50%;
+			margin-left: -(55px + @container-lg-desktop/2);
 		}
 		.no-touch &:hover, &.active, &:active{
 			padding-right: 5px;
@@ -200,14 +200,15 @@
 	.next{
 		
 		@media @tablet{
-			right: 15px;
-			@media @wide{
-				right: 50%;
-				margin-right: -640px;
-			}
+			right: 50%;
+			margin-right: -(40px + @container-desktop/2);
 			&:after{
 				content : url("../img/flippy_next.png");
 			}
+		}
+		@media @wide{
+			right: 50%;
+			margin-right: -(55px + @container-lg-desktop/2);
 		}
 		.no-touch &:hover, &.active, &:active{
 			padding-left: 5px;
@@ -260,7 +261,7 @@ div:not(.footer) .btn{
 .node-event{
 	.share42init{
 		float: left;
-				top: -3px;
+		top: -3px;
 	}
 	.ics-container{
 		display: inline-block;
