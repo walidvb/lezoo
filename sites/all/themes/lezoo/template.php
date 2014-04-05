@@ -24,18 +24,18 @@ function lezoo_preprocess_html(&$variables) {
 		'#attributes' => $tag)
 	, $key);
 	}
-	drupal_add_js("var addToHomeConfig = {
-		animationIn: 'bubble',
-		animationOut: 'drop',
-		lifespan:5000,
-		expire:50,
-		touchIcon:true,
-		returningVisitor:false,
-		message: 'Ajoute le site du zoo comme webapp en appuyant sur %icon!'
+	// drupal_add_js("var addToHomeConfig = {
+	// 	animationIn: 'bubble',
+	// 	animationOut: 'drop',
+	// 	lifespan:5000,
+	// 	expire:50,
+	// 	touchIcon:true,
+	// 	returningVisitor:false,
+	// 	message: 'Ajoute le site du zoo comme webapp en appuyant sur %icon!'
 
-	};",  array('type' => 'inline', 'scope' => 'footer'));
-	drupal_add_js(drupal_get_path('theme', 'lezoo'). '/libs/addToHome/src/add2home.js', array('scope' => 'footer'));
-	drupal_add_css(drupal_get_path('theme', 'lezoo') . '/libs/addToHome/style/add2home.css');
+	// };",  array('type' => 'inline', 'scope' => 'footer'));
+	// drupal_add_js(drupal_get_path('theme', 'lezoo'). '/libs/addToHome/src/add2home.js', array('scope' => 'footer'));
+	//drupal_add_css(drupal_get_path('theme', 'lezoo') . '/libs/addToHome/style/add2home.css');
 	drupal_add_css(drupal_get_path('theme', 'lezoo') . '/libs/swiper/swiper.css');
 	drupal_add_js(drupal_get_path('theme', 'lezoo'). '/libs/swiper/idangerous.swiper.js', array('scope' => 'footer'));
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js', array('type' => 'external'));

@@ -272,15 +272,7 @@
 			"file": "sites/all/themes/lezoo/templates/node--installations.tpl.php",
 			"settings":
 			{
-				"buffer_size": 2543,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "sites/all/themes/lezoo/template.php",
-			"settings":
-			{
-				"buffer_size": 12046,
+				"buffer_size": 2552,
 				"line_ending": "Unix"
 			}
 		},
@@ -427,6 +419,14 @@
 			"settings":
 			{
 				"buffer_size": 1249,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "sites/all/themes/lezoo/template.php",
+			"settings":
+			{
+				"buffer_size": 12078,
 				"line_ending": "Unix"
 			}
 		}
@@ -735,6 +735,7 @@
 	},
 	"file_history":
 	[
+		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/template.php",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/html.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/widget.less",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/overrides.less",
@@ -760,7 +761,6 @@
 		"/Users/Gaston/Sites/zoo/sites/all/themes/bootstrap/template.php",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/templates/page.tpl.php",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/js/custom.js",
-		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/template.php",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/header.less",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/fronts.less",
 		"/Users/Gaston/Sites/zoo/sites/all/themes/lezoo/less/node.less",
@@ -1027,7 +1027,7 @@
 	"groups":
 	[
 		{
-			"selected": 9,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -1041,7 +1041,7 @@
 						"selection":
 						[
 							[
-								112,
+								120,
 								120
 							]
 						],
@@ -1691,15 +1691,15 @@
 					"file": "sites/all/themes/lezoo/templates/node--installations.tpl.php",
 					"settings":
 					{
-						"buffer_size": 2543,
+						"buffer_size": 2552,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								544,
-								544
+								1396,
+								1396
 							]
 						],
 						"settings":
@@ -1846,177 +1846,13 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 379.0,
+						"translation.y": 212.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "sites/all/themes/lezoo/template.php",
-					"settings":
-					{
-						"buffer_size": 12046,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								733,
-								733
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME",
-								"WTF"
-							],
-							"bh_regions":
-							[
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110.0
-							],
-							"gjslint_options":
-							[
-							],
-							"incomplete_sync": null,
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": false,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"remote_loading": false,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2.0,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "hard",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": true,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"synced": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 271.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
 					"file": "sites/all/themes/lezoo/less/fronts.less",
 					"settings":
 					{
@@ -2181,7 +2017,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 6,
 					"file": "sites/all/themes/lezoo/less/node.less",
 					"settings":
 					{
@@ -2346,7 +2182,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 7,
 					"file": "sites/all/themes/lezoo/less/install.less",
 					"settings":
 					{
@@ -2511,7 +2347,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 8,
 					"file": "sites/all/themes/lezoo/js/custom.js",
 					"settings":
 					{
@@ -2669,13 +2505,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1432.0,
+						"translation.y": 1462.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 9,
 					"file": "sites/all/themes/lezoo/less/footer.less",
 					"settings":
 					{
@@ -2840,7 +2676,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 10,
 					"file": "sites/all/modules/media_youtube/media_youtube.module",
 					"settings":
 					{
@@ -3005,7 +2841,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 11,
 					"file": "sites/all/themes/lezoo/less/overrides.less",
 					"settings":
 					{
@@ -3170,7 +3006,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 12,
 					"file": "sites/all/themes/lezoo/less/variables.less",
 					"settings":
 					{
@@ -3336,7 +3172,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 14,
+					"buffer": 13,
 					"file": "sites/all/themes/lezoo/less/widget.less",
 					"settings":
 					{
@@ -3501,7 +3337,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 15,
+					"buffer": 14,
 					"settings":
 					{
 						"buffer_size": 749,
@@ -3666,7 +3502,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 16,
+					"buffer": 15,
 					"file": "sites/all/modules/custom/lezoo/date.inc",
 					"settings":
 					{
@@ -3831,7 +3667,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 17,
+					"buffer": 16,
 					"file": "sites/all/themes/lezoo/templates/page.tpl.php",
 					"settings":
 					{
@@ -3996,7 +3832,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 18,
+					"buffer": 17,
 					"file": ".gitignore",
 					"settings":
 					{
@@ -4159,7 +3995,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 19,
+					"buffer": 18,
 					"file": "sites/all/modules/custom/load_more/load_more.js",
 					"settings":
 					{
@@ -4323,7 +4159,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 20,
+					"buffer": 19,
 					"file": "sites/all/themes/lezoo/templates/node--event.tpl.php",
 					"settings":
 					{
@@ -4487,7 +4323,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 21,
+					"buffer": 20,
 					"file": "sites/all/themes/lezoo/templates/node--blog-post.tpl.php",
 					"settings":
 					{
@@ -4652,7 +4488,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 22,
+					"buffer": 21,
 					"file": "sites/all/modules/custom/links_to_social/links_to_social.css",
 					"settings":
 					{
@@ -4817,7 +4653,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 23,
+					"buffer": 22,
 					"file": "sites/all/themes/lezoo/templates/node--event--teaser.tpl.php",
 					"settings":
 					{
@@ -4830,6 +4666,170 @@
 							[
 								0,
 								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME",
+								"WTF"
+							],
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"incomplete_sync": null,
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": false,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"remote_loading": false,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "hard",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": true,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 23,
+					"file": "sites/all/themes/lezoo/template.php",
+					"settings":
+					{
+						"buffer_size": 12078,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								763,
+								763
 							]
 						],
 						"settings":
@@ -5036,6 +5036,14 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"nodeins",
+				"lezoo/templates/node--installations.tpl.php"
+			],
+			[
+				"templ",
+				"lezoo/template.php"
+			],
 			[
 				"custom",
 				"lezoo/js/custom.js"
@@ -5381,10 +5389,6 @@
 				"lezoo/templates/views-bootstrap-carousel-plugin-rows--events-carousel.tpl.php"
 			],
 			[
-				"templ",
-				"lezoo/template.php"
-			],
-			[
 				"footerless",
 				"lezoo/less/footer.less"
 			],
@@ -5539,10 +5543,6 @@
 			[
 				"nodeblogtea",
 				"lezoo/templates/node--blog-post--teaser.tpl.php"
-			],
-			[
-				"nodeins",
-				"lezoo/templates/node--installations.tpl.php"
 			],
 			[
 				"soundcloudfilterinfo",

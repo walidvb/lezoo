@@ -44,11 +44,6 @@ hide($content['flippy_pager'])
             </div>
           </div>
         </div>
-        <?php if($view_mode == 'full'): ?>
-            <div class="install-social">
-              <?php print $share42 ?>
-            </div>
-        <?php endif; ?>
         <?php if(!empty($content['field_tags'])): ?>
             <div class="tags">
               <div class="field-tags">
@@ -56,6 +51,12 @@ hide($content['flippy_pager'])
               </div>
             </div>
          <?php endif; ?>
+        <?php if($view_mode == 'full'): ?>
+            <div class="install-social">
+              <?php print $share42 ?>
+            </div>
+        <?php endif; ?>
+        
     <div class="row">
       <div class="<?php print $right_col_classes?> pull-right">
         <div class="closable">
