@@ -178,8 +178,13 @@ function lezoo_preprocess_node(&$variables) {
 	{
 		if($variables['type'] == 'event')
 		{
+			$nid = $variables['nid'];
+			$title = 'event';
 			$link = 'http://lezoo.ch/feed/'. $variables['nid'] . '/event-feed.ics';
-			$variables['ics'] = '<div class="ics-container">' . l('Ajouter à mon calendrier', $link, array('attributes' => array('class' => 'event-ics'))) . '</div>';
+			$variables['ics'] = '<div class="ics-container">' . l('Ajouter à mon calendrier', $link, array('attributes' => array(
+				'id' => 'event-ics',
+				"data-downloadurl" => "text/calendar:$title.ics:http://lezoo.ch/feed/$nid/event-feed.ics"
+				))) . '</div>';
 		}
 		else if($variables['type'] == 'installations' && !empty($variables['content']['field_event_ref']))
 		{
