@@ -20,13 +20,48 @@ h2 ,h1{
 }
 
 .node-title{
-	font-size: @font-size-h2;
+	text-decoration: none;
 	font-family: @font-family-serif;
 	text-transform: uppercase;
 	word-wrap: break-word;
 	.text-shadow();
+	padding-left: @padding-base-horizontal;
+	padding-right: 15%;
+	font-size: @font-size-h2;
+	margin: 0;
+	.view-mode-full :not(.view) h1&{
+		margin-top: 0px;
+		margin-bottom: 0px;
+		padding-top: 12px;
+		padding-bottom: 12px;
+		font-size: @font-size-h2;
+		@media @tablet{
+			border-top: solid 1px @primary-color;
+			font-size: @font-size-h1*1.5;
+		}
+	}
+
+	.field-event-ref &{
+		padding-top: 20px;
+	}
+}
+
+.header{
 	background-position: center;
-	background-position: cover;
+	background-size: cover;
+	background-repeat: no-repeat;
+	.view-mode-full > &{
+		min-height: 240px;
+		border-bottom: 6px solid white;
+		@media @tablet{
+			background-image: none!important;
+			min-height: 120px;
+		}
+	}
+	.field-event-ref &{
+		background-image: auto;
+	}
+	min-height: 120px;
 }
 
 .date{
@@ -108,8 +143,5 @@ h2 ,h1{
 	@media @mobile{
 		border-bottom: solid 6px @primary-color !important;
 		border-top: none !important;
-	}
-	.node-title{
-		background-color: none !important;
 	}
 }

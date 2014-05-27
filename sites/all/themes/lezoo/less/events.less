@@ -1,4 +1,4 @@
-.event-node{
+.node-event{
 	.header{
 		.event-genre{
 			a{
@@ -6,58 +6,58 @@
 				font-style: italic;
 				@font-size: @font-size-h3;
 			}
-	}
-	.event-subtitle{
-		display: block;
-		padding-left: 0px;
-		color: @tertiary-color;
-		font-style: italic;
-	}
-	.event-title{
-		margin-top: 0px;
-		font-size: @font-size-h2;
-		font-family: @font-family-serif !important;
-		text-transform: uppercase;
-		.node-title{
-			font-family: inherit;
+		}
+		.event-subtitle{
+			display: block;
+			padding-left: 0px;
+			color: @tertiary-color;
+			font-style: italic;
+		}
+		.event-title{
+			margin-top: 0px;
+			
+			font-family: @font-family-serif !important;
+			text-transform: uppercase;
+			.node-title{
+				font-family: inherit;
+			}
 		}
 	}
-}
-		
-.line-up{
-	position: relative;
-	font-family: @font-family-sans-serif;
-	padding-left: @padding-base-horizontal;
-	padding-right: @padding-base-horizontal;
-	h3{
-		margin: 0px;
-	}
-	.artist{
-		&:after{
+	
+	.line-up{
+		position: relative;
+		font-family: @font-family-sans-serif;
+		padding-left: @padding-base-horizontal;
+		padding-right: @padding-base-horizontal;
+		h3{
+			margin: 0px;
+		}
+		.artist{
+			&:after{
 				content:' / ';
 				margin-left: 5px;
 				margin-right: 5px;
 				color: @primary-color;
 			}
-	}
-	.artist-info{
-		font-size: @font-size-h4;
-	}
-	&.event-line-up-vjs:before{
-		display: inline-block;
-		font-size: @font-size-h4;
-		text-decoration: none;
-	}
-	.event-line-up-vjs{
-		padding-left: @padding-base-horizontal/2;
-	}
-	.vjs-label{
-		font-size: @font-size-h4;
-		text-transform: lowercase;
-	}
-	&.event-line-up-djs:before{
-		display: inline-block;
-		font-size: @font-size-h4;
+		}
+		.artist-info{
+			font-size: @font-size-h4;
+		}
+		&.event-line-up-vjs:before{
+			display: inline-block;
+			font-size: @font-size-h4;
+			text-decoration: none;
+		}
+		.event-line-up-vjs{
+			padding-left: @padding-base-horizontal/2;
+		}
+		.vjs-label{
+			font-size: @font-size-h4;
+			text-transform: lowercase;
+		}
+		&.event-line-up-djs:before{
+			display: inline-block;
+			font-size: @font-size-h4;
 		//content:'with ';
 		padding-right: @padding-base-horizontal/2;
 	}
@@ -91,17 +91,14 @@
 	color: @tertiary-color;
 	.artist{
 		display: inline-block;
-		}
 	}
+}
 }
 
 /////// FULL EVENT NODE
 .node-event.view-mode-full{
 	.header{
-		min-height: 240px;
-		border-bottom: solid 6px @primary-color;
-		background-position: center;
-		background-size: cover;
+		
 		@media @tablet{
 			min-height: 190px;
 			background-image: none !important;
@@ -111,16 +108,9 @@
 			padding-left: 0px;
 			width: 100%;
 			.node-title{
-				font-size: @font-size-h1*2.2;
+				&:extend(.node-title);
 				margin-top: 50px;
 				margin-bottom: 2px;
-				border-top: solid 1px @primary-color;
-				padding-left: @padding-base-horizontal;
-				padding-right: 15%;
-				@media (max-width: @screen-sm){
-					font-size: @font-size-h1*1.5;
-					//.text-shadow();
-				}
 			}
 			.event-subtitle{
 				float: left;
@@ -250,12 +240,13 @@
 		}
 	}
 	.event-titles{
-		display: block;
+		display: inline-block;
+		width: 100%;
 		@media @mobile{
 			width: 80%;
 		}
 		.event-title{
-			padding-left: @padding-base-horizontal;
+			width: 95%;
 			h2{
 				margin-top: 0px;
 				margin-bottom: 0px;
@@ -288,7 +279,11 @@
 		position: absolute;
 		right: @padding-base-horizontal;
 		top: 0px;
+		background: black;
+		box-shadow: 0px 0px 15px 10px black;
 		@media @tablet{
+			box-shadow: none;
+			background: transparent;
 			text-align: center;
 			top: 20px;
 			.day{
@@ -332,4 +327,12 @@
 	.artist-info{
 		display: none;
 	}
+}
+
+// MINI MODE
+
+.node-event.view-mode-mini{
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+	margin-bottom: 2*@padding-base-vertical;
 }

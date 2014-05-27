@@ -8,7 +8,7 @@
 					<div class="event-titles">
 						<div class='event-title title'> 
 							<?php print render($title_prefix); ?>
-							<?php print l("<h1 $title_attributes>$title</h1>",$node->$nid,  array('html' => true)); ?>
+							<?php print l("<h2 $title_attributes>$title</h2>", 'node/' .$node->nid,  array('html' => true)); ?>
 							<?php print render($title_suffix); ?>
 						</div>
 					</div>

@@ -2,31 +2,31 @@
 	$background_image = get_img_url('banner_mobile', 'field_big_image', $node);
 ?>
 <div class='node-event <?php print $classes ?>' <?php print $attributes; ?> >
+		<div class='header' style="background-image: url('<?php print $background_image ?>')">
+			<div class="event-titles">
+				<?php if(!$teaser): ?>
+					<div class='event-genre genre'><?php print render($content['field_music_genre']); ?></div>
+					<div class="event-subtitle">
+						<?php print render($content['field_subtitle']) ?>
+					</div>
+				<?php endif; ?>
+				<div class='event-title title'> 
+					<?php print render($title_prefix); ?>
+					<h1<?php print $title_attributes; ?>><?php print $title ?></h1>
+					<?php print render($title_suffix); ?>
+				</div>
+			</div>
+			<div class="event-meta">
+				<?php if($view_mode == 'full'): ?>
+					<div class="event-social">
+					<?php print $share42 . $ics; ?>
+					</div>
+				<?php endif; ?>
+			</div>
+		<?php print render($content['field_date']) ?>
+		</div>
 		<div class='event-node dated-node'>
 			<div class="node-content">
-				<div class='header' style="background-image: url('<?php print $background_image ?>')">
-					<div class="event-titles">
-						<?php if(!$teaser): ?>
-							<div class='event-genre genre'><?php print render($content['field_music_genre']); ?></div>
-							<div class="event-subtitle">
-								<?php print render($content['field_subtitle']) ?>
-							</div>
-						<?php endif; ?>
-						<div class='event-title title'> 
-							<?php print render($title_prefix); ?>
-							<h1<?php print $title_attributes; ?>><?php print $title ?></h1>
-							<?php print render($title_suffix); ?>
-						</div>
-					</div>
-					<div class="event-meta">
-						<?php if($view_mode == 'full'): ?>
-							<div class="event-social">
-							<?php print $share42 . $ics; ?>
-							</div>
-						<?php endif; ?>
-					</div>
-				<?php print render($content['field_date']) ?>
-				</div>
 				<?php print render($content['field_big_image']) ?>
 				<div class="closable">
 					<?php print lezoo_header('Le Line up'); ?>
