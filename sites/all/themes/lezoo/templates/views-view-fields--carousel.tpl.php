@@ -10,6 +10,10 @@ if(isset($fields['field_subtitle']))
 $event_title = '<div class="banner-title">' . $fields['title']->content . $fields['field_music_genre']->content . '</div>';
 $description = $event_title;
 $description .= $fields['field_date']->content;
+if(isset($fields['field_sub_title'])){
+  $description .= $fields['field_sub_title']->content;
+}
+
 $description .= $fields['field_artist']->content;
 
 

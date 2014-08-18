@@ -53,17 +53,17 @@
 			$('.primary .last .dropdown-toggle').addClass('active').html(activeText + '<span class="caret"></span>');
 		}
 		//-------------- Make calendar draggable
-		var file = document.getElementById("dragout");
+		// var file = document.getElementById("dragout");
  
-		file.addEventListener("dragstart",function(evt){
-	  	if(typeof file.dataset === "undefined") {
-	    	// Grab it the old way
-	    	fileDetails = file.getAttribute("data-downloadurl");
-	    } else {
-	    		fileDetails = file.dataset.downloadurl;
-	   	}
-  		evt.dataTransfer.setData("DownloadURL",fileDetails);
-		},false);
+		// file.addEventListener("dragstart",function(evt){
+	 //  	if(typeof file.dataset === "undefined") {
+	 //    	// Grab it the old way
+	 //    	fileDetails = file.getAttribute("data-downloadurl");
+	 //    } else {
+	 //    		fileDetails = file.dataset.downloadurl;
+	 //   	}
+  // 		evt.dataTransfer.setData("DownloadURL",fileDetails);
+		// },false);
 		//--------------------open/close 
 		//---------region for mobile
 		//Add Comments title as trigger for the box
