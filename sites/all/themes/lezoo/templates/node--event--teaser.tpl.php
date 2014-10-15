@@ -1,4 +1,4 @@
-<div class='node-event <?php print $classes ?>' <?php print $attributes; ?> >
+<div class='node-event <?php print $classes ?> <?php print(empty($content['field_subtitle']) ? null : "has-subtitle")?>' <?php print $attributes; ?> >
 	<?php print render($title_suffix); ?>
 	<a href="<?php print drupal_get_path_alias($node_url)?>">
 		<div>
@@ -12,9 +12,11 @@
 							<div class='event-title title'> 
 								<h2 <?php print $title_attributes; ?>><?php print $title ?></h2>
 							</div>
+							<?php if(!empty($content['field_subtitle'])): ?>
 							<div class="event-subtitle">
 								<?php print render($content['field_subtitle']) ?>
 							</div>
+						<?php endif; ?>
 						</div>
 					<?php print render($content['field_date']) ?>
 					</div>
