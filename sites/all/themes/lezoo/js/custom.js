@@ -4,18 +4,19 @@
 
 		//Add protocols to the videos
 		var iframes = $('iframe.media-youtube-player, iframe.media-vimeo-player');
-		var src = iframes.attr('src');
-		var regexp = new RegExp(/^(http)/);
-		if(!regexp.test(src))
-		{
-			console.log('custom.js says ', src, ' should better have a protocol, as it don\'t, we cheat. it sucks');
-			setTimeout(function(){
-				iframes.attr('src', 'http:'+src);
+		iframes.each(function(){
+			var src = $(this).attr('src');
+			if(!/^(http)/.test(src))
+			{
+				console.log('custom.js says ', src, ' should better have a protocol, as it don\'t, we cheat. it sucks');
 				setTimeout(function(){
-					iframes.attr('src', 'http:'+src);
+					$(this).attr('src', 'http:'+src);
+					setTimeout(function(){
+						$(this).attr('src', 'http:'+src);
+					}, 500);
 				}, 500);
-			}, 500);
-		}
+			}
+		});
 		//trigger chosen all the time
 		//-------------- change menu item
 		var dropdown = $('.primary > .dropdown', context);
@@ -34,11 +35,14 @@
 
 		//-------------- stick months above list
 		$('.view-id-teaser_list .view-content', context).once('lezoo_theme', function(){
-			$(this).css('position', 'relative')
-			.stickyHeaders({
-				headlineSelector: 'h3:not(.node-title)',
-				stickyElement: 'h3',
-			});
+			if($(this).find('h3:not(.node-title)').length > 0)
+			{
+				$(this).css('position', 'relative')
+				.stickyHeaders({
+					headlineSelector: 'h3:not(.node-title)',
+					stickyElement: 'h3',
+				});
+			}
 		});
 		var stickEm = function(){
 			$('.sticky-helper').css({

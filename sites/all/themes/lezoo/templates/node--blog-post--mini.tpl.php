@@ -91,9 +91,10 @@ if(isset($content['field_tags']))
   hide($content['field_tags']);
 }
 hide($content['field_big_image']);
-
+unset($content['flippy_pager']);
+//dpm($title);
+//dpm(render($content['field_media']));
 ?>
-<?php print render($content['flippy_pager']); ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes ?> clearfix"<?php print $attributes; ?>>
   <?php print $user_picture; ?>
 
@@ -143,6 +144,7 @@ hide($content['field_big_image']);
         <?php
           if(!empty($content['field_media'])) { print render($content['field_media']); }
             // We hide the comments and links now so that we can render them later.
+          //dpm(render($content['field_media']));
         hide($content['comments']);
         hide($content['links']);
         print render($content);

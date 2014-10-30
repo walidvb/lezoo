@@ -162,6 +162,7 @@ function lezoo_preprocess_page(&$variables) {
 function lezoo_preprocess_node(&$variables) {
 	$variables['title_attributes_array']['class'] = 'node-title';
 
+	$build['#contextual_links']['node'] = array('node', array($node->nid));
 	$variables['classes_array'][] = 'view-mode-' . $variables['view_mode'];
 	$node_status = array(
 		'open' => 'node-open',
@@ -264,6 +265,13 @@ function lezoo_video_filter_iframe(&$variables) {
 	return $output;
 }
 
+
+function lezoo_node_view_alter(&$build) {
+  $node = $build['#node'];
+  if (!empty($node->nid)) {
+    $build['#contextual_links']['node'] = array('node', array($node->nid));
+  }
+}
 
 /**
 * Bootstrap theme wrapper function for the primary menu links.
