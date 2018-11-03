@@ -20,8 +20,9 @@ Drupal.wysiwyg.plugins.media = {
    *   A DOM element
    */
   isNode: function(node) {
-    return $(node).is('img.media-element');
+    return $(node).is('img[data-media-element]');
   },
+
   /**
    * Execute the button.
    *
@@ -117,10 +118,7 @@ InsertMedia.prototype = {
         });
     // Get the markup and register it for the macro / placeholder handling.
     var markup = Drupal.media.filter.getWysiwygHTML(element);
-    console.log('this', this);
-    console.log('formatted_media', formatted_media);
-    console.log('markup: ',markup);
-    console.log('wysiwyg instance: ',Drupal.wysiwyg.instances[this.instanceId]);
+
     // Insert placeholder markup into wysiwyg.
     Drupal.wysiwyg.instances[this.instanceId].insert(markup);
   }

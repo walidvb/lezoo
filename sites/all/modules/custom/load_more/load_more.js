@@ -84,13 +84,15 @@ var first = true;
 		});
 	});
 	var next = function(){
-		$('.flippy .next').addClass('active').find('a').click();
-
+		if(!$('#colorbox').is(":visible")){
+			$('.flippy .next').addClass('active').find('a').click();
+		}
 	}
 	var prev = function(){
-				$('.flippy .prev').addClass('active').find('a').click();
-
-			};
+		if(!$('#colorbox').is(":visible")){
+			$('.flippy .prev').addClass('active').find('a').click();
+		}
+	};
 	Mousetrap.bind('left', prev);
 	Mousetrap.bind('right', next);
 	$('.touch .header').swipe({

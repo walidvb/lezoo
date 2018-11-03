@@ -12,7 +12,7 @@ function lezoo_preprocess_html(&$variables) {
 		'rel' => "apple-touch-startup-image", 
 		'href' => "/sites/all/themes/lezoo/img/startup_image.png");
 	$meta['ios_icon'] = array(
-		'rel' => "apple-touch-icon-precomposed", 
+		'rel' => "apple-touch-icon", 
 		'href' => "/sites/all/themes/lezoo/img/webApp_logo.png");
 	$meta['ios_app_name'] = array(
 		'name' => "apple-mobile-web-app-title", 

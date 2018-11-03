@@ -10,7 +10,6 @@
  */
 function video_filter_codec_info() {
   $codecs = array();
-
   $codecs['archive'] = array(
     'name' => t('Archive.org'),
     'sample_url' => 'http://www.archive.org/details/DrupalconBoston2008-TheStateOfDrupal',
@@ -521,7 +520,6 @@ function video_filter_vimeo($video) {
  */
 function video_filter_vimeo_html5($video) {
   $video['source'] = 'http://player.vimeo.com/video/' . $video['codec']['matches'][1] . ($video['autoplay'] ? '?autoplay=1' : '');
-
   return video_filter_iframe($video);
 }
 

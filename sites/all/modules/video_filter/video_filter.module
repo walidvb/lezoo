@@ -115,7 +115,6 @@ function _video_filter_tips($filter, $format, $long = FALSE) {
     return t('You may insert videos with [video:URL]');
   }
 }
-
 function _video_filter_process($text, $filter, $format, $langcode, $cache, $cache_id) {
   if (preg_match_all('/\[video(\:(.+))?( .+)?\]/isU', $text, $matches_code)) {
     foreach ($matches_code[0] as $ci => $code) {

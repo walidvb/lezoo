@@ -5,8 +5,8 @@
 
 function lezoo_views_query_alter(&$view, &$query) {
   //If a date was selected in the exposed filter, ignore the default date filter '> today'
-	if($view->name == 'teaser_list')
-	{
+  if($view->name == 'teaser_list')
+  {
     $conditions = $view->query->where['1']['conditions'];
     $date_index = 3;
     if(isset($view->query->where['1']['conditions'][$date_index]) &&
@@ -17,5 +17,11 @@ function lezoo_views_query_alter(&$view, &$query) {
     }
   }
 } 
+
+// function lezoo_views_pre_execute(&$view) {
+//   if($view->name == 'mini_blocks'){
+//     dpq($view->build_info['query']);
+//   }
+//}
 
 //Alter of the form is in lezoo.module

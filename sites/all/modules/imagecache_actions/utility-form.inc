@@ -9,7 +9,6 @@
  * Helper function to render a common element.
  */
 function imagecache_actions_pos_form($action) {
-
   $defaults = array(
     'xpos' => 'center',
     'ypos' => 'center',

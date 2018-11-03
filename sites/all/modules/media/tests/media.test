@@ -20,8 +20,9 @@ class MediaFileFieldTestCase extends DrupalWebTestCase {
       $modules = $modules[0];
     }
     $modules[] = 'media';
+    $modules[] = 'media_module_test';
     parent::setUp($modules);
-    $this->admin_user = $this->drupalCreateUser(array('access content', 'access administration pages', 'administer site configuration', 'administer users', 'administer permissions', 'administer content types', 'administer nodes', 'administer files', 'bypass node access', 'bypass file access'));
+    $this->admin_user = $this->drupalCreateUser(array('access content', 'view files', 'view own files', 'access media browser', 'access administration pages', 'administer site configuration', 'administer users', 'administer permissions', 'administer content types', 'administer nodes', 'administer files', 'bypass node access', 'bypass file access'));
     $this->drupalLogin($this->admin_user);
   }
 
@@ -181,7 +182,7 @@ class MediaFileFieldTestCase extends DrupalWebTestCase {
     }
 
     // Attach a file to the node.
-    $edit[$field_name . '[' . $langcode . '][0][fid]'] = $file->fid;
+    $edit['media[' . $field_name . '_' . $langcode . '_0]'] = $file->fid;
     $this->drupalPost("node/$nid/edit", $edit, t('Save'));
 
     return $nid;
@@ -245,6 +246,81 @@ class MediaFileFieldTestCase extends DrupalWebTestCase {
 }
 
 /**
+ * Tests the 'media' element type.
+ *
+ * @todo Create a MediaFileTestCase base class and move MediaFileFieldTestCase
+ *   methods that aren't related to fields into it.
+ */
+class MediaElementTestCase extends MediaFileFieldTestCase {
+  public static function getInfo() {
+    return array(
+      'name' => 'Media element test',
+      'description' => 'Tests the media element type.',
+      'group' => 'Media',
+    );
+  }
+
+  /**
+   * Tests the media element type.
+   */
+  function testMedia() {
+    // Check that $element['#size'] is passed to the child upload element.
+    $this->drupalGet('media/test');
+    $this->assertFieldByXpath('//input[@name="media[nested_media]" and @size="13"]', NULL, 'The custom #size attribute is passed to the child upload element.');
+
+    // Perform the tests with all permutations of $form['#tree'] and
+    // $element['#extended'].
+    foreach (array(0, 1) as $tree) {
+      foreach (array(0, 1) as $extended) {
+        $test_file = $this->getTestFile('text');
+        $test_file->uid = $this->admin_user->uid;
+        $test_file = file_save($test_file);
+        $path = 'media/test/' . $tree . '/' . $extended;
+        $input_base_name = $tree ? 'nested_media' : 'media';
+
+        // Submit without a file.
+        $this->drupalPost($path, array(), t('Save'));
+        $this->assertRaw(t('The file id is %fid.', array('%fid' => 0)), 'Submitted without a file.');
+
+        // Submit a new file, without using the Attach button.
+        $edit = array('media[' . $input_base_name . ']' => $test_file->fid);
+        $this->drupalPost($path, $edit, t('Save'));
+        $this->assertRaw(t('The file id is %fid.', array('%fid' => $test_file->fid)), 'Submit handler has correct file info.');
+
+        // Now, test the Attach and Remove buttons, with and without Ajax.
+        foreach (array(FALSE) as $ajax) {
+          // Attach, then Submit.
+          $this->drupalGet($path);
+          $edit = array('media[' . $input_base_name . ']' => $test_file->fid);
+          if ($ajax) {
+            $this->drupalPostAJAX(NULL, $edit, $input_base_name . '_attach_button');
+          }
+          else {
+            $this->drupalPost(NULL, $edit, t('Attach'));
+          }
+          $this->drupalPost(NULL, array(), t('Save'));
+          $this->assertRaw(t('The file id is %fid.', array('%fid' => $test_file->fid)), 'Submit handler has correct file info.');
+
+          // Attach, then Remove, then Submit.
+          $this->drupalGet($path);
+          $edit = array('media[' . $input_base_name . ']' => $test_file->fid);
+          if ($ajax) {
+            $this->drupalPostAJAX(NULL, $edit, $input_base_name . '_attach_button');
+            $this->drupalPostAJAX(NULL, array(), $input_base_name . '_remove_button');
+          }
+          else {
+            $this->drupalPost(NULL, $edit, t('Attach'));
+            $this->drupalPost(NULL, array(), t('Remove'));
+          }
+          $this->drupalPost(NULL, array(), t('Save'));
+          $this->assertRaw(t('The file id is %fid.', array('%fid' => 0)), 'Submission after file attachment and removal was successful.');
+        }
+      }
+    }
+  }
+}
+
+/**
  * Test media file administration page functionality.
  */
 class MediaAdminTestCase extends MediaFileFieldTestCase {
@@ -258,9 +334,6 @@ class MediaAdminTestCase extends MediaFileFieldTestCase {
 
   function setUp() {
     parent::setUp();
-    // Logout the admin_user.
-    $this->drupalLogout();
-
     // Remove the "view files" permission which is set
     // by default for all users so we can test this permission
     // correctly.
@@ -279,7 +352,6 @@ class MediaAdminTestCase extends MediaFileFieldTestCase {
    * Tests that the table sorting works on the files admin pages.
    */
   function testFilesAdminSort() {
-    $this->drupalLogin($this->admin_user);
     $i = 0;
     foreach (array('dd', 'aa', 'DD', 'bb', 'cc', 'CC', 'AA', 'BB') as $prefix) {
       $this->createFileEntity(array('filepath' => $prefix . $this->randomName(6), 'timestamp' => $i));
@@ -320,8 +392,6 @@ class MediaAdminTestCase extends MediaFileFieldTestCase {
    * Tests files overview with different user permissions.
    */
   function testFilesAdminPages() {
-    $this->drupalLogin($this->admin_user);
-
     $files['public_image'] = $this->createFileEntity(array('scheme' => 'public', 'uid' => $this->base_user_1->uid, 'type' => 'image'));
     $files['public_document'] = $this->createFileEntity(array('scheme' => 'public', 'uid' => $this->base_user_2->uid, 'type' => 'document'));
     $files['private_image'] = $this->createFileEntity(array('scheme' => 'private', 'uid' => $this->base_user_1->uid, 'type' => 'image'));
@@ -399,21 +469,395 @@ class MediaAdminTestCase extends MediaFileFieldTestCase {
 }
 
 /**
- * Tests the media browser.
+ * Tests the media hooks.
  */
-class MediaBrowserTestCase extends MediaFileFieldTestCase {
+class MediaHooksTestCase extends MediaFileFieldTestCase {
   public static function getInfo() {
     return array(
-      'name' => 'Media browser test',
-      'description' => 'Tests the media browser.',
+      'name' => 'Media hooks test',
+      'description' => 'Tests the Media hooks.',
       'group' => 'Media',
     );
   }
 
+  function setUp() {
+    parent::setUp();
+  }
+
   /**
-   * Tests the media element type settings.
+   * Tests that the media browser hooks.
    */
-  function testElementSettings() {
+  function testMediaBrowserHooks() {
+    // Enable media_module_test.module's hook_media_browser_plugin_info()
+    // implementation and ensure it is working as designed.
+    variable_set('media_module_test_media_browser_plugin_info', TRUE);
+
+    $this->drupalGet('media/browser');
+    $this->assertRaw(t('Media module test'), 'Custom browser plugin found.');
+
+    // Enable media_module_test.module's hook_media_browser_plugin_info_alter()
+    // implementation and ensure it is working as designed.
+    variable_set('media_module_test_media_browser_plugin_info_alter', TRUE);
+
+    $this->drupalGet('media/browser');
+    $this->assertRaw(t('Altered plugin title'), 'Custom browser plugin was successfully altered.');
+
+    // Enable media_module_test.module's hook_media_browser_plugins_alter()
+    // implementation and ensure it is working as designed.
+    variable_set('media_module_test_media_browser_plugins_alter', TRUE);
+
+    $this->drupalGet('media/browser');
+    $this->assertRaw(t('Altered browser plugin output.'), 'Custom browser plugin was successfully altered before being rendered.');
+  }
+}
+
+/**
+ * Tests the media browser 'Library' tab.
+ */
+class MediaBrowserLibraryTestCase extends MediaFileFieldTestCase {
+  public static function getInfo() {
+    return array(
+      'name' => 'Media browser library test',
+      'description' => 'Tests the media browser library tab.',
+      'group' => 'Media',
+    );
+  }
+
+  function setUp() {
+    parent::setUp();
+    $this->base_user_1 = $this->drupalCreateUser(array('access media browser', 'create files', 'administer files'));
+    $this->base_user_2 = $this->drupalCreateUser(array('access media browser', 'create files', 'administer files', 'view own private files'));
+    $this->base_user_3 = $this->drupalCreateUser(array('access media browser', 'create files', 'administer files', 'view private files'));
+  }
+
+  /**
+   * Tests that the views sorting works on the media browser 'Library' tab.
+   */
+  function testFilesBrowserSort() {
+    // Load only the 'Library' tab of the media browser.
+    $options = array(
+      'query' => array(
+        'enabledPlugins' => array(
+          'media_default--media_browser_1' => 'media_default--media_browser_1',
+        ),
+      ),
+    );
+
+    $i = 0;
+    foreach (array('dd', 'aa', 'DD', 'bb', 'cc', 'CC', 'AA', 'BB') as $prefix) {
+      $this->createFileEntity(array('filepath' => $prefix . $this->randomName(6), 'timestamp' => $i));
+      $i++;
+    }
+
+    // Test that the default sort by file_managed.timestamp DESC actually fires properly.
+    $files_query = db_select('file_managed', 'fm')
+      ->fields('fm', array('fid'))
+      ->orderBy('timestamp', 'DESC')
+      ->execute()
+      ->fetchCol();
+
+    $files_form = array();
+    $this->drupalGet('media/browser', $options);
+    foreach ($this->xpath('//ul[@class="media-list-thumbnails"]/li/div[@data-fid]/@data-fid') as $input) {
+      $files_form[] = $input;
+    }
+    $this->assertEqual($files_query, $files_form, 'Files are sorted in the form according to the default query.');
+  }
+
+  /**
+   * Tests media browser 'Library' tab with different user permissions.
+   */
+  function testFilesBrowserLibrary() {
+    // Load only the 'Library' tab of the media browser.
+    $options = array(
+      'query' => array(
+        'enabledPlugins' => array(
+          'media_default--media_browser_1' => 'media_default--media_browser_1',
+        ),
+      ),
+    );
+
+    $files['public_image'] = $this->createFileEntity(array('scheme' => 'public', 'uid' => $this->base_user_1->uid, 'type' => 'image'));
+    $files['public_document'] = $this->createFileEntity(array('scheme' => 'public', 'uid' => $this->base_user_2->uid, 'type' => 'document'));
+    $files['private_image'] = $this->createFileEntity(array('scheme' => 'private', 'uid' => $this->base_user_1->uid, 'type' => 'image'));
+    $files['private_document'] = $this->createFileEntity(array('scheme' => 'private', 'uid' => $this->base_user_2->uid, 'type' => 'document'));
+
+    // Verify all files are displayed for administrators.
+    $this->drupalGet('media/browser', $options);
+    $this->assertResponse(200);
+    foreach ($files as $file) {
+      $xpath = $this->buildXPathQuery('//ul[@class="media-list-thumbnails"]/li/div[@data-fid=:fid]/@data-fid', array(
+        ':fid' => $file->fid,
+      ));
+      $this->assertFieldByXPath($xpath, TRUE, format_string('File with file ID %fid found.', array('%fid' => $file->fid)));
+    }
+
+    // Verify public files are displayed.
+    $this->drupalLogout();
+    $this->drupalLogin($this->base_user_1);
+    $this->drupalGet('media/browser', $options);
+    $this->assertResponse(200);
+    $xpath = $this->buildXPathQuery('//ul[@class="media-list-thumbnails"]/li/div[@data-fid=:fid]/@data-fid', array(
+      ':fid' => $files['public_image']->fid,
+    ));
+    $this->assertFieldByXPath($xpath, TRUE, format_string('File with file ID %fid found.', array('%fid' => $files['public_image']->fid)));
+    $xpath = $this->buildXPathQuery('//ul[@class="media-list-thumbnails"]/li/div[@data-fid=:fid]/@data-fid', array(
+      ':fid' => $files['public_document']->fid,
+    ));
+    $this->assertFieldByXPath($xpath, TRUE, format_string('File with file ID %fid found.', array('%fid' => $files['public_document']->fid)));
+
+    // Verify private file is displayed with permission.
+    $this->drupalLogout();
+    $this->drupalLogin($this->base_user_2);
+    $this->drupalGet('media/browser', $options);
+    $this->assertResponse(200);
+    $xpath = $this->buildXPathQuery('//ul[@class="media-list-thumbnails"]/li/div[@data-fid=:fid]/@data-fid', array(
+      ':fid' => $files['private_document']->fid,
+    ));
+    $this->assertFieldByXPath($xpath, TRUE, format_string('File with file ID %fid found.', array('%fid' => $files['private_document']->fid)));
+
+    // Verify user cannot see private file of other users.
+    $xpath = $this->buildXPathQuery('//ul[@class="media-list-thumbnails"]/li/div[@data-fid=:fid]/@data-fid', array(
+      ':fid' => $files['private_image']->fid,
+    ));
+    $this->assertNoFieldByXPath($xpath, TRUE, format_string('File with file ID %fid not found.', array('%fid' => $files['private_image']->fid)));
+
+    // Verify private file is displayed with permission.
+    $this->drupalLogout();
+    $this->drupalLogin($this->base_user_3);
+    $this->drupalGet('media/browser', $options);
+    $this->assertResponse(200);
+
+    // Verify user can see private file of other users.
+    $xpath = $this->buildXPathQuery('//ul[@class="media-list-thumbnails"]/li/div[@data-fid=:fid]/@data-fid', array(
+      ':fid' => $files['private_document']->fid,
+    ));
+    $this->assertFieldByXPath($xpath, TRUE, format_string('File with file ID %fid found.', array('%fid' => $files['private_document']->fid)));
+    $xpath = $this->buildXPathQuery('//ul[@class="media-list-thumbnails"]/li/div[@data-fid=:fid]/@data-fid', array(
+      ':fid' => $files['private_image']->fid,
+    ));
+    $this->assertFieldByXPath($xpath, TRUE, format_string('File with file ID %fid found.', array('%fid' => $files['private_image']->fid)));
+
+    // Verify file access can be bypassed.
+    $this->drupalLogout();
+    $this->drupalLogin($this->admin_user);
+    $this->drupalGet('media/browser', $options);
+    $this->assertResponse(200);
+    foreach ($files as $file) {
+      $xpath = $this->buildXPathQuery('//ul[@class="media-list-thumbnails"]/li/div[@data-fid=:fid]/@data-fid', array(
+        ':fid' => $file->fid,
+      ));
+      $this->assertFieldByXPath($xpath, TRUE, format_string('File with file ID %fid found.', array('%fid' => $file->fid)));
+    }
+  }
+}
+
+/**
+ * Tests the media browser settings.
+ */
+class MediaBrowserSettingsTestCase extends MediaFileFieldTestCase {
+  public static function getInfo() {
+    return array(
+      'name' => 'Media browser settings test',
+      'description' => 'Tests the media browser settings.',
+      'group' => 'Media',
+    );
+  }
+
+  function setUp() {
+    parent::setUp('file_test');
+  }
+
+  /**
+   * Tests the media browser settings.
+   */
+  function testBrowserSettings() {
+    $settings = array(
+      'scheme' => array('public', 'private'),
+      'type' => array('image', 'document'),
+      'extension' => array('jpg', 'txt'),
+    );
+
+    // Perform the tests with unique permutations of $scheme, $type and
+    // $extension.
+    foreach ($settings['scheme'] as $scheme) {
+      foreach ($settings['type'] as $type) {
+        foreach ($settings['extension'] as $extension) {
+          $file = $this->createFileEntity(array('scheme' => $scheme, 'uid' => $this->admin_user->uid, 'type' => $type, 'filemime' => media_get_extension_mimetype($extension)));
+
+          $options = array(
+            'query' => array(
+              'enabledPlugins' => array(
+                'media_default--media_browser_1' => 'media_default--media_browser_1',
+              ),
+              'schemes' => array($scheme),
+              'types' => array($type),
+              'file_extensions' => $extension,
+            ),
+          );
+
+          // Verify that the file is displayed.
+          $this->drupalGet('media/browser', $options);
+          $this->assertResponse(200);
+          $xpath = $this->buildXPathQuery('//ul[@class="media-list-thumbnails"]/li/div[@data-fid=:fid]/@data-fid', array(
+            ':fid' => $file->fid,
+          ));
+          $this->assertFieldByXPath($xpath, TRUE, format_string('File with file ID %fid found.', array('%fid' => $file->fid)));
+
+          // Verify that no other files are also displayed.
+          $files = $this->xpath('//ul[@class="media-list-thumbnails"]/li/div[@data-fid]');
+          $this->assertEqual(count($files), 1, 'There is only one file that matches the current browser configuration.');
+        }
+      }
+    }
+
+    // Perform the tests with none and all of the restrictions.
+    foreach (array('none', 'all') as $restrictions) {
+      $options = array(
+        'query' => array(
+          'enabledPlugins' => array(
+            'media_default--media_browser_1' => 'media_default--media_browser_1',
+          ),
+        ),
+      );
+
+      switch ($restrictions) {
+        case 'none':
+          $options['query']['schemes'] = array();
+          $options['query']['types'] = array();
+          $options['query']['file_extensions'] = array();
+          break;
+        case 'all':
+          $options['query']['schemes'] = $settings['scheme'];
+          $options['query']['types'] = $settings['type'];
+          $options['query']['file_extensions'] = implode(' ', $settings['extension']);
+          break;
+      }
+
+      // Verify that all of the files are displayed.
+      $this->drupalGet('media/browser', $options);
+      $this->assertResponse(200);
+      $files = $this->xpath('//ul[@class="media-list-thumbnails"]/li/div[@data-fid]');
+      $this->assertEqual(count($files), 8, format_string('All of the files were displayed when %restrictions of the restrictions were enabled.', array('%restrictions' => $restrictions)));
+    }
+
+    // Verify that extension restrictions do not affect remote files.
+    $scheme = 'dummy-remote';
+    $type = 'video';
+    $extension = 'mp4';
+
+    $file = $this->createFileEntity(array('scheme' => $scheme, 'uid' => $this->admin_user->uid, 'type' => $type, 'filemime' => media_get_extension_mimetype($extension)));
+
+    $options = array(
+      'query' => array(
+        'enabledPlugins' => array(
+          'media_default--media_browser_1' => 'media_default--media_browser_1',
+        ),
+        'schemes' => array($scheme, 'public'), // Include a local stream wrapper in order to trigger extension restrictions.
+        'types' => array($type),
+        'file_extensions' => 'fake', // Use an invalid file extension to ensure that it does not affect restrictions.
+      ),
+    );
+
+    // Verify that the file is displayed.
+    $this->drupalGet('media/browser', $options);
+    $this->assertResponse(200);
+    $xpath = $this->buildXPathQuery('//ul[@class="media-list-thumbnails"]/li/div[@data-fid=:fid]/@data-fid', array(
+      ':fid' => $file->fid,
+    ));
+    $this->assertFieldByXPath($xpath, TRUE, format_string('File with file ID %fid found.', array('%fid' => $file->fid)));
+
+    // Verify that no other files are also displayed.
+    $files = $this->xpath('//ul[@class="media-list-thumbnails"]/li/div[@data-fid]');
+    $this->assertEqual(count($files), 1, 'There is only one file that matches the current browser configuration.');
+  }
+}
+
+/**
+ * Tests the media browser 'My files' tab.
+ */
+class MediaBrowserMyFilesTestCase extends MediaFileFieldTestCase {
+  public static function getInfo() {
+    return array(
+      'name' => 'Media browser my files test',
+      'description' => 'Tests the media browser my files tab.',
+      'group' => 'Media',
+    );
+  }
+
+  function setUp() {
+    parent::setUp();
+    $this->base_user_1 = $this->drupalCreateUser(array('access media browser', 'create files', 'administer files'));
+    $this->base_user_2 = $this->drupalCreateUser(array('access media browser', 'create files', 'administer files', 'view own files'));
+    $this->base_user_3 = $this->drupalCreateUser(array('access media browser', 'create files', 'administer files', 'view own files', 'view own private files'));
+  }
+
+  /**
+   * Tests media browser 'My files' tab with different user permissions.
+   */
+  function testFilesBrowserMyFiles() {
+    // Load only the 'My files' tab of the media browser.
+    $options = array(
+      'query' => array(
+        'enabledPlugins' => array(
+          'media_default--media_browser_my_files' => 'media_default--media_browser_my_files',
+        ),
+      ),
+    );
+
+    $files['public_image'] = $this->createFileEntity(array('scheme' => 'public', 'uid' => $this->base_user_2->uid, 'type' => 'image'));
+    $files['public_document'] = $this->createFileEntity(array('scheme' => 'public', 'uid' => $this->base_user_3->uid, 'type' => 'document'));
+    $files['private_image'] = $this->createFileEntity(array('scheme' => 'private', 'uid' => $this->base_user_2->uid, 'type' => 'image'));
+    $files['private_document'] = $this->createFileEntity(array('scheme' => 'private', 'uid' => $this->base_user_3->uid, 'type' => 'document'));
+
+    // Verify administrators do not have any special access to files.
+    $this->drupalGet('media/browser', $options);
+    $this->assertResponse(200);
+    foreach ($files as $file) {
+      $xpath = $this->buildXPathQuery('//ul[@class="media-list-thumbnails"]/li/div[@data-fid=:fid]/@data-fid', array(
+        ':fid' => $file->fid,
+      ));
+      $this->assertNoFieldByXPath($xpath, TRUE, format_string('File with file ID %fid not found.', array('%fid' => $file->fid)));
+    }
+
+    // Verify users require the 'view own files' permission in order to access
+    // the 'My files' tab.
+    $this->drupalLogout();
+    $this->drupalLogin($this->base_user_1);
+    $this->drupalGet('media/browser', $options);
+    $this->assertResponse(200);
+    $xpath = $this->buildXPathQuery('//div[@class="media_default--media_browser_my_files"]');
+    $this->assertNoFieldByXPath($xpath, TRUE, 'User with insufficient permissions was unable to view the My files tab.');
+
+    // Verify own public files are displayed.
+    $this->drupalLogout();
+    $this->drupalLogin($this->base_user_2);
+    $this->drupalGet('media/browser', $options);
+    $this->assertResponse(200);
+    $xpath = $this->buildXPathQuery('//ul[@class="media-list-thumbnails"]/li/div[@data-fid=:fid]/@data-fid', array(
+      ':fid' => $files['public_image']->fid,
+    ));
+    $this->assertFieldByXPath($xpath, TRUE, format_string('File with file ID %fid found.', array('%fid' => $files['public_image']->fid)));
+
+    // Verify own private file is displayed with permission.
+    $this->drupalLogout();
+    $this->drupalLogin($this->base_user_3);
+    $this->drupalGet('media/browser', $options);
+    $this->assertResponse(200);
+    $xpath = $this->buildXPathQuery('//ul[@class="media-list-thumbnails"]/li/div[@data-fid=:fid]/@data-fid', array(
+      ':fid' => $files['private_document']->fid,
+    ));
+    $this->assertFieldByXPath($xpath, TRUE, format_string('File with file ID %fid found.', array('%fid' => $files['private_document']->fid)));
+
+    // Verify user cannot see files of other users.
+    $xpath = $this->buildXPathQuery('//ul[@class="media-list-thumbnails"]/li/div[@data-fid=:fid]/@data-fid', array(
+      ':fid' => $files['public_image']->fid,
+    ));
+    $this->assertNoFieldByXPath($xpath, TRUE, format_string('File with file ID %fid not found.', array('%fid' => $files['public_image']->fid)));
+    $xpath = $this->buildXPathQuery('//ul[@class="media-list-thumbnails"]/li/div[@data-fid=:fid]/@data-fid', array(
+      ':fid' => $files['private_image']->fid,
+    ));
+    $this->assertNoFieldByXPath($xpath, TRUE, format_string('File with file ID %fid not found.', array('%fid' => $files['private_image']->fid)));
   }
 }
 
@@ -469,15 +913,14 @@ class MediaElementSettingsTestCase extends MediaFileFieldTestCase {
     $javascript = $this->drupalGet("node/add/$type_name");
     $field_widget = array(
         'elements' => array(
-          '#edit-' . $field_name . '-' . LANGUAGE_NONE . '-0' => array(
+          '#edit-' . $field_name . '-' . LANGUAGE_NONE . '-0-upload' => array(
             'global' => array(
               'types' => array(
-                0 => 'image',
+                'image' => 'image',
               ),
               'enabledPlugins' => array(),
               'schemes' => array(
-                0 => 'public',
-                1 => 'private',
+                'public' => 'public',
               ),
               'file_directory' => '',
               'file_extensions' => 'txt',

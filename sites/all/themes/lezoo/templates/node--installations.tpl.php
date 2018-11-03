@@ -31,7 +31,7 @@ else
 // We hide the comments and links now so that we can render them later.
 hide($content['comments']);
 hide($content['links']);
-hide($content['flippy_pager'])
+hide($content['flippy_pager']);
 ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
     <div class='header install-header' style="background-image: url('<?php print $background_image ?>')">

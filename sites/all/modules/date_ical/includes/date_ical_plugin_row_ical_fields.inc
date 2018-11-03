@@ -130,7 +130,10 @@ class date_ical_plugin_row_ical_fields extends views_plugin_row {
         // If $date_field_name is still 'first_available' at this point, we
         // couldn't find an available Date value. Processing cannot proceed.
         $title = strip_tags($this->view->style_plugin->get_field($row->index, $this->options['title_field']));
-        throw new BlankDateFieldException(t("The row %title has no available Date value. An iCal entry cannot be created for it.", array('%title' => $title)));
+        if (empty($title)) {
+          $title = "Undetermined title";
+        }
+        throw new BlankDateFieldException(t("The row titled %title has no available Date value. An iCal entry cannot be created for it.", array('%title' => $title)));
       }
       $date = $this->get_row_date($row, $date_field_name);
     }
@@ -187,7 +190,8 @@ class date_ical_plugin_row_ical_fields extends views_plugin_row {
       }
     }
     $entity_id = $row->{$this->view->base_field};
-    $domain = check_plain($_SERVER['SERVER_NAME']);
+    global $base_url;
+    $domain = preg_replace('#^https?://#', '', $base_url);
     $event['uid'] = "calendar.$entity_id.$date_field_name.$date_field_delta@$domain";
     
     // Because of the way that Date implements repeating dates, we're going to
@@ -222,13 +226,11 @@ class date_ical_plugin_row_ical_fields extends views_plugin_row {
     drupal_alter('date_ical_export_html', $text_fields, $this->view, $context);
     
     // Sanitize the text fields for iCal compliance, and add them to the event.
-    // Also strip all HTML from the summary and location fields, since they
-    // must be plaintext, and may have been set as links by the view.
-    $event['summary'] = date_ical_sanitize_text(strip_tags($text_fields['summary']));
-    $event['location'] = date_ical_sanitize_text(strip_tags($text_fields['location']));
+    $event['summary'] = date_ical_sanitize_text($text_fields['summary']);
+    $event['location'] = date_ical_sanitize_text($text_fields['location']);
     $event['description'] = date_ical_sanitize_text($text_fields['description']);
     
-    // Allow other modules to alter the event object, before it gets passed to
+    // Allow other modules to alter the event object before it gets passed to
     // the style plugin to be converted into an iCal VEVENT.
     drupal_alter('date_ical_export_raw_event', $event, $this->view, $context);
     

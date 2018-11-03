@@ -58,10 +58,10 @@ Drupal.media.popups.mediaBrowser = function (onSelect, globalOptions, pluginOpti
   var mediaIframe = Drupal.media.popups.getPopupIframe(browserSrc, 'mediaBrowser');
   // Attach the onLoad event
   mediaIframe.bind('load', options, options.widget.onLoad);
+
   /**
    * Setting up the modal dialog
    */
-
   var ok = 'OK';
   var notSelected = 'You have not selected anything!';
 
@@ -146,7 +146,14 @@ Drupal.media.popups.mediaBrowser.finalizeSelection = function () {
 Drupal.media.popups.mediaStyleSelector = function (mediaFile, onSelect, options) {
   var defaults = Drupal.media.popups.mediaStyleSelector.getDefaults();
   // @todo: remove this awful hack :(
-  defaults.src = defaults.src.replace('-media_id-', mediaFile.fid) + '&fields=' + JSON.stringify(mediaFile.fields);
+  if (typeof defaults.src === 'string' ) {
+    defaults.src = defaults.src.replace('-media_id-', mediaFile.fid) + '&fields=' + encodeURIComponent(JSON.stringify(mediaFile.fields));
+  }
+  else {
+    var src = defaults.src.shift();
+    defaults.src.unshift(src);
+    defaults.src = src.replace('-media_id-', mediaFile.fid) + '&fields=' + encodeURIComponent(JSON.stringify(mediaFile.fields));
+  }
   options = $.extend({}, defaults, options);
   // Create it as a modal window.
   var mediaIframe = Drupal.media.popups.getPopupIframe(options.src, 'mediaStyleSelector');
@@ -281,16 +288,20 @@ Drupal.media.popups.mediaFieldEditor.getDefaults = function () {
  */
 Drupal.media.popups.getDialogOptions = function () {
   return {
-    title: Drupal.t('Media browser'),
     buttons: {},
-    dialogClass: 'media-wrapper',
-    modal: true,
-    draggable: false,
-    resizable: false,
-    width: 'auto',
-    height: 'auto',
-    position: 'center',
-    zIndex: 10000,
+    dialogClass: Drupal.settings.media.dialogOptions.dialogclass,
+    modal: Drupal.settings.media.dialogOptions.modal,
+    draggable: Drupal.settings.media.dialogOptions.draggable,
+    resizable: Drupal.settings.media.dialogOptions.resizable,
+    minWidth: Drupal.settings.media.dialogOptions.minwidth,
+    width: Drupal.settings.media.dialogOptions.width,
+    height: Drupal.settings.media.dialogOptions.height,
+    position: Drupal.settings.media.dialogOptions.position,
+    overlay: {
+      backgroundColor: Drupal.settings.media.dialogOptions.overlay.backgroundcolor,
+      opacity: Drupal.settings.media.dialogOptions.overlay.opacity
+    },
+    zIndex: Drupal.settings.media.dialogOptions.zindex,
     close: function (event, ui) {
       $(event.target).remove();
     }
@@ -327,6 +338,9 @@ Drupal.media.popups.overlayDisplace = function (dialog) {
  *  The element which has .dialog() attached to it.
  */
 Drupal.media.popups.sizeDialog = function (dialogElement) {
+  if (!dialogElement.is(':visible')) {
+    return;
+  }
   var windowWidth = $(window).width();
   var dialogWidth = windowWidth * 0.8;
   var windowHeight = $(window).height();
@@ -360,6 +374,9 @@ Drupal.media.popups.resizeDialog = function (dialogElement) {
 Drupal.media.popups.scrollDialog = function (dialogElement) {
   // Keep the dialog window centered when scrolling.
   $(window).scroll(function() {
+    if (!dialogElement.is(':visible')) {
+      return;
+    }
     dialogElement.dialog("option", "position", 'center');
   });
 }

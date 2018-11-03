@@ -1,0 +1,10 @@
+name = Media Mixcloud
+description = Embed your mixcloud track through the media browser
+package = Media
+core = 7.x
+
+files[] = includes/MediaInternetMixcloudHandler.inc
+files[] = includes/MediaMixcloudStreamWrapper.inc
+
+dependencies[] = media
+dependencies[] = media_internet

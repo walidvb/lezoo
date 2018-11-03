@@ -64,7 +64,6 @@ function lezoo_taxonomy_length_check($form, &$form_state) {
      $artist_origin = $artist['field_origin']['und'];
     foreach($artist_origin as $origin)
     {
-
       if (strlen($origin['name']) > $threshold_max  || strlen($origin['name']) <= 1) {
         form_set_error('field_origin', t("Les origines doivent contenir entre 1 et @threshold lettres", array(@threshold => $threshold_max)));
       }      

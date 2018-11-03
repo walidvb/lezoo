@@ -1,0 +1,130 @@
+<?php
+/**
+ * @file
+ * media_mixcloud/media_mixcloud.module
+ */
+
+/**
+ * Implements hook_file_mimetype_mapping_alter().
+ */
+function media_mixcloud_file_mimetype_mapping_alter(&$mapping) {
+  $mapping['mimetypes'][] = 'audio/mixcloud';
+}
+
+/**
+ * Implements hook_media_internet_providers().
+ */
+function media_mixcloud_media_internet_providers() {
+  $info['MediaInternetMixcloudHandler'] = array(
+    'title' => 'mixcloud',
+  );
+  return $info;
+}
+
+/**
+ * Implements hook_stream_wrappers().
+ */
+function media_mixcloud_stream_wrappers() {
+  return array(
+    'mixcloud' => array(
+      'name' => t('Mixcloud'),
+      'class' => 'MediaMixcloudStreamWrapper',
+      'description' => '',
+      'type' => STREAM_WRAPPERS_READ_VISIBLE,
+    ),
+  );
+}
+
+/**
+ * Implements hook_theme().
+ */
+function media_mixcloud_theme($existing, $type, $theme, $path) {
+  return array(
+    'media_mixcloud_audio' => array(
+      'variables' => array('uri' => NULL),
+      'file' => 'media_mixcloud.theme.inc',
+      'path' => $path . '/theme',
+      'template' => 'media-mixcloud',
+    ),
+  );
+}
+
+/**
+ * Implements hook_media_parse().
+ */
+function media_mixcloud_media_parse($embed_code) {
+  $handler = new MediaInternetMixcloudHandler($embed_code);
+  return $handler->parse($embed_code);
+}
+
+/**
+ * Implements hook_ctools_plugin_api().
+ */
+function media_mixcloud_ctools_plugin_api($owner, $api) {
+  static $api_versions = array(
+    'file_entity' => array(
+      'file_default_displays' => 1,
+    ),
+  );
+  if (isset($api_versions[$owner][$api])) {
+    return array('version' => $api_versions[$owner][$api]);
+  }
+}
+
+/**
+ * Implements hook_file_formatter_info().
+ */
+function media_mixcloud_file_formatter_info() {
+  $formatters['media_mixcloud_audio'] = array(
+    'label' => t('Mixcloud'),
+    'file types' => array('audio'),
+    'default settings' => array(),
+    'view callback' => 'media_mixcloud_file_formatter_audio_view',
+    'settings callback' => 'media_mixcloud_file_formatter_audio_settings',
+  );
+
+  foreach (array('width', 'height', 'autoplay', 'theme', 'fullscreen') as $setting) {
+    $formatters['media_mixcloud_audio']['default settings'][$setting] = variable_get($setting, '');
+  }
+  return $formatters;
+}
+
+/**
+ * Implements hook_file_formater_FORMATTER_view().
+ */
+function media_mixcloud_file_formatter_audio_view($file, $display, $langcode) {
+  $scheme = file_uri_scheme($file->uri);
+  if ($scheme == 'mixcloud' && empty($file->override['wysiwyg'])) {
+    $element = array(
+      '#theme' => 'media_mixcloud_audio',
+      '#uri' => $file->uri,
+      '#options' => array(),
+    );
+    foreach (array('width', 'height', 'autoplay', 'theme', 'fullscreen') as $setting) {
+      $element['#options'][$setting] = isset($file->override[$setting]) ? $file->override[$setting] : $display['settings'][$setting];
+    }
+    return $element;
+  }
+}
+
+/**
+ * Implements hook_file_formater_FORMATTER_settings().
+ */
+function media_mixcloud_file_formatter_audio_settings($form, &$form_state, $settings) {
+  $element = array();
+  // @todo: Add default values. Investigate to make mixcloud more configurable
+  $default_settings = array(
+    'width', 'height', 'autoplay', 'theme', 'fullscreen',
+  );
+
+  foreach ($default_settings as $setting_values) {
+    $element[$setting_values] = array(
+      '#type' => 'textfield',
+      '#title' => $setting_values,
+      '#default_value' => $settings[$setting_values],
+    );
+  }
+
+  return $element;
+}
+

@@ -15,9 +15,13 @@ function media_field_widget_info() {
       'label' => t('Media browser'),
       'field types' => array('file', 'image'),
       'settings' => array(
-        'allowed_types' => array('image'),
+        'allowed_types' => array(
+          'image' => 'image',
+        ),
         'browser_plugins' => array(),
-        'allowed_schemes' => array('public', 'private'),
+        'allowed_schemes' => array(
+          'public' => 'public',
+        ),
       ),
       'behaviors' => array(
         'multiple values' => FIELD_BEHAVIOR_CUSTOM,
@@ -77,12 +81,6 @@ function media_field_widget_settings_form($field, $instance) {
  * Implements hook_field_widget_form().
  */
 function media_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
-
-  // Add display_field setting to field because media_field_widget_form() assumes it is set.
-  if (!isset($field['settings']['display_field'])) {
-    $field['settings']['display_field'] = 0;
-  }
-
   $defaults = array(
     'fid' => 0,
     'display' => !empty($field['settings']['display_default']),
@@ -110,7 +108,7 @@ function media_field_widget_form(&$form, &$form_state, $field, $instance, $langc
       'global' => array(
         'types' => array_filter($widget_settings['allowed_types']),
         'enabledPlugins' => array_filter($instance['widget']['settings']['browser_plugins']),
-        'schemes' => $widget_settings['allowed_schemes'],
+        'schemes' => array_filter($widget_settings['allowed_schemes']),
         'file_directory' => isset($field_settings['file_directory']) ? $field_settings['file_directory'] : '',
         'file_extensions' => isset($field_settings['file_extensions']) ? $field_settings['file_extensions'] : variable_get('file_entity_default_allowed_extensions', 'jpg jpeg gif png txt doc docx xls xlsx pdf ppt pptx pps ppsx odt ods odp mp3 mov mp4 m4a m4v mpeg avi ogg oga ogv weba webp webm'),
         'max_filesize' => isset($field_settings['max_filesize']) ? $field_settings['max_filesize'] : 0,
@@ -133,6 +131,9 @@ function media_field_widget_form(&$form, &$form_state, $field, $instance, $langc
     // Set the default value.
     $element['#default_value'] = !empty($items) ? $items[0] : $defaults;
     // If there's only one field, return it as delta 0.
+    if (empty($element['#default_value']['fid'])) {
+      $element['#description'] = theme('media_upload_help', array('description' => $element['#description']));
+    }
     $elements = array($element);
   }
   else {
@@ -161,12 +162,13 @@ function media_field_widget_form(&$form, &$form_state, $field, $instance, $langc
     $elements['#description'] = $element['#description'];
     $elements['#field_name'] = $element['#field_name'];
     $elements['#language'] = $element['#language'];
-    $elements['#display_field'] = $field['settings']['display_field'];
+    $elements['#display_field'] = intval(!empty($field['settings']['display_field']));
 
     // Add some properties that will eventually be added to the media upload
     // field. These are added here so that they may be referenced easily through
     // a hook_form_alter().
     $elements['#file_upload_title'] = t('Attach media');
+    $elements['#file_upload_description'] = theme('media_upload_help', array('description' => ''));
   }
 
   return $elements;
@@ -181,7 +183,7 @@ function media_field_widget_value($element, $input = FALSE, $form_state) {
     // If the display field is present make sure its unchecked value is saved.
     $field = field_widget_field($element, $form_state);
     if (empty($input['display'])) {
-      $input['display'] = $field['settings']['display_field'] ? 0 : 1;
+      $input['display'] = intval(!empty($field['settings']['display_field']));
     }
   }
 
@@ -357,7 +359,7 @@ function media_field_widget_submit($form, &$form_state) {
   $langcode = $element['#language'];
   $parents = $element['#field_parents'];
 
-  $submitted_values = drupal_array_get_nested_value($form_state['values'], array_slice($button['#array_parents'], 0, -2));
+  $submitted_values = drupal_array_get_nested_value($form_state['values'], array_slice($button['#parents'], 0, -2));
   foreach ($submitted_values as $delta => $submitted_value) {
     if (!$submitted_value['fid']) {
       unset($submitted_values[$delta]);
@@ -368,7 +370,7 @@ function media_field_widget_submit($form, &$form_state) {
   $submitted_values = array_values($submitted_values);
 
   // Update form_state values.
-  drupal_array_set_nested_value($form_state['values'], array_slice($button['#array_parents'], 0, -2), $submitted_values);
+  drupal_array_set_nested_value($form_state['values'], array_slice($button['#parents'], 0, -2), $submitted_values);
 
   // Update items.
   $field_state = field_form_get_state($parents, $field_name, $langcode, $form_state);
@@ -438,6 +440,7 @@ function theme_media_widget_multiple($variables) {
     // Save the uploading row for last.
     if ($widget['#file'] == FALSE) {
       $widget['#title'] = $element['#file_upload_title'];
+      $widget['#description'] = $element['#file_upload_description'];
       continue;
     }
 
@@ -445,7 +448,7 @@ function theme_media_widget_multiple($variables) {
     // "operations" column.
     $operations_elements = array();
     foreach (element_children($widget) as $sub_key) {
-      if (isset($widget[$sub_key]['#type']) && $widget[$sub_key]['#type'] == 'submit') {
+      if (isset($widget[$sub_key]['#type']) && ($widget[$sub_key]['#type'] == 'submit' || $widget[$sub_key]['#type'] == 'link')) {
         hide($widget[$sub_key]);
         $operations_elements[] = &$widget[$sub_key];
       }
@@ -502,6 +505,28 @@ function theme_media_widget_multiple($variables) {
 }
 
 /**
+ * Returns HTML for help text.
+ *
+ * @param $variables
+ *   An associative array containing:
+ *   - description: The normal description for this field, specified by the
+ *     user.
+ *
+ * @ingroup themeable
+ */
+function theme_media_upload_help($variables) {
+  $description = $variables['description'];
+
+  $descriptions = array();
+
+  if (strlen($description)) {
+    $descriptions[] = $description;
+  }
+
+  return implode('<br />', $descriptions);
+}
+
+/**
  * Implements hook_field_formatter_info().
  *
  * Provides legacy support for the "Large filetype icon" file field formatter.
@@ -516,9 +541,62 @@ function media_field_formatter_info() {
     'media_large_icon' => array(
       'label' => t('Large filetype icon'),
       'field types' => array('file'),
+      'settings' => array(
+        'image_style' => '',
+      ),
     ),
   );
+
   return $formatters;
+}
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ *
+ * Legacy support for the "Large filetype icon" file field formatter.
+ * @see media_field_formatter_info()
+ */
+function media_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+
+  $image_styles = image_style_options(FALSE, PASS_THROUGH);
+  $element['image_style'] = array(
+    '#title' => t('Image style'),
+    '#type' => 'select',
+    '#default_value' => $settings['image_style'],
+    '#empty_option' => t('None (original image)'),
+    '#options' => $image_styles,
+  );
+
+  return $element;
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ *
+ * Legacy support for the "Large filetype icon" file field formatter.
+ * @see media_field_formatter_info()
+ */
+function media_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+
+  $summary = array();
+
+  $image_styles = image_style_options(FALSE, PASS_THROUGH);
+  // Unset possible 'No defined styles' option.
+  unset($image_styles['']);
+  // Styles could be lost because of enabled/disabled modules that defines
+  // their styles in code.
+  if (isset($image_styles[$settings['image_style']])) {
+    $summary[] = t('Image style: @style', array('@style' => $image_styles[$settings['image_style']]));
+  }
+  else {
+    $summary[] = t('Original image');
+  }
+
+  return implode('<br />', $summary);
 }
 
 /**
@@ -531,12 +609,11 @@ function media_field_formatter_view($entity_type, $entity, $field, $instance, $l
   $element = array();
 
   if ($display['type'] == 'media_large_icon') {
-    // Use the media_thumbnail image style so that the output in media browser
-    // is consistent.
     foreach ($items as $delta => $item) {
       $element[$delta] = array(
         '#theme' => 'media_formatter_large_icon',
         '#file' => (object) $item,
+        '#style_name' => $display['settings']['image_style'],
       );
     }
   }

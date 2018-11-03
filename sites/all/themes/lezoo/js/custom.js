@@ -216,7 +216,6 @@
 			clearTimeout(timer);
 			timer = setTimeout(function(){
 				stickEm();
-				closeBlocks();
 			}, 300);
 		}
 		resize();

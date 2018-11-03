@@ -40,8 +40,9 @@ function load_more_preprocess_node(&$vars) {
 }
 
 function _load_more($nid){
-  $node = node_load($nid); 
+  $node = node_load($nid);
   $path =  drupal_get_path_alias('node/'.$nid);
+  $_GET['destination'] = $path;
   $view = node_view($node);
   $title = $node->title;
   $result = drupal_render($view);
@@ -49,6 +50,10 @@ function _load_more($nid){
     'node_id' => $nid,
     'node_title'=> $title,
     'node_path' => $path,
+    'node_paths' => array(
+      'edit' => drupal_get_path_alias('node/'.$nid.'/edit'),
+      'delete' => drupal_get_path_alias('node/'.$nid.'/delete')
+    ),
     'node_content'=>$result,
     ));
 }
