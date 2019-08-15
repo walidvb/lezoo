@@ -49,6 +49,7 @@ function lezoo_preprocess_html(&$variables) {
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', array('type' => 'external'));
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js', array('type' => 'external', 'scope' => 'footer'));
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/1.5.25/jquery.isotope.min.js', array('type' => 'external', 'scope' => 'footer'));
+	drupal_add_js('//instant.page/1.1.0', array('type' => 'external', 'scope' => 'footer'));
 	//Add instant click only for anon users
 	// if($variables['user']->uid == 0)
 	// {

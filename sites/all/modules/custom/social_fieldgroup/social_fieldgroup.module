@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Social Fieldgroup feature.
+ */
+
+include_once 'social_fieldgroup.features.inc';
