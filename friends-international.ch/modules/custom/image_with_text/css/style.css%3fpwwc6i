@@ -1,0 +1,48 @@
+.wp-block-fis-custom-image-with-text {
+  /* display: inline-block; */
+  width: 100%;
+  text-align: center;
+}
+
+.wp-block-fis-custom-image-with-text .cover-container{
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+
+.wp-block-fis-custom-image-with-text .cover-image{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+
+.wp-block-fis-custom-image-with-text .text-container, .wp-block-fis-custom-image-with-text .subtitle{
+  margin-left: auto;
+  margin-right: auto;
+  background-color: inherit;
+  color: inherit;
+  position: relative;
+}
+
+@media (min-width: 767px){
+  .wp-block-fis-custom-image-with-text .text-container, .wp-block-fis-custom-image-with-text .subtitle{
+    padding: 0 3rem;
+    max-width: calc(2 * var(--content-width));
+  }
+}
+
+.wp-block-fis-custom-image-with-text .padder{
+  margin-top: calc(70vh - 3rem);
+  padding-top: 2rem;
+}
+.wp-block-fis-custom-image-with-text .padder .subtitle{
+  padding-bottom: 3rem;
+}
+.wp-block-fis-custom-image-with-text h2{
+  padding: 0;
+}

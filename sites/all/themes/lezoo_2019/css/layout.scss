@@ -1,0 +1,27 @@
+body{
+  display: flex;
+  flex-direction: column;
+  &.logged-in{
+    height: calc(100vh - 20px);
+  }
+}
+main{
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+footer{
+  flex-shrink: 0;
+}
+.lezoo-threecols{
+  flex-grow: 1;
+}
+
+// magic rule to fix the max height of the main!
+main, .lezoo-threecols{
+  min-height: 0;
+
+}
+.region-content, #block-system-main, #block-system-main > .content, #block-system-main > .content > .contextual-links-region{
+  display: contents;
+}

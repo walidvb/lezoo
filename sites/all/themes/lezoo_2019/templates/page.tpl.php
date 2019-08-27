@@ -31,7 +31,7 @@
         <ul class="action-links"><?php print render($action_links); ?></ul>
       <?php endif; ?>
       <?php print render($page['content']); ?>
-      <iframe frameborder="0" id="zoo-animals" src="/animals"></iframe>
+      <iframe frameborder="0" id="zoo-animals" src="http://lezoo.ch/animals"></iframe>
 </main>
 
 <footer class="footer container">

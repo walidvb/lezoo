@@ -34,7 +34,7 @@ plugins[panels][layouts]   = templates/layouts
 ;scripts[]                 = libs/jquery.glide.min.js
 ; Stylesheets
 stylesheets[all][]         = css/style.css
-scripts[]                  = js/custom-min.js
+scripts[]                  = js/custom.js
 
 
 ;**********************************

@@ -1,0 +1,524 @@
+<html>
+
+<head>
+<meta name="description"
+content="Documentation sur formmail-vf. FormMail en version française.">
+<meta name="keywords" content="formmail-vf,formmail">
+<title>Documentation formmail-vf.</title>
+</head>
+
+<body>
+
+<pre>##############################################################################
+# FormMail                        Version 1.6                                #
+# Copyright 1996-1997 Matt Wright mattw@worldwidemart.com                    #
+# Created 06/09/95                Last Modified 05/02/97                     #
+# Matt's Script Archive, Inc.:    http://www.worldwidemart.com/scripts/      #
+##############################################################################
+#                                                                            #
+#                                                                            #
+# VERSION FRANCAISE PAR Sebastien Joncheray http://www.perl-gratuit.com      #
+# Script renommé formmail-vf.pl                                              #
+#                                                                            #
+#                                                                            #
+##############################################################################
+# Si vous rencontrez des problèmes de configuration de ce script, de l'aide  #
+# est disponible. Avec dans l'ordre:                                         #
+#       1) Lire ce fichier entièrement                                       #
+#       2) Consulter the Matt's Script Archive FAQ:                          #
+#               http://www.worldwidemart.com/scripts/faq/                    #
+#       3) Si vous avez toujours des difficultés, envoyez un email EN ANGLAIS#
+#        à scripts-help@tahoenet.com                                         #
+#          Incluez les messages d'erreurs éventuels et autant de détails     #
+#          que possible.  Incluez aussi les variables de configuration       #
+#          situées au début du script.                                       #
+#                                                                            #
+##############################################################################
+# COPYRIGHT NOTICE                                                           #
+# Copyright 1995 - 1997 Matthew M. Wright  All Rights Reserved.              #
+#                                                                            #
+# FormMail may be used and modified free of charge by anyone so long as this #
+# copyright notice and the comments above remain intact.  By using this      #
+# code you agree to indemnify Matthew M. Wright from any liability that      #
+# might arise from its use.                                                  #
+#                                                                            #
+# Selling the code for this program without prior written consent is         #
+# expressly forbidden.  In other words, please ask first before you try and  #
+# make money off of my program.                                              #
+#                                                                            #
+# Obtain permission before redistributing this software over the Internet or #
+# in any other medium.	In all cases copyright and header must remain intact #
+##############################################################################</pre>
+
+<pre>formmail-vf est une passerelle universelle de formulaires WWW form vers les envois d'E-Mail.
+Il n'y a qu'un champ obligatoire à mettre dans vos formulaires pour que ce script marche
+avec vos formulaires existants.  D'autres champs cachés de configuration peuvent aussi 
+être utilisés pour ajouter des fonctionnalités à formmail-vf sur votre site.
+La version 1.6 de formmail-vf contient quelques corrections de bugs mineurs, un code optimisé
+et davantage de commentaires.
+Le changement principal dans cette version est que par défaut, les champs de formulaire
+sont maintenant triés tels qu'ils apparaissent dans le formulaire.  Les pages d'erreur sont également 
+un peu plus esthétiques, et deux nouvelles variables de configuration ont été ajoutées.
+Lisez l'historique pour une liste plus complète des modifications.</pre>
+
+<pre>Le script, formmail-vf.pl, doit être placé dans le cgi-bin de votre serveur et l'utilisateur
+anonyme de web doit pouvoir le lire et l'éxécuter.  Si vous n'avez pas accès à un cgi-bin,
+mais que vous pouvez éxécuter des scripts cgi vous pouvez essayer d'ajouter l'extension .cgi 
+à formmail-vf.pl pour le transformer en formmail-vf.cgi.</pre>
+
+<pre>Configuration du script formmail-vf :
+==================================</pre>
+
+<pre>Le script formmail-vf.pl n'a pas de besoin de configuration très importants pour fonctionner. 
+Il n'y a que deux variables dans le fichier perl que vous devez définir, ainsi qu'éventuellement
+la première ligne pour qu'elle corresponde à l'emplacement de l'interpréteur Perl.</pre>
+
+<pre>Variables Nécessaire :
+----------------------</pre>
+
+<pre>  $mailprog = '/usr/lib/sendmail';
+    Cette variable définit l'emplacement du programme sendmail de votre serveur. 
+    Si la vakeur est incorrecte, les données des formulaires ne pourront vous être envoyés par E-Mail.</pre>
+
+<pre>  @referers = ('storkein.blue.fr','perl-gratuit.com');
+    Ce tableau vous permet de définir les domaines sur lesquels vous autorisez des formulaires 
+    à utiliser le script formmail-vf.  Si un utilisateur tente d'utiliser le script avec un formulaire
+    situé sur un autre serveur, un message d'erreur sera affiché.
+    En plaçant perl-gratuit.com dans le tableau @referers, vous autorisez
+    www.perl-gratuit.com, ftp.perl-gratuit.com, et toute autre adresse http
+    contenant perl-gratuit.com à utiliser ce script.</pre>
+
+<pre>Votre programme formmail-vf est maintenant configuré.</pre>
+
+<pre>-----------------------------------------------------------------------------</pre>
+
+<pre>Configuration de Formulaire:
+============================</pre>
+
+<pre>La balise action de votre formulaire doit pointer sur ce script, et la méthode doit être 
+POST ou GET en lettres capitales.  La version 1.5 de formmail-vf 
+offre de nombreuses nouvelles manières de personnaliser la page HTML de résultat 
+et le fonctionnement du script.  Vous trouverez ci-dessous la liste des champs de formulaire 
+de configuration afin que vous puissiez les utiliser.</pre>
+
+<pre>Champ de formulaire nécessaires:
+================================</pre>
+
+<pre>Il n'y a qu'un champ de formulaire nécessaire pour que formmail-vf fonctionne 
+correctement.  C'est le champ nommé recipient (&quot;destinataire&quot;).</pre>
+
+<pre>Champ:       recipient</pre>
+
+<pre>Description: Ce champ de formulaire vous permet de spécifier où les données du
+             formulaire doivent être envoyées par E-Mail.
+             Il y a fort à parier que vous voudrez mettre cette option dans un champ
+             caché et fixer sa valeur à votre adresse E-Mail.</pre>
+
+<pre>Syntaxe:
+             &lt;input type=hidden name=&quot;recipient&quot; value=&quot;email@votre.site.com&quot;&gt;</pre>
+
+<pre>-----------------------------------------------------------------------------</pre>
+
+<pre>Champs de formulaire optionnels:
+================================</pre>
+
+<pre>Champs:       subject</pre>
+
+<pre>Description: Le champ subject vous permet de spécifier le sujet (titre) que vous
+             voulez voir apparaitre dans l'E-Mail qui vous est envoyé quand le formulaire
+             est envoyé.
+             Si vous n'utilisez pas cette option, alors une valeur par défaut sera mise</pre>
+
+<pre>Syntaxe:
+             Si vous voulez mettre vous même cette valeur:
+              &lt;input type=hidden name=&quot;subject&quot; value=&quot;Votre sujet&quot;&gt;</pre>
+
+<pre>             Pour permettre à l'utilisateur de fixer le sujet:
+              &lt;input type=text name=&quot;subject&quot;&gt;</pre>
+
+<pre>-----------------------------------------------------------------------------</pre>
+
+<pre>Champ:       email</pre>
+
+<pre>Description: Ce champ de formulaire permet au visiteur d'indiquer son adresse E-Mail de retour.
+             Si vous souhaitez pouvoir répondre au visiteur, je vous suggère fortement
+             d'inclure ce champ dans votre formulaire et de le faire remplir par les visiteurs.
+             Sa valeur sera mise dans le champ From:
+             de l'E-Mail que vous recevrez.  Si vous souhaitez que ce champ soit obligatoirement
+             rempli par le visiteur, ajouter le nom de ce champ, au champ 'required'.</pre>
+
+<pre>Syntaxe:
+             &lt;input type=text name=&quot;email&quot;&gt;</pre>
+
+<pre>-----------------------------------------------------------------------------</pre>
+
+<pre>Champ:       realname</pre>
+
+<pre>Description: Le champ realname permet à l'utilisateur d'indiquer son nom.
+             Ce champ est très utile à des fins d'identification et sera également mis dans le champ
+             From: de l'E-Mail envoyé.</pre>
+
+<pre>Syntaxe: 
+             &lt;input type=text name=&quot;realname&quot;&gt;</pre>
+
+<pre>-----------------------------------------------------------------------------</pre>
+
+<pre>Champ:       redirect</pre>
+
+<pre>Description: Si vous souhaitez rediriger votre visiteur vers une URL différente, plutôt que
+             de leur afficher la page de réponse par défaut, vous pouvez utiliser cette variable cachée
+             pour les renvoyer vers une page HTML que vous aurez préparée à l'avance.</pre>
+
+<pre>Syntaxe:
+             Pour choisir vous-même l'URL à laquelle ils vont aboutir:
+               &lt;input type=hidden name=&quot;redirect&quot; 
+                                  value=&quot;http://votre.site.com/votre/page.html&quot;&gt;</pre>
+
+<pre>             Pour leur permettre de choisr l'URL à laquelle ils doivent atterrir une fois
+             le formulaire envoyé:
+               &lt;input type=text name=&quot;redirect&quot;&gt;</pre>
+
+<pre>-----------------------------------------------------------------------------</pre>
+
+<pre>Champ:       required</pre>
+
+<pre>Version:     1.3  et +</pre>
+
+<pre>Description: Vous pouvez désormais choisir ceratins champs comme obligatoires
+             pour que le formulaire soit accepté.  Placez simplement, tous les noms
+             des champs obligatoires dans ce champ. Si ces champs ne sont pas tous remplis
+             le visiteur sera averti des champs non-remplis, et un lien de retour au formulaire
+             sera présent.</pre>
+
+<pre>             Pour utiliser une page d'erreur personnalisée, voir 'missing_fields_redirect'</pre>
+
+<pre>Syntaxe:
+             Si vous souhaitez qu'ils remplissent les champs d'email et telephone
+             obligatoirement, afin que vous puissiez les contacter par la suite,
+             une fois l'E-Mail reçu, mettez quelque chose comme:</pre>
+
+<pre>               &lt;input type=hidden name=&quot;required&quot; value=&quot;email,telephone&quot;&gt;</pre>
+
+<pre>-----------------------------------------------------------------------------</pre>
+
+<pre>Champ:       env_report</pre>
+
+<pre>Version:     1.3 et +</pre>
+
+<pre>Description: Vous permet d'avoir les variables d'environnement incluses dans 
+             l'e-mail que vous recevez.  Utile pour savoir quel navigateur ils utilisent,
+             le domaine d'où ils viennent, et d'autres choses associées aux variables d'environnement.
+             Ce qui suit est une courte liste des variables d'environnement classiques qui peuvent
+             vous être utile:</pre>
+
+<pre>             REMOTE_HOST     - Envoie le nom d'hôte de celui faisant la requête.
+             REMOTE_ADDR     - Envoie l'adresse IP de celui faisant la requête.
+             REMOTE_USER     - Si votre serveur supporte l'autentification et que
+                               le script est protégé, ceci est le login avec lequel
+                                ils se sont identifiés. *Ce n'est généralement pas utilisé/indiqué.*
+             HTTP_USER_AGENT - Le navigateur utilisé.  </pre>
+
+<pre>             Il y en a d'autres, mais elles sont un peu moins utiles.  Pour
+             davantage d'infos sur les variables d'environnement, voir:</pre>
+
+<pre>            http://www.cgi-resources.com/Documentation/Environment_Variables/</pre>
+
+<pre>Syntaxe:
+             Si vous voulez voir le nom d'hôte distant et le navigateur de celui envoyant la requête,
+             mettez ceci dans le formulaire:</pre>
+
+<pre>              &lt;input type=hidden name=&quot;env_report&quot; value=&quot;REMOTE_HOST,HTTP_USER_AGENT&quot;&gt;</pre>
+
+<pre>-----------------------------------------------------------------------------</pre>
+
+<pre>Champ:       sort</pre>
+
+<pre>Version:     1.4 et +</pre>
+
+<pre>Description: Ce champ vous permet de choisir l'ordre dans lequel vous souhaitez
+             que les champs apparaissent dans l'E-Mail que formmail-vf génère.
+             Vous pouvez choisir d'avoir les champs classés alphabétiquement
+             ou dans un ordre que vous définissez.  Si vous n'utilisez pas ce champ
+             l'ordre sera par défaut celui dans lequel le navigateur du visiteur 
+             envoie les champs au script (c'est habituellement l'ordre des champs
+             dans le formulaire).  Pour définir vous-même l'ordre vous devez inclure
+             &quot;order:&quot; en première partie de la valuer de ce champ sort, et
+             faire suivre cela de la liste des champs à lister dans l'E-Mail,
+             séparés par une virgule.  La version 1.6 permet un peu plus de flexibilité
+              dans le listing de l'ordre des champs, car vous pouvez y mettre des espaces
+             ou retour-chariots sans problème.  Utile si vous avez une longue liste de champs
+             et avez besoin de faire des retours à la ligne.</pre>
+
+<pre>Syntaxe:
+             Pour trier alphabétiquement:
+               &lt;input type=hidden name=&quot;sort&quot; value=&quot;alphabetic&quot;&gt;</pre>
+
+<pre>             Pour trier avec un certain ordre:
+               &lt;input type=hidden name=&quot;sort&quot; value=&quot;order:nom1,nom2,
+                                                   nom3,etc...&quot;&gt;</pre>
+
+<pre>-----------------------------------------------------------------------------</pre>
+
+<pre>Champ:       print_config</pre>
+
+<pre>Version:     1.5 et +</pre>
+
+<pre>Description: print_config vous permet de spécifier quelles variables de configuration
+             vous voulez voir dans l'E-Mail.
+             Par défaut, aucune n'est affichée dans l'E-Mail.  C'est parce que
+             les champs de formulaire importants comme email, subject, etc.
+             sont inclus dans l'en-tête du message.  Malgré tout, quelques utilisateurs
+             ont demandés cette option, pour avoir ces champs affichés dans le corps du
+             du message.  Les champs de configuration que vous souhaitez voir affichés
+             doivent être listées dans la valeur de ce champ, séparés par des virgules.</pre>
+
+<pre>Syntaxe:
+             Si vous souhaitez voir affichés les champs email et subject dans le corps
+             du message de l'E-Mail,placez le tag suivant:</pre>
+
+<pre>              &lt;input type=hidden name=&quot;print_config&quot; value=&quot;email,subject&quot;&gt;</pre>
+
+<pre>-----------------------------------------------------------------------------</pre>
+
+<pre>Champ:       print_blank_fields</pre>
+
+<pre>Version:     1.6</pre>
+
+<pre>Description: print_blank_fields vous permet de demander que tous les champs
+             de formulaires soient indiqués dans la page HTML de réponse et
+             dans l'E-Mail, qu'ils aient été remplis ou non.
+             Par défaut, ceci n'est pas le cas, et donc les champs non remplis
+             n'apparaissent pas dans l'E-Mail.</pre>
+
+<pre>Syntaxe:</pre>
+
+<pre>             Pour afficher également tous les champs non remplis:
+              &lt;input type=hidden name=&quot;print_blank_fields&quot; value=&quot;1&quot;&gt;</pre>
+
+<pre>----------------------------------------------------------------------------</pre>
+
+<pre>Champ:       title</pre>
+
+<pre>Version:     1.3 et +</pre>
+
+<pre>Description: Ce champ de formulaire vous permet d'indiquer le titre et le haut de page
+             qui apparaitra sur la page de résultat si vous ne spécifiez pas une URL
+             de redirection.</pre>
+
+<pre>Syntaxe:
+             Pour que le titre soit 'Résultat du Feedback':
+              &lt;input type=hidden name=&quot;title&quot; value=&quot;Résultat du Feedback&quot;&gt;</pre>
+
+<pre>-----------------------------------------------------------------------------</pre>
+
+<pre>Champ:       return_link_url</pre>
+
+<pre>Version:     1.3 et +</pre>
+
+<pre>Description: Ce champ vous permet de spécifier une URL de retour 
+             return_link_title, sur la page de résultats.  Ceci ne sera pas utilisé
+             si vous précisez le champ redirect, mais c'est utile pour que le visiteur puisse
+             revenir à votre page principale.</pre>
+
+<pre>Syntaxe:
+             &lt;input type=hidden name=&quot;return_link_url&quot; 
+				             value=&quot;http://votre.site.com/index.html&quot;&gt;</pre>
+
+<pre>-----------------------------------------------------------------------------</pre>
+
+<pre>Champ:       return_link_title</pre>
+
+<pre>Version:     1.3 et +</pre>
+
+<pre>Description: C'est le titre qui sera utilisé comme texte de lien de retour à la page
+             spécifiée avec return_link_url.  Ces deux champs seront montrés sur
+             la page de résultat ainsi:</pre>
+
+<pre>             &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;return_link_url&quot;&gt;return_link_title&lt;/a&gt;
+             &lt;/ul&gt;</pre>
+
+<pre>Syntaxe:
+             &lt;input type=hidden name=&quot;return_link_title&quot;
+                                                  value=&quot;Retour page principale&quot;&gt;</pre>
+
+<pre>-----------------------------------------------------------------------------</pre>
+
+<pre>Champ:       missing_fields_redirect</pre>
+
+<pre>Version:     1.6</pre>
+
+<pre>Description: Ce champ vous permet de spécifier une URL où rediriger le visiteur
+             si certains champs obligatoires ne sot pas remplis.  Cela est fait
+             pour que vous puissiez personnaliser la page d'erreur, plutôt que
+             de voir affichée celle par défaut.</pre>
+
+<pre>Syntaxe:
+             &lt;input type=hidden name=&quot;missing_fields_redirect&quot;
+                                    value=&quot;http://votre.site.com/erreur.html&quot;&gt;</pre>
+
+<pre>-----------------------------------------------------------------------------</pre>
+
+<pre>Champ:       background</pre>
+
+<pre>Version:     1.3 et +</pre>
+
+<pre>Description: Ce champ de formulaire vous permet de spécifier une image de fond
+             qui apparaitra sur la page de résultats, si vous n'utilisez pas le
+             champ redirect.</pre>
+
+<pre>Syntaxe:
+             &lt;input type=hidden name=&quot;background&quot;
+                                     value=&quot;http://votre.site.com/image.gif&quot;&gt;</pre>
+
+<pre>-----------------------------------------------------------------------------</pre>
+
+<pre>Champ:       bgcolor</pre>
+
+<pre>Version:     1.3 et +</pre>
+
+<pre>Description: Ce champ de formulaire vous permet de spécifier la couleur de fond
+             de la page de résultats.
+             Inutile de mettre ce champ si vous utiliser redirect.</pre>
+
+<pre>Syntaxe:
+             Pour une couleur de fond en blanc:
+              &lt;input type=hidden name=&quot;bgcolor&quot; value=&quot;#FFFFFF&quot;&gt;</pre>
+
+<pre>-----------------------------------------------------------------------------</pre>
+
+<pre>Champ:       text_color</pre>
+
+<pre>Version:     1.3 et +</pre>
+
+<pre>Description: Ce champ fonctionne de la même façon que bgcolor, sauf que cela
+             concerne la couleur du texte.</pre>
+
+<pre>Syntaxe:
+             Pour un texte en noir:
+              &lt;input type=hidden name=&quot;text_color&quot; value=&quot;#000000&quot;&gt;</pre>
+
+<pre>-----------------------------------------------------------------------------</pre>
+
+<pre>Champ:       link_color</pre>
+
+<pre>Version:     1.3 et +</pre>
+
+<pre>Description: Change la couleur des liens de la page de résultats.  Même 
+             fonctionnement que text_color.  Inutile si vous utilisez redirect.</pre>
+
+<pre>Syntaxe:
+             Pour une couleur des liens en rouge:
+              &lt;input type=hidden name=&quot;link_color&quot; value=&quot;#FF0000&quot;&gt;</pre>
+
+<pre>-----------------------------------------------------------------------------</pre>
+
+<pre>Champ:       vlink_color</pre>
+
+<pre>Version:     1.3 et +</pre>
+
+<pre>Description: Change la couleur des liens visités sur la page de résultats. Même
+             fonctionnement que link_color.  Inutile si vous utilisez redirect.</pre>
+
+<pre>Syntaxe:
+             Pour une couleur de liens visités en bleu:
+              &lt;input type=hidden name=&quot;vlink_color&quot; value=&quot;#0000FF&quot;&gt;</pre>
+
+<pre>-----------------------------------------------------------------------------</pre>
+
+<pre>Champ:       alink_color</pre>
+
+<pre>Version:     1.4 et +</pre>
+
+<pre>Description: Change la couleur des liens actifs sur la page de résultats. Même
+             fonctionnement que link_color.  Inutile si vous utilisez redirect.</pre>
+
+<pre>Syntaxe:
+             Pour avoir la couleur des liens actifs en bleu:
+              &lt;input type=hidden name=&quot;alink_color&quot; value=&quot;#0000FF&quot;&gt;</pre>
+
+<pre>-----------------------------------------------------------------------------</pre>
+
+<pre>Tout autre champ de formulaire vous sera envoyé par E-Mail et affiché dans la page de
+résultats si vous n'utilisez pas redirect.  Il n'y a pas de limite sur le nombre de champs 
+que vous pouvez utiliser dans les formulaires, sauf ceux des navigateurs ou du serveur.</pre>
+
+<pre>-----------------------------------------------------------------------------</pre>
+
+<pre>Quelques utilisations possibles de ce scripts:</pre>
+
+<pre>1) Vous voulez que les données tapées dans un formulaire vous parviennent par E-Mail, mais vous ne
+   savez pas trop comment écrire un script CGI pour faire cela.
+2) Vous êtes le webmaster de votre site et voulez pemettre aux utilisateurs l'utilisation des formulaires, 
+   sans qu'ils aient leurs propres cgi-bin, source de problèmes de sécurité pour votre système.  
+   Vous pouvez installer ce script puis autoriser tous les utilisateurs à s'en servir.
+3) Vous voulez avoir un seul script pour récupérer tous vos formulaires et vous envoyer les données collectées.
+</pre>
+
+<pre>-----------------------------------------------------------------------------</pre>
+
+<pre>History:
+Version 1.0     06/11/95  -  This script was created.
+Version 1.1     08/03/95  -  A major hole in the script which allowed users 
+                             to run commands under your server's uid was 
+                             disabled, thanks to Paul Phillips, who noticed
+                             the error.
+                          -  The ability to redirect the user to a specified
+                             HTML file after they filled out a form was 
+                             added.
+Version 1.2     09/23/95  -  If the form field is one of the required or 
+                             optional 'special' fields, such as redirect, 
+                             recipient, subject, email, realname, etc... the
+                             script will not print these fields to either
+                             your mail message or to the user's screen when
+                             they are returned to a generic form response.
+                             It helps you so that things do not get 
+                             duplicated.
+Version 1.3     01/21/96  -  Much needed update finally completed
+                          -  Added form fields: env_report, bgcolor, 
+                             background, link_color, vlink_color, title,
+                             text_color, return_link_title, return_link_url 
+                             and required.
+                          -  Security hole, which allowed any user on any 
+                             system to bum off of your formmail-vf script, has
+                             been plugged up with the @referers variable.
+                          -  Report style in return html and e-mail touched 
+                             up a bit.
+Version 1.4	    01/23/96  -  Added options: sort, alink_color 
+                          -  Fixed a few bugs from Version 1.3, namely the 
+                             fact that the link_colors weren't working well.
+                          -  formmail-vf now supports both the GET and POST 
+                             methods.
+Version 1.5     02/05/96  -  Sorting of Fields in E-Mail Response Fixed.
+                          -  print_config option added.
+Version 1.6     05/02/97  -  Sorting of fields by default was fixed to now
+                             sort in the order the fields are passed to
+                             formmail-vf from the web browser, which is usually
+                             the same order as they appear in the HTML form.
+                          -  The sort order: directive, env_report and 
+                             print_config parsing routines were made to 
+                             better compensate for line breaks and extra
+                             spaces in input for ease of use.
+                          -  Redirect error causing the redirect option to
+                             incorrectly work with https (secure servers)
+                             was fixed.
+                          -  Input of a '0' in a regular form field now
+                             recognized as input and sent back to user.
+                          -  Output of non-filled in form fields suppressed.
+                          -  E-mail addresses checked for correct syntax if
+                             designated a required field.
+                          -  Fields only printed if they contain a value or
+                             if the print_blank_fields option is set to 1.
+                          -  missing_fields_redirect added so you can route
+                             users who don't completely fill out the form to
+                             a pre-made HTML page.
+                          -  Parts of code optimized, especially in respect
+                             to the way config variables are handled.
+-----------------------------------------------------------------------------
+Matt Wright - mattw@worldwidemart.com - http://www.worldwidemart.com/scripts/
+-----------------------------------------------------------------------------
+VERSION FRANCAISE PAR Sebastien Joncheray http://www.perl-gratuit.com
+Renommé formmail-vf.pl
+-----------------------------------------------------------------------------</pre>
+</body>
+</html>

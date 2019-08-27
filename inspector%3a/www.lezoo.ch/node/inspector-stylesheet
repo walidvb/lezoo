@@ -1,0 +1,3 @@
+.field-body > div:nth-child(2n) {
+    mix-blend-mode: difference;
+}
