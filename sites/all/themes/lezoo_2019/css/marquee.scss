@@ -1,0 +1,27 @@
+
+.region-top-bar{
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  background: black;
+  align-items: center;
+}
+.region-top-bar .view-line-up-and-podcast-artists {
+  max-width: 100%;
+  overflow: auto;
+  background: $black;
+  .view-content{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: initial;
+    padding-top: 0;
+  }
+
+  .views-row{
+    line-height: inherit;
+    font-size: 1rem;
+  }
+  .field-artist-name{
+    white-space: nowrap;
+    color: white;
+  }
+}
