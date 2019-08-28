@@ -7,6 +7,8 @@
   --x-start:0%;
   --speed: 1s;
   --start-speed: .3s;
+  --min-position: 120%;
+  --max-position: -120%;
   transform: skewX(var(--skew)) translateX(var(--x-start));
   transition: all var(--start-speed) cubic-bezier(1, 0.01, 0.96, 0.14);
 }
@@ -40,16 +42,16 @@
 
 @keyframes skew-roll{
   0%{   transform: skewX(var(--skew)) translateX(calc(var(--x-start))); }
-  25%{  transform: skewX(var(--skew)) translateX(120%); }
-  25.1%{  transform: skewX(var(--skew)) translateX(-120%) }
+  25%{  transform: skewX(var(--skew)) translateX(var(--max-position)); }
+  25.1%{  transform: skewX(var(--skew)) translateX(var(--min-position)) }
   100%{ transform: skewX(var(--skew)) translateX(calc(var(--x-start))); }
 }
 @keyframes skew-roll-arriving{
   0%{   transform: skewX(var(--skew)) translateX(calc(var(--x-start))); }
-  99%{  transform: skewX(var(--skew)) translateX(120%); }
-  100%{ transform: skewX(var(--skew)) translateX(-120%); }
+  99%{  transform: skewX(var(--skew)) translateX(var(--max-position)); }
+  100%{ transform: skewX(var(--skew)) translateX(var(--min-position)); }
 }
 @keyframes skew-roll-arrived{
-  0%{   transform: skewX(var(--skew-base)) translateX(-120%); }
+  0%{   transform: skewX(var(--skew-base)) translateX(var(--min-position)); }
   100%{   transform: skewX(0deg) translateX(0%); }
 }

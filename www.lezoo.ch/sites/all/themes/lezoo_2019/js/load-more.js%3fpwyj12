@@ -2,23 +2,23 @@ console.log('config loading');
 (function ($) {
   var xhr, loadingUrl
   var triggerSelector = '.center-col a, .flippy a, .calendar-row a';
-  $(document).on('click', triggerSelector, function (evt) {
+  $(document).on('click', triggerSelector, function(evt){
     evt.preventDefault();
     var url = evt.currentTarget.href;
     loadFromUrl(url)
   })
-  window.onpopstate = function (evt) {
+  window.onpopstate = function(evt){
     loadFromUrl(document.location, true)
   }
-  function loadFromUrl(url, popping) {
+  function loadFromUrl(url, popping){
     console.log(loadingUrl, xhr)
-    if (loadingUrl && loadingUrl !== url) {
+    if (loadingUrl && loadingUrl !== url){
       xhr && xhr.abort()
     }
-    else if (loadingUrl) {
+    else if (loadingUrl){
       return
     }
-    var loaderSelector = ['.right-col .pane-content', '.left-col .panel-pane:not(.pane-system-main-menu) .pane-content'];
+  var loaderSelector = ['.right-col .pane-content', '.left-col .panel-pane:not(.pane-system-main-menu) .pane-content'];
     $('body').addClass('loading right-focus');
     $('body').removeClass('center-focus');
     loadingUrl = url
@@ -31,10 +31,10 @@ console.log('config loading');
         var title = /<title>(.*)<\/title>/.exec(res)
         title = title ? title[1] : 'le ZOO'
         document.title = title
-        if (popping) {
+        if (popping){
           History.replaceState({}, title, url);
         }
-        else {
+        else{
           History.pushState({}, title, url);
         }
       },

@@ -6,6 +6,8 @@ body{
   }
   @media (max-width: 768px){
     padding-bottom: 250px;
+    width: 100vw;
+    overflow: hidde;
     &.logged-in{
       height: auto;
     }
@@ -21,6 +23,50 @@ footer{
 }
 .lezoo-threecols{
   flex-grow: 1;
+  display: grid;
+  grid-template-columns: $grid-spacing;
+  grid-column-gap: $grid-column-gap;
+}
+
+.left-col, .center-col, .right-col{
+  overflow-x: hidden;
+  overflow-y: auto;
+  @media (max-width: 768px){
+    height: auto;
+    overflow-y: initial;
+  }
+}
+
+
+
+@media (max-width: 768px){
+  .center-col, .right-col{
+      padding-top: 4.5rem !important;
+  }
+  .left-col{
+    display: none;
+  }
+  .lezoo-threecols{
+    grid-template-columns: repeat(2, 100vw);
+    width: 100vw;
+    
+    > *{
+      .right-focus &{
+        animation: switch .15s alternate 1 linear forwards;
+      }
+      .center-focus & {
+        animation: switch-reverse .15s alternate 1 linear forwards;
+      }
+    }
+  }
+  .right-focus {
+    .center-col{
+      grid-row: 1;
+    }
+    .right-col{
+      grid-row: 2;
+    }
+  }
 }
 
 // magic rule to fix the max height of the main!
@@ -30,4 +76,18 @@ main, .lezoo-threecols{
 }
 .region-content, #block-system-main, #block-system-main > .content, #block-system-main > .content > .contextual-links-region{
   display: contents;
+}
+
+@keyframes switch{
+  0%{ transform: translateX(0vw) skew(0deg); }
+  55%{ transform: translateX(-45vw) skew(var(--skew-base)); }
+  45%{ transform: translateX(-55vw) skew(var(--skew-base)); }
+  99.9%{ transform: translateX(-100vw) skew(0deg); }
+  100%{ transform: translateX(0vw) skew(0deg); }
+}
+@keyframes switch-reverse{
+  0%{ transform: translateX(-100vw) skew(0deg); }
+  45%{ transform: translateX(-55vw) skew(var(--skew-base)); }
+  55%{ transform: translateX(-45vw) skew(var(--skew-base)); }
+  100%{ transform: translateX(0vw) skew(0deg); }
 }

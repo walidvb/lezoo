@@ -1,7 +1,7 @@
 (function ($) {
 	window.$ = jQuery
 	$(document).on('click', '.back', function(){
-		$('body').toggleClass('center-focus right-focus');
+		$('body').toggleClass('.center-focus .right-focus');
 	})
 	Drupal.behaviors.lezoo = {};
 	Drupal.behaviors.lezoo.attach = function (context) {

@@ -13,6 +13,7 @@
 
   <?php if(!empty($content['right'])): ?>
    <div class="right-col grid-item">
+       <div class="back">back to list</div>
        <?php print $content['right']; ?>
    </div>
   <?php endif; ?>
