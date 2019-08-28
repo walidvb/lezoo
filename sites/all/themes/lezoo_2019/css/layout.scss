@@ -37,29 +37,36 @@ footer{
   }
 }
 
-
+.mobile-col-wrapper{
+  display: contents;
+}
 
 @media (max-width: 768px){
   .center-col, .right-col{
       padding-top: 4.5rem !important;
   }
   .left-col{
-    display: none;
+    position: fixed;
+    width: 100vw;
+    left: 0;
+    z-index: -100;
   }
   .lezoo-threecols{
+    display: block;
+  }
+  .mobile-col-wrapper{
+    display: grid;
     grid-template-columns: repeat(2, 100vw);
-    width: 100vw;
+    width: 200vw;
     
-    > *{
-      .right-focus &{
-        animation: switch .15s alternate 1 linear forwards;
-      }
-      .center-focus & {
-        animation: switch-reverse .15s alternate 1 linear forwards;
-      }
+    .right-focus &{
+      animation: switch .15s 1 linear forwards;
+    }
+    .center-focus & {
+      animation: switch-reverse .15s 1 linear forwards;
     }
   }
-  .right-focus {
+  .right-foacus {
     .center-col{
       grid-row: 1;
     }
@@ -82,8 +89,7 @@ main, .lezoo-threecols{
   0%{ transform: translateX(0vw) skew(0deg); }
   55%{ transform: translateX(-45vw) skew(var(--skew-base)); }
   45%{ transform: translateX(-55vw) skew(var(--skew-base)); }
-  99.9%{ transform: translateX(-100vw) skew(0deg); }
-  100%{ transform: translateX(0vw) skew(0deg); }
+  100%{ transform: translateX(-100vw) skew(0deg); }
 }
 @keyframes switch-reverse{
   0%{ transform: translateX(-100vw) skew(0deg); }

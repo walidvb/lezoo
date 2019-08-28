@@ -40,6 +40,13 @@
   opacity: 0;
 }
 
+@media (max-width: 768px){
+  .skewer{
+    --min-position: 120%;
+    --max-position: -120%;
+    --x-start: -50%;
+  }
+}
 @keyframes skew-roll{
   0%{   transform: skewX(var(--skew)) translateX(calc(var(--x-start))); }
   25%{  transform: skewX(var(--skew)) translateX(var(--max-position)); }

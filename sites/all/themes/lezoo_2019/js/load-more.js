@@ -11,7 +11,8 @@ console.log('config loading');
     loadFromUrl(document.location, true)
   }
   function loadFromUrl(url, popping) {
-    console.log(loadingUrl, xhr)
+    $('body').addClass('loading right-focus');
+    $('body').removeClass('center-focus');
     if (loadingUrl && loadingUrl !== url) {
       xhr && xhr.abort()
     }
@@ -19,8 +20,7 @@ console.log('config loading');
       return
     }
     var loaderSelector = ['.right-col .pane-content', '.left-col .panel-pane:not(.pane-system-main-menu) .pane-content'];
-    $('body').addClass('loading right-focus');
-    $('body').removeClass('center-focus');
+
     loadingUrl = url
     xhr = $.ajax({
       url: url,

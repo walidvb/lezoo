@@ -114,6 +114,11 @@ header .menu li {
   display: inline-block;
 }
 
+.back {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 main {
   border-top: solid 1px var(--black);
 }
@@ -538,30 +543,42 @@ footer {
   }
 }
 
+.mobile-col-wrapper {
+  display: contents;
+}
+
 @media (max-width: 768px) {
   .center-col, .right-col {
     padding-top: 4.5rem !important;
   }
 
   .left-col {
-    display: none;
+    position: fixed;
+    width: 100vw;
+    left: 0;
+    z-index: -100;
   }
 
   .lezoo-threecols {
-    grid-template-columns: repeat(2, 100vw);
-    width: 100vw;
-  }
-  .right-focus .lezoo-threecols > * {
-    animation: switch 0.15s alternate 1 linear forwards;
-  }
-  .center-focus .lezoo-threecols > * {
-    animation: switch-reverse 0.15s alternate 1 linear forwards;
+    display: block;
   }
 
-  .right-focus .center-col {
+  .mobile-col-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 100vw);
+    width: 200vw;
+  }
+  .right-focus .mobile-col-wrapper {
+    animation: switch 0.15s 1 linear forwards;
+  }
+  .center-focus .mobile-col-wrapper {
+    animation: switch-reverse 0.15s 1 linear forwards;
+  }
+
+  .right-foacus .center-col {
     grid-row: 1;
   }
-  .right-focus .right-col {
+  .right-foacus .right-col {
     grid-row: 2;
   }
 }
@@ -583,11 +600,8 @@ main, .lezoo-threecols {
   45% {
     transform: translateX(-55vw) skew(var(--skew-base));
   }
-  99.9% {
-    transform: translateX(-100vw) skew(0deg);
-  }
   100% {
-    transform: translateX(0vw) skew(0deg);
+    transform: translateX(-100vw) skew(0deg);
   }
 }
 @keyframes switch-reverse {
@@ -650,6 +664,13 @@ main, .lezoo-threecols {
   opacity: 0;
 }
 
+@media (max-width: 768px) {
+  .skewer {
+    --min-position: 120%;
+    --max-position: -120%;
+    --x-start: -50%;
+  }
+}
 @keyframes skew-roll {
   0% {
     transform: skewX(var(--skew)) translateX(calc(var(--x-start)));

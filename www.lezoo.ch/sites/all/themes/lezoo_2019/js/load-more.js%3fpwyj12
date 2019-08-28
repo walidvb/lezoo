@@ -11,7 +11,15 @@ console.log('config loading');
     loadFromUrl(document.location, true)
   }
   function loadFromUrl(url, popping){
-    console.log(loadingUrl, xhr)
+    $('body').addClass('loading right-focus');
+    $('body').removeClass('center-focus');
+    if (popping) {
+      history.replaceState({}, 'COUAC COUAC', url);
+    }
+    else {
+      history.pushState({}, 'COUAC COUAC', url);
+    }
+
     if (loadingUrl && loadingUrl !== url){
       xhr && xhr.abort()
     }
@@ -19,8 +27,7 @@ console.log('config loading');
       return
     }
   var loaderSelector = ['.right-col .pane-content', '.left-col .panel-pane:not(.pane-system-main-menu) .pane-content'];
-    $('body').addClass('loading right-focus');
-    $('body').removeClass('center-focus');
+    
     loadingUrl = url
     xhr = $.ajax({
       url: url,
@@ -31,12 +38,6 @@ console.log('config loading');
         var title = /<title>(.*)<\/title>/.exec(res)
         title = title ? title[1] : 'le ZOO'
         document.title = title
-        if (popping){
-          History.replaceState({}, title, url);
-        }
-        else{
-          History.pushState({}, title, url);
-        }
       },
     })
 
