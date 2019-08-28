@@ -1,12 +1,14 @@
 <header id="navbar" role="banner" class="<?php print $navbar_classes; ?> navbar-fixed-top">
-  <?php if ($logo): ?>
-    <a class="logo navbar-btn pull-left" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
-      <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-    </a>
-  <?php endif; ?>
+  <div class="header-left">
+    <?php if ($logo): ?>
+      <a class="logo navbar-btn pull-left" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+        <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+      </a>
+    <?php endif; ?>
     <?php if (!empty($page['navigation'])): ?>
         <?php print render($page['navigation']); ?>
     <?php endif; ?>
+  </div>
 
     <?php if (!empty($page['top_bar'])): ?>
         <?php print render($page['top_bar']); ?>
