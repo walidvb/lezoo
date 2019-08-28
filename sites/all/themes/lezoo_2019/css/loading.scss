@@ -1,0 +1,55 @@
+.load-container{
+  overflow-x: hidden;
+}
+.skewer{
+  --skew-base: 40deg;
+  --skew: 0deg;
+  --x-start:0%;
+  --speed: 1s;
+  --start-speed: .7s;
+  transform: skewX(var(--skew)) translateX(var(--x-start));
+  transition: all var(--start-speed) cubic-bezier(0.42, 0, 1, -0.16);
+}
+
+.load-container.rolling .skewer{
+  animation: skew-roll infinite linear;
+  animation-duration: var(--speed);
+}
+
+.skewer.start{
+   --skew: var(--skew-base);
+  --x-start: 50%;
+  --speed: .1s;
+}
+.skewer.arriving{
+  --skew: var(--skew-base);
+  --x-start: 50%;
+  animation: skew-roll-arriving .075s linear 1;
+  transition-duration: 0;
+  animation-fill-mode: forwards;
+}
+.skewer.arrived{
+    --skew: 0deg;
+  --x-start:0%;
+   animation: skew-roll-arrived var(--start-speed) 1 cubic-bezier(0, 0.43, 0, 1.07)!important;
+   animation-fill-mode: forwards;
+}
+.arrived.arriving{
+  opacity: 0;
+}
+
+@keyframes skew-roll{
+  0%{   transform: skewX(var(--skew)) translateX(calc(var(--x-start))); }
+  25%{  transform: skewX(var(--skew)) translateX(120%); }
+  25.1%{  transform: skewX(var(--skew)) translateX(-120%) }
+  100%{ transform: skewX(var(--skew)) translateX(calc(var(--x-start))); }
+}
+@keyframes skew-roll-arriving{
+  0%{   transform: skewX(var(--skew)) translateX(calc(var(--x-start))); }
+  99%{  transform: skewX(var(--skew)) translateX(120%); }
+  100%{ transform: skewX(var(--skew)) translateX(-120%); }
+}
+@keyframes skew-roll-arrived{
+  0%{   transform: skewX(var(--skew-base)) translateX(-120%); }
+  100%{   transform: skewX(0deg) translateX(0%); }
+}

@@ -33,6 +33,7 @@ $bolder: 700;
 @import 'agenda';
 @import 'animals';
 @import 'layout';
+@import 'loading';
 
 // TYPOGRAPHY
 h1{
@@ -99,7 +100,6 @@ header{
     display: grid;
     grid-template-columns: 25% 75%;
     width: 100%;
-    height: 6vh;
 
   @media (max-width: 768px){
     position: fixed;

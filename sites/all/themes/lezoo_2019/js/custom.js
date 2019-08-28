@@ -2,6 +2,7 @@
 	window.$ = jQuery
 	Drupal.behaviors.lezoo = {};
 	Drupal.behaviors.lezoo.attach = function (context) {
+		console.log('Attaching lezoo')
 		//Add protocols to the videos
 		var iframes = $('iframe.media-youtube-player, iframe.media-vimeo-player', context);
 		iframes.each(function () {
@@ -17,12 +18,13 @@
 			}
 		});
 		var marqueeSelector = '.region-top-bar .view-line-up-and-podcast-artists';
+		console.log(marqueeSelector, $(marqueeSelector).length)
 		$(marqueeSelector, context).each(function (i) {
 			console.log(i)
 			var direction = i % 2 ? 'left' : 'right';
 			$(this).marquee({
 				//duration in milliseconds of the marquee
-				duration: 20000,
+				duration: 200000,
 				//gap in pixels between the tickers
 				gap: 50,
 				//time in milliseconds before the marquee will start animating
@@ -31,6 +33,7 @@
 				direction: direction,
 				//true or false - should the marquee be duplicated to show an effect of continues flow
 				startVisible: true,
+				pause
 			});
 		});
 

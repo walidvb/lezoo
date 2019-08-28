@@ -22,12 +22,9 @@ function lezoo_preprocess_html(&$variables) {
 		'#attributes' => $tag)
 	, $key);
 	}
-	drupal_add_js('sites/all/themes/lezoo_2019/source/node_modules/jquery.marquee/jquery.marquee.min.js');
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js', array('type' => 'external'));
-	drupal_add_css('//cdnjs.cloudflare.com/ajax/libs/animate.css/2.0/animate.min.css', array('type' => 'external'));
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/chosen/1.0/chosen.jquery.min.js', array('type' => 'external'));
-	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js', array('type' => 'external'));
-	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js', array('type' => 'external', 'scope' => 'footer'));
+	drupal_add_js('//cdn.jsdelivr.net/npm/jquery.marquee@1.5.0/jquery.marquee.min.js', array('type' => 'external'));
 	//Add instant click only for anon users
 	// if($variables['user']->uid == 0)
 	// {

@@ -1,5 +1,0 @@
-name = Load Post
-description = Ajax loading of post, configuration to be made in code
-core = 7.x
-files[] = tests/load_more.test
-package = lezoo

@@ -1,8 +1,0 @@
-name = leZoo migration
-description = Tools for migration.
-core = 7.x
-
-dependencies[] = feeds
-files[] = resource.processor.inc
-
-package = lezoo

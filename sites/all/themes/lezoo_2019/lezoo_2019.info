@@ -29,12 +29,11 @@ plugins[panels][layouts]   = templates/layouts
 ;scripts[]                  = libs/lightordark.js
 ;scripts[]                  = libs/bootstrap-hover-dropdown.min.js
 
-;scripts[]                  = libs/instantclick.min.js
-
 ;scripts[]                 = libs/jquery.glide.min.js
 ; Stylesheets
 stylesheets[all][]         = css/style.css
 scripts[]                  = js/custom.js
+scripts[]                  = js/load-more.js
 
 
 ;**********************************
