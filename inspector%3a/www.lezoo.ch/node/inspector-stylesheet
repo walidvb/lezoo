@@ -1,3 +1,6 @@
-.field-body > div:nth-child(2n) {
+.block:hover .view .view-content {
+    animation-duration: 10s;
+    animation-play-state: running;
+}.field-body > div:nth-child(2n) {
     mix-blend-mode: difference;
 }

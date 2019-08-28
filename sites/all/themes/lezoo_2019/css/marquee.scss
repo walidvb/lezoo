@@ -1,27 +1,87 @@
+.marquee-ready .view-content{
+  &:first-child{
+    animation: marquee var(--duration) linear infinite;
+  }
+  &:last-child{
+      animation: marquee2 var(--duration) linear infinite;
+      // animation-delay: calc(var(--duration) / 2);
+  }
+}
 
 .region-top-bar{
   display: grid;
   grid-template-rows: repeat(2, 1fr);
-  background: black;
+  background: var(--black);
+  color: var(--white);
   align-items: center;
+  overflow: hidden;
+
+  .view{
+    transform: skew(20deg);
+    transition: transform .05s ease-in-out;
+  }
+  .block:nth-child(1) {
+    .view{
+      transform: skew(-20deg);
+    }
+    .view-content{
+      animation-direction: reverse;
+    }
+  }
+  .block:hover .view{
+    transform: skew(0deg)!important;
+  }
 }
-.region-top-bar .view-line-up-and-podcast-artists {
-  max-width: 100%;
-  overflow: auto;
-  background: $black;
+body .region-top-bar {
+  .view {
+    max-width: 100%;
+    overflow: auto;
+    background: $black;
+  }
   .view-content{
     display: flex;
     flex-wrap: nowrap;
     justify-content: initial;
     padding-top: 0;
+    --duration: 75s;
   }
+  .marquee-ready{
+    display: flex;
+  }
+
+  .block:hover .view-content{
+    animation-play-state: paused;
+  }
+
 
   .views-row{
     line-height: inherit;
     font-size: 1rem;
+    padding: 0 0.5rem;
   }
-  .field-artist-name{
+  *{
     white-space: nowrap;
-    color: white;
+  }
+  a{
+    color: inherit;
+  }
+}
+
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee2 {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
   }
 }

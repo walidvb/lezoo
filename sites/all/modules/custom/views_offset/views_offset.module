@@ -1,0 +1,54 @@
+<?php
+
+/**
+* Implements hook_views_api().
+*
+* Enabling using templates inside module
+*/
+function views_offset_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'views_offset'),
+    'template path' => drupal_get_path('module', 'views_offset'),
+  );
+}
+
+
+/**
+ * Implements hook_views_query_alter()
+ * Update the contextual filter to display either all future dates or all past dates, depending on the view display
+ */
+
+function views_offset_views_query_alter(&$view, &$query) {
+dpm($view);
+
+   if ($view->name == 'list') 
+   {
+      $operator;
+      //the magic values were found by dpm()'ing the queries, and it appears that the fields are named this way
+      $magic_value0;
+      $magic_value1;
+      if($view->current_display == "previous")
+      {
+        $operator = '<=';
+        $magic_value0 = "";
+        $magic_value1 = 1;
+      }
+      else if((string)$view->current_display == "next_")
+      {
+        $operator = '>=';
+        $magic_value0 = 2;
+        $magic_value1 = 3;
+      }
+      $wherePos = 0;
+       if(isset($query->where[0]))
+       {
+        if(trim($query->where[0]['conditions'][$wherePos]['field']) == "DATE_FORMAT(field_data_field_date.field_date_value, '%Y-%m-%d\T%H:%i:%s') >= :field_data_field_date_field_date_value$magic_value0 AND DATE_FORMAT(field_data_field_date.field_date_value, '%Y-%m-%d\T%H:%i:%s') <= :field_data_field_date_field_date_value$magic_value1")
+        {
+          $query->where[0]['conditions'][$wherePos]['field'] = "DATE_FORMAT(field_data_field_date.field_date_value, '%Y-%m-%d\T%H:%i:%s') $operator :field_data_field_date_field_date_value$magic_value0 AND DATE_FORMAT(field_data_field_date.field_date_value, '%Y-%m-%d\T%H:%i:%s') $operator :field_data_field_date_field_date_value$magic_value1";
+        }
+       } 
+   }
+   //dpm('Query mod');
+   //dpm($query);
+}

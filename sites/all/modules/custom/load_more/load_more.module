@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * @file load_more.module
+ * TODO: Enter file description here.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function load_more_menu() {
+  $items['load_more'] = array(
+    'page callback' => '_load_more',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_init().
+ */
+function load_more_preprocess_node(&$vars) {
+  if($vars['view_mode'] == 'full')
+  {
+    drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/mousetrap/1.4.6/mousetrap.min.js', array('type' => 'external'));
+    drupal_add_css(drupal_get_path('module', 'load_more') . '/load_more.css');
+    drupal_add_js(drupal_get_path('module', 'load_more') . '/load_more.js');
+    $view_name = 'calendar';
+    variable_set('load_more_view', $view_name);
+    $site_name = variable_get('site_name');
+    $settings = array(
+      'view_name' => $view_name,
+      'item_name' => '.flippy a',
+      'site_name' => $site_name,
+      'nid' => $vars['nid'],
+      );
+    drupal_add_js(array('load_more' => $settings), 'setting');
+  }
+}
+
+function _load_more($nid){
+  $node = node_load($nid);
+  $path =  drupal_get_path_alias('node/'.$nid);
+  $_GET['destination'] = $path;
+  $view = node_view($node);
+  $title = $node->title;
+  $result = drupal_render($view);
+  return drupal_json_output(array(
+    'node_id' => $nid,
+    'node_title'=> $title,
+    'node_path' => $path,
+    'node_paths' => array(
+      'edit' => drupal_get_path_alias('node/'.$nid.'/edit'),
+      'delete' => drupal_get_path_alias('node/'.$nid.'/delete')
+    ),
+    'node_content'=>$result,
+    ));
+}

@@ -17,25 +17,12 @@
 				}, 500);
 			}
 		});
-		var marqueeSelector = '.region-top-bar .view-line-up-and-podcast-artists';
-		console.log(marqueeSelector, $(marqueeSelector).length)
-		$(marqueeSelector, context).each(function (i) {
-			console.log(i)
-			var direction = i % 2 ? 'left' : 'right';
-			$(this).marquee({
-				//duration in milliseconds of the marquee
-				duration: 200000,
-				//gap in pixels between the tickers
-				gap: 50,
-				//time in milliseconds before the marquee will start animating
-				delayBeforeStart: 0,
-				//'left' or 'right'
-				direction: direction,
-				//true or false - should the marquee be duplicated to show an effect of continues flow
-				startVisible: true,
-				pause
-			});
-		});
+
+		var $targets = $('.region-top-bar .block .view', context)
+		$targets.each(function() {
+			Drupal.attachBehaviors($(this).find('.view-content').clone().appendTo($(this)));
+			$(this).addClass('marquee-ready')
+		})
 
 		var $calendarPanel = $('.page-agenda .center-col .pane-content')
 		$('.page-agenda .center-col .pane-title', context).on('click', function () {
@@ -47,5 +34,47 @@
 				$thisPanel.slideDown();
 			}
 		});
+
+
+		var loadingMore = false
+		$('.page-agenda .center-col .pane-views-panes .pane-content', context).on('scroll', function (evt) { 
+			var $this = $(this)
+			var currentScroll = this.scrollTop;
+			var scrollableHeight = $(this).find('.view-content').get(0).offsetHeight
+			var height = this.offsetHeight
+
+			var parentClass;
+			if(scrollableHeight - currentScroll < height + 100){
+				if (!loadingMore){
+					parentClass = '.' + [...$this.find('.view-calendar').get(0).classList].find(function(c){
+						return /view-display-id-panel/.test(c)
+					})
+					loadNext();
+
+				}
+			}
+			function loadNext(){
+				loadingMore = true
+				$this.addClass('loading-more')
+				var nextPager = $this.find('.pager-next a')
+				if(!nextPager){
+					return
+				}
+				var url = nextPager.get(0).href;
+				$.ajax({
+					url: url,
+					success: function(res){
+						var newPosts = $(res).find(parentClass + ' .view-content > *');
+						var pager = $(res).find(parentClass + ' .item-list');
+						var $newContent = $this.find('.view-content');
+						newPosts.appendTo($newContent);
+						Drupal.attachBehaviors(newPosts);
+						$this.find('.item-list').replaceWith(pager);
+						loadingMore = false;
+						$this.removeClass('loading-more');
+					}
+				})
+			}
+		})
 	}
 })(jQuery);
