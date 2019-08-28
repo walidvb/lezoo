@@ -77,6 +77,7 @@ header {
     position: fixed;
     background-color: var(--background-color);
     z-index: 1;
+    grid-template-columns: repeat(2, 100%);
   }
   header .view-line-up-and-podcast-artists {
     padding: 0.25rem 0;
@@ -508,7 +509,7 @@ body.logged-in {
   body {
     padding-bottom: 250px;
     width: 100vw;
-    overflow: hidde;
+    overflow: hidden;
   }
   body.logged-in {
     height: auto;

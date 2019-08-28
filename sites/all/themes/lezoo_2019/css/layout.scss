@@ -7,7 +7,7 @@ body{
   @media (max-width: 768px){
     padding-bottom: 250px;
     width: 100vw;
-    overflow: hidde;
+    overflow-x: hidden;
     &.logged-in{
       height: auto;
     }

@@ -57,10 +57,15 @@ header{
     grid-template-columns: 25% 75%;
     width: 100%;
 
+  .header-left{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+  }
   @media (max-width: 768px){
     position: fixed;
     background-color: $background-color ;
     z-index: 1;
+    grid-template-columns: 100%;
     .view-line-up-and-podcast-artists{
       padding: 0.25rem 0;
       line-height: 1.5rem;

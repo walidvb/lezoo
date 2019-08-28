@@ -7,8 +7,8 @@
   --x-start:0%;
   --speed: 1s;
   --start-speed: .3s;
-  --min-position: 120%;
-  --max-position: -120%;
+  --min-position: -120%;
+  --max-position: 120%;
   transform: skewX(var(--skew)) translateX(var(--x-start));
   transition: all var(--start-speed) cubic-bezier(1, 0.01, 0.96, 0.14);
 }
@@ -31,7 +31,7 @@
   animation-fill-mode: forwards;
 }
 .skewer.arrived{
-    --skew: 0deg;
+  --skew: 0deg;
   --x-start:0%;
    animation: skew-roll-arrived var(--start-speed) 1 cubic-bezier(0, 0.43, 0, 1.07)!important;
    animation-fill-mode: forwards;
@@ -44,7 +44,9 @@
   .skewer{
     --min-position: 120%;
     --max-position: -120%;
-    --x-start: -50%;
+    &.start{
+      --x-start: -50%;
+    }
   }
 }
 @keyframes skew-roll{
