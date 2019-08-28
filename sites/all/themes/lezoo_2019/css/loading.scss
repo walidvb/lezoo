@@ -6,7 +6,7 @@
   --skew: 0deg;
   --x-start:0%;
   --speed: 1s;
-  --start-speed: 1s;
+  --start-speed: .3s;
   transform: skewX(var(--skew)) translateX(var(--x-start));
   transition: all var(--start-speed) cubic-bezier(1, 0.01, 0.96, 0.14);
 }
