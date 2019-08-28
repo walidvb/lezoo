@@ -157,6 +157,7 @@ main {
 }
 
 .left-col, .center-col, .right-col{
+  overflow-x: hidden;
     overflow-y: auto;
     @media (max-width: 768px){
       height: auto;

@@ -6,12 +6,12 @@
   --skew: 0deg;
   --x-start:0%;
   --speed: 1s;
-  --start-speed: .7s;
+  --start-speed: 1s;
   transform: skewX(var(--skew)) translateX(var(--x-start));
   transition: all var(--start-speed) cubic-bezier(0.42, 0, 1, -0.16);
 }
 
-.load-container.rolling .skewer{
+.loading .rolling .skewer{
   animation: skew-roll infinite linear;
   animation-duration: var(--speed);
 }

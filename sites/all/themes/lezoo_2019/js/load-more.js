@@ -1,3 +1,4 @@
+window.$ = jQuery
 (function ($) {
   Drupal.behaviors.loadMore = {};
   Drupal.behaviors.loadMore.attach = function (context) {
@@ -5,24 +6,24 @@
     $('.center-col a').on('click', function(evt){
       evt.preventDefault();
       var url = evt.currentTarget.href
-      console.log(url)
-
-      var $container = $('.right-col .panel-pane').addClass('load-container');
+      var loaderSelector = '.right-col .pane-content';
+      $('body').addClass('loading');
       $.ajax({
         url: url,
         success: function(res){
-          console.log(res)
-          var right = $(res).find('.right-col .pane-content')
-          handleDone(right)
+          handleDone($(res), loaderSelector);
         },
       })
 
-      var $target = $('.pane-content', $container);
-      $target.one('transitionend', function () {
-        $container.addClass('rolling')
+      $(loaderSelector).addClass('skewer').one('transitionend', function () {
+        $(loaderSelector).parent().addClass('rolling')
       });
 
-      function handleDone($next) {
+      function handleDone($res, _loaderSelector) {
+        var $target = $(_loaderSelector);
+        var $container = $target.parent();
+        var $next = $res.find(_loaderSelector).addClass('skewer')
+        console.log($target)
         $target.one('animationiteration', function () {
           $target.remove()
           $container.removeClass('rolling')
@@ -33,11 +34,14 @@
             $next.removeClass('arriving');
             void $next.get(0).offsetWidth;
             $next.addClass('arrived')
+            $next.one('animationend', function(){
+              $next.removeClass('skewer arrived');
+            })
             Drupal.attachBehaviors($next)
           })
         })
       };
-      $target.addClass('start');
+      $(loaderSelector).addClass('start');
     })
   }
 })(jQuery)
