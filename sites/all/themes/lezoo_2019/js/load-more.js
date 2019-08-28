@@ -1,22 +1,24 @@
-window.$ = jQuery
+console.log('config loading');
 (function ($) {
-  Drupal.behaviors.loadMore = {};
-  Drupal.behaviors.loadMore.attach = function (context) {
-    console.log('attaching loading')
-    $('.center-col a').on('click', function(evt){
+  Drupal.behaviors.leZooloadMore = {};
+  Drupal.behaviors.leZooloadMore.attach = function (context) {
+    $('.center-col a, .flippy a', context).on('click', function(evt){
       evt.preventDefault();
       var url = evt.currentTarget.href
-      var loaderSelector = '.right-col .pane-content';
+      var loaderSelector = ['.right-col .pane-content', '.left-col .panel-pane:not(.pane-system-main-menu) .pane-content'];
       $('body').addClass('loading');
       $.ajax({
         url: url,
         success: function(res){
-          handleDone($(res), loaderSelector);
+          handleDone($(res), loaderSelector[0]);
+          handleDone($(res), loaderSelector[1]);
+          var title = $(res).find('title').text()
+          History.pushState({}, title, url);
         },
       })
 
-      $(loaderSelector).addClass('skewer').one('transitionend', function () {
-        $(loaderSelector).parent().addClass('rolling')
+      $(loaderSelector.join(',')).addClass('skewer').one('transitionend', function () {
+        $(loaderSelector.join(',')).parent().addClass('rolling')
       });
 
       function handleDone($res, _loaderSelector) {
@@ -41,7 +43,7 @@ window.$ = jQuery
           })
         })
       };
-      $(loaderSelector).addClass('start');
+      $(loaderSelector.join(',')).addClass('start');
     })
   }
 })(jQuery)
