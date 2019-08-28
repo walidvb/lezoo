@@ -1,6 +1,7 @@
 console.log('config loading');
 (function ($) {
   Drupal.behaviors.leZooloadMore = {};
+  var xhr, loadingUrl
   Drupal.behaviors.leZooloadMore.attach = function (context) {
     window.onpopstate = function(evt){
       loadFromUrl(document.location, true)
@@ -11,11 +12,20 @@ console.log('config loading');
       loadFromUrl(url)
     })
     function loadFromUrl(url, popping){
-      var loaderSelector = ['.right-col .pane-content', '.left-col .panel-pane:not(.pane-system-main-menu) .pane-content'];
-      $('body').addClass('loading');
-      $.ajax({
+      console.log(loadingUrl, xhr)
+      if (loadingUrl && loadingUrl !== url){
+        xhr && xhr.abort()
+      }
+      else if (loadingUrl){
+        return
+      }
+    var loaderSelector = ['.right-col .pane-content', '.left-col .panel-pane:not(.pane-system-main-menu) .pane-content'];
+    $('body').addClass('loading');
+      loadingUrl = url
+      xhr = $.ajax({
         url: url,
         success: function (res) {
+          loadingUrl = null;
           handleDone($(res), loaderSelector[0]);
           handleDone($(res), loaderSelector[1]);
           console.log(res, $(res).find('title'), $(res).find('title').text())
