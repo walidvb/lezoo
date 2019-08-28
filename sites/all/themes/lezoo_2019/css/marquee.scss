@@ -17,12 +17,12 @@
   overflow: hidden;
 
   .view{
-    transform: skew(20deg);
+    transform: skew(-20deg);
     transition: transform .05s ease-in-out;
   }
   .block:nth-child(1) {
     .view{
-      transform: skew(-20deg);
+      transform: skew(20deg);
     }
     .view-content{
       animation-direction: reverse;

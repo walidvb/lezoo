@@ -34,6 +34,7 @@ $bolder: 700;
 @import 'animals';
 @import 'layout';
 @import 'loading';
+@import 'ical';
 
 // TYPOGRAPHY
 h1{
@@ -83,6 +84,9 @@ body{
 }
 
 @media (max-width: 768px){
+  body{
+    height: auto;
+  }
   .event-list.page-agenda{
     .right-col{
       display: none;
@@ -158,11 +162,11 @@ main {
 
 .left-col, .center-col, .right-col{
   overflow-x: hidden;
-    overflow-y: auto;
-    @media (max-width: 768px){
-      height: auto;
-      overflow-y: initial;
-    }
+  overflow-y: auto;
+  @media (max-width: 768px){
+    height: auto;
+    overflow-y: initial;
+  }
 }
 
 .center-col, .right-col{
@@ -335,9 +339,6 @@ footer{
     font-size: 0.8rem;
     overflow: scroll;
     padding: 0.2rem;
-    @media (min-width: 768px){
-      height: 8rem;
-    }
 
     h2, h3, h4{
       font-size: 0.8rem;
@@ -346,6 +347,7 @@ footer{
     p{
         margin-top:0;
         max-width: 60ch;
+        margin-bottom: 0;
     }
     .region-footer{
       display: grid;

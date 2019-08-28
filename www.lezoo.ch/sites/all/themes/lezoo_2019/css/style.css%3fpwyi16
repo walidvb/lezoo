@@ -25,11 +25,11 @@
   overflow: hidden;
 }
 .region-top-bar .view {
-  transform: skew(20deg);
+  transform: skew(-20deg);
   transition: transform 0.05s ease-in-out;
 }
 .region-top-bar .block:nth-child(1) .view {
-  transform: skew(-20deg);
+  transform: skew(20deg);
 }
 .region-top-bar .block:nth-child(1) .view-content {
   animation-direction: reverse;
@@ -122,8 +122,8 @@ body .region-top-bar a {
   position: fixed;
   bottom: 0;
   right: 0;
-  width: 75%;
-  height: 70%;
+  width: 800px;
+  height: 400px;
   z-index: -1;
 }
 
@@ -150,7 +150,7 @@ footer {
 }
 
 main, .lezoo-threecols {
-  min-height: 0;
+  /* min-height: 0; */
 }
 
 .region-content, #block-system-main, #block-system-main > .content, #block-system-main > .content > .contextual-links-region {
@@ -240,6 +240,8 @@ main, .lezoo-threecols {
   width: 100vw;
   height: 100vh;
   background-color: rgba(15, 15, 15, 0.7);
+  top: 0;
+  left: 0;
 }
 .modal.show {
   display: block;
@@ -252,6 +254,7 @@ main, .lezoo-threecols {
   left: 50%;
   transform: translate(-50%, -50%);
   max-height: 80vh;
+  min-width: 60vw;
   overflow-y: auto;
 }
 
@@ -308,6 +311,10 @@ body {
 }
 
 @media (max-width: 768px) {
+  body {
+    height: auto;
+  }
+
   .event-list.page-agenda .right-col {
     display: none;
   }
@@ -377,7 +384,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     height: auto;
-    max-height: fit-content;
+    /* max-height: fit-content; */
   }
 }
 
@@ -550,11 +557,6 @@ footer {
   overflow: scroll;
   padding: 0.2rem;
 }
-@media (min-width: 768px) {
-  footer {
-    height: 8rem;
-  }
-}
 footer h2, footer h3, footer h4 {
   font-size: 0.8rem;
   font-weight: 700;
@@ -562,6 +564,7 @@ footer h2, footer h3, footer h4 {
 footer p {
   margin-top: 0;
   max-width: 60ch;
+  margin-bottom: 0;
 }
 footer .region-footer {
   display: grid;
@@ -659,4 +662,4 @@ body ul li.leaf {
   display: none;
 }
 
-/*# sourceMappingURL=style.css%253fpwyg27.map */
+/*# sourceMappingURL=style.css.map */

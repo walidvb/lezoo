@@ -240,6 +240,8 @@ main, .lezoo-threecols {
   width: 100vw;
   height: 100vh;
   background-color: rgba(15, 15, 15, 0.7);
+  top: 0;
+  left: 0;
 }
 .modal.show {
   display: block;
@@ -252,6 +254,7 @@ main, .lezoo-threecols {
   left: 50%;
   transform: translate(-50%, -50%);
   max-height: 80vh;
+  min-width: 60vw;
   overflow-y: auto;
 }
 
@@ -552,7 +555,7 @@ footer {
 }
 @media (min-width: 768px) {
   footer {
-    height: 8rem;
+    /* height: 8rem; */
   }
 }
 footer h2, footer h3, footer h4 {
@@ -567,7 +570,7 @@ footer .region-footer {
   display: grid;
   grid-template-columns: 25% 25% 40% 10%;
   width: 100%;
-  grid-column-gap: var(--grid-column-gap);
+  /* grid-column-gap: var(--grid-column-gap); */
 }
 @media (max-width: 768px) {
   footer .region-footer {
@@ -659,4 +662,4 @@ body ul li.leaf {
   display: none;
 }
 
-/*# sourceMappingURL=style.css%253fpwyg27.map */
+/*# sourceMappingURL=style.css.map */

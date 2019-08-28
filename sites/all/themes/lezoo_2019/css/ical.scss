@@ -1,0 +1,23 @@
+.modal{
+  display: none;
+  &.show{
+    display: block;
+  }
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 15, 15, .7);
+  top: 0;
+  left: 0;
+  .modal-dialog{
+    background: var(--white);
+    color: var(--black);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 80vh;
+    min-width: 60vw;
+    overflow-y: auto;
+  }
+}
