@@ -29,6 +29,7 @@ console.log('config loading');
         $target.one('animationiteration', function () {
           $target.remove()
           $container.removeClass('rolling')
+          $('.left-col, .right-col').scrollTop(0)
           $next.prependTo($container).addClass('arriving')
           void $next.get(0).offsetWidth
           $next.one('animationend', function () {
