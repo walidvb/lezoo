@@ -6,6 +6,9 @@ body{
   }
   @media (max-width: 768px){
     padding-bottom: 250px;
+    &.logged-in{
+      height: auto;
+    }
   }
 }
 main{
