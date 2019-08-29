@@ -13,10 +13,17 @@ console.log('config loading');
   function loadFromUrl(url, popping) {
     $('body').addClass('loading right-focus');
     $('body').removeClass('center-focus');
+    if (popping) {
+      history.replaceState({}, 'COUAC COUAC', url);
+    }
+    else {
+      history.pushState({}, 'COUAC COUAC', url);
+    }
+
     if (loadingUrl && loadingUrl !== url) {
       xhr && xhr.abort()
     }
-    else if (loadingUrl) {
+    else if (loadingUrl === url) {
       return
     }
     var loaderSelector = ['.right-col .pane-content', '.left-col .panel-pane:not(.pane-system-main-menu) .pane-content'];
@@ -31,12 +38,6 @@ console.log('config loading');
         var title = /<title>(.*)<\/title>/.exec(res)
         title = title ? title[1] : 'le ZOO'
         document.title = title
-        if (popping) {
-          History.replaceState({}, title, url);
-        }
-        else {
-          History.pushState({}, title, url);
-        }
       },
     })
 
