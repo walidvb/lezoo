@@ -2,15 +2,14 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  &, .lezoo-threecols{
-  }
   .pane-calendar-panel-pane-4{
     flex-grow: 1;
   }
   .panel-pane{
     display: flex;
     flex-direction: column;
-    max-height: 100%;
+    --archive-height: 2rem;
+    max-height: calc(100% - var(--archive-height)) ;
   }
   .pane-content{
     overflow-y: auto;

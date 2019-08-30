@@ -1,0 +1,17 @@
+.center-col .view-content > div, .node-installations, .node .content, .visu-media {
+    display: contents;
+}
+
+div {}
+
+div {}
+
+h3.node-title {display: none;}
+
+.center-col .visu-details {
+    display: none;
+}
+
+.node-installations > a {
+    display: none;
+}

@@ -1,0 +1,54 @@
+.page-admin-visu{
+  .view-installations .item-list li{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+  }
+}
+
+.page-visu{
+  .center-col{
+    grid-column: 2 / 4; 
+  }
+  .node-installations > .content{
+    position: relative;
+  }
+  .visu-details{
+    position: sticky;
+    top: 0;
+  }
+  .center-col .visu-details{
+    display: none;
+  }
+  .visu-media{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: .5rem;
+  }
+  .visu-media .field-media{
+    grid-column: 1 / 4;
+  }
+  .field-photos img{
+    mix-blend-mode: color-burn;
+  }
+  iframe{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 768px){
+    .left-col{
+      display: none;
+    }
+    .center-col{
+      grid-column: 1;
+    }
+    .center-col .visu-details{
+      display: block;
+    }
+    .visu-media{
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}

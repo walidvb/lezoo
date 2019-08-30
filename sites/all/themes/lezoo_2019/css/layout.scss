@@ -65,10 +65,10 @@ footer{
     width: 200vw;
     
     .right-focus &{
-      animation: switch .15s 1 linear forwards;
+      animation: switch .25s 1 linear forwards;
     }
     .center-focus & {
-      animation: switch-reverse .15s 1 linear forwards;
+      animation: switch-reverse .25s 1 linear forwards;
     }
   }
 }

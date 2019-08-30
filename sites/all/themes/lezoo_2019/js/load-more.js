@@ -1,7 +1,6 @@
-console.log('config loading');
 (function ($) {
   var xhr, loadingUrl
-  var triggerSelector = '.center-col a, .flippy a, .calendar-row a';
+  var triggerSelector = 'body:not(.page-visu) .center-col a:not(.contextual-links-trigger), .flippy a, .calendar-row a';
   $(document).on('click', triggerSelector, function (evt) {
     evt.preventDefault();
     var url = evt.currentTarget.href;
@@ -33,41 +32,17 @@ console.log('config loading');
       url: url,
       success: function (res) {
         loadingUrl = null;
-        handleDone($(res), loaderSelector[0]);
-        handleDone($(res), loaderSelector[1]);
+        Drupal.skewer.replaceContent(loaderSelector[0], $(res).find(loaderSelector[0]));
+        Drupal.skewer.replaceContent(loaderSelector[1], $(res).find(loaderSelector[1]));
         var title = /<title>(.*)<\/title>/.exec(res)
         title = title ? title[1] : 'le ZOO'
-        document.title = title
+        document.title = title;
+        $('body').removeClass('loading')
       },
     })
-
-    $(loaderSelector.join(',')).addClass('skewer').one('transitionend', function () {
-      $(loaderSelector.join(',')).parent().addClass('rolling')
-    });
-
-    function handleDone($res, _loaderSelector) {
-      var $target = $(_loaderSelector);
-      var $container = $target.parent();
-      var $next = $res.find(_loaderSelector).addClass('skewer')
-      console.log($target)
-      $target.one('animationiteration', function () {
-        $target.remove()
-        $container.removeClass('rolling')
-        $('.left-col, .right-col').scrollTop(0)
-        $next.prependTo($container).addClass('arriving')
-        void $next.get(0).offsetWidth
-        $next.one('animationend', function () {
-          console.log('laaast fbit')
-          $next.removeClass('arriving');
-          void $next.get(0).offsetWidth;
-          $next.addClass('arrived')
-          $next.one('animationend', function () {
-            $next.removeClass('skewer arrived');
-          })
-          Drupal.attachBehaviors($next)
-        })
-      })
-    };
-    $(loaderSelector.join(',')).addClass('start');
+    Drupal.skewer.start(loaderSelector.join(','))
   }
 })(jQuery)
+
+// handleDone(null, '.left-col .visu-details', $($0).clone())
+// $('.left-col .visu-details').addClass('skewer').parent().addClass('rolling')

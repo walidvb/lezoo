@@ -110,8 +110,6 @@ function lezoo_2019_preprocess_node(&$variables) {
 	drupal_add_js(array('lezoo_theme' => array('node_status' => $node_status)), 'setting');
 	$variables['is_page'] = !empty($variables['is_page']) ? $variables['is_page'] : false;
 	$variables['classes_array'][] = (!empty($variables['is_page']) && $variables['is_page']) ? $node_status['open']. " node-full-page" : $node_status['closed'] . ' node-in-list';
-	$variables['left_col_classes'] = "col-left col-lg-5 col-md-4 col-sm-3 col-xs-12 pinned";
-	$variables['right_col_classes'] = "col-right col-lg-7 col-md-8 col-sm-9 col-xs-12";
 	$variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__' . $variables['view_mode'];
 	$variables['submitted'] = '<span class="timestamp">' . strftime('%d/%m/%Y', $variables['created']) . '</span>';
 	if(!$variables['is_front'])
@@ -257,25 +255,16 @@ function lezoo_2019_preprocess_field(&$vars, $hook){
 		rows_from_field_collection($vars, $vars['element']['#field_name'], $field_array);
 	}
 }
-function lezoo_preprocess_media_soundcloud_audio(&$variables) {
+function lezoo_2019_preprocess_media_soundcloud_audio(&$variables) {
 	$variables['output'] = preg_replace('/visual=true/', '', $variables['output']);
 }
-// function lezoo_block_view($delta = ''){
-// 	$block = array();
-// 	switch ($delta) {
-// 		case 'webcal_lezoo':
-// 		$block['subject'] = '';
-// 		$block['content'] = _modal();
-// 		break;
-// 	}
-// 	return $block;
-// }
-// function lezoo_header($title = 'group'){
-// 	$title = t($title);
-// 	return "<div class=\"clickable group-trigger visible-xs\">$title</div>";
-// }
+
 function lezoo_2019_soundcloud_filter_embed_html5($variables) {
 	$variables['sound']['width'] = "99.5%";
 	$variables['sound']['autoplay'] = false;
 	return theme_soundcloud_filter_embed_html5($variables);
+}
+
+function lezoo_2019_preprocess_image(&$vars){
+	$vars['attributes']['loading'] = 'lazy';
 }

@@ -13,7 +13,7 @@
   transition: all var(--start-speed) cubic-bezier(1, 0.01, 0.96, 0.14);
 }
 
-.loading .rolling .skewer{
+.rolling .skewer{
   animation: skew-roll infinite linear;
   animation-duration: var(--speed);
 }
