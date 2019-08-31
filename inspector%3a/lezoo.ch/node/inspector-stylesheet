@@ -1,0 +1,8 @@
+div#block-block-4 {
+    align-self: flex-end;
+    /* justify-self: flex-end; */
+}
+
+.social-container a {
+    padding:  .5rem;
+}

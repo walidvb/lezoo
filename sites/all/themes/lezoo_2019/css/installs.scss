@@ -28,8 +28,9 @@
   .visu-media .field-media{
     grid-column: 1 / 4;
   }
-  .field-photos img{
-    mix-blend-mode: color-burn;
+  #zoo-animals{
+    z-index: 1;
+    pointer-events: none;
   }
   iframe{
     width: 100%;

@@ -1,6 +1,6 @@
 (function ($) {
   var xhr, loadingUrl
-  var triggerSelector = 'body:not(.page-visu) .center-col a:not(.contextual-links-trigger), .flippy a, .calendar-row a';
+  var triggerSelector = 'body:not(.page-visu) .center-col a:not(.contextual-links-trigger), .flippy a, .calendar-row a, main .view-line-up-and-podcast-artists a';
   $(document).on('click', triggerSelector, function (evt) {
     evt.preventDefault();
     var url = evt.currentTarget.href;

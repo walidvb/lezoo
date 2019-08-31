@@ -10,11 +10,14 @@ body{
     height: calc(100vh - 20px);
   }
   @media (max-width: 768px){
-    padding-bottom: 250px;
     width: 100vw;
     overflow-x: hidden;
+    height: 100vh;
     &.logged-in{
-      height: auto;
+      margin-top: 0!important;
+      #admin-menu{
+        display: none;
+      }
     }
   }
 }
@@ -36,20 +39,19 @@ footer{
 .left-col, .center-col, .right-col{
   overflow-x: hidden;
   overflow-y: auto;
-  @media (max-width: 768px){
-    height: auto;
-    overflow-y: initial;
-  }
 }
 
+
+.right-col, .center-col .view-content{
+  @media (max-width: 768px){
+    padding-bottom: 200px;
+  }
+}
 .mobile-col-wrapper{
   display: contents;
 }
 
 @media (max-width: 768px){
-  .center-col, .right-col{
-      padding-top: 4.5rem !important;
-  }
   .left-col{
     position: fixed;
     width: 100vw;
@@ -62,7 +64,10 @@ footer{
   .mobile-col-wrapper{
     display: grid;
     grid-template-columns: repeat(2, 100vw);
+    // required to match its children's height to its own
+    grid-template-rows: 100%;
     width: 200vw;
+    max-height: 100%;
     
     .right-focus &{
       animation: switch .25s 1 linear forwards;
@@ -93,4 +98,14 @@ main, .lezoo-threecols{
   45%{ transform: translateX(-55vw) skew(var(--skew-base)); }
   55%{ transform: translateX(-45vw) skew(var(--skew-base)); }
   100%{ transform: translateX(0vw) skew(0deg); }
+}
+
+.region-navigation{
+  display: flex;
+}
+#block-block-4{
+  align-self: flex-end;
+  .social-container a{
+    padding:.5rem;
+  }
 }

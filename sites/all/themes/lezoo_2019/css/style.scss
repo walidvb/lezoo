@@ -15,10 +15,15 @@ $grid-column-gap: var(--grid-column-gap);
   --white: white;
   --black: black;
   --grey: grey;
-  --background-color: F9F6EF;
+  --background-color: #F9F6EF;
   --grid-spacing: 25% 25% 50%;
   --grid-column-gap: 0.5rem;
   --skew-base: 40deg;
+}
+html.night{
+  --white: black;
+  --black: white;
+  --background-color: #060910
 }
 
 $body-font: 'Heebo', Helvetica, sans-serif;

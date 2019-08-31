@@ -2,7 +2,7 @@
 /**
 * @file template.php
 */
-function lezoo_preprocess_html(&$variables) {
+function lezoo_2019_preprocess_html(&$variables) {
 	$meta['mobile'] = array(
 		'name' => "apple-mobile-web-app-capable",
 		'content' => "yes");
@@ -23,18 +23,12 @@ function lezoo_preprocess_html(&$variables) {
 	, $key);
 	}
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js', array('type' => 'external'));
-	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/chosen/1.0/chosen.jquery.min.js', array('type' => 'external'));
-	drupal_add_js('//cdn.jsdelivr.net/npm/jquery.marquee@1.5.0/jquery.marquee.min.js', array('type' => 'external'));
 	drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.1/angular.min.js', array('type' => 'external', 'scope' => 'footer'));
 	drupal_add_js(drupal_get_path('theme', 'lezoo_2019'). '/js/myAngular.js', array('scope' => 'footer'));
-	//Add instant click only for anon users
-	// if($variables['user']->uid == 0)
-	// {
-	// 	drupal_add_js("InstantClick.on('change', function(){
-	// 		Drupal.attachBehaviors();
-	// 	});
-	// 	InstantClick.init();", array('type' => 'inline', 'scope' => 'footer'));
-	// }
+
+	$date = new DateTime("now", new DateTimeZone('Europe/Amsterdam') );
+	$hour = $date->format('H');
+	$variables['is_night'] = $hour >= 18 || $hour <= 6;
 	if(isset($variables['user']->roles['3']))
 	{
 		$variables['classes_array'][] = $variables['user']->roles['3'];

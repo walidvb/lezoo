@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang='en' class=''>
+<head><script src='https://static.codepen.io/assets/editor/live/console_runner-1df7d3399bdc1f40995a35209755dcfd8c7547da127f6469fd81e5fba982f6af.js'></script><script src='https://static.codepen.io/assets/editor/live/css_reload-5619dc0905a68b2e6298901de54f73cefe4e079f65a75406858d92924b4938bf.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" /><link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" /><link rel="canonical" href="https://codepen.io/pen/" />
+<script src='https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js'></script>
+<style class="cp-pen-styles">.words {
+  display: inline-block;
+  width: 15ch;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: bottom;
+  position: relative;
+  height: 1rem;
+}
+
+.word {
+  animation: blink 7s infinite;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.word:nth-child(1) {
+  animation-delay: 1s;
+}
+
+.word:nth-child(2) {
+  animation-delay: 2s;
+}
+
+.word:nth-child(3) {
+  animation-delay: 3s;
+}
+
+.word:nth-child(4) {
+  animation-delay: 4s;
+}
+
+.word:nth-child(5) {
+  animation-delay: 5s;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  84.9% {
+    opacity: 0;
+  }
+  85% {
+    opacity: 1;
+  }
+}
+</style></head><body>
+<div>Le Zoo s’efforce à être un espace safe. Les actions ou étalage des comportements suivants ne sont pas tolérés :<div class="words">
+<span class="word"> racisme, </span>
+<span class="word"> sexisme, </span>
+<span class="word"> transphobie, </span>
+<span class="word"> homophobie, </span>
+<span class="word"> misogynie, </span>
+<span class="word"> discriminations, </span>
+<span class="word"> intolérances,</span>
+</div>
+ainsi que l’irrespect des règles de consentement. Notre staff est là pour toi.</div>
+</body></html>
