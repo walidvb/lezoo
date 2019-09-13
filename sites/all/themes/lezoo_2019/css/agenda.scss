@@ -13,8 +13,41 @@
   }
   .pane-content{
     overflow-y: auto;
+    overflow-x: hidden;
   }
   .pane-calendar-panel-pane-3 .pane-content{
     display: none;
+    padding: 0.25rem;
+  }
+}
+
+.flippy{
+  list-style: none;
+  font-size: .8rem;
+}
+.field-music-genre{
+  display: inline-block;
+}
+// A VENIR
+.page-agenda .center-col .pane-calendar-panel-pane-4 .pane-title{
+  display: none;
+}
+// ARCHIVES
+.page-agenda .center-col .pane-calendar-panel-pane-3{
+  --white: var(--black-base);
+  --black: var(--white-base);
+  padding: 0 0.2rem;
+  background-color: var(--white);
+  .pane-title{
+    color: var(--black);
+    font-size: 1rem;
+    cursor: pointer;
+    &:after{
+      content: '˄';
+      font-size: 2rem;
+      float: right;
+      padding-right: 2rem;
+      padding-top: .3rem;
+    }
   }
 }

@@ -20,6 +20,7 @@ html.night {
 h1 {
   font-size: 3rem;
   line-height: 3rem;
+  font-weight: normal;
 }
 
 h2 {
@@ -68,6 +69,7 @@ body {
   --capital-height: 100;
   margin: 0;
   height: 100vh;
+  font-weight: 300;
 }
 
 header {
@@ -286,6 +288,7 @@ main {
   font-size: 2rem;
   line-height: 2rem;
   text-transform: uppercase;
+  font-weight: 300;
 }
 .right-col .field-body, .right-col .blog-info, .right-col .event-body {
   max-width: 40ch;
@@ -879,4 +882,4 @@ main, .lezoo-threecols {
   }
 }
 
-/*# sourceMappingURL=style.css%253fpx2bvp.map */
+/*# sourceMappingURL=style.css.map */

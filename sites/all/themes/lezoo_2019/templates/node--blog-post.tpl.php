@@ -15,7 +15,7 @@ if(isset($content['field_tags']))
 
 hide($content['flippy_pager']);
 ?>
-<div id="node-<?php print $node->nid; ?>" class="<?php print $classes ?> clearfix"<?php print $attributes; ?>>
+<div data-nid="<?php print $node->nid; ?>" id="node-<?php print $node->nid; ?>" class="<?php print $classes ?> clearfix"<?php print $attributes; ?>>
   <?php print $user_picture; ?>
   <div class="news-header">
     <?php print render($title_prefix); ?>

@@ -1,10 +1,11 @@
 .marquee-ready .view-content{
   &:first-child{
+    --duration: 110s;
     animation: marquee var(--duration) linear infinite;
   }
   &:last-child{
-      animation: marquee2 var(--duration) linear infinite;
-      // animation-delay: calc(var(--duration) / 2);
+    --duration: 15s;
+    animation: marquee2 var(--duration) linear infinite;
   }
 }
 
@@ -43,8 +44,9 @@ body .region-top-bar {
     flex-wrap: nowrap;
     justify-content: initial;
     padding-top: 0;
-    --duration: 75s;
   }
+  .view-display-id-block_3 .view-content{--duration: 15s} 
+  .view-line-up-and-podcast-artists .view-content{--duration: 110s}
   .marquee-ready{
     display: flex;
   }
@@ -67,6 +69,8 @@ body .region-top-bar {
   }
 }
 
+.view-display-id-block_3 .view-content{--duration: 15s}
+.view-line-up-and-podcast-artists .view-content{--duration: 110s}
 
 @keyframes marquee {
   from {

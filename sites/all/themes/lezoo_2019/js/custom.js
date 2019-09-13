@@ -1,3 +1,4 @@
+console.log('Website by the vbbros: vbbros.net | walidvb.com | opuswerk.com');
 (function ($) {
 	window.$ = jQuery
 	$(document).on('click', '.back', function(){
@@ -11,7 +12,6 @@
 		iframes.each(function () {
 			var src = $(this).attr('src');
 			if (!/^(http)/.test(src)) {
-				console.log('custom.js says ', src, ' should better have a protocol, as it don\'t, we cheat. it sucks');
 				setTimeout(function () {
 					$(this).attr('src', 'http:' + src);
 					setTimeout(function () {
@@ -27,14 +27,15 @@
 			$(this).addClass('marquee-ready')
 		})
 
-		var $calendarPanel = $('.page-agenda .center-col .pane-content')
 		$('.page-agenda .center-col .pane-title', context).on('click', function () {
-			var $thisPanel = $(this).next()
-			console.log($thisPanel)
-			if ($thisPanel.is(':hidden')) {
-				$calendarPanel.slideUp();
-				$thisPanel.slideDown();
-			}
+			var $calendarPanel = $('.page-agenda .center-col .pane-content')
+			$calendarPanel.slideToggle()
+			$('.page-agenda .center-col').toggleClass('show-archives');
+			// var $thisPanel = $(this).next()
+			// if ($thisPanel.is(':hidden')) {
+			// 	$calendarPanel.slideUp();
+			// 	$thisPanel.slideDown();
+			// }
 		});
 
 
@@ -47,22 +48,20 @@
 
 			var parentUniqueClass;
 			if(scrollableHeight - currentScroll < height + 100){
-				console.log()
 				if (!loadingMore){
 					parentUniqueClass = '.' + [...$this.find('.view').get(0).classList].find(function(c){
 						return /view-display-id-panel/.test(c)
 					})
 					loadNext();
-
 				}
 			}
 			function loadNext(){
-				loadingMore = true
-				$this.addClass('loading-more')
 				var nextPager = $this.find('.pager-next a')
 				if(!nextPager.length){
 					return
 				}
+				loadingMore = true
+				$this.addClass('loading-more')
 				var url = nextPager.get(0).href;
 				$.ajax({
 					url: url,

@@ -1,40 +1,53 @@
 // Google Fonts
-@import url('https://fonts.googleapis.com/css?family=Heebo:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Archivo:400,500,500i,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Libre+Caslon+Text:400,400i&display=swap');
 
 // Font Variables
 $white: var(--white);
 $black: var(--black);
-$grey:  var(--grey);
+$text-grey:  var(--text-grey);
 $background-color: var(--background-color);
 $grid-spacing: var(--grid-spacing);
 $grid-column-gap: var(--grid-column-gap);
+$grid-spacing-footer: var(--grid-spacing-footer);
+
 
 
 :root{
   --white: white;
+  
   --black: black;
-  --grey: grey;
+  --black-base: var(--black);
+  --white-base: var(--white);
+  --text-grey: #7b7d78;
   --background-color: #F9F6EF;
-  --grid-spacing: 25% 25% 50%;
+  --grid-spacing: minmax(250px, 25vw) minmax(400px, 25vw) 50vw;
+  --grid-spacing-footer: minmax(250px, 25vw) minmax(400px, 25vw) 33vw 7vw;
   --grid-column-gap: 0.5rem;
   --skew-base: 40deg;
 }
+
 html.night{
   --white: black;
   --black: white;
-  --background-color: #060910
+  --black-base: var(--black);
+  --white-base: var(--white);
+  --background-color: #060910;
 }
 
-$body-font: 'Heebo', Helvetica, sans-serif;
+
+
+
+$body-font: 'Archivo', Helvetica, sans-serif;
 $open-sans: 'Open Sans', Times New Roman, sans-serif;
 $body-color: $black;
 $link-color: $body-color;
 $text-font: 'Libre Caslon Text', serif;
-$bold: 400;
+$bold: 500;
 $bolder: 700;
 
 @import 'main';
+@import 'header';
 @import 'marquee';
 @import 'logged-in';
 @import 'agenda';
@@ -43,3 +56,4 @@ $bolder: 700;
 @import 'loading';
 @import 'ical';
 @import 'installs';
+@import 'calendar';

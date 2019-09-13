@@ -36,7 +36,7 @@ hide($content['flippy_pager']);
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
     <div class='header install-header' style="background-image: url('<?php print $background_image ?>')">
           <div class="install-titles">
-            <div class='install-title title'> 
+            <div class='install-title title'>
               <?php print render($title_prefix); ?>
                 <h1 <?php print $title_attributes; ?>><?php print $title; ?></h1>
               <?php print render($title_suffix); ?>
@@ -55,7 +55,7 @@ hide($content['flippy_pager']);
               <?php print $share42 ?>
             </div>
         <?php endif; ?>
-        
+
     <div class="row">
       <div class="<?php print $right_col_classes?> pull-right">
         <div class="closable">

@@ -36,6 +36,7 @@ scripts[]                  = js/skewer.js
 scripts[]                  = js/installs.js
 scripts[]                  = js/custom.js
 scripts[]                  = js/load-more.js
+scripts[]                  = js/artist-randomiser.js
 
 
 ;**********************************

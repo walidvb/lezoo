@@ -1,3 +1,8 @@
+:root{
+  --transition-easing: cubic-bezier(1, 0.01, 0.96, 0.14);
+  --transition-easing-1: cubic-bezier(0.29, 1.06, 0.54, 1);
+}
+
 .load-container{
   overflow-x: hidden;
 }
@@ -10,7 +15,7 @@
   --min-position: -120%;
   --max-position: 120%;
   transform: skewX(var(--skew)) translateX(var(--x-start));
-  transition: all var(--start-speed) cubic-bezier(1, 0.01, 0.96, 0.14);
+  transition: all var(--start-speed) var(--transition-easing);
 }
 
 .rolling .skewer{
@@ -18,8 +23,13 @@
   animation-duration: var(--speed);
 }
 
+.skewer.out{
+  --x-start: 100%;
+  opacity: 0;
+}
+
 .skewer.start{
-   --skew: var(--skew-base);
+  --skew: var(--skew-base);
   --x-start: 50%;
   --speed: .1s;
 }

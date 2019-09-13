@@ -1,0 +1,52 @@
+header{
+    display: grid;
+    grid-template-columns: 25% 75%;
+    width: 100%;
+  .header-left{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+  }
+  @media (max-width: 768px){
+    background-color: $background-color ;
+    z-index: 1;
+    grid-template-columns: 100%;
+    .view-line-up-and-podcast-artists{
+      padding: 0.25rem 0;
+      line-height: 1.5rem;
+    }
+  }
+  .logo{
+    padding: 0.4rem;
+    @media (max-width: 768px){
+      img{
+        max-height: 1.5rem;
+      }
+    }
+  }
+  .region-top-bar{
+    @media (max-width: 768px){
+      width: 100%;
+    }
+  }
+  .region-navigation{
+    @media (max-width: 768px){
+      display: grid;
+      grid-template-columns: 70% 30%;
+    }
+  }
+  .region-navigation .mobile-menu{
+    display: none;
+    @media (max-width: 768px){
+      display: inline-block;
+    }
+  }
+  .menu{
+    padding-left: 0;
+    margin:0 0 0.4rem 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    li{
+        display: inline-block;
+      }
+    }
+}

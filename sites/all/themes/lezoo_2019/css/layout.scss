@@ -1,5 +1,5 @@
 html{
-  // can't figure out why lezoo-threecols has a width 
+  // can't figure out why lezoo-threecols has a width
   // larger than the viewport 🤔
   overflow-x: hidden;
 }
@@ -34,6 +34,8 @@ footer{
   display: grid;
   grid-template-columns: $grid-spacing;
   grid-column-gap: $grid-column-gap;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
 }
 
 .left-col, .center-col, .right-col{
@@ -61,6 +63,10 @@ footer{
   .lezoo-threecols{
     display: block;
   }
+  .left-col, .center-col, .right-col{
+    padding-left: 5px;
+    padding-right: 5px;
+  }
   .mobile-col-wrapper{
     display: grid;
     grid-template-columns: repeat(2, 100vw);
@@ -68,12 +74,19 @@ footer{
     grid-template-rows: 100%;
     width: 200vw;
     max-height: 100%;
-    
+
     .right-focus &{
       animation: switch .25s 1 linear forwards;
     }
     .center-focus & {
       animation: switch-reverse .25s 1 linear forwards;
+    }
+  }
+
+  // iOS SAFARI HACK
+  @supports (-webkit-overflow-scrolling: touch) {
+    .center-col, .right-col{
+      max-height: calc(100vh - 110px);
     }
   }
 }
@@ -101,11 +114,18 @@ main, .lezoo-threecols{
 }
 
 .region-navigation{
-  display: flex;
+}
+
+.social-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
 #block-block-4{
   align-self: flex-end;
   .social-container a{
     padding:.5rem;
+    @media (max-width: 768px){
+      padding: 0 0.25rem 0.35rem
+    }
   }
 }

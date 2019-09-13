@@ -1,7 +1,24 @@
+
+.page-history .view-content{
+  opacity: 0;
+  &.show{
+    opacity: 1;
+  }
+}
+
+
+.view-header{
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--text-grey);
+  padding-bottom: 1rem;
+  padding-top: 2rem;
+  text-transform: uppercase;
+}
 // TYPOGRAPHY
 h1{
-  font-size: 3rem;
-  line-height: 3rem;
+  font-size: 1rem;
+  line-height: 1rem;
 }
 h2{  font-size: 2rem;
      line-height: 2rem;
@@ -17,6 +34,7 @@ h4{  font-size: 1rem;
 h1,h2,h3,h4,h5{
   margin: 0;
   padding: 0;
+  font-weight: normal;
 }
 a{
   color: $link-color;
@@ -38,62 +56,17 @@ html{
 }
 body{
   font-family: $body-font;
-  font-weight: normal;
+  font-weight: 300;
   font-size: 1rem;
   line-height: 1rem;
   --capital-height: 100;
   margin:0;
   height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
 
 
-header{
-    display: grid;
-    grid-template-columns: 25% 75%;
-    width: 100%;
 
-  .header-left{
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-  }
-  @media (max-width: 768px){
-    background-color: $background-color ;
-    z-index: 1;
-    grid-template-columns: 100%;
-    .view-line-up-and-podcast-artists{
-      padding: 0.25rem 0;
-      line-height: 1.5rem;
-    }
-  }
-  .logo{
-    padding: 0.4rem;
-    @media (max-width: 768px){
-      img{
-        max-height: 1.5rem;
-      }
-    }
-  }
-  .region-top-bar{
-    @media (max-width: 768px){
-      width: 100%;
-    }
-  }
-  .region-navigation .mobile-menu{
-    display: none;
-    @media (max-width: 768px){
-      display: block;
-    }
-  }
-  .menu{
-    padding-left: 0;
-    margin:0 0 0.4rem 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    li{
-        display: inline-block;
-      }
-    }
-}
 
 .back{
   padding-top: .5rem;
@@ -108,35 +81,13 @@ header{
     }
   }
 }
-main {
-    border-top: solid 1px $black;
-}
-
-.page-news{
-  @media (max-width: 768px){
-    .center-col{
-      display: none;
-    }
-  }
-}
-.podcasts{
-  @media (max-width: 768px){
-    &.page-news{
-      .center-col{
-        display: block;
-      }
-    }
-    .right-col{
-      display: none;
-    }
-  }
-}
 
 .left-col{
   .menu{
-    display: flex;
-    padding: 1rem 0 0 0;
+    display: grid;
     margin: 0rem 0 2rem 0;
+    grid-template-columns: repeat(2, 50%);
+
     @media (max-width: 768px){
       display: none;
     }
@@ -162,30 +113,31 @@ main {
       position: fixed;
       top: 20vh;
       z-index: -100;
-      opacity: 0.4;
+      opacity: 0.2;
     }
   }
+  .visu-details{
+      margin-left: 0.5rem;
+      p{
+        padding:0;
+        margin: 0;
+      }
+  }
+  .field-date{}
 }
 
-.left-col{
-  border-right: solid 1px $grey;
-}
-.right-col{
-  border-left: solid 1px $grey;
-}
-.left-col, .right-col{
-  padding-left: .5rem;
-  padding-right: .5rem;
-}
+
 
 .center-col{
-  padding: 0 0.5rem;
-  margin: 1rem 0;
+
+  .active{
+    visibility: hidden;
+
+  }
   .calendar-row{
-    min-height: 8rem;
+    margin-bottom: 1rem;
   }
   .news-row, .menu li{
-    min-height: 4rem;
     width: 100%;
   }
   .menu {
@@ -193,7 +145,6 @@ main {
       padding: 0;
     }
     li{
-      border-top: solid 0px $black;
       font-size: 2rem;
       line-height: 2rem;
       margin: 0 0 0.5rem 0;
@@ -202,29 +153,46 @@ main {
   }
 
   .calendar-row, .news-row, .menu li{
-    border-top: solid 0px $black;
+
+    .node-content{
+      display: grid;
+      grid-template-columns: 10ch auto;
+    }
 
     &:not(:first-child){
-      border-top: solid 1px $grey;
       padding: 0.5rem 0;
     }
     &:first-child{
       padding-bottom: 0.5rem;
     }
   }
-  .event-header, .news-teaser{
-    min-height: 2.1rem;
+  .event-header{
+    display: grid;
+    grid-template-columns: 10ch auto;
+    white-space: nowrap;
+    text-transform: uppercase;
   }
-  .event-line-up{
-    margin-top: 1rem;
+  .event-header, .news-teaser{
+    min-height: 1rem;
+    display: contents;
+  }
+  .event-main{
+    display: contents;
+  }
+  .field-date{
+    font-size: 2rem;
+    line-height: 2rem;
   }
   .line-up, .artists{
     display: flex;
     flex-wrap: wrap;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    text-transform: uppercase;
   }
   .artist{
     display: inline-block;
-    padding-right: 1rem;
+    margin-right: 0.5rem;
   }
   .event-line-up-vjs{
       font-family: $open-sans;
@@ -234,7 +202,6 @@ main {
 }
 
 .right-col{
-  margin: 1rem 0;
   .date-display-single {
     display: flex;
     flex-wrap: wrap;
@@ -243,18 +210,21 @@ main {
   .date-display-single span {
     min-width: 100%;
     &:first-child{
-      font-size: 1rem;
-      font-family: $open-sans;
-      font-weight: normal;
+      min-width: 100%;
      }
    }
+   .event-node.dated-node{
+     max-width: 70ch;
+   }
+     .event-header, .node-content{
+       display: grid;
+       grid-template-columns: 18ch auto;
+     }
+
   .event-titles{
-    border-bottom: solid 1px $grey;
     text-transform: uppercase;
   }
-  .event-header{
-    height: 4rem;
-  }
+
   .tags{
     display: flex;
     flex-wrap: wrap;
@@ -262,17 +232,26 @@ main {
       padding-right: 0.5rem;
     }
   }
+  .artists{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 50ch;
+  }
   .artist, .blog-artist{
     font-size: 2rem;
     line-height: 2rem;
+    margin-right: 1rem;
     text-transform: uppercase;
    }
-
+   .event-details, .blog-info, .event-body, .event-meta{
+     grid-column: 1/3;
+   }
    .field-body, .blog-info, .event-body{
-     max-width: 40ch;
+     max-width: 50ch;
      font-family: $text-font;
      font-size: 1rem;
      line-height: 1.2rem;
+     padding-right: 1rem;
     iframe{
       min-height:3rem;
       width: 100%;
@@ -296,16 +275,15 @@ footer{
     }
     .region-footer{
       display: grid;
-      grid-template-columns: 25% 25% 40% 10%;
-
+      grid-template-columns: $grid-spacing-footer;
       width: 100%;
       grid-column-gap: $grid-column-gap;
       @media (max-width: 768px){
         display: block;
       }
-      div {
-        padding: 0 0.25rem;
-      }
+    }
+    .calendar-sync:hover{
+      cursor:pointer;
     }
     #block-block-1 .content {
     display: flex;
@@ -318,22 +296,19 @@ footer{
   }
 }
 
+.page-history footer{
+  display: none;
+}
+
+.event-header, .field-date, .node-title{
+  color: $text-grey;
+}
 .event-header{
     display: grid;
-    grid-template-columns: 30% 70%;
-    padding: 1rem 0 0 0;
-    .field-date, .date {
-      font-size: 2rem;
-      display: grid;
-      grid-auto-columns: max-content;
-      .day, .date-number {
-        display: inline-block;
-      }
-    }
+    grid-template-columns: 10ch auto;
+
     .event-genre{
       font-size: 1rem;
-      vertical-align: top;
-      text-align: right;
     }
   }
   .event-titles, .news-title {
@@ -360,6 +335,23 @@ footer{
   }
 }
 
+.flippy{
+  display: flex;
+  justify-content: space-between;
+  ul, li{
+    padding: 0;
+  }
+}
+.field-date, .date {
+  font-size: 2rem;
+  line-height: 2rem;
+  display: grid;
+  align-self: start;
+  .day, .date-number {
+    display: inline-block;
+    text-transform: lowercase;
+  }
+}
 .menu{
   text-transform: uppercase;
   list-style-type: none;
@@ -372,6 +364,23 @@ footer{
     font-style: italic;
   }
 
+}
+.field-media{
+  max-width: 50ch;
+}
+
+.page-agenda .center-col a, .view-line-up-and-podcast-artists a{
+  // fix the opacity not taken, wtf
+  display: inline-block;
+}
+
+a, .news-row{
+  opacity: 1;
+  transition: opacity .075s;
+  &:hover{
+    opacity: 0.3;
+    transition: opacity .15s;
+  }
 }
 
 ul{
@@ -389,6 +398,10 @@ body ul li.leaf{
   list-style-type: none;
 }
 
+// big artist list
+.view-line-up-and-podcast-artists .view-content {
+    overflow: scroll;
+}
 // to check
 
 .artist-info{

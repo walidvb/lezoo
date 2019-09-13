@@ -95,7 +95,7 @@ unset($content['flippy_pager']);
 //dpm($title);
 //dpm(render($content['field_media']));
 ?>
-<div id="node-<?php print $node->nid; ?>" class="<?php print $classes ?> clearfix"<?php print $attributes; ?>>
+<div data-nid="<?php print $node->nid; ?>"  id="node-<?php print $node->nid; ?>" class="<?php print $classes ?> clearfix"<?php print $attributes; ?>>
   <?php print $user_picture; ?>
 
   <?php print render($title_prefix); ?>
